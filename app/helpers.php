@@ -8,6 +8,17 @@ function getFileName($fileName, $attachment)
     return $newName.'.'.$fileNameExtension;
 }
 
+function greet(){
+    $hour = \Carbon\Carbon::now()->format('H');
+    if ($hour < 12) {
+        return 'Good morning';
+    }
+    if ($hour < 17) {
+        return 'Good afternoon';
+    }
+    return 'Good evening';
+}
+
 function makeSlug($text, $divider = '-')
 {
     // replace non letter or digits by divider

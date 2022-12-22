@@ -10,10 +10,17 @@
                         <p class="w3-text-red w3-small" id="error-company"></p>
                     </div>
                     <div class="flex flex-col">
+                        <label>What is your company industry?</label>
+                        <select v-model="company.industry_id" class="border border-gray-300" id="hires-per-year">
+                            <option value="">Select</option>
+                            <option :value="industry.id" v-for="industry in industries">{{ industry.name }}</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col">
                         <label>How many times do you hire per year?</label>
                         <select v-model="company.hires_per_year" class="border border-gray-300" id="hires-per-year">
                             <option value="">Select</option>
-                            <option value="1">1 times</option>
+                            <option value="1">1 time</option>
                             <option value="5">2-5 times</option>
                             <option value="10">6-10 times</option>
                             <option value="10+">10+</option>
@@ -42,7 +49,7 @@
                             <option value="newspaper">Newspaper</option>
                         </select>
                     </div>
-                    <button value="Continue" class="bg-green-500 text-white container mx-auto">
+                    <button value="Continue" class="bg-green-500 text-white container py-2 mx-auto">
                         <span class="mt-2 mb-2" v-if="!saving">Continue</span>
                         <Loader v-else :color="'white'" class="p-4 container mx-auto"></Loader>
                     </button>
@@ -70,10 +77,12 @@
         data(){
             return {
                 saving: false,
+                industries: this.$page.props.industries,
                 company: {
                     name: this.$page.props.company.name,
                     hires_per_year: this.$page.props.company.hires_per_year,
-                    source: this.$page.props.company.source
+                    source: this.$page.props.company.source,
+                    industry_id: this.$page.props.company.industry_id
                 },
                 user: {
                     name: this.$page.props.user.name,

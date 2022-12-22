@@ -36,8 +36,13 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
+        if(!\Auth::check() && !session()->has('uniqid')){
+            session()->put('uniqid', uniqid());
+        }else if(\Auth::check() && session()->get('uniqid') != \Auth::user()->id){
+            session()->put('uniqid', \Auth::user()->id);
+        }
         return array_merge(parent::share($request), [
-            //
+            "uniqid" => \Auth::check()?\Auth::user()->id:session()->get('uniqid')
         ]);
     }
 }

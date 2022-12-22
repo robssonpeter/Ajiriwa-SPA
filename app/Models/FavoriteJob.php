@@ -12,4 +12,12 @@ class FavoriteJob extends Model
     protected $fillable = [
         'candidate_id', 'job_id'
     ];
+
+    protected $with = [
+        'job'
+    ];
+
+    public function job(){
+        return $this->belongsTo(Job::class, 'job_id', 'id');
+    }
 }

@@ -15,12 +15,16 @@ class CandidateCertificate extends Model
     ];
 
     protected $appends = [
-        'saving'
+        'saving', 'media_url'
     ];
 
     protected $with = [
         'media'
     ];
+
+    public function getMediaUrlAttribute(){
+        return $this->media->getUrl();
+    }
 
     public function getSavingAttribute(){
         return false;

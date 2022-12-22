@@ -18,7 +18,7 @@ class CreateCandidateExperiencesTable extends Migration
             $table->unsignedInteger('candidate_id');
             $table->string('title');
             $table->text('company');
-            $table->unsignedBigInteger('country_id')->nullable();
+            $table->string('country_id', 5)->nullable();
             /*$table->unsignedBigInteger('state_id')->nullable();
             $table->unsignedBigInteger('city_id')->nullable();*/
             $table->date('start_date');

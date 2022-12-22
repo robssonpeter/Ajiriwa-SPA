@@ -16,30 +16,30 @@
             <transition v-for="(certificate, index) in certificates" :key="certificate" type="fade">
                     <div class="article-details border-gray-300 border p-2 my-1">
                         <div class="edit-certificate grid sm:grid-cols-2 md:grid-cols-6 gap-2"  v-if="certificate.editing">
-                            <div class="col-span-2 flex flex-col">
+                            <div class="md:col-span-2 flex flex-col">
                                 <label :for="'name_'+index" class="font-bold">Title</label>
                                 <input placeholder="Full Name" type="text" v-model="certificates[index].name" class="border border-gray-300" :id="'name_'+index">
                             </div>
-                            <div class="col-span-2 flex flex-col">
+                            <div class="md:col-span-2 flex flex-col">
                                 <label :for="'category_'+index" class="font-bold">Certificate Category</label>
                                 <select class="border border-gray-300" v-model="certificates[index].category" :id="'degree_level_'+index">
                                     <option value="">Select Level</option>
                                     <option :value="category.id" v-for="category in categories">{{ category.name }}</option>
                                 </select>
                             </div>
-                            <div class="col-span-2 flex flex-col">
+                            <div class="md:col-span-2 flex flex-col">
                                 <label :for="'institution_'+index" class="font-bold">Awarding Institution</label>
                                 <input type="text" v-model="certificates[index].institution" class="border border-gray-300" :id="'institution_'+index">
                             </div>
-                            <div class="col-span-2 flex flex-col">
+                            <div class="md:col-span-2 flex flex-col">
                                 <label :for="'completion_date_'+index" class="font-bold">Completion Date</label>
                                 <input type="date" v-model="certificates[index].completion_date" class="border border-gray-300" :id="'completion_date_'+index">
                             </div>
-                            <div class="col-span-2 flex flex-col">
+                            <div class="md:col-span-2 flex flex-col">
                                 <label :for="'valid_until_'+index" class="font-bold">Valid Until <small>(leave blank if not applicable)</small></label>
                                 <input type="date" v-model="certificates[index].valid_until" class="border border-gray-300" :id="'valid_until_'+index">
                             </div>
-                            <div class="col-span-2 flex flex-col w-full">
+                            <div class="md:col-span-2 flex flex-col w-full">
                                 <div id="new-attachment-section" v-if="!certificates[index].media">
                                     <label :for="'certificate-'+index">Attachment</label>
                                     <input type="file" @change="fileUpload" :key="index" :id="'certificate-'+index" class="border border-gray-300">
@@ -52,7 +52,7 @@
                                     </div>
                                 </div>
                                 <div class="flex flex-col" v-else>
-                                    <label for="attached-file" class="font-bold">Attachment</label>
+                                    <label for="attached-file" class="font-bold sm:mt-4">Attachment</label>
                                     <div class="border flex border-gray-300 p-2">
                                         <small id="attached-file" class="flex-grow">{{ certificates[index].media.file_name }}</small>
                                         <small class="text-green-300 cursor-pointer">change</small>
@@ -115,16 +115,14 @@
                     </div>
             </transition>
             <div class=" border-dotted border border-gray-300 text-center flex gap-3 justify-right px-2 py-4 self-center" v-if="certificates.length && allow_add">
-                <span class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500">
-                    <a href="#" @click.prevent="newCertificate">
+                <span @click="newCertificate" class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500 self-center">
+                    <a href="#" @click.prevent="">
                         <span>Add Another Certificate</span>
                     </a>
                 </span>
-                <span class="p-1 cursor-pointer border border-green-500 text-white bg-green-500">
-                    <a href="#" @click.prevent="newCertificate">
-                        <span>Next</span>
-                    </a>
-                </span>
+                <Link :href="route('my-resume.edit.sectional', 'reference')" class="bg-green-500 p-2 text-white text-center self-center">
+                    <span>Next</span>
+                </Link>
             </div>
         </section>
     </div>
@@ -135,6 +133,7 @@
     import Loader from "@/Custom/Loader";
     import ActionMessage from "@/Jetstream/ActionMessage";
     import Swal from 'sweetalert2';
+    import {Head, Link} from '@inertiajs/inertia-vue3';
 
 
     export default {
@@ -157,7 +156,7 @@
             }
         },
         components: {
-            Loader, ActionMessage
+            Loader, ActionMessage, Head, Link
         },
         mounted(){
             console.log(this.certificates);

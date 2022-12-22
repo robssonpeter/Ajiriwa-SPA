@@ -261,6 +261,7 @@
     import { Head, Link } from '@inertiajs/inertia-vue3';
     import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
     import TheNavigation from "@/Layouts/TheNavigation";
+    import 'flowbite';
 
     import TheFooter from '@/Layouts/TheFooter';
 
@@ -280,7 +281,7 @@
             Link,
             TheFooter,
             Menu, MenuButton, MenuItems, MenuItem,
-            TheNavigation
+            TheNavigation,
         },
 
         data() {

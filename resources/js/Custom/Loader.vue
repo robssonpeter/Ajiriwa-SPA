@@ -1,8 +1,8 @@
 <template>
-    <div class="flex space-x-2 py-2 object-center">
-        <div :class="loader_class" id="loader-1"></div>
-        <div :class="loader_class" id="loader-2"></div>
-        <div :class="loader_class" id="loader-3"></div>
+    <div :class="'flex space-x-2 object-center '+extra_class">
+        <div :class="loaderClass" id="loader-1"></div>
+        <div :class="loaderClass" id="loader-2"></div>
+        <div :class="loaderClass" id="loader-3"></div>
     </div>
 </template>
 
@@ -12,6 +12,20 @@
         props: {
             color: {
                 type: String
+            },
+            css_class: {
+                type: String
+            }
+        },
+        computed: {
+            extra_class() {
+                return this.css_class??"p-2"
+            },
+            loaderClass(){
+                if(this.color !== 'white'){
+                    return 'bg-'+this.color+"-500 w-2 h-2 rounded-full animate-bounce object-center"
+                }
+                return 'bg-'+this.color+" w-2 h-2 rounded-full animate-bounce object-center"
             }
         },
         data(){

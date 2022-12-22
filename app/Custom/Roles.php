@@ -47,7 +47,7 @@ class Roles
                 array_push($permToDb, $permission);
             }
         }
-        $permissionFromDb = \App\Models\Permission::all();
+        $permissionFromDb = Permission::all();
         //return $permToDb;
         ;
         $inserted = 0;
@@ -57,11 +57,11 @@ class Roles
             //return $permission;
             if($permissionFromDb->count()>0){
                 if($permissionFromDb->where('name', $permission['name'])->count()==0){
-                    \App\Models\Permission::create(['name' => $permission['name'], 'guard_name'=>'web', 'category'=>$permission['category']]);
+                    Permission::create(['name' => $permission['name'], 'guard_name'=>'web', 'category'=>$permission['category']]);
                     $inserted++;
                 }
             }else{
-                \App\Models\Permission::create(['name'=> $permission['name'], 'guard_name'=>'web', 'category'=>$permission['category']]);
+                Permission::create(['name'=> $permission['name'], 'guard_name'=>'web', 'category'=>$permission['category']]);
                 $inserted++;
             }
         }
@@ -69,7 +69,7 @@ class Roles
     }
 
     public static function FixRoles(){
-        $roles = config('app.user_roles');
+        $roles = \App\Models\Role::ROLES;
         $rolesToDb = [];
         foreach ($roles as $role){
             array_push($rolesToDb, $role);

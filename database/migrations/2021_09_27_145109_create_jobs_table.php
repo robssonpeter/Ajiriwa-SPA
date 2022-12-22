@@ -30,6 +30,8 @@ class CreateJobsTable extends Migration
                 $table->string('email_subject')->nullable();
                 $table->unsignedInteger('company_id');
                 $table->integer('number_of_posts')->default(1);
+                $table->integer('counted_views', false)->default(0);
+                $table->integer('status')->default(1);
                 $table->timestamps();
             });
         }

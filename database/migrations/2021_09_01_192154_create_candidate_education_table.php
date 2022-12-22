@@ -18,7 +18,7 @@ class CreateCandidateEducationTable extends Migration
             $table->unsignedInteger('candidate_id');
             $table->unsignedInteger('degree_level_id')->nullable();
             $table->string('degree_title')->nullable();
-            $table->unsignedBigInteger('country_id')->nullable();
+            $table->string('country_id', 5)->nullable();
             $table->string('institute');
             $table->string('result')->nullable();
             $table->integer('year')->nullable();

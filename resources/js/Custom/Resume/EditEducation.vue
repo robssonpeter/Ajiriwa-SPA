@@ -16,33 +16,33 @@
             <transition v-for="(education, index) in educations" :key="education" type="fade">
                     <div class="article-details border-gray-300 border p-2 my-1">
                         <div class="edit-education grid sm:grid-cols-2 md:grid-cols-6 gap-2"  v-if="education.editing">
-                            <div class="col-span-2 flex flex-col">
+                            <div class="md:col-span-2 flex flex-col">
                                 <label :for="'degree_level_'+index" class="font-bold">Education Level</label>
                                 <select class="border border-gray-300" v-model="educations[index].degree_level_id" :id="'degree_level_'+index">
                                     <option value="">Select Level</option>
                                     <option :value="level.id" v-for="level in education_levels">{{ level.name }}</option>
                                 </select>
                             </div>
-                            <div class="col-span-2 flex flex-col">
+                            <div class="md:col-span-2 flex flex-col">
                                 <label :for="'degree_title_'+index" class="font-bold">Degree Title</label>
                                 <input type="text" v-model="educations[index].degree_title" class="border border-gray-300" :id="'degree_title_'+index">
                             </div>
-                            <div class="col-span-2 flex flex-col">
+                            <div class="md:col-span-2 flex flex-col">
                                 <label :for="'institution_'+index" class="font-bold">Institution Name</label>
                                 <input type="text" v-model="educations[index].institute" class="border border-gray-300" :id="'education_institution_'+index">
                             </div>
-                            <div class="col-span-2 flex flex-col">
+                            <div class="md:col-span-2 flex flex-col">
                                 <label :for="'country_'+index" class="font-bold">Country</label>
                                 <select class="border border-gray-300" v-model="educations[index].country_id" :id="'country_'+index">
                                     <option value="">Select Country</option>
-                                    <option :value="country.id" v-for="country in countries">{{ country.name }}</option>
+                                    <option :value="country.iso_3166_1_alpha2" v-for="country in countries">{{ country.name }}</option>
                                 </select>
                             </div>
-                            <div class="col-span-2 flex flex-col">
+                            <div class="md:col-span-2 flex flex-col">
                                 <label :for="'start_year_'+index" class="font-bold">Start Date</label>
                                 <input type="number" v-model="educations[index].start_year" class="border border-gray-300" :id="'start_year_'+index">
                             </div>
-                            <div class="col-span-2 flex flex-col">
+                            <div class="md:col-span-2 flex flex-col">
                                 <label :for="'year_'+index" class="font-bold">End Date</label>
                                 <div class="flex flex-row gap-2">
                                     <input v-if="educations[index].currently_studying" v-model="educations[index].year" type="number" :disabled="educations[index].currently_studying" class="border border-gray-300 disabled:bg-gray-200" :id="'year_'+index">
@@ -52,13 +52,13 @@
                                 </div>
                             </div>
 
-                            <div class="col-span-6 flex flex-col">
+                            <div class="md:col-span-6 flex flex-col">
                                 <label :for="'responsibilities_'+index" class="font-bold">Responsibilities</label>
                                 <textarea v-model="educations[index].description" class="border border-gray-300" :id="'responsibilities_'+index"></textarea>
                             </div>
                             <div class="flex flex-row gap-2">
-                                <button @click="cancelEdit(index)" class="bg-gray-400 hover:shadow-lg text-white p-2">Cancel</button>
-                                <button :disabled="false" @click="addEducation(index)" class="bg-green-500 hover:shadow-lg text-white p-2">
+                                <button @click="cancelEdit(index)" class="bg-gray-400 hover:shadow-lg text-white p-2 self-center">Cancel</button>
+                                <button :disabled="false" @click="addEducation(index)" class="bg-green-500 hover:shadow-lg text-white p-2 self-center">
                                     <span v-if="!educations[index].saving">Save</span>
                                     <Loader v-else :color="'white'"></Loader>
                                 </button>
@@ -72,17 +72,17 @@
                                 <h5 class="text-green-400 font-bold">{{ education.degree_title }}</h5>
                                 <h6 class="text-muted">{{ education.institute }}</h6>
                             </div>
-                            <span class="text-muted italic">1st Dec, 2020 - </span>
+                            <span class="text-muted italic">{{ education.start_year }} - </span>
 
                             <span class="text-muted italic">{{ education.currently_studying?'Present':education.year}}</span>
-                            <span> | Tanzania</span>
+                            <span></span>
                             <div class="w-28" v-if="education.currently_studying">
                                 <p class="text-green-500 border-green-500 text-sm self-center">Works Here</p>
                             </div>
 
 
                             <div class="flex flex-row">
-                                <span class="flex-grow"><strong>8 months 3 weeks</strong></span>
+                                <span class="flex-grow"><strong>{{ education.country }}</strong></span>
                                 <div class="article-cta candidate-education-edit-delete flex">
                                     <a href="javascript:void(0)" @click.prevent="EditEducation(index)" class="btn btn-warning action-btn edit-education text-green-500" data-id="2">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -100,16 +100,14 @@
                     </div>
             </transition>
             <div class=" border-dotted border border-gray-300 text-center flex gap-3 justify-right px-2 py-4 self-center" v-if="educations.length && allow_add">
-                <span class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500">
-                    <a href="#" @click.prevent="newEducation">
+                <span @click="newEducation" class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500 self-center">
+                    <a href="#" @click.prevent="">
                         <span>Add Another Education</span>
                     </a>
                 </span>
-                <span class="p-1 cursor-pointer border border-green-500 text-white bg-green-500">
-                    <a href="#" @click.prevent="newEducation">
-                        <span>Next</span>
-                    </a>
-                </span>
+                <Link :href="route('my-resume.edit.sectional', 'language')" class="bg-green-500 p-1 text-white text-center self-center">
+                    <span>Next</span>
+                </Link>
             </div>
         </section>
     </div>
@@ -119,7 +117,8 @@
     import axios from 'axios';
     import Loader from "@/Custom/Loader";
     import ActionMessage from "@/Jetstream/ActionMessage";
-    import Swal from 'sweetalert2'
+    import Swal from 'sweetalert2';
+    import {Head, Link} from '@inertiajs/inertia-vue3';
 
     export default {
         name: "EditEducation",
@@ -141,7 +140,7 @@
             }
         },
         components: {
-            Loader, ActionMessage
+            Loader, ActionMessage, Link, Head
         },
         mounted(){
             //console.log($page.props.)
@@ -265,7 +264,7 @@
                         this.educations[index].editing = false;
                         this.educations[index].saving = false;
                         if(result.data.id){
-                            this.educations[index].id = result.data.id;
+                            this.educations[index] = result.data;
                             this.educations[index].saving = false;
                             this.allow_add = true;
                         }

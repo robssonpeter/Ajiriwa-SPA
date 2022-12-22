@@ -25,5 +25,8 @@ module.exports = {
         animation: ['responsive', 'motion-safe', 'motion-reduce']
     },
 
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'), require('flowbite/plugin'), require('tw-elements/dist/plugin')],
+    content: [
+        "./node_modules/flowbite/**/*.js", './node_modules/tw-elements/dist/js/**/*.js'
+    ]
 };

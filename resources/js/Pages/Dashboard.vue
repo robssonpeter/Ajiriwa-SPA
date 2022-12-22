@@ -9,15 +9,15 @@
         <div class="">
             <div class="">
                 <div class="bg-white overflow-hidden shadow-xl ">
-                    <div class="h-full pt-32 pb-4 px-4 px-2 lg:px-4 z-40" id="banner" >
-                        <div class="px-2 sm:px-4 md:px-4 lg:px-4 xl:px-12">
-                            <h1 class=" text-gray-500 text-4xl mb-3">Find a job</h1>
+                    <div class="h-40 pt-32 pb-4 px-4 px-2 lg:px-4 z-40" id="banner" >
+                        <div class="max-w-7xl mx-auto -mt-24 px-4 sm:px-6 px-2 sm:px-4 md:px-4 lg:px-4 xl:px-12">
+                            <h1 class=" text-white font-bold text-4xl mb-3">Find a job</h1>
                             <div class="sm:flex sm:flex-row gap-10 space-y-6 sm:space-y-0">
                                 <div class="flex-grow">
-                                    <input class=" w-full border-2 rounded p-3 text-2xl text-gray-500" type="text" placeholder="hello there">
+                                    <input class=" w-full border-2 rounded p-3 text-2xl text-gray-500" type="text" placeholder="Job Title">
                                 </div>
                                 <div class=" flex-grow">
-                                    <input class=" w-full border-2 rounded p-3 text-2xl" type="text" placeholder="hello there">
+                                    <input class=" w-full border-2 rounded p-3 text-2xl" type="text" placeholder="Location">
                                 </div>
                                 <button class="w-full sm:w-auto rounded py-3 sm:px-5 text-2xl bg-green-500 hover:bg-green-600 text-white">
 
@@ -30,18 +30,17 @@
                                 </button>
                             </div>
                         </div>
-                        <!--<carousel>
-                            <img src="https://placeimg.com/200/200/any?1">
 
-                            <img src="https://placeimg.com/200/200/any?2">
-
-                            <img src="https://placeimg.com/200/200/any?3">
-
-                            <img src="https://placeimg.com/200/200/any?4">
-                        </carousel>-->
                     </div>
                 </div>
             </div>
+            <section class="text-gray-500 max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <span class="text-3xl ml-4">{{ $page.props.greeting }}, {{ $page.props.candidate.first_name }}</span>
+
+                <div class="bg-white shadow-md p-4">
+                    Jobs for you
+                </div>
+            </section>
         </div>
     </app-layout>
 </template>

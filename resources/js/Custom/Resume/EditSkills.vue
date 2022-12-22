@@ -15,12 +15,12 @@
             </div>
             <div v-for="(skill, index) in skills" :key="skill" class="" type="fade">
                     <div class="article-details border-gray-300 border p-2 my-1">
-                        <div class="edit-skill flex gap-2"  v-if="skill.editing">
-                            <div class="sm:col-span-2 md:col-span-8 flex flex-col">
+                        <div class="edit-skill md:grid md:grid-cols-3 gap-2"  v-if="skill.editing">
+                            <div class="flex flex-col py-2">
                                 <label :for="'name_'+index" class="font-bold">Skill Name</label>
                                 <input type="text" v-model="skills[index].name" class="border border-gray-300" :id="'name_'+index">
                             </div>
-                            <div class="flex flex-col">
+                            <div class="flex flex-col py-2">
                                 <label :for="'reading_'+index" class="font-bold">Reading</label>
                                 <select class="border border-gray-300" v-model="skills[index].rating" :id="'reading_'+index">
                                     <option value="">Select Level</option>
@@ -28,7 +28,7 @@
                                 </select>
                             </div>
 
-                            <div class="flex flex-row gap-2">
+                            <div class="flex flex-row gap-2 py-3">
                                 <button @click="cancelEdit(index)" class="bg-gray-400 self-end hover:shadow-lg text-white p-2">Cancel</button>
                                 <button :disabled="false" @click="addSkill(index)" class="self-end bg-green-500 hover:shadow-lg text-white p-2">
                                     <span v-if="!skills[index].saving">Save</span>
@@ -62,16 +62,14 @@
                     </div>
             </div>
             <div class=" border-dotted border border-gray-300 text-center flex gap-3 justify-right px-2 py-4 self-center" v-if="skills.length && allow_add">
-                <span class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500">
-                    <a href="#" @click.prevent="newSkill">
+                <span @click.prevent="newSkill" class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500 self-center">
+                    <a href="#" @click.prevent="">
                         <span>Add Another Skill</span>
                     </a>
                 </span>
-                <span class="p-1 cursor-pointer border border-green-500 text-white bg-green-500">
-                    <a href="#" @click.prevent="newSkill">
-                        <span>Next</span>
-                    </a>
-                </span>
+                <Link :href="route('my-resume.edit.sectional', 'awards')" class="bg-green-500 p-1 text-white text-center self-center">
+                    <span>Next</span>
+                </Link>
             </div>
         </section>
     </div>
@@ -83,6 +81,7 @@
     import ActionMessage from "@/Jetstream/ActionMessage";
     import Swal from 'sweetalert2';
     import StarRating from "@/Custom/StarRating";
+    import {Head, Link} from '@inertiajs/inertia-vue3';
 
     export default {
         name: "EditSkill",
@@ -104,7 +103,7 @@
             }
         },
         components: {
-            Loader, ActionMessage, StarRating
+            Loader, ActionMessage, StarRating, Head, Link
         },
         mounted(){
             //console.log($page.props.)

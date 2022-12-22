@@ -27,10 +27,15 @@ class CandidateLanguage extends Model
     ];
 
     protected $appends = [
-        'rating'
+        'rating', 'rating_label'
     ];
 
     public function getRatingAttribute(){
         return ($this->listening + $this->speaking + $this->reading + $this->writing)/4;
+    }
+
+    public function getRatingLabelAttribute(){
+        $rating = round($this->listening + $this->speaking + $this->reading + $this->writing)/4;
+        return $this::Levels[$rating];
     }
 }

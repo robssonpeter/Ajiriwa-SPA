@@ -21,9 +21,11 @@ class CreateCandidatesTable extends Migration
                 $table->string('last_name')->nullable();
                 $table->unsignedInteger('user_id', false);
                 $table->string('nationality')->nullable();
+                $table->text('career_objective')->nullable();
                 $table->integer('career_level_id', false)->nullable();
                 $table->integer('industry_id', false)->nullable();
                 $table->double('expected_salary')->nullable();
+                $table->integer('logo', false)->nullable()->comment('id of the associated media');
                 $table->string('salary_currency')->nullable();
                 $table->text('address')->nullable();
                 $table->boolean('immediate_available')->default(1);

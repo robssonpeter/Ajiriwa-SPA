@@ -55,7 +55,7 @@
                         <section v-else class="view-referee">
                             <div class="article-title">
                                 <h5 class="text-green-400 font-bold">{{ referee.name }}</h5>
-                                <h6 class="text-muted">{{ referee.position }} <span class="font-bold">{{ "at "+referee.company }}</span></h6>
+                                <h6 class="text-muted">{{ referee.position }} <span class="font-bold">{{ referee.position? "at " : "" }}{{ referee.company }}</span></h6>
                             </div>
                             <span class="text-muted italic"></span>
 
@@ -88,16 +88,14 @@
                     </div>
             </transition>
             <div class=" border-dotted border border-gray-300 text-center flex gap-3 justify-right px-2 py-4 self-center" v-if="referees.length && allow_add">
-                <span class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500">
-                    <a href="#" @click.prevent="newReferee">
+                <span @click="newReferee" class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500">
+                    <a href="#" @click.prevent="">
                         <span>Add Another Referee</span>
                     </a>
                 </span>
-                <span class="p-1 cursor-pointer border border-green-500 text-white bg-green-500">
-                    <a href="#" @click.prevent="newReferee">
-                        <span>Next</span>
-                    </a>
-                </span>
+                <Link :href="route('my-resume')" class="bg-green-500 p-2 text-white text-center">
+                    <span>View Final CV</span>
+                </Link>
             </div>
         </section>
     </div>
@@ -108,6 +106,7 @@
     import Loader from "@/Custom/Loader";
     import ActionMessage from "@/Jetstream/ActionMessage";
     import Swal from 'sweetalert2';
+    import {Head, Link} from '@inertiajs/inertia-vue3';
 
 
     export default {
@@ -127,7 +126,7 @@
             }
         },
         components: {
-            Loader, ActionMessage
+            Loader, ActionMessage, Head, Link
         },
         mounted(){
             //console.log($page.props.)

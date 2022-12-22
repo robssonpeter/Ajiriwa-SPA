@@ -28,7 +28,6 @@ class UserController extends Controller
             $link = UserRepository::updateUserRole(Auth::user()->id, $role);
             if(filter_var($link, FILTER_VALIDATE_URL)){
                 return Inertia::location($link);
-
             }
         }
     }
@@ -40,6 +39,6 @@ class UserController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect('/login');
     }
 }

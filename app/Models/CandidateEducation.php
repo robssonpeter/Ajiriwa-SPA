@@ -23,10 +23,17 @@ class CandidateEducation extends Model
     ];
 
     protected $appends = [
-        'saving'
+        'saving', 'country'
     ];
 
     public function getSavingAttribute(){
         return false;
+    }
+
+    public function getCountryAttribute(){
+        if($this->country_id){
+            return country($this->country_id)->getName();
+        }
+        return '';
     }
 }

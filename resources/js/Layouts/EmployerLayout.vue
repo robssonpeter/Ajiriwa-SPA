@@ -5,7 +5,7 @@
         <Head :title="title" />
         <aside class="h-screen sticky top-0">
             <section class="h-16 align-middle shadow-md pt-2">
-                <Link :href="'/'" class="flex space-x-2 place-self-center">
+                <Link :href="route('dashboard')" class="flex space-x-2 place-self-center">
                     <span class="sr-only">Workflow</span>
                     <!-- <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt=""> -->
                     <img class="h-8 w-auto sm:h-10" :src="route('root')+'/images/ajiriwa-new-logo.png'" alt="">
@@ -14,28 +14,22 @@
             </section>
             <ul class="flex flex-col py-4">
                 <li>
-                    <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                    <Link :href="route('dashboard')" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
                         <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-home"></i></span>
                         <span class="text-sm font-medium">Dashboard</span>
-                    </a>
+                    </Link>
                 </li>
                 <li>
-                    <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-music"></i></span>
-                        <span class="text-sm font-medium">Music</span>
-                    </a>
+                    <Link :href="route('company.candidates.browse')" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-search"></i></span>
+                        <span class="text-sm font-medium">Search Candidates</span>
+                    </Link>
                 </li>
                 <li>
-                    <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-drink"></i></span>
-                        <span class="text-sm font-medium">Drink</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-shopping-bag"></i></span>
-                        <span class="text-sm font-medium">Shopping</span>
-                    </a>
+                    <Link :href="route('company.jobs.index')" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-collection"></i></span>
+                        <span class="text-sm font-medium">Manage Jobs</span>
+                    </Link>
                 </li>
                 <li>
                     <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
@@ -44,10 +38,16 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                    <Link :href="route('my-company.customize')" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
                         <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-user"></i></span>
-                        <span class="text-sm font-medium">Profile</span>
-                    </a>
+                        <span class="text-sm font-medium">Company Profile</span>
+                    </Link>
+                </li>
+                <li>
+                    <Link :href="route('company.email-templates')" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-envelope"></i></span>
+                        <span class="text-sm font-medium">Email Templates</span>
+                    </Link>
                 </li>
                 <li>
                     <a href="#" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
@@ -57,7 +57,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" @click.prevent="logout" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                    <a href="#" @click.prevent="$inertia.post(route('logout'))" class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
                         <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-log-out"></i></span>
                         <span class="text-sm font-medium">Logout</span>
                     </a>
@@ -75,8 +75,12 @@
 
 <script>
     import TheFooter from '@/Layouts/TheFooter';
+    import { Head, Link } from '@inertiajs/inertia-vue3';
     export default {
         name: "EmployerLayout",
+        components: {
+            Head, Link
+        },
         methods: {
             logout() {
                 this.$inertia.post(route('logout'));

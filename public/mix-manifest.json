@@ -1,4 +1,8 @@
 {
     "/js/app.js": "/js/app.js",
+    "/js/essential.js": "/js/essential.js",
+    "/js/Company/details.js": "/js/Company/details.js",
+    "/js/job.js": "/js/job.js",
+    "/js/homepage.js": "/js/homepage.js",
     "/css/app.css": "/css/app.css"
 }

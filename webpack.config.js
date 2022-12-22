@@ -6,4 +6,7 @@ module.exports = {
             '@': path.resolve('resources/js'),
         },
     },
+    watchOptions: {
+        ignored: /node_modules/
+    },
 };

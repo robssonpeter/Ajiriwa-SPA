@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -10,9 +11,14 @@ class Job extends Model
 {
     use HasFactory;
 
+    CONST STATUS = [
+       "Draft", 'Active', 'Paused', 'Closed'
+    ];
+
     protected $fillable = [
         'title',
         'application_email',
+        'application_email_cc',
         'application_url',
         'description',
         'reports_to',
@@ -24,7 +30,14 @@ class Job extends Model
         'email_subject',
         'company_id',
         'number_of_posts',
-        'location'
+        'counted_views',
+        'status',
+        'location',
+        'is_remote',
+        'min_salary',
+        'max_salary',
+        'keywords',
+        'application_display_columns'
     ];
 
     protected $with = [
@@ -32,18 +45,34 @@ class Job extends Model
     ];
 
     protected $appends = [
-        'applied'
+        'applied', 'current_status', 'time_ago'
     ];
 
     protected $withCount = [
-        'applications'
+        'applications', 'views', 'clicks'
     ];
+
+    public function views(){
+        return $this->hasMany(JobView::class, 'job_id', 'id');
+    }
+
+    public function clicks(){
+        return $this->hasMany(LinkClick::class, 'job_id', 'id');
+    }
+
+    public function getTimeAgoAttribute(){
+        return Carbon::parse($this->created_at)->diffForHumans();
+    }
 
     public function getAppliedAttribute(){
         /*if(Auth::check() && Auth::user()->hasRole('candidate')){
             $applied = JobApplication::
         }*/
         return false;
+    }
+
+    public function getCurrentStatusAttribute(){
+        return self::STATUS[$this->status];
     }
 
     public function company(){
@@ -67,4 +96,7 @@ class Job extends Model
         return null;
     }*/
 
+    public function Job_screening(){
+        return $this->hasMany(JobScreening::class, 'job_id', 'id');
+    }
 }

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ProfileUpdated;
 use App\Functionalities\Candidate as CandidateFunction;
+use App\Models\ApplicationAttachment;
 use App\Models\Candidate;
 use App\Models\CandidateCertificate;
 use App\Models\CandidateEducation;
@@ -10,13 +12,20 @@ use App\Models\CandidateExperience;
 use App\Models\CandidateLanguage;
 use App\Models\CandidateReferee;
 use App\Models\CandidateSkill;
+use App\Models\CandidateView;
 use App\Models\CertificateCategory;
 use App\Models\Country;
 use App\Models\EducationLevel;
+use App\Models\FavoriteJob;
+use App\Models\Gender;
 use App\Models\Industry;
+use App\Models\Job;
+use App\Models\JobApplication;
 use App\Models\Media;
+use App\Models\User;
 use App\Repositories\CandidateRepository;
 use App\Repositories\ResumeRepository;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -29,44 +38,198 @@ class CandidateController extends Controller
     }
 
     public function myResume(){
-        return Inertia::render('MyResume', []);
+        $breadcrumb = [
+            [
+                "label" => "Home",
+                "url" => route('dashboard')
+            ],
+            [
+                "label" => "My Resume",
+            ]
+        ];
+        $with = [
+            'certificates', 'education', 'experiences', 'languages', 'referees', 'skills'
+        ];
+        $candidate = Candidate::where('user_id', Auth::user()->id)->with($with)->first();
+        $breadcrumb_actions = [
+            [
+                'label' => 'Download CV',
+                'url' => route('cv.print', $candidate->id),
+                'classes' => 'bg-gray-500 text-white rounded-md p-1 text-sm self-center mb-2',
+                'is_spa' => false
+            ],
+            [
+                'label' => 'Edit CV',
+                'url' => route('my-resume.edit'),
+                'classes' => 'bg-green-400 text-white rounded-md p-1 text-sm self-center mb-2',
+                'is_spa' => true
+            ],
+        ];
+        $skills = CandidateSkill::Levels;
+        $user = Auth::user();
+        return Inertia::render('MyResume', compact('candidate', 'user', 'skills', 'breadcrumb', 'breadcrumb_actions'));
+    }
+
+    public function getCandidateInfo($candidate_id): array
+    {
+        if(!session()->has('profile_views')){
+            session()->put('profile_views', []);
+        }
+        if(!in_array($candidate_id, session()->get('profile_views'))){
+            $views = session()->get('profile_views');
+            // create a profile view log
+            $logged = CandidateView::create(['candidate_id' => $candidate_id, 'viewer_user_id' => Auth::user()->id]);
+
+            // update the session variable for profile views
+            if($logged){
+                $views[] = $candidate_id;
+                session()->put('profile_views', $views);
+            }
+        }
+        $with = [
+            'certificates', 'education', 'experiences', 'languages', 'referees', 'skills', 'sex'
+        ];
+        return [
+            'candidate' => Candidate::join('users', 'users.id', 'candidates.user_id')->where('candidates.id', $candidate_id)->with($with)->select('candidates.*', 'users.email')->first(),
+            'skills' => CandidateSkill::Levels,
+        ];
+    }
+
+    public function myApplications(){
+        $breadcrumb = [
+            [
+                "label" => "Home",
+                "url" => route('dashboard')
+            ],
+            [
+                "label" => "My Application",
+            ]
+        ];
+
+        $candidate = Candidate::where('user_id', Auth::user()->id)->first();
+        $status = JobApplication::STATUS;
+        if(!$candidate){
+            abort(401);
+        }
+        $applications = JobApplication::where('candidate_id', $candidate->id)->with('job', 'attachments')->orderBy('created_at', 'DESC')->get();
+        //dd($applications);
+        return Inertia::render('Candidate/Applications', compact('applications', 'breadcrumb', 'status'));
+    }
+
+    public function savedJobs(){
+        $breadcrumb = [
+            [
+                "label" => "Home",
+                "url" => route('dashboard')
+            ],
+            [
+                "label" => "Browse Jobs",
+                "url" => route('jobs.browse')
+            ],
+            [
+                "label" => "Saved Jobs",
+            ]
+        ];
+
+        $candidate = Candidate::where('user_id', Auth::user()->id)->first();
+        $status = JobApplication::STATUS;
+        if(!$candidate){
+            abort(401);
+        }
+        $jobs = FavoriteJob::where('candidate_id', $candidate->id)->with('job')->get();
+        return Inertia::render('Candidate/SavedJobs', compact('jobs', 'breadcrumb', 'status'));
     }
 
     public function myResumeEdit($section = null){
-        //dd($section);
         $candidate = Candidate::where('user_id', Auth::user()->id)->first();
-        $countries = Country::select('name', 'id')->get();
+        $candidate->gender = $candidate->gender??'';
+        $countries = countries();
         $industries = Industry::select('name', 'id')->get();
         $data = [
-            'candidate_id' => $candidate->id
+            'candidate_id' => $candidate->id,
+            'profile_completion' => $candidate->profile_completion
+        ];
+        $sections = [
+            'personal', 'career', 'experience', 'education', 'language', 'skills', 'awards', 'reference'
         ];
         //dd($countries);
         switch ($section){
-            case 'personal':
-                $data['personal'] = $candidate;
-                $data['personal2'] = $candidate;
-                break;
             case 'experience':
+                $sectionIndex = array_search($section, $sections);
                 $data['experience'] = CandidateExperience::where('candidate_id', $candidate->id)->get();
+                if(isset($sections[$sectionIndex+1])){
+                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex+1]);
+                }
+                if(isset($sections[$sectionIndex-1])){
+                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex-1]);
+                }
                 break;
             case 'education':
+                $sectionIndex = array_search($section, $sections);
                 $data['education'] = CandidateEducation::where('candidate_id', $candidate->id)->get();
                 $data['education_levels'] = EducationLevel::all();
+                if(isset($sections[$sectionIndex+1])){
+                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex+1]);
+                }
+                if(isset($sections[$sectionIndex-1])){
+                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex-1]);
+                }
                 break;
             case 'language':
+                $sectionIndex = array_search($section, $sections);
                 $data['languages'] = CandidateLanguage::where('candidate_id', $candidate->id)->get();
                 $data['language_levels'] = CandidateLanguage::Levels;
+                if(isset($sections[$sectionIndex+1])){
+                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex+1]);
+                }
+                if(isset($sections[$sectionIndex-1])){
+                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex-1]);
+                }
                 break;
             case 'skills':
+                $sectionIndex = array_search($section, $sections);
                 $data['skills'] = CandidateSkill::where('candidate_id', $candidate->id)->get();
                 $data['skill_levels'] = CandidateSkill::Levels;
+                if(isset($sections[$sectionIndex+1])){
+                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex+1]);
+                }
+                if(isset($sections[$sectionIndex-1])){
+                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex-1]);
+                }
                 break;
             case 'reference':
+                $sectionIndex = array_search($section, $sections);
                 $data['referees'] = CandidateReferee::where('candidate_id', $candidate->id)->get();
+                if(isset($sections[$sectionIndex+1])){
+                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex+1]);
+                }
+                if(isset($sections[$sectionIndex-1])){
+                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex-1]);
+                }
                 break;
             case 'awards':
+                $sectionIndex = array_search($section, $sections);
                 $data['certificates'] = CandidateCertificate::where('candidate_id', $candidate->id)->get();
                 $data['categories'] = CertificateCategory::all();
+                if(isset($sections[$sectionIndex+1])){
+                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex+1]);
+                }
+                if(isset($sections[$sectionIndex-1])){
+                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex-1]);
+                }
+                break;
+            default:
+                $section = $section ?? 'personal';
+                $sectionIndex = array_search($section, $sections);
+                $data['genders'] = Gender::all();
+                $data['personal'] = $candidate;
+                $data['old'] = $candidate;
+                if(isset($sections[$sectionIndex+1])){
+                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex+1]);
+                }
+                if(isset($sections[$sectionIndex-1])){
+                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex-1]);
+                }
                 break;
         }
         return Inertia::render('MyResumeEdit', [
@@ -108,6 +271,7 @@ class CandidateController extends Controller
                 $saved = ResumeRepository::addCertificate(request()->data);
                 break;
         }
+        event(new ProfileUpdated(Auth::user()->id));
         return $saved;
     }
 
@@ -133,6 +297,7 @@ class CandidateController extends Controller
                 $deleted = ResumeRepository::removeCertificate($id, Auth::user()->id);
                 break;
         }
+        event(new ProfileUpdated(Auth::user()->id));
         return $deleted;
     }
 
@@ -147,6 +312,7 @@ class CandidateController extends Controller
         \Spatie\MediaLibrary\Models\Media::find(1);
         if(isset($input['return'])){
             $certificate = Media::where('model_type', 'App\Models\Candidate')->where('collection_name', 'certifications')->where('model_id', $request->candidate_id)->orderBy('id', 'DESC')->first();
+            event(new ProfileUpdated($candidate->user_id));
             return $this->sendResponse($certificate, 'Successfully Uploaded');
         }
     }
@@ -157,5 +323,66 @@ class CandidateController extends Controller
         //CandidateFunction::profileCompletion(Auth::user()->id);
 
         return $this->sendSuccess('Media deleted successfully.');
+    }
+
+
+    public function withdrawApplication(){
+        $application_id =  request()->application_id;
+        $candidate = Candidate::where('user_id', Auth::user()->id)->first();
+        $application =  JobApplication::find($application_id);
+
+        if(!$candidate || $candidate->id != $application->candidate_id){
+            abort(401);
+        }
+        // delete shared attachments
+        ApplicationAttachment::where('job_application_id', $application_id)->delete();
+
+        return $application->delete();
+
+    }
+
+    public function toggleFavorite(){
+        $job_id = request()->job_id;
+        $user = Auth::user();
+        $candidate = Candidate::where('user_id', $user->id)->first();
+        $action = request()->action;
+        $data = [
+            'candidate_id' => $candidate->id,
+            'job_id' => $job_id
+        ];
+        if($action == 'add') {
+            return FavoriteJob::updateOrCreate($data, $data);
+        }
+        return FavoriteJob::where('candidate_id', $candidate->id)->where('job_id', $job_id)->delete();
+    }
+
+    public function nakedCv($candidate_id){
+        $with = [
+            'education', 'experiences', 'languages', 'referees', 'skills'
+        ];
+        $candidate = Candidate::where('id', $candidate_id)->with($with)->first();
+        if(!$candidate){
+            abort(404);
+        }
+        $skills = CandidateSkill::Levels;
+        $user = Auth::user();
+        //dd($candidate->skills);
+
+        return view('CvTemplates.material',compact('candidate', 'skills', 'user'));
+    }
+
+
+
+    public function cvDownload($candidate_id){
+        $with = [
+            'education', 'experiences', 'languages', 'referees', 'skills'
+        ];
+        $candidate = Candidate::where('id', $candidate_id)->with($with)->first();
+        $skills = CandidateSkill::Levels;
+        $user = User::find($candidate->user_id);
+
+        $pdf = Pdf::loadView('CvTemplates.material', compact('candidate', 'skills', 'user'));
+        return $pdf->download(makeSlug($candidate->full_name).'-cv.pdf');
+
     }
 }

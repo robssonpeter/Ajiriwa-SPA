@@ -3,9 +3,9 @@
     <div class="relative bg-white sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div
-                class="flex justify-between items-center border-b-2 border-gray-100 py-2 md:justify-start md:space-x-10">
+                class="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10">
                 <div class="flex justify-start lg:w-0 lg:flex-1">
-                    <Link :href="'/'" class="flex space-x-2">
+                    <Link :href="route('dashboard')" class="flex space-x-2" id="home-link">
                         <span class="sr-only">Workflow</span>
                         <!-- <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt=""> -->
                         <img class="h-8 w-auto sm:h-10" :src="route('root')+'/images/ajiriwa-new-logo.png'" alt="">
@@ -35,7 +35,6 @@
                                    class="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                    aria-expanded="false">
                                     <span>Menu</span>
-
                                     <!--
                                       Heroicon name: solid/chevron-down
 
@@ -61,6 +60,35 @@
                                 From: "opacity-100 translate-y-0"
                                 To: "opacity-0 translate-y-1"
                             -->
+                            <Menu as="div" class="relative inline-block text-left">
+<!--                                <div>
+                                    <MenuButton class="inline-flex w-full justify-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100">
+                                        Options
+                                        <ChevronDownIcon class="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
+                                    </MenuButton>
+                                </div>-->
+
+                                <transition enter-active-class="transition ease-out duration-100" enter-from-class="transform opacity-0 scale-95" enter-to-class="transform opacity-100 scale-100" leave-active-class="transition ease-in duration-75" leave-from-class="transform opacity-100 scale-100" leave-to-class="transform opacity-0 scale-95">
+                                    <MenuItems class="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                        <div class="py-1">
+                                            <MenuItem v-slot="{ active }">
+                                                <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Account settings</a>
+                                            </MenuItem>
+                                            <MenuItem v-slot="{ active }">
+                                                <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">Support</a>
+                                            </MenuItem>
+                                            <MenuItem v-slot="{ active }">
+                                                <a href="#" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block px-4 py-2 text-sm']">License</a>
+                                            </MenuItem>
+                                            <form method="POST" action="#">
+                                                <MenuItem v-slot="{ active }">
+                                                    <button type="submit" :class="[active ? 'bg-gray-100 text-gray-900' : 'text-gray-700', 'block w-full px-4 py-2 text-left text-sm']">Sign out</button>
+                                                </MenuItem>
+                                            </form>
+                                        </div>
+                                    </MenuItems>
+                                </transition>
+                            </Menu>
                             <MenuItems>
                                 <div
                                     class="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
@@ -84,8 +112,25 @@
                                                 </Link>
                                             </MenuItem>
                                             <MenuItem>
-                                                <a href="#"
+                                                <Link :href="route('my-resume.edit')"
                                                    class="-m-3 p-3 flex items-start rounded-lg hover:bg-green-50">
+                                                    <!-- Heroicon name: outline/chart-bar -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                                    </svg>
+                                                    <div class="ml-4">
+                                                        <p class="text-base font-medium text-gray-900">
+                                                            Update My Resume
+                                                        </p>
+                                                        <p class="mt-1 text-sm text-gray-500">
+                                                            Make changes to your CV Info
+                                                        </p>
+                                                    </div>
+                                                </Link>
+                                            </MenuItem>
+                                            <MenuItem>
+                                                <Link :href="route('my-applications')"
+                                                      class="-m-3 p-3 flex items-start rounded-lg hover:bg-green-50">
                                                     <!-- Heroicon name: outline/cursor-click -->
                                                     <svg class="flex-shrink-0 h-6 w-6 text-green-600"
                                                          xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -97,42 +142,37 @@
                                                     </svg>
                                                     <div class="ml-4">
                                                         <p class="text-base font-medium text-gray-900">
-                                                            Engagement
+                                                            My Applications
                                                         </p>
                                                         <p class="mt-1 text-sm text-gray-500">
                                                             Speak directly to your customers in a more meaningful way.
                                                         </p>
                                                     </div>
-                                                </a>
+                                                </Link>
                                             </MenuItem>
 
                                             <MenuItem>
-                                                <a href="#"
+                                                <Link :href="route('saved-jobs')"
                                                    class="-m-3 p-3 flex items-start rounded-lg hover:bg-green-50">
                                                     <!-- Heroicon name: outline/shield-check -->
-                                                    <svg class="flex-shrink-0 h-6 w-6 text-green-600"
-                                                         xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                         viewBox="0 0 24 24"
-                                                         stroke="currentColor" aria-hidden="true">
-                                                        <path stroke-linecap="round" stroke-linejoin="round"
-                                                              stroke-width="2"
-                                                              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
                                                     </svg>
                                                     <div class="ml-4">
                                                         <p class="text-base font-medium text-gray-900">
-                                                            Security
+                                                            Saved Jobs
                                                         </p>
                                                         <p class="mt-1 text-sm text-gray-500">
-                                                            Your customers&#039; data will be safe and secure.
+                                                            See your bookmarked jobs here.
                                                         </p>
                                                     </div>
-                                                </a>
+                                                </Link>
                                             </MenuItem>
 
-                                            <MenuItem>
+<!--                                            <MenuItem>
                                                 <a href="#"
                                                    class="-m-3 p-3 flex items-start rounded-lg hover:bg-green-50">
-                                                    <!-- Heroicon name: outline/view-grid -->
+                                                    &lt;!&ndash; Heroicon name: outline/view-grid &ndash;&gt;
                                                     <svg class="flex-shrink-0 h-6 w-6 text-green-600"
                                                          xmlns="http://www.w3.org/2000/svg" fill="none"
                                                          viewBox="0 0 24 24"
@@ -151,12 +191,12 @@
                                                         </p>
                                                     </div>
                                                 </a>
-                                            </MenuItem>
+                                            </MenuItem>-->
 
-                                            <MenuItem>
+<!--                                            <MenuItem>
                                                 <a href="#"
                                                    class="-m-3 p-3 flex items-start rounded-lg hover:bg-green-50">
-                                                    <!-- Heroicon name: outline/refresh -->
+                                                    &lt;!&ndash; Heroicon name: outline/refresh &ndash;&gt;
                                                     <svg class="flex-shrink-0 h-6 w-6 text-green-600"
                                                          xmlns="http://www.w3.org/2000/svg" fill="none"
                                                          viewBox="0 0 24 24"
@@ -175,7 +215,7 @@
                                                         </p>
                                                     </div>
                                                 </a>
-                                            </MenuItem>
+                                            </MenuItem>-->
                                         </div>
                                         <div
                                             class="px-5 py-5 bg-gray-50 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
@@ -228,7 +268,7 @@
                     </a>-->
 
                     <div class="relative">
-                        <Menu>
+                        <Menu v-if="0">
                             <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
                             <MenuButton>
                                 <a type="button"
@@ -400,14 +440,43 @@
                         </Menu>
                     </div>
                 </nav>
-                <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                    <a href="#" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+
+                <dropdown align="right" width="48" v-if="$page.props.user" class="hidden md:block float-right">
+                    <template #trigger>
+                        <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+                            <img class="h-8 w-8 rounded-full object-cover" :src="$page.props.user.profile_photo_url" :alt="$page.props.user.name" />
+                        </button>
+
+                        <span v-else class="inline-flex rounded-md">
+                                            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition">
+                                                {{ $page.props.user.name }}
+
+                                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                                </svg>
+                                            </button>
+                                        </span>
+                    </template>
+
+                    <template #content>
+
+                        <form @submit.prevent="$inertia.post(route('logout'))">
+                            <dropdown-link as="button">
+                                Log Out
+                            </dropdown-link>
+                        </form>
+                    </template>
+                </dropdown>
+
+
+                <div v-else class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                    <Link :href="route('login')" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
                         Sign in
-                    </a>
-                    <a href="#"
+                    </Link>
+                    <Link :href="route('register')"
                        class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-500 hover:bg-green-700">
-                        Sign up
-                    </a>
+                        Register
+                    </Link>
                 </div>
             </div>
         </div>
@@ -556,11 +625,14 @@
 </template>
 <script>
     import {Menu, MenuButton, MenuItems, MenuItem} from "@headlessui/vue";
-    import { Link } from '@inertiajs/inertia-vue3'
+    import { Link } from '@inertiajs/inertia-vue3';
+    import Dropdown from "@/Jetstream/Dropdown";
+    import DropdownLink from "@/Jetstream/DropdownLink";
+
 
     export default {
         components: {
-            Menu, MenuButton, MenuItems, MenuItem, Link
+            Menu, MenuButton, MenuItems, MenuItem, Link, Dropdown, DropdownLink
         },
         data() {
             return {

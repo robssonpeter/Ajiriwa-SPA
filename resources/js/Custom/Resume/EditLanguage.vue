@@ -20,7 +20,7 @@
                                 <label :for="'name_'+index" class="font-bold">Language Name</label>
                                 <input type="text" v-model="languages[index].name" class="border border-gray-300" :id="'name_'+index">
                             </div>
-                            <section class="grid grid-cols-4 gap-2 py-2">
+                            <section class="md:grid md:grid-cols-4 gap-2 py-2">
                                 <div class="flex flex-col">
                                     <label :for="'listening_'+index" class="font-bold">Listening</label>
                                     <select class="border border-gray-300" v-model="languages[index].listening" :id="'listening_'+index">
@@ -85,16 +85,14 @@
                     </div>
             </div>
             <div class=" border-dotted border border-gray-300 text-center flex gap-3 justify-right px-2 py-4 self-center" v-if="languages.length && allow_add">
-                <span class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500">
-                    <a href="#" @click.prevent="newLanguage">
+                <span @click="newLanguage" class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500 self-center">
+                    <a href="#" @click.prevent="">
                         <span>Add Another Language</span>
                     </a>
                 </span>
-                <span class="p-1 cursor-pointer border border-green-500 text-white bg-green-500">
-                    <a href="#" @click.prevent="newLanguage">
-                        <span>Next</span>
-                    </a>
-                </span>
+                <Link :href="route('my-resume.edit.sectional', 'skills')" class="bg-green-500 p-1 text-white text-center self-center">
+                    <span>Next</span>
+                </Link>
             </div>
         </section>
     </div>
@@ -106,6 +104,7 @@
     import ActionMessage from "@/Jetstream/ActionMessage";
     import Swal from 'sweetalert2';
     import StarRating from "@/Custom/StarRating";
+    import {Head, Link} from '@inertiajs/inertia-vue3';
 
     export default {
         name: "EditLanguage",
@@ -127,7 +126,7 @@
             }
         },
         components: {
-            Loader, ActionMessage, StarRating
+            Loader, ActionMessage, StarRating, Link, Head
         },
         mounted(){
             //console.log($page.props.)

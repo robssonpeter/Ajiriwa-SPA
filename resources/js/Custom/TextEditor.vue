@@ -1,5 +1,5 @@
 <template>
-    <QuillEditor @textChange="changing" v-model:content="content" theme="snow" />
+    <QuillEditor @textChange="changing" :content="text" content-type="html" v-model:content="content" theme="snow" />
 </template>
 
 <script>
@@ -11,6 +11,11 @@
         components: {
             QuillEditor, QuillDeltaToHtmlConverter
         },
+        props: {
+           text: {
+               type: String
+           }
+        },
         data() {
           return {
               content: ''
@@ -18,9 +23,9 @@
         },
         methods: {
             changing(){
-                let converter = new QuillDeltaToHtmlConverter(this.content.ops, {});
-                let html = converter.convert();
-                this.$emit('change', html);
+                /*let converter = new QuillDeltaToHtmlConverter(this.content.ops, {});
+                let html = converter.convert();*/
+                this.$emit('change', this.content);
             }
         }
     }
