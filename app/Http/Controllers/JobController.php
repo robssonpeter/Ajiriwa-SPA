@@ -28,6 +28,7 @@ use Artesaos\SEOTools\Facades\SEOTools;
 use Artesaos\SEOTools\Facades\TwitterCard;
 use Carbon\Carbon;
 use ErrorException;
+use Exception;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use PHPMailer\PHPMailer\PHPMailer;
@@ -38,11 +39,18 @@ class JobController extends Controller
 {
 
     public function browseGuest(){
+        //dd(request()->keyword);
         switch(request()->url()){
             case route('jobs.browse.alt'):
-                $title = "Jobs in Tanzania - Nafasi za kazi, Ajira Zetu, ajira, Zoom Tanzania, Kazibongo, TAYOA, Kijiwe, ajira portal, Nafasi za internship, Ajira bongo";
-                $description = "Find the job that suits you, we have tons of jobs for you to view, you may also search using specific keywords. Latest jobs in Tanzania";
-                $keywords = "Jobs Tanzania,vacancies tanzania, nafasi za kazi, ajira, ajiriwa, create cv, manage applications, add job, find jobs tanzania, ajiriwa tanzania, employement tanzania";
+                if(request()->keyword){
+                    $title = request()->keyword." ".request()->comp;
+                    $description = "Find the job that suits you, we have tons of jobs for you to view, you may also search using specific keywords. Latest jobs in Tanzania";
+                    $keywords = "Jobs Tanzania,vacancies tanzania, nafasi za kazi, ajira, ajiriwa, create cv, manage applications, add job, find jobs tanzania, ajiriwa tanzania, employement tanzania";
+                }else{
+                    $title = "Jobs in Tanzania - Nafasi za kazi, Ajira Zetu, ajira, Zoom Tanzania, Kazibongo, TAYOA, Kijiwe, ajira portal, Nafasi za internship, Ajira bongo";
+                    $description = "Find the job that suits you, we have tons of jobs for you to view, you may also search using specific keywords. Latest jobs in Tanzania";
+                    $keywords = "Jobs Tanzania,vacancies tanzania, nafasi za kazi, ajira, ajiriwa, create cv, manage applications, add job, find jobs tanzania, ajiriwa tanzania, employement tanzania";
+                }
                 break;
             default:
                 $title = 'Browse Jobs - Nafasi za kazi leo, Ajira Tanzania, ajira zetu '.date('Y').', Ajira Mpya Serikalini, Vacancies in Tanzania, Ajira Portal '.date('Y');
@@ -50,8 +58,10 @@ class JobController extends Controller
                 $keywords = 'Jobs Tanzania,vacancies tanzania, nafasi za kazi, ajira, ajiriwa, create cv, manage applications, add job, find jobs tanzania, ajiriwa tanzania, employement tanzania, ajira tanzania, ajira mpya';
                 break;
         }
+        $is_plain = !request()->keyword && !request()->comp;
         $company = request()->comp;
         $companies = Company::where('name', 'like', '%'.$company.'%')->pluck('id');
+        //dd($company);
         $industries = Industry::orderBy('name', 'ASC')->get();
         $job_types = JobType::all();
         //dd($companies);
@@ -61,7 +71,7 @@ class JobController extends Controller
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($description);
         SEOMeta::setKeywords($keywords);
-        SEOMeta::addMeta('theme-color', '#26ae61');
+        SEOMeta::addMeta('theme-color', '#6ad3ac');
 
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($description);
@@ -126,7 +136,6 @@ class JobController extends Controller
                 });
             });
         })->when(!$keyword, function($q){
-            //dd('hello');
             return $q->where('deadline', '>=', date('Y-m-d'));
         })->orWhere(function($q) use($keyword, $joinedstring){
             $q->when($keyword && !strlen($keyword->main_words), function($q){
@@ -134,15 +143,18 @@ class JobController extends Controller
             })->when($keyword && strlen($keyword->main_words), function($q) use($joinedstring){
                 //dd($joinedstring);
             });
-        })->orderBy('id', 'DESC')->get();
+        })->orderBy('id', 'DESC')->paginate(15);
 
+        //dd(request()->method());
         //dd($jobs);
-
+        if(request()->ajax && request()->method() == "POST"){
+            return response()->json($jobs);
+        }
         $meta_description = $keyword?$keyword->description:"Find the latest ".ucfirst($search)." Jobs in different companies and organization and be able to make your application easily and fast today. Click to learn more";
         $title = $keyword?$keyword->keyword:ucfirst($search)." Jobs";
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($meta_description);
-        SEOMeta::addMeta('theme-color', '#26ae61');
+        SEOMeta::addMeta('theme-color', '#6ad3ac');
         SEOMeta::setCanonical($url);
 
         OpenGraph::setTitle($title);
@@ -168,7 +180,9 @@ class JobController extends Controller
         $viewedJobs = JobView::where('user_id', session()->get('uniqid'))->whereRaw('created_at >= NOW() - INTERVAL 10 MINUTE')->pluck('job_id');
         $savedJobs = $candidate? FavoriteJob::where('candidate_id', $candidate->id)->pluck('job_id'):[];
         $certificates = CandidateCertificate::where('candidate_id', 'candidate_id')->get();
-        $jobs = Job::orderBy('id', 'DESC')->limit(15)->where('status', 1)->get();
+        $today = date('Y-m-d');
+        $jobs = Job::orderBy('id', 'DESC')->limit(15)->where('status', 1)->where('deadline', '>=', $today)->paginate(10);
+        //dd($jobs);
 
         $certificates = array_map(function($array){
             return ['label' => $array['name'], 'code' => $array['id']];
@@ -183,6 +197,16 @@ class JobController extends Controller
             'appliedJobs' => $applied_jobs,
             'savedJobs' => $savedJobs
         ]);
+    }
+
+    public function oldJob(){
+        $old_id = request()->data;
+        $job = Job::where('old_id', $old_id)->first();
+        if(!$job){
+            abort(404);
+        }
+        return redirect(route('job.view', $job->slug), 301);
+        //dd($old_id);
     }
 
     public function viewJob($slug){
@@ -204,7 +228,8 @@ class JobController extends Controller
         SEOTools::setTitle($job->title);
 
         // Meta
-        SEOMeta::setTitle($job->title);
+        SEOMeta::setTitle($job->title." Job | ".$company_name);
+        SEOMeta::addMeta('theme-color', '#6ad3ac');
 
         // jsonld
         JsonLd::setTitle($job->title);
@@ -253,27 +278,36 @@ class JobController extends Controller
                 'allow_apply' => $allow_apply,
             ]);
         }*/
-
+        $applied = [12];
+        
         if(\Auth::check()){
             $deadline_formated = \Carbon\Carbon::parse($job->deadline)->format('jS F Y');
             return redirect(route('jobs.browse')."#".$job->slug);
         }
-        return view('jobs.view', compact('job', 'allow_apply'));
+        return view('jobs.view', compact('job', 'allow_apply', 'applied'));
     }
 
     public function saveJob(Request $request){
-
+        
+        $keywords =  implode(", ", $request->keywords);
+        $data['keywords'] = $keywords;
         if(request()->job_id){
             $data = request()->only((new Job)->getFillable());
+            $data['keywords'] = $keywords;
             // make the update
             Job::where('id', request()->job_id)->update($data);
             return Job::find(request()->job_id);
         }
+        
         $email_cc = is_array(request()->application_email_cc) && count(request()->application_email_cc)?json_encode(request()->application_email_cc):null;
         $data = $request->all();
         $data['application_email_cc'] = $email_cc;
+        $data['keywords'] = $keywords;
         $data['slug'] = makeSlug($data['title']).'-'.uniqid();
         $saved = Job::create($data);
+
+        // assign job categories
+        AssignedJobCategory::create(['category_id' => request()->category, 'job_id' => $saved->id]);
         return $saved;
     }
 
@@ -322,6 +356,24 @@ class JobController extends Controller
 
     public function registerView(){
         event(new JobViewed(request()->job_id, session()->get('uniqid')));
+    }
+
+    public function jobsByCategory($slug){
+        $category = JobCategory::where('slug', $slug)->first();
+        if(!$category){
+            abort(404);
+        }
+
+        $assignments = AssignedJobCategory::where('category_id', $category->id)->pluck('job_id');
+        $jobs = Job::whereIn('id', $assignments)->where('deadline', '>=', date('Y-m-d'))->get();
+        $industries = Industry::all();
+        $job_types = JobType::all();
+        session()->flash('presets', [
+            'category' => $category->id
+        ]);
+        //dd(\Route::current()->getName());
+        return view('jobs.browse', compact('jobs', 'industries', 'job_types'));
+        dd($jobs);
     }
 
     public function guestApplicationSubmit(){

@@ -45,3 +45,32 @@ function makeSlug($text, $divider = '-')
 
     return $text;
 }
+
+function unitSeparator($product_id, $quantity){
+
+    $output_array = [];
+    $unitRelations = [
+        'carton' => 20,
+        'nusu-carton' => 10,
+        'robo-carton' => 5,
+        'pc' => 1,
+    ];
+    // define a remainder and assign the initial value as the quantity
+    $remainder = $quantity;
+    $keys = array_keys($unitRelations);
+    $x = 0;
+    while($remainder > 0){
+        $current_unit = $unitRelations[$keys[$x]];
+        // excute the below if only the remainder is greater or equal to the current unit
+        if($remainder >= $current_unit){
+            $current_qty = (int) ($remainder/$current_unit);
+            $remainder = $remainder % $current_unit;
+            // if the current qty is greater than 0 add it to the output array
+            if($current_qty){
+                $output_array[] = $current_qty." ".$keys[$x];
+            }
+        }
+        $x++;
+    }
+    return implode(' ', $output_array);
+}

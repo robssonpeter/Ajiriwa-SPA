@@ -9,15 +9,15 @@
         <div class="">
             <div class="">
                 <div class="bg-white overflow-hidden shadow-xl ">
-                    <div class="h-40 pt-32 pb-4 px-4 px-2 lg:px-4 z-40" id="banner" >
-                        <div class="max-w-7xl mx-auto -mt-24 px-4 sm:px-6 px-2 sm:px-4 md:px-4 lg:px-4 xl:px-12">
+                    <div class="md:h-40 pt-32 pb-4 px-4 md:px-2 lg:px-4 z-40" id="banner" >
+                        <div class="max-w-7xl mx-auto -mt-24 px-2 sm:px-6  sm:px-4 md:px-2 lg:px-4 xl:px-12">
                             <h1 class=" text-white font-bold text-4xl mb-3">Find a job</h1>
                             <div class="sm:flex sm:flex-row gap-10 space-y-6 sm:space-y-0">
                                 <div class="flex-grow">
-                                    <input class=" w-full border-2 rounded p-3 text-2xl text-gray-500" type="text" placeholder="Job Title">
+                                    <input class=" w-full border-1 md:border-2 rounded p-3 text-2xl text-gray-500" type="text" placeholder="Job Title">
                                 </div>
                                 <div class=" flex-grow">
-                                    <input class=" w-full border-2 rounded p-3 text-2xl" type="text" placeholder="Location">
+                                    <input class=" w-full border-1 md:border-2 rounded p-3 text-2xl" type="text" placeholder="Location">
                                 </div>
                                 <button class="w-full sm:w-auto rounded py-3 sm:px-5 text-2xl bg-green-500 hover:bg-green-600 text-white">
 
@@ -37,8 +37,29 @@
             <section class="text-gray-500 max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 <span class="text-3xl ml-4">{{ $page.props.greeting }}, {{ $page.props.candidate.first_name }}</span>
 
-                <div class="bg-white shadow-md p-4">
-                    Jobs for you
+                <div class="bg-white shadow-md p-4 hidden md:block mx-4">
+                    <!-- <span>Jobs for you</span> -->
+                    <ul class="md:grid grid-cols-4">
+                        <li v-for="job in jobs" class="highlighted text-green-500 font-bold md:col-span-1 border border-gray-300 rounded-md p-2" style="width: 200px; display: block;"><Link :title="job.title" :href="route('jobs.browse')+'#'+job.slug">
+                                        <p style="text-align: center; " class="text-sm"><strong>{{ job.title }}</strong></p></Link><div class="job-list-content"><Link :title="job.title" :href="route('jobs.browse')+'#'+job.slug">
+                                        <img :src="job.company.logo_url" alt="Sr Financial and Business Consultants" class="bg-white" style="margin-left: auto; margin-right: auto; height: 150px; width:150px; border-radius: 5%;" draggable="false">	</Link>
+                                        <div class="clearfix"></div>
+                                    </div></li>
+                    </ul>
+                </div>
+                <div class="md:hidden bg-white shadow-md rounded-md mt-2 mx-4" v-for="job in jobs"> 
+                    <Link :href="route('jobs.browse')+'#'+job.slug" class="">
+                        <section class="flex flex-row mb-2 mt-2">
+                            <img :src="job.company.logo_url" class="rounded h-20">
+                            <div class="flex flex-col px-4">
+                                <span class="font-bold text-green-500 text-md">{{ job.title }}</span>
+                                <span class="text-gray-600">{{ job.company.name }}</span>
+                                <span class="text-gray-400">{{ job.location }}</span>
+                            </div>
+                        </section>
+                        <span class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-gray-200 text-gray-700 rounded">Full-Time</span>
+                        <small class="float-right text-gray-500">3 days ago</small>
+                    </Link>
                 </div>
             </section>
         </div>
@@ -50,6 +71,7 @@
     import Welcome from '@/Jetstream/Welcome.vue';
     import Dropdown from "@/Jetstream/Dropdown";
     import DropdownLink from "@/Jetstream/DropdownLink";
+    import { Link } from '@inertiajs/inertia-vue3';
     //import carousel from 'vue-owl-carousel';
 
     export default {
@@ -57,9 +79,18 @@
             AppLayout,
             Welcome,
             Dropdown,
-            DropdownLink
+            DropdownLink,
+            Link
             //carousel
         },
+        mounted(){
+            console.log(this.jobs);
+        },
+        data(){
+            return {
+                jobs: this.$page.props.jobs
+            }
+        }
     }
 </script>
 <style scoped>

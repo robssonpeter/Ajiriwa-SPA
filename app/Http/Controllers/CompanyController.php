@@ -115,6 +115,7 @@ class CompanyController extends Controller
 
     public function viewJob($slug){
         $job = Job::where('slug', $slug)->first();
+        
         return Inertia::render('Company/Jobs/View', [
             'job' => $job
         ]);
@@ -247,6 +248,11 @@ class CompanyController extends Controller
         //dd($candidates);
 
         return Inertia::render('Company/BrowseCandidates', compact('candidates'));
+    }
+
+    public function showRecommendedCandidates(){
+        $job = Job::find(request()->job_id);
+        return Candidate::orderBy('id', 'DESC')->whereNotNull('first_name')->limit(5)->get();
     }
 
     public function GetAssessment(){

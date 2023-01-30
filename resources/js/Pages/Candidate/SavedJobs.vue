@@ -13,7 +13,7 @@
                 </div>
                 <div class="border shadow-md md:hidden flex flex-col p-2 w-100" v-for="(job, index) in jobs">
                     <section class="w-100">
-                        <span class="flex-fill py-2 col-4 text-green-500 hover:text-green-400 font-bold"><Link :href="route('company.job.view', job.job.slug)">{{ job.job.title }}</Link></span>
+                        <span class="flex-fill py-2 col-4 text-green-500 hover:text-green-400 font-bold"><Link :href="route('candidate.view-job', job.job.slug)">{{ job.job.title }}</Link></span>
                         <span v-if="job.status <= 1" class="col-1 text-red-500 hover:text-red-400 align-center cursor-pointer" @click="unsaveJob(index)" title="Withdraw Application">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 float-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -40,7 +40,7 @@
                     </thead>
                     <tbody>
                     <tr v-for="(job, index) in jobs" >
-                        <td class="border px-8 py-2 text-green-500 hover:text-green-400 font-bold"><Link :href="route('company.job.view', job.job.slug)">{{ job.job.title }}</Link></td>
+                        <td class="border px-8 py-2 text-green-500 hover:text-green-400 font-bold"><Link :href="route('candidate.view-job', job.job.slug)">{{ job.job.title }}</Link></td>
                         <td class="border px-8 py-2 text-center">
                             <span>{{ job.job.company.name }}</span>
                         </td>
@@ -86,8 +86,6 @@
     import TimeAgo from 'vue3-timeago';
     import CheckableDropdown from "@/Custom/CheckableDropdown";
     import ApplicationStatus from "@/Custom/Job/ApplicationStatus";
-    import { DataTable, TableHead, TableBody, TableBodyCell, TableHeadCell } from '@jobinsjp/vue3-datatable';
-    import '@jobinsjp/vue3-datatable/dist/style.css';
     import BreadCrumb from "@/Custom/BreadCrumb";
     import Swal from "sweetalert2";
     import { DefineComponent } from "vue";
@@ -106,11 +104,6 @@
             TimeAgo,
             CheckableDropdown,
             ApplicationStatus,
-            DataTable,
-            TableHead,
-            TableBody,
-            TableBodyCell,
-            TableHeadCell,
             BreadCrumb
         },
         mounted() {

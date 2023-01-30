@@ -67,6 +67,8 @@ class CandidateController extends Controller
         ];
         $skills = CandidateSkill::Levels;
         $user = Auth::user();
+        $candidate->career_objective = htmlspecialchars_decode($candidate->career_objective);
+        //dd($candidate);
         return Inertia::render('MyResume', compact('candidate', 'user', 'skills', 'breadcrumb', 'breadcrumb_actions'));
     }
 
@@ -138,6 +140,12 @@ class CandidateController extends Controller
         }
         $jobs = FavoriteJob::where('candidate_id', $candidate->id)->with('job')->get();
         return Inertia::render('Candidate/SavedJobs', compact('jobs', 'breadcrumb', 'status'));
+    }
+
+    public function viewJob($slug){
+        $job = Job::where('slug', $slug)->first();
+        $allow_apply = false;
+        return view('jobs.view-embed', compact('job', 'allow_apply'));
     }
 
     public function myResumeEdit($section = null){
@@ -307,9 +315,9 @@ class CandidateController extends Controller
         CandidateRepository::uploadFile($input);
 
         // profile completion calculator
-        $candidate = Candidate::find(1);
+        $candidate = Candidate::find($input['candidate_id']);
 /**/
-        \Spatie\MediaLibrary\Models\Media::find(1);
+        //\Spatie\MediaLibrary\Models\Media::find(1);
         if(isset($input['return'])){
             $certificate = Media::where('model_type', 'App\Models\Candidate')->where('collection_name', 'certifications')->where('model_id', $request->candidate_id)->orderBy('id', 'DESC')->first();
             event(new ProfileUpdated($candidate->user_id));

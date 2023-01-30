@@ -37,7 +37,8 @@ class Job extends Model
         'min_salary',
         'max_salary',
         'keywords',
-        'application_display_columns'
+        'application_display_columns',
+        'old_id'
     ];
 
     protected $with = [

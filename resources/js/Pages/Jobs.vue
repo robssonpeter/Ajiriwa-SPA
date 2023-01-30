@@ -6,11 +6,11 @@
             <div class="md:grid md:grid-cols-3 gap-4 max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <div class="md:col-span-1 bg-white rounded-md p-2 self-start md:sticky md:top-20 ">
                 <div class="flex flex-row py-2">
-                    <input type="text" class="flex-grow border border-gray-300" placeholder="Search Jobs">
-                    <button class="bg-green-500 px-2 text-white">Search</button>
+                    <input type="text" @keypress.enter="searchJobs" v-model="search" class="flex-grow border border-gray-300 text-gray-600 border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-l-md shadow-sm block w-full" placeholder="Search Jobs">
+                    <button class="bg-green-500 px-2 text-white" @click="searchJobs">Search</button>
                 </div>
 
-                <div role="status" v-if="loading" v-for="x in 5" class="mb-2 space-y-8 animate-pulse md:space-y-0 md:space-x-8 md:flex md:items-center">
+                <div role="status" v-if="loading" v-for="x in jobs.length" class="mb-2 space-y-8 animate-pulse md:space-y-0 md:space-x-8 md:flex md:items-center">
                     <div class="flex justify-center items-center h-24 bg-gray-300 rounded sm:w-48 md:w-32 dark:bg-gray-700">
                         <svg class="w-8 h-12 text-gray-200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" fill="currentColor" viewBox="0 0 640 512"><path d="M480 80C480 35.82 515.8 0 560 0C604.2 0 640 35.82 640 80C640 124.2 604.2 160 560 160C515.8 160 480 124.2 480 80zM0 456.1C0 445.6 2.964 435.3 8.551 426.4L225.3 81.01C231.9 70.42 243.5 64 256 64C268.5 64 280.1 70.42 286.8 81.01L412.7 281.7L460.9 202.7C464.1 196.1 472.2 192 480 192C487.8 192 495 196.1 499.1 202.7L631.1 419.1C636.9 428.6 640 439.7 640 450.9C640 484.6 612.6 512 578.9 512H55.91C25.03 512 .0006 486.1 .0006 456.1L0 456.1z"/></svg>
                     </div>
@@ -23,12 +23,41 @@
                     <span class="sr-only">Loading...</span>
                 </div>
 
+                <section v-else-if="!jobs.length" class="border border-gray-300 text-gray-500 sm:rounded-md py-4 px-4">
+                    <span>There are no jobs to display</span>
+                </section>
+
                 <section v-else v-for="(job, index) in jobs" class="my-1 grid grid-cols-3 border border-gray-300 sm:rounded-md">
                     <img :src="job.company.logo_url" class="h-24 rounded-l-md" alt="">
-                    <div class="col-span-2">
+                    <div class="col-span-2 text-gray-600 pt-2">
                         <a href="#" @click.prevent="showJob(index)" class="text-green-500 font-bold">{{ job.title }}</a>
-                        <p>{{ job.company.name }}</p>
+                        <p class="text-sm font-bold mt-1">{{ job.company.name }}</p>
                         <small>{{ job.location }}</small>
+                    </div>
+                </section>
+                <section id="pagination" class="py-4" v-if="!loading">
+                    <div class="flex justify-center">
+                        <nav aria-label="Page navigation example">
+                            <ul class="flex list-style-none">
+
+                            <li :class="paginationClass(link)" v-for="link in pagination.links"><Link
+                                v-if="link.url"
+                                :class="paginationLinkClass(link)"
+                                :href="link.url" tabindex="-1" aria-disabled="true" v-html="link.label"></Link></li>
+                            <!-- <li class="page-item"><a
+                                class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+                                href="#">1</a></li>
+                            <li class="page-item active"><a
+                                class="page-link relative block py-1.5 px-3 border-0 bg-green-500 outline-none transition-all duration-300 rounded-full text-white hover:text-white hover:bg-green-600 shadow-md focus:shadow-md"
+                                href="#">2 <span class="hidden">(current)</span></a></li>
+                            <li class="page-item"><a
+                                class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+                                href="#">3</a></li>
+                            <li class="page-item"><a
+                                class="page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+                                href="#">Next</a></li> -->
+                            </ul>
+                        </nav>
                     </div>
                 </section>
             </div>
@@ -72,23 +101,28 @@
                             </div>
                         </template>
                     </dialog-modal>
-                    <div class="border-b-2 p-4">
-                        <h2 class="text-lg">{{ current_job.title }}</h2>
-                        <p>{{ current_job.location }}</p>
-                        <p>{{ current_job.type ? current_job.type.name : '' }}</p>
-<!--                        <small>{{ current_job.deadline }}</small>-->
-                        <div class="flex gap-2">
-                            <button v-if="!alreadyApplied && canApply(current_job.deadline)" class="bg-green-500 p-2 rounded-md text-white" @click="startApplying">Apply</button>
-                            <button v-else-if="!canApply(current_job.deadline)" class="bg-green-white border border-red-500 text-red-500 rounded-md px-2">Applications Closed</button>
-                            <button v-else class="bg-green-white border border-green-500 text-green-500 rounded-md px-2">Already Applied</button>
-                            <button @click="toggleJobSave" :class="saveButtonColors"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-                            </svg></button>
+                    <section v-if="current_job.title">
+                        <div class="border-b-2 p-4 text-gray-600">
+                            <h2 class="text-lg">{{ current_job.title }}</h2>
+                            <p>{{ current_job.location }}</p>
+                            <p>{{ current_job.type ? current_job.type.name : '' }}</p>
+    <!--                        <small>{{ current_job.deadline }}</small>-->
+                            <div class="flex gap-2">
+                                <button v-if="!alreadyApplied && canApply(current_job.deadline)" class="bg-green-500 p-2 rounded-md text-white" @click="startApplying">Apply</button>
+                                <button v-else-if="!canApply(current_job.deadline)" class="bg-green-white border border-red-500 text-red-500 rounded-md px-2">Applications Closed</button>
+                                <button v-else class="bg-green-white border border-green-500 text-green-500 rounded-md px-2">Already Applied</button>
+                                <button @click="toggleJobSave" :class="saveButtonColors"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                                </svg></button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="p-4 text-gray-600" v-html="current_job.description">
+                        <div class="p-4 text-gray-600" v-html="current_job.description">
 
-                    </div>
+                        </div>
+                    </section>
+                    <section v-else class="h-48 bg-white text-gray-500 p-4">
+                        <span>The job you select will be visible here</span>
+                    </section>
                 </div>
             </div>
         </div>
@@ -106,6 +140,7 @@
     import TimeAgo from 'vue-timeago';
     import 'flowbite';
     import iziToast from "izitoast";
+    import { Link } from "@inertiajs/inertia-vue3";
     import "izitoast/dist/css/iziToast.min.css";
     import Swal from "sweetalert2";
     import { initializeApp } from "firebase/app";
@@ -132,11 +167,21 @@
     export default {
         name: "Jobs",
         components: {
-            AppLayout, BreadCrumb, DialogModal, Apply, TextEditor, Loader, TimeAgo, vSelect, AssessmentRender
+            AppLayout, BreadCrumb, DialogModal, Apply, TextEditor, Loader, TimeAgo, vSelect, AssessmentRender, Link
         },
         mounted(){
+            let slug = window.location.hash.replace('#', '');
+            let index = 0;
+            
             if(this.jobs.length) {
-                 this.showJob(0);
+                if(slug){
+                    index = this.jobs.findIndex(element => element.slug == slug);
+                    if(index < -1){
+                        iziToast.error({ title: 'Job Not Found', message: 'The job you are trying to access is not available'});
+                        index = 0;
+                    }
+                }
+                 this.showJob(index);
             }
             Notification.requestPermission().then((permission) => {
                 if(permission === 'granted'){
@@ -164,15 +209,39 @@
                 currently_applying: false,
                 current_job: {},
                 current_assessments: [],
-                jobs: this.$page.props.jobs,
+                pagination: this.$page.props.jobs,
+                jobs: this.$page.props.jobs.data,
                 viewed_jobs: this.$page.props.viewedJobs,
                 applied_jobs: this.$page.props.appliedJobs,
                 saved_jobs: this.$page.props.savedJobs,
                 certificates: this.$page.props.certificates,
                 selected_certs: [],
+                search: "",
             }
         },
         computed: {
+            paginationLinkClass(){
+                return data => {
+                    if(!data.url && !data.active){
+                        return "page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-gray-500 pointer-events-none focus:shadow-none"
+                    }else if(data.active){
+                        return "page-link relative block py-1.5 px-3 border-0 bg-green-500 outline-none transition-all duration-300 rounded-full text-white hover:text-white hover:bg-green-600 shadow-md focus:shadow-md"
+                    }else{
+                        return "page-link relative block py-1.5 px-3 border-0 bg-transparent outline-none transition-all duration-300 rounded-full text-gray-800 hover:text-gray-800 hover:bg-gray-200 focus:shadow-none"
+                    }
+                }
+            },
+            paginationClass(){
+                return data => {
+                    if(!data.url && !data.active){
+                        return "page-item disabled"
+                    }else if(data.active){
+                        return "page-item active"
+                    }else{
+                        return "page-item"
+                    }
+                }
+            },
             canApply(){
                 return date => {
                     let today = new Date();
@@ -201,6 +270,23 @@
             }
         },
         methods: {
+            searchJobs(){
+                this.loading = true;
+                axios.post(route('jobs.search', {search: this.search, ajax: 1})).then((response) => {
+                    //console.log(response.data);
+                    this.pagination = response.data;
+                    this.jobs = response.data.data;
+                    this.loading = false;
+                }).catch((error) => {
+                    Swal.fire({
+                        title: "Failed",
+                        text: "Action could not be completed",
+                        icon: "error"
+                    })
+                    console.error(error.response.data);
+                    this.loading = false;
+                })
+            },
             questionAnswered(data){
                 let index = this.current_assessments.findIndex(element => element.id === data.question_id);
                 this.current_assessments[index].applicant_answer = data.answer;

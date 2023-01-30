@@ -18,7 +18,7 @@
                     <small class="text-gray-500">{{ Carbon\Carbon::parse($post->created_at)->format('M d, Y') }}</small> <span class="text-sm text-gray-500">|</span>
                     <span class="text-sm text-green-500">Peter Robert Mgembe</span>
                 </section>
-                <a href="" class="font-bold text-gray-500 text-lg">{{ $post->Title }}</a>
+                <a href="{{ route('blog.post.view', $post->slug) }}" class="font-bold text-gray-500 text-lg">{{ $post->Title }}</a>
                 <div>
                     <span class="text-gray-500">{{ $post->Summary }}</span>
                 </div>

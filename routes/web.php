@@ -8,11 +8,20 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PushController;
+use App\Http\Controllers\SEOController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
+use App\Models\BlogPost;
+use App\Models\Job;
+use App\Models\JobCategory;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Artesaos\SEOTools\Facades\JsonLd;
+use Artesaos\SEOTools\Facades\JsonLdMulti;
+use Artesaos\SEOTools\Facades\OpenGraph;
+use Artesaos\SEOTools\Facades\SEOMeta;
+use Artesaos\SEOTools\Facades\SEOTools;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,8 +41,13 @@ Route::get('/', function () {
     }
 
     $blog_posts = \App\Models\BlogPost::limit(3)->orderBy('id', 'ASC')->get();
+    $today = date('Y-m-d');
+    $latest_jobs = Job::orderBy('id', 'DESC')->where('deadline', '>=', $today)->get();
+    SEOMeta::addMeta('theme-color', '#6ad3ac');
+    $job_categories = JobCategory::withCount('active_jobs')->orderBy('active_jobs_count', 'desc')->limit(8)->get();
+    //dd($latest_jobs->count());
 
-    return view('home', compact('blog_posts'));
+    return view('home', compact('blog_posts', 'latest_jobs', 'job_categories'));
     /*return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
@@ -42,7 +56,19 @@ Route::get('/', function () {
     ]);*/
 })->name('root');
 
+Route::get('/sitemap', [SEOController::class, 'sitemap'])->name('sitemap');
+
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/blog/{slug}', [BlogController::class, 'viewPost'])->name('blog.post.view');
+Route::get('/blog-single-post.php', function(){
+    $blog = BlogPost::find(request()->id);
+    
+    if(!$blog){
+        abort(404);
+    }
+    return redirect()->route('blog.post.view', $blog->slug, 301);
+})->name('old.post.view');
+Route::get('/employers', [BlogController::class, 'employers'])->name('employers');
 Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs.index');
 Route::get('/contact', [FaqsController::class, 'contact'])->name('contact');
 Route::get('/privacy-policy', [FaqsController::class, 'privacyPolicy'])->name('privacy.policy');
@@ -52,13 +78,14 @@ Route::get('/privacy-policy', [FaqsController::class, 'privacyPolicy'])->name('p
 Route::get('/browse-jobs.php', [JobController::class, 'browseGuest'])->name('jobs.browse.ext');
 Route::get('/jobs.php', [JobController::class, 'browseGuest'])->name('jobs.browse.alt');
 
-Route::get('/search.php', [JobController::class, 'search'])->name('jobs.search');
+Route::match(['GET', 'POST'], '/search.php', [JobController::class, 'search'])->name('jobs.search');
 Route::get('/search/{keyword}', [JobController::class, 'search'])->name('jobs.search.friendly');
 
 Route::get('/browse-jobs', [JobController::class, 'browse'])->name('jobs.browse');
 
-Route::get('/jobs/category/{slug}', [JobController::class, 'browse'])->name('jobs.by-category');
+Route::get('/job-by/category/{slug}', [JobController::class, 'jobsByCategory'])->name('jobs.by-category');
 
+Route::get('/job-page.php', [JobController::class, 'oldJob'])->name('old-job.view');
 Route::get('/view-job/{slug}', [JobController::class, 'viewJob'])->name('job.view');
 
 Route::post('/job/register-view', [JobController::class, 'registerView'])->name('job.view.register');
@@ -89,6 +116,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/my-applications', [CandidateController::class, 'myApplications'])->name('my-applications');
 
     Route::get('/save-jobs', [CandidateController::class, 'savedJobs'])->name('saved-jobs');
+    
+    Route::get('/candidate/job/{slug}', [CandidateController::class, 'viewJob'])->name('candidate.view-job');
 
     Route::post('/save-job/toggle', [CandidateController::class, 'toggleFavorite'])->name('job-save.toggle');
 
@@ -126,6 +155,7 @@ Route::group(['middleware' => ['auth', 'role:employer']], function(){
     Route::post('company/applications/filter', [CompanyController::class, 'FilterApplications'])->name('job.applications.filter')->middleware(['auth']);
     Route::get('/company/jobs', [CompanyController::class, 'showJobs'])->name('company.jobs.index');
     Route::get('/company/browse-candidates', [CompanyController::class, 'browseCandidates'])->name('company.candidates.browse');
+    Route::post('/company/recommend-candidates', [CompanyController::class, 'showRecommendedCandidates'])->name('company.candidates.recommend');
     Route::post('/application/change-status', [CompanyController::class, 'changeApplicationStatus'])->name('application.change-status');
 
 });
@@ -133,6 +163,11 @@ Route::group(['middleware' => ['auth', 'role:employer']], function(){
 
     Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $user = Auth::user();
+    if(session()->has('redirect')){
+        $link = session()->get('redirect');
+        session()->forget('redirect');
+        return redirect()->to($link);
+    }
     if($user->hasRole('employer')){
         $component = 'Company/Dashboard';
         $candidate = false;
@@ -152,7 +187,9 @@ Route::group(['middleware' => ['auth', 'role:employer']], function(){
         $candidate = \App\Models\Candidate::where('user_id', $user->id)->first();
         //dd($candidate);
         $greeting = greet();
-        $props = compact('candidate', 'greeting');
+        $jobs = Job::where('deadline', '>=', date('Y-m-d'))->orderBy('id', 'DESC')->limit(4)->get();
+    
+        $props = compact('candidate', 'greeting', 'jobs');
         $component = 'Dashboard';
     }
 

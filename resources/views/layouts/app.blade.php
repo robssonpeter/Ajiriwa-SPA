@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-
+        @php
+            $livewire_routes = ["jobs.by-category", "jobs.search", "jobs.browse.ext"];
+        @endphp
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -23,7 +25,10 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         <!-- Scripts -->
-        <script src="{{ asset('js/essential.js') }}" defer></script>
+        {{-- <script src="{{ asset('js/essential.js') }}" defer></script> --}}
+        @if(in_array(\Route::current()->getName(), $livewire_routes))
+            @livewireStyles
+        @endif
         <style>
             div.description li {
                 list-style-type: circle;
@@ -64,6 +69,9 @@
         </style>
     </head>
     <body class="font-sans antialiased">
+        @if(in_array(\Route::current()->getName(), $livewire_routes))
+            @livewireScripts
+        @endif
 
         <div class="min-h-screen bg-gray-100" id="app">
 
@@ -75,12 +83,13 @@
                             <a href="/" class="flex space-x-2" id="home-link">
                                 <span class="sr-only">Workflow</span>
                                 <!-- <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt=""> -->
-                                <img class="h-8 w-auto sm:h-10" src="{{asset('images/ajiriwa-new-logo.png')}}" alt="">
+                                <img class="h-8 w-auto sm:h-10" src="{{asset('images/ajiriwa-new-logo.png')}}" alt="Ajiriwa Network">
                                 <span class=" self-center text-2xl font-bold text-gray-500">Ajiriwa.net</span>
                             </a>
                         </div>
                         <div class="-mr-2 -my-2 md:hidden">
                             <button type="button"
+                                    onclick="document.getElementById('mobile-menu').classList.remove('hidden')"
                                     class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                                     aria-expanded="false">
                                 <span class="sr-only">Open menu</span>
@@ -95,7 +104,7 @@
                         <nav class="hidden md:flex space-x-10">
                             <a href="{{route('jobs.browse.ext')}}" class="text-gray-500 self-center">Jobs</a>
                             <a href="{{route('blog.index')}}" class="text-gray-500 self-center">Blog</a>
-                            <a href="{{route('jobs.browse.ext')}}" class="text-gray-500 self-center">Employers</a>
+                            <a href="{{ route('employers') }}" class="text-gray-500 self-center">Employers</a>
 
                             <!--<router-link :to="{ name: 'Jobs'}" class="text-base font-medium text-gray-500 hover:text-gray-900">
                               Jobs
@@ -120,7 +129,7 @@
                         </div>
                     </div>
                 </div>
-                <owl-slider></owl-slider>
+                {{-- <owl-slider></owl-slider> --}}
                 <!--
                   Mobile menu, show/hide based on mobile menu state.
 
@@ -132,18 +141,19 @@
                     To: "opacity-0 scale-95"
                 -->
                 <Menu>
-                    <div class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right hidden md:hidden">
+                    <div id="mobile-menu" class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right hidden md:hidden">
                         <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
                             <div class="pt-5 pb-6 px-5">
 
 
                                 <div class="flex items-center justify-between">
-                                    <div>
-                                        <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                                             alt="Workflow">
+                                    <div class="flex space-x-2">
+                                        <img class="h-8 w-auto sm:h-10" src="{{asset('images/ajiriwa-new-logo.png')}}" alt="Ajiriwa Network">
+                                        <span class=" self-center text-2xl font-bold text-gray-500">Ajiriwa.net</span>
                                     </div>
                                     <div class="-mr-2">
                                         <button type="button"
+                                                onclick="document.getElementById('mobile-menu').classList.add('hidden')"
                                                 class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
                                             <span class="sr-only">Close menu</span>
                                             <!-- Heroicon name: outline/x -->
@@ -157,19 +167,18 @@
                                 </div>
                                 <div class="mt-6">
                                     <nav class="grid gap-y-8">
-                                        <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-green-50">
+                                        <a href="{{ route('jobs.browse.ext') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-green-50">
                                             <!-- Heroicon name: outline/chart-bar -->
-                                            <svg class="flex-shrink-0 h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg"
-                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                      d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 h-6 w-6 text-green-600">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+                                              </svg>
+                                              
                                             <span class="ml-3 text-base font-medium text-gray-900">
-                Analytics
+                Jobs
               </span>
                                         </a>
 
-                                        <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-green-50">
+                                        <a href="{{ route('blog.index') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-green-50">
                                             <!-- Heroicon name: outline/cursor-click -->
                                             <svg class="flex-shrink-0 h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg"
                                                  fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -177,23 +186,22 @@
                                                       d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
                                             </svg>
                                             <span class="ml-3 text-base font-medium text-gray-900">
-                Engagement
+                Blog
               </span>
                                         </a>
 
-                                        <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-green-50">
+                                        <a href="{{ route('blog.index') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-green-50">
                                             <!-- Heroicon name: outline/shield-check -->
-                                            <svg class="flex-shrink-0 h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg"
-                                                 fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                      d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-                                            </svg>
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 h-6 w-6 text-green-600">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
+                                              </svg>
+                                              
                                             <span class="ml-3 text-base font-medium text-gray-900">
-                Security
+                Employers
               </span>
                                         </a>
 
-                                        <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-green-50">
+                                        <a href="{{ route('employers') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-green-50">
                                             <!-- Heroicon name: outline/view-grid -->
                                             <svg class="flex-shrink-0 h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg"
                                                  fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -247,7 +255,7 @@
                                 </div>
                                 <div>
                                     <a href="#"
-                                       class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                                       class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-500 hover:bg-indigo-700">
                                         Sign up
                                     </a>
                                     <p class="mt-6 text-center text-base font-medium text-gray-500">

@@ -3,6 +3,8 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
     mode: 'jit',
     purge: [
+        "./node_modules/flowbite/**/*.js", 
+        './node_modules/tw-elements/dist/js/**/*.js',
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './vendor/laravel/jetstream/**/*.blade.php',
         './storage/framework/views/*.php',
@@ -16,17 +18,22 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
+        colors: {
+            green: '#13ce66',
+            yellow: '#ffc82c',
+            gray: '#8492a6',
+        }
     },
-
-    variants: {
-        extend: {
-            opacity: ['disabled'],
-        },
-        animation: ['responsive', 'motion-safe', 'motion-reduce']
-    },
-
+    /* corePlugins: {
+        gray: colors.neutral,
+    }, */
     plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'), require('flowbite/plugin'), require('tw-elements/dist/plugin')],
     content: [
-        "./node_modules/flowbite/**/*.js", './node_modules/tw-elements/dist/js/**/*.js'
+        "./node_modules/flowbite/**/*.js", './node_modules/tw-elements/dist/js/**/*.js',
+        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
+        './vendor/laravel/jetstream/**/*.blade.php',
+        './storage/framework/views/*.php',
+        './resources/views/**/*.blade.php',
+        './resources/js/**/*.vue',
     ]
 };

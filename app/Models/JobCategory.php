@@ -10,6 +10,13 @@ class JobCategory extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name'
+        'name', 'slug', 'icon'
     ];
+
+    
+
+
+    public function active_jobs(){
+        return $this->hasManyThrough(Job::class, AssignedJobCategory::class, 'category_id', 'id', 'id', 'job_id')->where('deadline', '>=', date('Y-m-d'));
+    }
 }

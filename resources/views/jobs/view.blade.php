@@ -10,17 +10,50 @@
             color: black;
         }
     </style>
-    <div class="w-full md:max-w-7xl mx-auto pt-5 mb-12 md:grid md:grid-cols-6 gap-2" id="job-page">
-        <div class="col-span-4 mr-8 md:mr-0">
-            <div class="bg-white shadow-lg  ml-8 p-4">
+    <div class="w-full md:max-w-7xl mx-auto mb-12 md:grid md:grid-cols-6 gap-2" id="job-page">
+        <div class="col-span-4 mx-4 md:mr-0">
+            <div class="bg-white shadow-lg md:hidden md:ml-8 px-4 mb-2">
+                <nav class="flex py-2" aria-label="Breadcrumb">
+                    <ol class="inline-flex items-center space-x-1 py-1 md:space-x-3">
+                      <li class="inline-flex items-center">
+                        <a href="/" class="inline-flex items-center text-sm font-medium text-green-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">
+                          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"></path></svg>
+                          Home
+                        </a>
+                      </li>
+                      <li>
+                        <div class="flex items-center">
+                          <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                          <a href="{{route('jobs.browse.ext')}}" class="ml-1 text-sm font-medium text-green-500 hover:text-gray-900 md:ml-2 dark:text-gray-400 dark:hover:text-white">Jobs</a>
+                        </div>
+                      </li>
+                      <li aria-current="page">
+                        <div class="flex items-center">
+                          <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                          <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">{{ $job->title }}</span>
+                        </div>
+                      </li>
+                    </ol>
+                </nav>
+            </div>
+            <div class="bg-white shadow-lg  md:ml-8 p-4">
                 <section class="md:grid grid-cols-4">
                     <div class="col-span-3 flex flex-col">
                         <span class="text-xl text-gray-500 font-bold">{{ $job->title }}</span>
                         <span class="text-green-500">{{ $job->company->name }}</span>
-                        <span class="text-gray-500">{{ $job->location }}</span>
+                        <span class="text-gray-500" v-on:click="apply">{{ $job->location }}</span>
                     </div>
                     <div class="md:grid md:grid-cols-2 md:gap-4 hidden md:block">
-                        <button class="bg-green-500 rounded-md text-white p-2 self-center" @click="apply">Apply</button>
+                        @if(!in_array($job->id, $applied))
+                            <button class="bg-green-500 hover:bg-green-600 rounded-md text-white p-2 self-center" v-on:click="apply()">Apply</button>
+                        @else
+                        <button class="border border-green-500 rounded-md text-green-500 p-2 self-center flex space-x-1">
+                            <span>Applied</span>
+                            {{-- <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>  --}}                             
+                        </button>
+                        @endif
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                              stroke="currentColor" class="w-6 h-6 self-center text-green-500 cursor-pointer"
                              data-bs-toggle="modal" data-bs-target="#exampleModalCenter">
@@ -31,7 +64,7 @@
 
 
                 </section>
-                <div class="bg-gray-200 w-100 p-4 mt-2 md:grid md:grid-cols-4">
+                <div class="bg-gray-200 w-full p-4 mt-2 md:grid md:grid-cols-4">
                     <section class="md:flex md:flex-col flex-row">
                         <span class="font-bold hidden md:block">Job Type:</span>
                         <div class="items-center md:hidden block px-2 flex">
@@ -70,9 +103,9 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
-                            <span class="pl-4 md:pl-0 self-center md:self-start">300</span>
+                            <span class="pl-4 md:pl-0 self-center md:self-start">{{ $job->count_views }}</span>
                         </div>
-                        <span class="pl-4 md:pl-0 hidden md:block self-start">300</span>
+                        <span class="pl-4 md:pl-0 hidden md:block self-start">{{ $job->count_views }}</span>
                     </section>
                     <div class="flex flex-row py-2 md:hidden">
                         <button class="bg-green-500 rounded-md w-full text-white p-2 self-center" @click="apply">Apply</button>
@@ -81,11 +114,11 @@
                 </div>
             </div>
 
-            <div class="bg-white shadow-lg  ml-8 p-4 mt-2 description text-gray-600">
+            <div class="bg-white shadow-lg md:ml-8 p-4 mt-2 description text-gray-600">
                 {!! $job->description !!}
             </div>
         </div>
-        <div class="bg-white col-span-2 mr-16 px-4 self-start py-4 sticky top-16 shadow-lg hidden md:block">
+        <div class="bg-white col-span-2 mx-4 px-4 self-start py-4 sticky top-16 shadow-lg hidden md:block">
             <section class="flex flex-row border-b pb-2">
                 <div class="h-16 w-16 bg-green-200">
                     <img src="{{ $job->company->logo_url }}" alt="">
@@ -265,8 +298,9 @@
         </TransitionRoot>
     </div>
     <script type="text/javascript">
-        const checkbox = document.getElementById("flexCheckIndeterminate");
-        checkbox.indeterminate = true;
+        //const checkbox = document.getElementById("flexCheckIndeterminate");
+        //checkbox.indeterminate = true;
+
     </script>
     <script>
         let job = @json($job);

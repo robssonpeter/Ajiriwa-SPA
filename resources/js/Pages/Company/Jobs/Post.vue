@@ -47,7 +47,11 @@
                         <span class="font-bold">Job Description</span>
                         <text-editor @change="editorChanged" :text="$page.props.job?$page.props.job.description:''" v-model:content="description"></text-editor>
                     </section>
-                    <div class="grid grid-cols-3 gap-3  ">
+                    <section class="py-2">
+                        <span class="font-bold">Keywords</span>
+                        <tag-input @changed="tagChanged"></tag-input>
+                    </section>
+                    <div class="grid grid-cols-3 gap-3">
                         <section class="py-2 flex flex-col col-span-1" >
                             <label for="apply_method" class="font-bold">Applications Method</label>
                             <select name="apply_method" v-model="apply_method" id="apply_method" class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300">
@@ -127,18 +131,23 @@
     import { QuillEditor } from '@vueup/vue-quill';
     import Loader from "@/Custom/Loader";
     import Swal from "sweetalert2";
+    import TagInput from "../../../Custom/TagInput.vue";
     export default {
         name: "Post",
         props: {
             title: String,
         },
         components: {
-            EmployerLayout, Head, TextEditor, Input, QuillEditor, Loader
+            EmployerLayout, Head, TextEditor, Input, QuillEditor, Loader, TagInput
         },
         mounted(){
            /*if(this.$page.props.job){
                this.application_email =
            }*/
+           if(this.$page.props.job){
+                //alert(this.$page.props.job.description);
+                this.description = this.$page.props.job.description;
+           } 
         },
         data(){
             return {
@@ -156,6 +165,7 @@
                 deadline: this.$page.props.job?this.$page.props.job.deadline:'',
                 cover_letter: this.$page.props.job?this.$page.props.job.cover_letter:'',
                 saving: false,
+                keywords: [],
                 company_id: this.$page.props.company.id,
                 number_of_posts: this.$page.props.job?this.$page.props.job.number_of_posts:1,
                 job_id: this.$page.props.job?this.$page.props.job.id:'',
@@ -177,6 +187,10 @@
             }
         },
         methods: {
+            tagChanged(event){
+                console.log(event);
+                this.keywords = event;
+            },
             controlCC(index){
                if(!this.application_email_cc[index].length){
                    this.application_email_cc.splice(index, 1)
@@ -191,6 +205,10 @@
             },
             submitJob(){
                 this.saving = true;
+                if(!this.description){
+                    this.description = this.$page.props.job.description;
+                }
+                
                 axios.post(route('job.save'), this.$data).then((response) => {
                     console.log(response.data);
                     if(response.data && response.data.id){

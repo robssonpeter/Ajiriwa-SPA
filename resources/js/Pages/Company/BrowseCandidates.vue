@@ -1,14 +1,14 @@
 <template>
     <employer-layout title="Browse Candidates">
         <div class="md:grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 xl:grid-7  gap-12 h-screen border border-b-2">
-            <section class="col-span-1 sm:col-span-2 md:col-span-1 2xl:col-span-2 h-100 shadow-lg p-4 overflow-y-auto pb-8">
+            <section class="col-span-1 sm:col-span-2 md:col-span-2 2xl:col-span-2 h-100 shadow-lg p-4 overflow-y-auto pb-8">
                 <div class="flex flex-row py-2">
                     <input type="text" class="flex-grow border border-gray-300 rounded-l-md" placeholder="Search Jobs">
                     <button class="bg-green-500 px-2 text-white rounded-r-md">Search</button>
                 </div>
                 <div v-for="candidate in candidates" class="my-1 grid grid-cols-3 border border-gray-300 sm:rounded-md">
                     <img :src="candidate.logo_url??'https://placeimg.com/150/150/any?1'" class="h-24 rounded-l-md" alt="">
-                    <div class="col-span-2">
+                    <div class="col-span-2 px-2">
                         <a href="#" @click.prevent="showCandidate(candidate)" class="text-green-500 font-bold">{{ candidate.full_name }}</a>
                         <p>{{ candidate.professional_title }}</p>
                         <small>{{ candidate.address }}</small>
@@ -19,7 +19,7 @@
             <section class="hidden md:block md:col-span-2 lg:col-span-4 2xl:col-span-3 shadow-lg p-2 self-auto overflow-y-auto">
                 <profile-embed v-if="!current_candidate.empty" :candidate="current_candidate" :show_profile="true"></profile-embed>
             </section>
-            <section class="hidden 2xl:block xl:col-span-1 shadow-lg">
+            <section class="hidden 2xl:block xl:col-span-2 shadow-lg">
                 
             </section>
             

@@ -67,67 +67,13 @@
                     <tr v-if="!applications.length">
                         <td class="text-center border px-8 py-4" colspan="8">
                             <span>You have not made any application</span>
-                            <span>
+                            <!-- <span>
                                 <button class="bg-green-400 p-1 rounded-md text-white"><Link :href="route('company.post-job')">Post a Job</Link></button>
-                            </span>
+                            </span> -->
                         </td>
                     </tr>
                     </tbody>
                 </table>
-<!--            <data-table
-                    :rows="applications">
-                    <template #thead>
-                        <TableHeadCell>
-                            Position
-                        </TableHeadCell>
-
-                        <TableHeadCell>
-                            Location
-                        </TableHeadCell>
-
-                        <TableHeadCell>
-                            Date Applied
-                        </TableHeadCell>
-
-                        <TableHeadCell>
-                            Status
-                        </TableHeadCell>
-
-                        <TableHeadCell>
-                            Closing Date
-                        </TableHeadCell>
-
-                        <TableHeadCell>
-                            Action
-                        </TableHeadCell>
-                    </template>
-
-                    <template #tbody v-for="application in applications">
-                        <TableBodyCell class="text-left">
-                            <span class="text-green-400 font-bold">{{ application.job.title }}</span>
-                        </TableBodyCell>
-                        <TableBodyCell>
-                            <span v-text="application.job.location"></span>
-                        </TableBodyCell>
-                        <TableBodyCell>
-                            <span v-text="application.application_date"></span>
-                        </TableBodyCell>
-                        <TableBodyCell>
-                            <span v-text="application.application_status"></span>
-                        </TableBodyCell>
-                        <TableBodyCell>
-                            <span v-text="application.job.deadline"></span>
-                        </TableBodyCell>
-                        <TableBodyCell>
-
-                        </TableBodyCell>
-                    </template>
-                    <template #empty>
-                        <TableBodyCell colspan="6" class="text-center">
-                            <span>You have not made any application.</span><Link :href="route('jobs.browse')"><button class="bg-green-400 text-white p-2 hover:bg-green-500">Browse Jobs</button></Link>
-                        </TableBodyCell>
-                    </template>
-                </data-table>-->
             </div>
 
             <!--<div class="col-span-1">
@@ -147,8 +93,6 @@
     import TimeAgo from 'vue3-timeago';
     import CheckableDropdown from "@/Custom/CheckableDropdown";
     import ApplicationStatus from "@/Custom/Job/ApplicationStatus";
-    import { DataTable, TableHead, TableBody, TableBodyCell, TableHeadCell } from '@jobinsjp/vue3-datatable';
-    import '@jobinsjp/vue3-datatable/dist/style.css';
     import BreadCrumb from "@/Custom/BreadCrumb";
     import Swal from "sweetalert2";
     import { DefineComponent } from "vue";
@@ -167,11 +111,6 @@
             TimeAgo,
             CheckableDropdown,
             ApplicationStatus,
-            DataTable,
-            TableHead,
-            TableBody,
-            TableBodyCell,
-            TableHeadCell,
             BreadCrumb
         },
         mounted() {

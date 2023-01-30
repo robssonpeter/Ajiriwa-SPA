@@ -1,4 +1,4 @@
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+/* import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 import { Swiper, SwiperSlide } from "swiper/vue";
 // Import Swiper styles
@@ -28,5 +28,34 @@ createApp({
             //alert('slide is changing here man')
         }
     }
-}).mount('#swiper');
+}).mount('#swiper'); */
+/* var $ = require( "jquery" ); */
+//import jQuery from 'jquery';
+//import flexslider from 'flexslider';
+
+//import $ from '../js/flexslider/node_modules/jquery';
+var jQuery = require('detached-jquery-1.6.4');
+var $ = jQuery.getJQuery();
+//var jQuery = ;
+
+
+
+/* import jQuery from 'jquery'; */
+//window.$ = window.jQuery = $;
+$(window).on('load', function(){
+    alert('hello there');
+})
+
+
+
+/* $(window).load(function(){
+    $('.flexslider').flexslider(
+    {
+        animation:"slide",
+        animationLoop:true,
+        itemWidth:210,
+        itemMargin:5
+    });
+}); */
+
 

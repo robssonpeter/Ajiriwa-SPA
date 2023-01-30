@@ -2,11 +2,7 @@
         <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-gray-600">
             <div class="col-span-2 text-gray-600">
                 <div class="w3-card w3-white w3-margin-bottom">
-                    <!--<meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <link rel="stylesheet" href="https://www.ajiriwa.net/css/w3.css">-->
-
-                    <div class="container text-gray-700 body bg-white shadow-md" v-if="candidate">
+                    <div class="container text-gray-700 body bg-white" v-if="candidate">
                         <div class="">
                             <h1 class="text-center text-3xl ">
                                 CURRICULUM VITAE

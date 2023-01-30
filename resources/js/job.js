@@ -11,6 +11,7 @@ import {
     TransitionChild,
 } from "@headlessui/vue";
 import Loader from "@/Custom/Loader";
+import axios from "axios";
 
 createApp({
     components: {
@@ -126,4 +127,4 @@ createApp({
                 });
         }
     }
-}).mount('#job-page')
+}).mount('#job-page');

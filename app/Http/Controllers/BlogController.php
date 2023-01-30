@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BlogPost;
 use Artesaos\SEOTools\Facades\SEOMeta;
+use FontLib\Table\Type\post;
 use Illuminate\Http\Request;
 
 class BlogController extends Controller
@@ -20,6 +21,12 @@ class BlogController extends Controller
         //dd('blog is here');
         $posts = BlogPost::orderBy('created_at', 'DESC')->get();
         return view('Blog.index', compact('posts'));
+    }
+
+    public function viewPost($slug){
+        $post = BlogPost::where('slug', $slug)->first();
+        //dd($post);
+        return view('Blog.view-post', compact('post'));
     }
 
     /**
@@ -86,5 +93,9 @@ class BlogController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function employers(){
+        return view('Blog.employers');
     }
 }

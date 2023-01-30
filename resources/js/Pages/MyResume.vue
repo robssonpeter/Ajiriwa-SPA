@@ -26,7 +26,7 @@
                     <div class="w3-container pb-3 shadow-md mt-4">
                         <div class="text-grey flex py-4 px-2" id="certificateHeader">
                             <span class="flex-grow text-2xl">Certificates</span>
-                            <Link class="bg-green-500 self-center" :href="route('my-resume.edit.sectional', 'awards')">Manage</Link>
+                            <Link class="bg-green-400 text-white self-center p-1 rounded-md font-bold" :href="route('my-resume.edit.sectional', 'awards')">Manage</Link>
                         </div>
                         <ul class="list-1 gap-y-4 px-2" style="margin-left: auto; margin-right: auto;">
                             <li class="bullet text-grey flex hover:text-green-500 mt-2" v-for="certificate in $page.props.candidate.certificates">
@@ -46,10 +46,7 @@
             <!-- Right Column -->
             <div class="col-span-2 text-gray-600">
                 <div class="w3-card w3-white w3-margin-bottom">
-                    <title>Peter Robert Mgembe Resume</title>
-                    <!--<meta charset="UTF-8">
-                    <meta name="viewport" content="width=device-width, initial-scale=1">
-                    <link rel="stylesheet" href="https://www.ajiriwa.net/css/w3.css">-->
+                    <title>{{ fullName }} Resume</title>
 
                     <div class="container text-gray-700 body bg-white shadow-md">
                         <div class="">
@@ -136,27 +133,6 @@
                             </section>
                         </div>
 
-<!--                        <div>
-                            <h2 class="bg-green-400 text-xl text-white mt-4 px-2">
-                                ACHIEVEMENTS
-                            </h2>
-                            <div class="px-2">
-                            <p><b>Development of ajiriwa.net recruitment platform</b>&nbsp; - with inspration from
-                                working
-                                at the HR Department at DHL Supply Chain. The platform connects employers and job
-                                seekers,
-                                assisting employers to get the candidate they need and allowing job seekers to be found,
-                                the
-                                platform would even assist people in making a professional CV. This CV was create using
-                                the
-                                platform.<br></p>
-                            <p><strong>Development of a payroll management software</strong>&nbsp;which handles a
-                                company's
-                                payroll and employement management needs. Trial version of the software is live at
-                                https://payroll.ajiriwa.net</p>
-                            </div>
-                        </div>-->
-
                         <section class="mt-2" v-if="$page.props.candidate.skills.length">
                         <div>
                             <h2 class="bg-green-400 text-xl text-white px-2">
@@ -179,13 +155,6 @@
                         </div>
                         </section>
 
-                        <!--<div>
-                            <p class="bg-green-500">
-          text-white                       <strong>COMPUTER AND INFORMATION TECHNOLOGY SKILLS</strong>
-                            </p>
-                        </div>-->
-
-
                         <section class="mt-2" v-if="$page.props.candidate.languages.length">
                             <h2 class="bg-green-400 text-xl text-white mt-4 px-2">
                                 LANGUAGE PROFICIENCY
@@ -197,14 +166,7 @@
                             </p>
                             </div>
                         </section>
-<!--                        <h2 class="bg-green-400 text-xl text-white mt-4 px-2">
-                            PERSONAL INTERESTS, HOBBIES AND TALENTS
-                        </h2>
-                        <div class="px-2"><p><b>Programming </b>- I enjoy coding and spend most of my free time doing so, to solve
-                            problems</p>
-                            <p><br></p></div>
 
-                        <div>-->
                         <section class="mt-2" v-if="$page.props.candidate.referees.length">
                             <div>
                                 <h2 class="bg-green-400 text-xl text-white px-2 ">

@@ -10,6 +10,7 @@ class CandidateSkill extends Model
     use HasFactory;
 
     const Levels = [
+        1 => 'Begginer',
         2 => 'Novice',
         3 => 'Intermediate',
         4 => 'Proficient',
