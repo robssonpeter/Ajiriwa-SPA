@@ -1,8 +1,8 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/essential.js": "/js/essential.js",
-    "/js/Company/details.js": "/js/Company/details.js",
-    "/js/job.js": "/js/job.js",
-    "/js/homepage.js": "/js/homepage.js",
-    "/css/app.css": "/css/app.css"
+    "/js/app.js": "/js/app.js?id=fb6bd3e479911465d8f91be5bfab95c7",
+    "/js/essential.js": "/js/essential.js?id=d8eed4a58db98c4fe093849fc852e357",
+    "/js/Company/details.js": "/js/Company/details.js?id=9af52f21176a0699d72716f0a653cf59",
+    "/js/job.js": "/js/job.js?id=b46ff60dada0677007ad985e6c4d1285",
+    "/js/homepage.js": "/js/homepage.js?id=bd183beabd556ae0b3141567b370598a",
+    "/css/app.css": "/css/app.css?id=24b34fd6fb79982a65e6637a66f83153"
 }

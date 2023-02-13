@@ -169,7 +169,7 @@
                                     <div class="modal-body relative p-4 text-gray-700">
                                         <span>How do you want to apply?</span>
                                     </div>
-                                    <div class="mt-4 px-4">
+                                    <div class="mt-4 px-4 flex flex-col md:flex-row space-y-1">
                                         <button
                                             type="button"
                                             class="inline-flex justify-center rounded-md border border-transparent bg-green-500 px-4 py-2 text-sm font-medium text-white hover:bg-green-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
@@ -179,7 +179,7 @@
                                         </button>
                                         <button
                                             type="button"
-                                            class="ml-2 inline-flex justify-center rounded-md border border-transparent bg-gray-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                                            class="inline-flex justify-center rounded-md border border-transparent bg-gray-200 px-4 py-2 text-sm font-medium text-gray-900 hover:bg-gray-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                                             @click="applyWithoutLogin"
                                         >
                                             Apply Without Login
@@ -206,13 +206,13 @@
                 <div class="fixed inset-0 bg-black/40" aria-hidden="true"/>
 
                 <!-- Full-screen container to center the panel -->
-                <div class="fixed inset-0 flex items-center justify-center p-4">
+                <div class="fixed inset-0 flex items-center justify-center px-2 md:px-4 py-4">
                     <!-- The actual dialog panel -->
                     <DialogPanel
                         class="w-full max-w-3xl transform overflow-hidden rounded-2xl bg-gray-100 p-6 text-left align-middle shadow-xl transition-all">
                         <DialogTitle
                             as="h3"
-                            class="text-lg font-medium leading-6 text-gray-600 p-4"
+                            class="text-lg font-medium leading-6 text-gray-600 md:px-4 py-4"
                         >
                             <strong>Applying...</strong>
                             <button type="button" @click="guest_application.show_modal=false"
@@ -223,7 +223,7 @@
                         <DialogDescription>
                             <div class="mt-2">
                                 <form action="" id="guest-application" @submit.prevent="">
-                                <div class="modal-body relative p-4 text-gray-700">
+                                <div class="modal-body relative md:px-4 py-4 text-gray-700">
                                     <div class="md:flex justify-start">
                                         <div class="mb-3 w-full flex flex-col">
                                             <label for="exampleFormControlInput1"
@@ -268,7 +268,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="mt-4 px-4">
+                                <div class="mt-4 md:px-4 py-4">
                                     <button
                                         type="button"
                                         class="inline-flex justify-center rounded-md border border-transparent bg-green-500 px-4 py-2 text-sm font-medium text-white hover:bg-green-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"

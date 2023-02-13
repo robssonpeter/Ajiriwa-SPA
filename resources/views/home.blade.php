@@ -21,10 +21,10 @@
                         <h1 class=" text-white text-4xl mb-3 mt-8">Find a job</h1>
                         <form method="get" action="{{ route('jobs.search') }}" class="sm:flex sm:flex-row gap-10 space-y-6 sm:space-y-0">
                             <div class="flex-grow">
-                                <input name="search" class=" w-full border-1 border-green-400 rounded-xl p-2 md:p-3 text-xl md:text-2xl text-gray-500" type="text" placeholder="Job Title or Company Name">
+                                <input name="search" class=" w-full border-1 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 border-green-400 rounded-xl p-2 md:p-3 text-xl md:text-2xl text-gray-500" type="text" placeholder="Job Title or Company Name">
                             </div>
                             <div class=" flex-grow">
-                                <input name="location" class=" w-full border-1 border-green-400 rounded-xl p-2 md:p-3 text-xl md:text-2xl" type="text" placeholder="Location">
+                                <input name="location" class=" w-full border-1 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 border-green-400 rounded-xl p-2 md:p-3 text-xl md:text-2xl" type="text" placeholder="Location">
                             </div>
                             <button class="w-full sm:w-auto rounded-xl py-2 md:py-3 sm:px-5 text-xl md:text-2xl bg-green-500 hover:bg-green-600 text-white">
 

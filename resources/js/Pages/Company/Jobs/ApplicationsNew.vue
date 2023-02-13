@@ -13,30 +13,34 @@
                 <div class="flex flex-row px-4 bg-gray-50">
                     <h3 class="text-2xl font-bold pt-2 flex-grow">{{ job.title }}</h3>
                     <section class="flex flex-row gap-2">
-                        <button class="self-center font-bold flex flex-row gap-1 border border-gray-400 text-gray-500 p-2 rounded-md">
+                        <button class="self-start font-bold flex flex-row gap-1 border border-gray-400 text-gray-500 p-1 rounded-md">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 self-center" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                             </svg>
                             <span>Edit</span>
                         </button>
-                        <button class="self-center font-bold flex flex-row gap-1 border border-gray-400 text-gray-500 p-2 rounded-md">
+                        <button class="self-start font-bold flex flex-row gap-1 border border-gray-400 text-gray-500 p-1 rounded-md">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 self-center" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                             <span>View</span>
                         </button>
-                        <button class="self-center font-bold flex flex-row gap-1 border text-white bg-green-400 text-gray-500 p-2 rounded-md">
+                        <Status :job="job" :options="$page.props.status" :key="job.id" @change="statusUpdated"></Status>
+                        <!-- <button class="self-center font-bold flex flex-row gap-1 border text-white bg-green-400 text-gray-500 p-2 rounded-md">
                             <span>Published</span>
-                        </button>
+                        </button> -->
                     </section>
+                </div>
+                <div class="px-4" v-if="$page.props.is_admin">
+                    <Link :href="route('company.show', job.company.slug)" class="text-green-500 font-bold">{{  job.company.name }}</Link>
                 </div>
                 <section class="flex flex-row gap-2 text-gray-500 text-sm bg-gray-50 px-4 pb-4 pt-2">
                     <span class="flex flex-row items-center gap-1">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        <span>{{ job.type.name }}</span>
+                        <span>{{ job.type.name }}</span>  
                     </span>
                     <span class="flex flex-row items-center gap-1">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -257,6 +261,7 @@
     import axios from "axios";
     import vSelect from 'vue-select';
     import 'vue-select/dist/vue-select.css';
+    import Status from "@/Custom/Job/Status";
 
     export default {
         name: "Applications",
@@ -282,7 +287,8 @@
             vSelect,
             SelectFilter,
             NumberFilter,
-            LoadingPlaceholder
+            LoadingPlaceholder,
+            Status
         },
         mounted(){
             console.log("filters are below");

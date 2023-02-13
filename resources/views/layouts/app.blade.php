@@ -24,6 +24,10 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
+        <link rel="icon" type="image/x-icon" href="{{asset('/images/favicon/favicon.ico')}}">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{asset('/images/favicon/apple-touch-icon.png')}}" /> 
+        <link rel="apple-touch-icon" sizes="152x152" href="{{asset('/images/favicon/apple-touch-icon.png')}}" />
+
         <!-- Scripts -->
         {{-- <script src="{{ asset('js/essential.js') }}" defer></script> --}}
         @if(in_array(\Route::current()->getName(), $livewire_routes))
@@ -190,7 +194,7 @@
               </span>
                                         </a>
 
-                                        <a href="{{ route('blog.index') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-green-50">
+                                        <a href="{{ route('employers') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-green-50">
                                             <!-- Heroicon name: outline/shield-check -->
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 h-6 w-6 text-green-600">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
@@ -201,7 +205,7 @@
               </span>
                                         </a>
 
-                                        <a href="{{ route('employers') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-green-50">
+                                        {{-- <a href="{{ route('employers') }}" class="-m-3 p-3 flex items-center rounded-md hover:bg-green-50">
                                             <!-- Heroicon name: outline/view-grid -->
                                             <svg class="flex-shrink-0 h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg"
                                                  fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -223,12 +227,12 @@
                                             <span class="ml-3 text-base font-medium text-gray-900">
                 Automations
               </span>
-                                        </a>
+                                        </a> --}}
                                     </nav>
                                 </div>
                             </div>
                             <div class="py-6 px-5 space-y-6">
-                                <div class="grid grid-cols-2 gap-y-4 gap-x-8">
+                                {{-- <div class="grid grid-cols-2 gap-y-4 gap-x-8">
                                     <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
                                         Pricing
                                     </a>
@@ -252,15 +256,15 @@
                                     <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
                                         Security
                                     </a>
-                                </div>
+                                </div> --}}
                                 <div>
-                                    <a href="#"
-                                       class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-500 hover:bg-indigo-700">
+                                    <a href="{{ route('register') }}"
+                                       class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-500 hover:bg-gray-600">
                                         Sign up
                                     </a>
                                     <p class="mt-6 text-center text-base font-medium text-gray-500">
                                         Existing customer?
-                                        <a href="#" class="text-green-600 hover:text-green-500">
+                                        <a href="{{ route('login') }}" class="text-green-600 hover:text-green-500">
                                             Sign in
                                         </a>
                                     </p>
@@ -325,10 +329,8 @@
                                 <svg class="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
                             </div>
                             <div class="flex-1">
-                                <address class="not-italic">
-                                    Rorikstraat 159<br>
-                                    Wijk bij Duurstede<br>
-                                    The Netherlands
+                                <address class="not-italic self-center">
+                                    Dar es Salaam, Tanzania<br>
                                 </address>
                             </div>
                         </div>
@@ -337,7 +339,7 @@
                                 <svg class="w-6 h-6 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                             </div>
                             <div class="flex-1">
-                                <a href="#" class="hover:text-gray-200">support@Company.com</a>
+                                <a href="#" class="hover:text-gray-200">info@ajiriwa.net</a>
                             </div>
                         </div>
 
@@ -366,7 +368,7 @@
                     </a>
                 </div>
                 <div class="text-sm mt-4">
-                    ©2020 Company. All rights reserved.
+                    ©{{ date('Y')}} Ajiriwa Network. All rights reserved.
                 </div>
             </div>
         </footer>

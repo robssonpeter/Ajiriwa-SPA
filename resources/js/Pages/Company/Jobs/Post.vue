@@ -4,7 +4,21 @@
         <div class="grid grid-cols-3 gap-3">
             <div class="z-40 px-4 min-h-screen col-span-2 bg-gray-50 my-4 p-4 shadow-md">
                 <form :action="route('job.save')" @submit.prevent="submitJob" method="post" class="text-gray-500">
-
+                    <div class="input flex flex-col mb-4" v-if="$page.props.is_admin">
+                        <label for="job_title" class="font-bold">Company</label>
+                        <span v-if="$page.props.job">{{ $page.props.job.company.name }}</span> 
+                        <v-select v-if="!$page.props.job" required @change="company_selected" v-model="selected_company" :options="company_options" @search="fetchCompanies">
+                            <template slot="no-options">
+                                type to search companies..
+                            </template>
+                            <template slot="option" slot-scope="option">
+                            <div class="d-center">
+                                <img :src='option.logo_url'/> 
+                                {{ option.name }}
+                                </div>
+                            </template>
+                        </v-select>
+                    </div>
                     <section class="md:grid md:grid-cols-3 gap-4 gap-y-4">
                         <div class="input flex flex-col">
                             <label for="job_title" class="font-bold">Job Title</label>
@@ -132,13 +146,15 @@
     import Loader from "@/Custom/Loader";
     import Swal from "sweetalert2";
     import TagInput from "../../../Custom/TagInput.vue";
+    import vSelect from "vue-select";
+    import 'vue-select/dist/vue-select.css';
     export default {
         name: "Post",
         props: {
             title: String,
         },
         components: {
-            EmployerLayout, Head, TextEditor, Input, QuillEditor, Loader, TagInput
+            EmployerLayout, Head, TextEditor, Input, QuillEditor, Loader, TagInput, vSelect
         },
         mounted(){
            /*if(this.$page.props.job){
@@ -166,11 +182,12 @@
                 cover_letter: this.$page.props.job?this.$page.props.job.cover_letter:'',
                 saving: false,
                 keywords: [],
-                company_id: this.$page.props.company.id,
+                company_id: this.$page.props.job? this.$page.props.job.company_id : this.$page.props.company.id,
                 number_of_posts: this.$page.props.job?this.$page.props.job.number_of_posts:1,
                 job_id: this.$page.props.job?this.$page.props.job.id:'',
                 status: this.$page.props.job?this.$page.props.job.status:1,
-
+                company_options: [],
+                selected_company: null,
             }
         },
         computed: {
@@ -187,6 +204,11 @@
             }
         },
         methods: {
+            company_selected(){
+                if(this.selected_company){
+                    this.company_id =  this.selected_company.code;
+                }
+            },
             tagChanged(event){
                 console.log(event);
                 this.keywords = event;
@@ -202,6 +224,14 @@
             editorChanged(html){
                 this.description = html;
                 //console.log(this.description);
+            },
+            fetchCompanies(searching, loading){
+                axios.post(route('companies.search'), {keyword: searching}).then((response) => {
+                    console.log(response.data);
+                    this.company_options = response.data;
+                }).catch((error) => {
+                    console.log(error)
+                });
             },
             submitJob(){
                 this.saving = true;
@@ -230,5 +260,4 @@
 </script>
 
 <style scoped>
-
 </style>

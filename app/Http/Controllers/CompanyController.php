@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Events\ApplicationRejected;
 use App\Events\ApplicationStatusUpdated;
+use App\Events\CompanyVerified;
 use App\Events\InterviewScheduled;
 use App\Models\ApplicationLog;
 use App\Models\Candidate;
 use App\Models\Company;
+use App\Models\CompanyVerification;
 use App\Models\EmailTemplate;
 use App\Models\Industry;
 use App\Models\InterviewSchedule;
@@ -17,10 +19,14 @@ use App\Models\JobCategory;
 use App\Models\JobScreening;
 use App\Models\JobType;
 use App\Models\ScreeningResponse;
+use App\Models\Setting;
 use App\Models\User;
 use Auth;
+use DB;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
+use App\Models\VerificationAttempt;
+use Illuminate\Support\Facades\File;
 
 class CompanyController extends Controller
 {
@@ -89,12 +95,18 @@ class CompanyController extends Controller
         $categories = JobCategory::orderBy('name', 'DESC')->get();
         $status = Job::STATUS;
         $jobTypes = JobType::all();
+        $is_admin = false;
+        if(Auth::user()->hasRole('admin')){
+            $companies = DB::table('companies')->whereNotNull('name')->select('name', 'id')->get();
+            $is_admin = true;
+        }
         $company = Company::where('original_user', \Auth::user()->id)->first();
         return Inertia::render('Company/Jobs/Post', [
             'categories' => $categories,
             'jobTypes' => $jobTypes,
-            'company' => $company,
-            'status' => $status
+            'company' => $companies??$company,
+            'status' => $status,
+            'is_admin' => $is_admin
         ]);
     }
 
@@ -103,13 +115,19 @@ class CompanyController extends Controller
         $status = Job::STATUS;
         $categories = JobCategory::orderBy('name', 'DESC')->get();
         $jobTypes = JobType::all();
+        $is_admin = false;
+        if(Auth::user()->hasRole('admin')){
+            $companies = DB::table('companies')->whereNotNull('name')->select('name', 'id')->get();
+            $is_admin = true;
+        }
         $company = Company::where('original_user', \Auth::user()->id)->first();
         return Inertia::render('Company/Jobs/Post', [
             'categories' => $categories,
             'jobTypes' => $jobTypes,
-            'company' => $company,
+            'company' => $companies??$company,
             'job' => $job,
-            'status' => $status
+            'status' => $status,
+            'is_admin' => $is_admin,
         ]);
     }
 
@@ -123,17 +141,21 @@ class CompanyController extends Controller
 
     public function showJobs(){
         $user = \Auth::user();
-        $jobs = Job::where('company_id', $user->company->id)->orderBy('id', 'DESC')->get();
+        $jobs = Job::when($user->hasRole('employer'), function($q) use ($user){
+            return $q->where('company_id', $user->company->id);
+        })->orderBy('id', 'DESC')->get();
         return Inertia::render('Company/Jobs/Index', [
+            'is_admin' => $user->hasRole('admin'),
             'jobs' => $jobs,
             'status' => Job::STATUS
         ]);
     }
 
-    public function jobApplications($slug){
-        
+    public function jobApplications($slug){   
         $company = Company::where('original_user', \Auth::user()->id)->first();
-        $job = Job::where('slug', $slug)->where('company_id', $company->id)->first();
+        $job = Job::where('slug', $slug)->when(\Auth::user()->hasRole('employer'), function($q) use ($company){
+            return $q->where('company_id', $company->id);
+        })->first();
         $applications = JobApplication::where('job_id', $job->id)->with('candidate', 'logs', 'screening_responses', 'interview')->orderBy('id', 'DESC')->get();
         $groupedApps = JobApplication::STATUS;
         $groupedApps['all'] = JobApplication::where('job_id', $job->id)->with('candidate')->get();
@@ -195,9 +217,12 @@ class CompanyController extends Controller
             abort(404);
         }
 
+        $is_admin = Auth::user()->hasRole('admin');
+        $status = Job::STATUS;
+
         //dd($screening_filters);
 
-        return Inertia::render('Company/Jobs/ApplicationsNew', compact('job', 'applications', 'statuses', 'log_colors', 'screening_filters', 'filter_variables', 'assessments'));
+        return Inertia::render('Company/Jobs/ApplicationsNew', compact('job', 'applications', 'statuses', 'log_colors', 'screening_filters', 'filter_variables', 'assessments', 'is_admin', 'status'));
         //dd($groupedApps);
         return Inertia::render('Company/Jobs/Applications', [
             'all_applications' => $applications,
@@ -402,5 +427,167 @@ class CompanyController extends Controller
 
 
         return $saved;
+    }
+
+    public function searchCompanies(){
+        $keyword = request()->keyword;
+        $companies = Company::where('name', 'LIKE', '%'.$keyword.'%')->select('id as code', 'name as label')->get();
+        return $companies;
+    }
+
+    public function verificationAttempt(){
+        $user_id = Auth::user()->id;
+        $company = Company::where('user_id', $user_id)->with('verification')->with('verification_attempt')->first();
+        $docs = Setting::where('key', 'verification_documents')->first();
+        $documents = [];
+        if($docs){
+            $documents = json_decode($docs->value);
+        }
+        !$company?abort(401):'';
+        return view('employer.verification.index', compact('company', 'documents'));
+    }
+
+    public function verificationSave(Request $request){
+        $rules = [
+            'role_at_company' => 'required',
+            'file' => 'required'
+        ];
+        $docs = Setting::where('key', 'verification_document')->get();
+        //$documents = json_decode($docs->value);
+        $validator = $request->validate($rules);
+        $docsToSave =[];
+
+        $x = 0;
+        foreach($docs as $document){
+            $row = [
+                'name' => $document->name,
+                'file' => $request->file[$x]
+            ];
+            array_push($docsToSave, $row);
+            $x++;
+        }
+
+        $user_id = Auth::user()->id;
+        $user = User::where('id', $user_id)->with('company')->first();
+        $data = [
+            'role' => $request->role_at_company,
+            /*'document' => $request->file,*/
+            'document' => json_encode($docsToSave),
+            'company_id' => $user->company->id,
+        ];
+        
+        $saved = VerificationAttempt::updateOrCreate(['company_id' => $user->company->id], $data);
+        
+        if($saved){
+            return true;
+        }
+        return false;
+    }
+
+    public function uploadVerificationAttachment(){
+        request()->validate([
+            'attachment' => "file|mimes:pdf,png,jpg|max:120000"
+        ]);
+        $file = request()->file('attachment');
+        $destinationFolder = public_path('verification_files');
+
+        if(!File::isDirectory($destinationFolder)){
+            File::makeDirectory($destinationFolder, 0776, true, true);
+        }
+        $uniqid = uniqid();
+        $last_pos = strrpos($file->getClientOriginalName(), '.');
+        $extension = substr($file->getClientOriginalName(), $last_pos);
+        $fileName = str_replace($extension, '', $file->getClientOriginalName())."-".$uniqid.'-'.Auth()->user()->id.$extension;
+        $file->move($destinationFolder, $fileName);
+        return [
+            "original"=>$file->getClientOriginalName(),
+            "saved" =>"verification_files/".$fileName
+        ];
+    }
+
+    public function verify(Request $request){
+        $companies = Company::with('verification_attempt', 'verification', 'user')->whereHas('verification_attempt')->whereDoesntHave('verification')->get();
+        if ($request->ajax) {
+            /*return Datatables::of((new CompanyDataTable())->get($request->only([
+                'is_featured', 'is_status',
+            ])))->make(true);*/
+            return $companies;
+
+        }
+        //dd($companies);
+        return Inertia::render('Admin/PendingCompanies', compact('companies'));
+        //return view('companies.to-verify', compact('featured', 'statusArr', 'companies'));
+    }
+
+    public function verifySave($id){
+        $attempt = \App\Models\VerificationAttempt::where('company_id', $id)->first();
+        $data = [
+            'document' => $attempt->document,
+            'verified_by' => Auth::user()->id,
+        ];
+    
+        $verified = CompanyVerification::updateOrCreate(['company_id' => $id], $data);
+
+        // Create a notification telling the user
+        event(new CompanyVerified($id));
+
+        return $verified;
+    }
+
+    public function verificationReject($id){
+        $attempt = VerificationAttempt::where('company_id', $id)->first();
+        $data = [
+            'reason' => request()->reason,
+            'company_id' => $id,
+            'rejected_by' => Auth::user()->id,
+            'attempt_id' => $attempt->id
+        ];
+        $company = Company::where('id', $id)->with('user')->first();
+        $message = '<p>Hello '.$company->user->first_name.',</p>
+                    <p>&nbsp;</p>
+                    <p>Thank you for attempting to verify your account. Your employer account could not be verified due to reason:</p>
+                    <p><strong>'.request()->reason.'</strong></p>
+                    <p>Please login to your account <a href="'.route('company.verify').'">here</a> to resolve this issue.</p>
+                    <p>&nbsp;</p>
+                    <p>Regards</p>
+                    <p>'.env('APP_NAME').' Team</p>';
+        $rejected =  CompanyVerificationRejection::create($data);
+        $mail = Mail::to($company->user)->send(new VerificationRejected($message));
+        if($rejected && $mail){
+            $this->sendResponse( $rejected,'Successfully Rejected');
+        }
+        $this->sendError('Could not reject this attempt');
+    }
+
+    public function verifyRevoke($id){
+        $revoked = CompanyVerification::find($id)->delete();
+        return $this->sendSuccess('Verification successfully revoked');
+    }
+
+    public function saveVerificationDocuments(){
+        if(request()->retrieve){
+            $data = Setting::where('key', 'verification_documents')->first();
+            if($data){
+                return $this->sendResponse($data->value, 'retrieved successfully');
+            }else{
+                return $this->sendResponse([], 'no data');
+            }
+        }else{
+            $documents = request()->documents;
+            $save = Setting::updateOrCreate(['key'=>'verification_documents'], ['value'=>$documents]);
+            return $this->sendSuccess('Required documents successfully saved');
+        }
+    }
+
+    public function reAttachVerification(){
+        $company = Company::where('user_id', Auth::user()->id)->first();
+        $attempt = VerificationAttempt::where('company_id', $company->id)->first();
+        $documents = json_decode($attempt->document);
+        foreach($documents as $document){
+            $file = public_path($document->file);
+            unlink($file);
+        }
+        $attempt->delete();
+        return $this->sendSuccess('Deleted');
     }
 }

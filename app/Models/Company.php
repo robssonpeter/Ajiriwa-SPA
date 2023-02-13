@@ -48,6 +48,10 @@ class Company extends Model implements HasMedia
         return asset('/images/logo-placeholder-image.png');
     }
 
+    public function user(){
+        return $this->hasOne(User::class, 'id', 'original_user')/* ->select("name", "role", "email", "phone") */;
+    }
+
     public function industry(){
         return $this->hasOne(Industry::class, 'id', 'industry_id');
     }
@@ -58,6 +62,18 @@ class Company extends Model implements HasMedia
 
         // you can define as many collections as needed
         $this->addMediaCollection('cover');
+    }
+
+    public function verification(){
+        return $this->hasOne(CompanyVerification::class, 'company_id', 'id');
+    }
+
+    public function verification_attempt(){
+        return $this->hasOne(VerificationAttempt::class, 'company_id', 'id');
+    }
+
+    public function verification_rejected(){
+        return $this->hasOneThrough(CompanyVerificationRejection::class, VerificationAttempt::class, 'company_id', 'attempt_id', 'id', 'id');
     }
 
     /*public function media()

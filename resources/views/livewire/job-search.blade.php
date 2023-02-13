@@ -31,27 +31,27 @@
         <div class="rounded-lg shadow-lg bg-white sticky top-20 self-start p-4 hidden md:block">
             <section class="flex flex-col mb-4">
                 <small>Search</small>
-                <input wire:model="search" type="text" value="{{request()->search}}">
+                <input wire:model="search" class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50" type="text" value="{{request()->search}}">
             </section>
 
             <section class="flex flex-col">
                 <small>City</small>
-                <select name="" id="">
+                <select name="" id="" class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50">
                     <option value="">Select</option>
                     <option value="">Dar es Salaam</option>
                 </select>
             </section>
 
             <div class="form-check py-2">
-                <input wire:model="remote" class="form-check-input appearance-none h-4 w-4 accept-pink-300 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckDefault">
-                <label class="form-check-label inline-block text-gray-800" for="flexCheckDefault">
+                <input wire:model="remote" class="border-gray-300 form-check-input appearance-none h-4 w-4 accept-pink-300 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label inline-block text-gray-800 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50" for="flexCheckDefault">
                     Remote
                 </label>
             </div>
         
             <div class="py-4 flex flex-col">
                 <span>Job Category</span>
-                <select name="" id="" wire:model="job_category" {{ session()->has('presets') && isset(session()->get('presets')['category']) ? 'disabled' : '' }}>
+                <select name="" id="" class="border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50" wire:model="job_category" {{ session()->has('presets') && isset(session()->get('presets')['category']) ? 'disabled' : '' }}>
                     <option value="">Select</option>
                     @foreach(\App\Models\JobCategory::all() as $category)
                         <option value="{{ $category->id }}">{{ $category->name }}</option>

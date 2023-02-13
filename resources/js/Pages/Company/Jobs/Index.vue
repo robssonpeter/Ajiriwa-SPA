@@ -33,7 +33,10 @@
                     </thead>
                     <tbody>
                         <tr v-for="job in jobs" >
-                            <td class="border px-8 py-2 text-green-500 hover:text-green-400 font-bold"><Link :href="route('company.job.view', job.slug)">{{ job.title }}</Link></td>
+                            <td class="border px-8 py-2 flex flex-col">
+                                <Link class="text-green-500 hover:text-green-400 font-bold" :href="route('company.job.view', job.slug)">{{ job.title }}</Link>
+                                <span class="text-sm" v-if="$page.props.is_admin">{{ job.company.name }}</span>
+                            </td>
                             <td class="border px-8 py-2 text-center">
                                 <span>{{ job.location }}</span>
                             </td>

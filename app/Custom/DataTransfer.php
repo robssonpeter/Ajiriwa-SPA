@@ -35,7 +35,7 @@ class DataTransfer {
         $iteration = 0;
     
         foreach($data as $company){
-            if(in_array($data->Company_name, $existing_companies)){
+            if(in_array($company->Company_name, $existing_companies)){
                 continue;
             }
             // check if logo exists and move it to the right location
@@ -45,7 +45,8 @@ class DataTransfer {
                 $logo_file = $logo_array[count($logo_array)-1];
 
                 // copy the logo from previous location to the new one
-                copy($original_project_path.$logo, public_path('temporary-files/'.$logo));    
+                if(file_exists($original_project_path.$logo))
+                    copy($original_project_path.$logo, public_path('temporary-files/'.$logo));    
             }
             //return urlencode($logo_file);
 
@@ -121,12 +122,12 @@ class DataTransfer {
                 'reports_to' => $new_job->Reports_to,
                 'job_type' => $job_type,
                 'deadline' => $new_job->Application_deadline,
-                'cover_letter' => $new_job->cover_letter,
+                'cover_letter' => $new_job->cover_letter == "YES" ? 1 : 0,
                 'slug' => makeSlug($new_job->Job_title).'-'.uniqid(),
                 'apply_method' => $apply_method,
                 'email_subject' => $new_job->emailTitle,
                 'company_id' => $company->id,
-                'counted_views' => $new_job->Views,
+                'counted_views' => $new_job->views,
                 'status' => 1,
                 'location' => $new_job->Location,
                 'is_remote' => false,
@@ -434,6 +435,9 @@ class DataTransfer {
 
     public static function transferEmployers(){
         $existing_employers = Company::pluck('name');
-        return $existing_employers;
+        
+        // get all the employers in the database
+
+        // 
     }
 }

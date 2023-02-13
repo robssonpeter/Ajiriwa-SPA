@@ -24,7 +24,7 @@
         <section class="bg-white max-w-7xl mx-auto sm:px-6 py-3">
             <span class="text-lg font-bold">{{ $company->name }}</span>
             <br>
-            <small class="text-gray-500">{{ $company->industry }}</small>
+            <small class="text-gray-500">{{ $company->industry->name??'' }}</small>
         </section>
         @if($company->website)
         <section class="bg-white max-w-7xl mx-auto sm:px-6 py-3">

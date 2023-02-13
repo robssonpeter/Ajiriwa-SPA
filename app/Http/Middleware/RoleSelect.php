@@ -27,6 +27,10 @@ class RoleSelect extends Middleware
         if(in_array($route_name, $allowed_routes)){
             return $next($request);
         }
+        if(Auth::check() && Auth::user()->hasRole('admin')){
+            return $next($request);
+        }
+
         if(Auth::check() && !Auth::user()->role){
             return Inertia::render('Auth/UserSelect', []);
         }

@@ -43,6 +43,9 @@ class JobSearch extends Component
         if($keyword){
             $search = strlen($keyword->main_words)?$keyword->main_words:$this->search;
         }else{
+            if(request()->search){
+                $self->search =  request()->search;
+            }
             $search = $self->search;
         }
 
@@ -63,7 +66,7 @@ class JobSearch extends Component
                 $arraytotal = count($all);
                 $casextra = $x+1;
                 $order[] = "WHEN job_title LIKE '%$one%' THEN '$x' WHEN company_name LIKE '%$one%' THEN '$casextra'";
-                dd('hello there');
+                //dd('hello there');
                 $x+=2;
             }
             $joinedstring = implode("OR", $joined);
@@ -78,7 +81,7 @@ class JobSearch extends Component
             $q->whereIn('company_id', $companies);
         })->when($this->selected_employment_types, function($q) use($self){
             $q->whereIn('job_type', $self->selected_employment_types);
-        })->get();
+        })->limit(15)->get();
         //dd($jobs);
         return view('livewire.job-search', compact('jobs'));
     }

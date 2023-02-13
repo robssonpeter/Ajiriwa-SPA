@@ -12,6 +12,7 @@ use App\Http\Controllers\SEOController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
 use App\Models\BlogPost;
+use App\Models\Company;
 use App\Models\Job;
 use App\Models\JobCategory;
 use Illuminate\Foundation\Application;
@@ -42,8 +43,19 @@ Route::get('/', function () {
 
     $blog_posts = \App\Models\BlogPost::limit(3)->orderBy('id', 'ASC')->get();
     $today = date('Y-m-d');
-    $latest_jobs = Job::orderBy('id', 'DESC')->where('deadline', '>=', $today)->get();
+    $latest_jobs = Job::orderBy('id', 'DESC')->where('deadline', '>=', $today)->limit(10)->get();
     SEOMeta::addMeta('theme-color', '#6ad3ac');
+    SEOMeta::setTitle("Jobs in Tanzania ".date('Y'));
+    SEOMeta::addMeta('description', 'A great place to look for the job that will suit you. Build your profile by adding information to your resume and easily make application for any job in our system. We bring employers and job seekers together.');
+    SEOMeta::addMeta('keywords', 'Jobs in tanzania, nafasi za kazi, ajira mpya, nafasi za kazi serikalini, ajira zetu, ajira, employement oppotunities, kazi tanzania, kazi, ajira tanzania, all jobs, kazi mpya, kazini, zoom tanzania jobs, brighter monday');
+    SEOMeta::addMeta('robots', 'index, follow');
+    SEOMeta::addMeta('language', 'English');
+    SEOMeta::addMeta('revist-after', '1 days');
+    OpenGraph::addImage(asset('images/ajiriwa-new-logo.png'));
+    OpenGraph::setUrl(route('root'));
+    OpenGraph::setSiteName("Ajiriwa");
+    OpenGraph::setType('webssite');
+
     $job_categories = JobCategory::withCount('active_jobs')->orderBy('active_jobs_count', 'desc')->limit(8)->get();
     //dd($latest_jobs->count());
 
@@ -137,15 +149,15 @@ Route::group(['middleware' => ['auth']], function() {
 
 });
 
-Route::group(['middleware' => ['auth', 'role:employer']], function(){
+Route::group(['middleware' => ['auth', 'role:employer|admin']], function(){
     Route::get('/company/info', [CompanyController::class, 'initialInformation'])->name('my-company.edit');
     Route::get('/company/customize', [CompanyController::class, 'customize'])->name('my-company.customize');
     Route::post('/company/info/save', [CompanyController::class, 'saveInitialInformation'])->name('company.initial.save');
 
-    Route::get('/company/post-job', [CompanyController::class, 'postJob'])->name('company.post-job');
+    Route::get('/company/post-job', [CompanyController::class, 'postJob'])->middleware('verifier')->name('company.post-job');
     Route::get('/company/edit-job/{slug}', [CompanyController::class, 'editJob'])->name('company.edit-job');
     Route::post('/company/save-job', [JobController::class, 'saveJob'])->name('job.save');
-    Route::post('/company/job-status/change', [JobController::class, 'saveJob'])->name('job.status.change');
+    Route::post('/company/job-status/change', [JobController::class, 'changeJobStatus'])->name('job.status.change');
     Route::post('/company/save-description', [CompanyController::class, 'saveDescription'])->name('company.description.save');
     Route::get('/company/job/{slug}', [CompanyController::class, 'viewJob'])->name('company.job.view');
     Route::post('/company/job/{job_id}/store_application_columns', [CompanyController::class, 'storeApplicationColumns'])->name('company.job-attributes.store');
@@ -159,6 +171,7 @@ Route::group(['middleware' => ['auth', 'role:employer']], function(){
     Route::post('/application/change-status', [CompanyController::class, 'changeApplicationStatus'])->name('application.change-status');
 
 });
+Route::post('/company/search', [CompanyController::class, 'searchCompanies'])->name('companies.search');
 
 
     Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -177,12 +190,31 @@ Route::group(['middleware' => ['auth', 'role:employer']], function(){
         $props = [
             'candidate' =>false,
             'job_views' => number_format($job_views),
-            'total_applications' => number_format(\App\Models\JobApplication::whereIn('job_id', $jobs)->count()),
-            'active_jobs' => 0,
+            'total_applications' => number_format(\App\Models\JobApplication::when(Auth::user()->hasRole('employer'), function($q) use($jobs){
+                return $q->whereIn('job_id', $jobs);
+            })->count()),
+            'active_jobs' => Job::where('status', array_search('Active', Job::STATUS))->when(Auth::user()->hasRole('employer'), function($q) use($jobs){
+                return $q->whereIn('id', $jobs);
+            })->count(),
             'total_spending' => 0,
-            'recent_applications' => \App\Models\JobApplication::whereIn('job_id', $jobs)->join('jobs', 'jobs.id', 'job_applications.job_id')->orderBy('job_applications.id', 'DESC')->with('candidate')->limit(5)->get()
+            'recent_applications' => \App\Models\JobApplication::when(Auth::user()->hasRole('employer'), function($q) use($jobs){
+                return $q->whereIn('job_id', $jobs);
+            })->join('jobs', 'jobs.id', 'job_applications.job_id')->orderBy('job_applications.id', 'DESC')->with('candidate')->limit(5)->get()
         ];
-        ///dd($props);
+        //dd($props);
+    }else if($user->hasRole('admin')){
+        $component = 'Admin/Dashboard';
+        $candidate = false;
+        $job_views = \App\Models\JobView::count() + Job::sum('counted_views');
+        $props = [
+            'candidate' =>false,
+            'job_views' => number_format($job_views),
+            'total_applications' => number_format(\App\Models\JobApplication::count()),
+            'active_jobs' => Job::where('status', array_search('Active', Job::STATUS))->count(),
+            'total_spending' => 0,
+            'pending_companies' => Company::with('verification_attempt', 'verification', 'user')->whereHas('verification_attempt')->whereDoesntHave('verification')->count(),
+            'recent_applications' => \App\Models\JobApplication::join('jobs', 'jobs.id', 'job_applications.job_id')->orderBy('job_applications.id', 'DESC')->with('candidate')->limit(5)->get()
+        ];
     }else{
         $candidate = \App\Models\Candidate::where('user_id', $user->id)->first();
         //dd($candidate);
@@ -253,3 +285,22 @@ Route::post('/job/assessments/get', [JobController::class, 'GetAssessment'])->na
 Route::post('/job/assessments/delete', [JobController::class, 'DeleteAssessment'])->name('job.assessment.delete');
 Route::post('/application/assessment', [CompanyController::class, 'ApplicationAssessment'])->name('job.application.assessment')->middleware(['auth']);
 Route::post('/job-posting/assessments/{hash}/save', [JobController::class, 'StoreAssessment'])->middleware(['auth'])->name('job.assessment.save');
+
+
+/**
+ * ----------------------------------------------------------------------------------------------------------
+ *          Company Verification Routes
+ * ----------------------------------------------------------------------------------------------------------
+ */
+Route::get('company/verify', [CompanyController::class, 'verificationAttempt'])->name('company.verify')->middleware(['auth']);
+Route::group(["prefix" => 'admin/', 'middleware' => 'role:admin'], function(){
+    Route::get('companies/verify', [CompanyController::class, 'verify'])->name('admin.company.verify');
+    Route::post('companies/verify/{id}', [CompanyController::class, 'verifySave'])->name('admin.company.verify.save');
+    Route::post('companies/verify/{id}/revoke', 'CompanyController@verifyRevoke')->name('admin.company.verify.revoke');
+    Route::post('companies/reject/{id}', 'CompanyController@verificationReject')->name('admin.company.verification.reject');
+    Route::post('companies/required/verification-documents', 'CompanyController@saveVerificationDocuments')->name('admin.verification.documents.save');
+});
+
+Route::post('company/verification/upload', [CompanyController::class, 'uploadVerificationAttachment'])->name('company.verification.upload')->middleware(['auth']);
+Route::post('company/verify', [CompanyController::class, 'verificationSave'])->name('company.verification.save')->middleware(['auth']);
+require 'admin.php';

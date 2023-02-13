@@ -26,6 +26,7 @@ use Artesaos\SEOTools\Facades\OpenGraph;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use Artesaos\SEOTools\Facades\SEOTools;
 use Artesaos\SEOTools\Facades\TwitterCard;
+use Auth;
 use Carbon\Carbon;
 use ErrorException;
 use Exception;
@@ -35,7 +36,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use Spatie\Image\Image;
 use Spatie\MediaLibrary\Models\Media;
 
-class JobController extends Controller
+class   JobController extends Controller
 {
 
     public function browseGuest(){
@@ -65,9 +66,9 @@ class JobController extends Controller
         $industries = Industry::orderBy('name', 'ASC')->get();
         $job_types = JobType::all();
         //dd($companies);
-        $jobs = Job::orderBy('id', 'DESC')->when($companies, function($q) use ($companies){
+        /* $jobs = Job::orderBy('id', 'DESC')->when($companies, function($q) use ($companies){
             $q->whereIn('company_id', $companies);
-        })->get();
+        })->limit()->get(); */
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($description);
         SEOMeta::setKeywords($keywords);
@@ -87,7 +88,7 @@ class JobController extends Controller
         ]);
 
 
-        return view('jobs.browse', compact('jobs', 'companies', 'job_types', 'industries'));
+        return view('jobs.browse', compact('companies', 'job_types', 'industries'));
     }
 
     public function search($keyword = null){
@@ -280,7 +281,7 @@ class JobController extends Controller
         }*/
         $applied = [12];
         
-        if(\Auth::check()){
+        if(\Auth::check() && Auth::user()->hasRole('candidate')){
             $deadline_formated = \Carbon\Carbon::parse($job->deadline)->format('jS F Y');
             return redirect(route('jobs.browse')."#".$job->slug);
         }

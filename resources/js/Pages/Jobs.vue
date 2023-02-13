@@ -183,21 +183,24 @@
                 }
                  this.showJob(index);
             }
-            Notification.requestPermission().then((permission) => {
-                if(permission === 'granted'){
-                    console.log('permission granted');
-                    getToken(messaging, { vapidKey: 'BPEeiMDqK4wcKxXE6h9ZbGaTaDhBqoAnO6Ifux11k5MRjt1eq_DnnJb7LlD9mYu41dBug20m5mPZ-ANB-3J3NUM'}).then((token) => {
-                        axios.post(route('fcmToken'),{
-                            _method:"PATCH",
-                            token
-                        }).then(({data})=>{
-                            console.log(data)
-                        }).catch(({response:{data}})=>{
-                            console.error(data)
+            if( 0 > 1){
+                Notification.requestPermission().then((permission) => {
+                    if(permission === 'granted'){
+                        console.log('permission granted');
+                        getToken(messaging, { vapidKey: 'BPEeiMDqK4wcKxXE6h9ZbGaTaDhBqoAnO6Ifux11k5MRjt1eq_DnnJb7LlD9mYu41dBug20m5mPZ-ANB-3J3NUM'}).then((token) => {
+                            axios.post(route('fcmToken'),{
+                                _method:"PATCH",
+                                token
+                            }).then(({data})=>{
+                                console.log(data)
+                            }).catch(({response:{data}})=>{
+                                console.error(data)
+                            })
                         })
-                    })
-                }
-            });
+                    }
+                });
+            }
+            
             /*messaging.onMessage(function({data:{body,title}}){
                 new Notification(title, {body});
             });*/

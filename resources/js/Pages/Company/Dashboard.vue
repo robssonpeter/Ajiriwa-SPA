@@ -100,7 +100,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                         </svg>
                         <div class="flex flex-col">
-                            <span class="text-2xl">75766</span>
+                            <span class="text-2xl">{{ $page.props.active_jobs }}</span>
                             <span>Active Jobs</span>
                         </div>
                         <Button class="bg-green-400 hover:bg-green-500">Manage Jobs</Button>
@@ -110,7 +110,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
                         <div class="flex flex-col">
-                            <span class="text-2xl">75766</span>
+                            <span class="text-2xl">{{ $page.props.total_spending }}</span>
                             <span>Total Spending</span>
                         </div>
 

@@ -47,9 +47,8 @@
             </div>
             <div class="flex-1">
                 <address class="not-italic">
-                Rorikstraat 159<br>
-                Wijk bij Duurstede<br>
-                The Netherlands
+                Dar es Salaam<br>
+                Tanzania<br>
                 </address>
             </div>
             </div>

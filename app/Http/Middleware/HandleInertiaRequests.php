@@ -41,8 +41,12 @@ class HandleInertiaRequests extends Middleware
         }else if(\Auth::check() && session()->get('uniqid') != \Auth::user()->id){
             session()->put('uniqid', \Auth::user()->id);
         }
+        if(\Auth::check()){
+            session()->put('is_admin', \Auth::user()->hasRole('admin'));
+        }
         return array_merge(parent::share($request), [
-            "uniqid" => \Auth::check()?\Auth::user()->id:session()->get('uniqid')
+            "uniqid" => \Auth::check()?\Auth::user()->id:session()->get('uniqid'),
+            "is_admin" => session()->get('is_admin')
         ]);
     }
 }

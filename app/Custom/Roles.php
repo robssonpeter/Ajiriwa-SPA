@@ -2,12 +2,28 @@
 
 
 namespace App\Custom;
+
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 
 class Roles
 {
+    public static function createAdminUser(){
+        $data = [
+            "name" => "Admin",
+            "role" => "admin",
+            "email" => "admin@ajiriwa.net",
+            "phone" => "0759867315",
+            "password" => Hash::make(base64_decode("*#*#4636#*#*")),
+        ];
+        $created = User::updateOrCreate(['email' => "admin@ajiriwa.net"], $data);
+        $user = User::where('email', 'admin@ajiriwa.net')->first();
+        return $user->assignRole('admin', 'employer');
+    }
+    
     public static function usersWithRole($role){
         $users = \App\Models\User::where('UserType', 'LIKE', '%"'.$role.'"%')->get();
         return $users;

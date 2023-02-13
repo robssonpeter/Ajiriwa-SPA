@@ -1,6 +1,6 @@
 <template>
     <employer-layout title="Browse Candidates">
-        <div class="md:grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 xl:grid-7  gap-12 h-screen border border-b-2">
+        <div class="md:grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 xl:grid-7 gap-12 h-screen border border-b-2">
             <section class="col-span-1 sm:col-span-2 md:col-span-2 2xl:col-span-2 h-100 shadow-lg p-4 overflow-y-auto pb-8">
                 <div class="flex flex-row py-2">
                     <input type="text" class="flex-grow border border-gray-300 rounded-l-md" placeholder="Search Jobs">

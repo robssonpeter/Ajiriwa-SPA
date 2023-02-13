@@ -27,6 +27,9 @@
                     Email Password Reset Link
                 </jet-button>
             </div>
+            <Link :href="route('login')" class="text-sm text-green-600 hover:text-green-900 float-left">
+                Back to Login
+            </Link>
         </form>
     </jet-authentication-card>
 </template>
@@ -39,6 +42,7 @@
     import JetInput from '@/Jetstream/Input.vue'
     import JetLabel from '@/Jetstream/Label.vue'
     import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
+    import { Link } from '@inertiajs/inertia-vue3';
 
     export default {
         components: {
@@ -48,7 +52,8 @@
             JetButton,
             JetInput,
             JetLabel,
-            JetValidationErrors
+            JetValidationErrors,
+            Link
         },
 
         props: {
