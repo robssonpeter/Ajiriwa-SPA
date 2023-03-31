@@ -3,10 +3,12 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\FaqsController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\PushController;
 use App\Http\Controllers\SEOController;
 use App\Http\Controllers\SessionController;
@@ -96,6 +98,8 @@ Route::get('/search/{keyword}', [JobController::class, 'search'])->name('jobs.se
 Route::get('/browse-jobs', [JobController::class, 'browse'])->name('jobs.browse');
 
 Route::get('/job-by/category/{slug}', [JobController::class, 'jobsByCategory'])->name('jobs.by-category');
+Route::get('/browse-jobs-categories.php', [JobController::class, 'oldJobsByCategory'])->name('jobs.by-category.old');
+
 
 Route::get('/job-page.php', [JobController::class, 'oldJob'])->name('old-job.view');
 Route::get('/view-job/{slug}', [JobController::class, 'viewJob'])->name('job.view');
@@ -107,6 +111,7 @@ Route::post('/job/guest-apply', [JobController::class, 'guestApplicationSubmit']
 Route::post('/session/make', [SessionController::class, 'createSession'])->name('session.create');
 
 Route::get('/company/view/{slug}', [CompanyController::class, 'show'])->name('company.show');
+Route::post('/company/new', [CompanyController::class, 'saveNewCompany'])->middleware("role:admin")->name('company.new');
 
 
 Route::group(['middleware' => ['auth']], function() {
@@ -167,6 +172,7 @@ Route::group(['middleware' => ['auth', 'role:employer|admin']], function(){
     Route::post('company/applications/filter', [CompanyController::class, 'FilterApplications'])->name('job.applications.filter')->middleware(['auth']);
     Route::get('/company/jobs', [CompanyController::class, 'showJobs'])->name('company.jobs.index');
     Route::get('/company/browse-candidates', [CompanyController::class, 'browseCandidates'])->name('company.candidates.browse');
+    Route::post('/company/search-candidates', [CompanyController::class, 'searchCandidates'])->name('company.candidates.search');
     Route::post('/company/recommend-candidates', [CompanyController::class, 'showRecommendedCandidates'])->name('company.candidates.recommend');
     Route::post('/application/change-status', [CompanyController::class, 'changeApplicationStatus'])->name('application.change-status');
 
@@ -210,7 +216,7 @@ Route::post('/company/search', [CompanyController::class, 'searchCompanies'])->n
             'candidate' =>false,
             'job_views' => number_format($job_views),
             'total_applications' => number_format(\App\Models\JobApplication::count()),
-            'active_jobs' => Job::where('status', array_search('Active', Job::STATUS))->count(),
+            'active_jobs' => Job::where('status', array_search('Active', Job::STATUS))->where('deadline', '>=', date('Y-m-d'))->count(),
             'total_spending' => 0,
             'pending_companies' => Company::with('verification_attempt', 'verification', 'user')->whereHas('verification_attempt')->whereDoesntHave('verification')->count(),
             'recent_applications' => \App\Models\JobApplication::join('jobs', 'jobs.id', 'job_applications.job_id')->orderBy('job_applications.id', 'DESC')->with('candidate')->limit(5)->get()
@@ -301,6 +307,22 @@ Route::group(["prefix" => 'admin/', 'middleware' => 'role:admin'], function(){
     Route::post('companies/required/verification-documents', 'CompanyController@saveVerificationDocuments')->name('admin.verification.documents.save');
 });
 
+/**
+ * ----------------------------------------------------------------------------------------------------------
+ *          Payment Routes
+ * ----------------------------------------------------------------------------------------------------------
+ */
+Route::post('/payment/init', [PaymentController::class, 'PaymentInit'])->middleware(['auth'])->name('payment.init');
+
 Route::post('company/verification/upload', [CompanyController::class, 'uploadVerificationAttachment'])->name('company.verification.upload')->middleware(['auth']);
 Route::post('company/verify', [CompanyController::class, 'verificationSave'])->name('company.verification.save')->middleware(['auth']);
 require 'admin.php';
+
+/**
+ * ----------------------------------------------------------------------------------------------------------
+ *          Subscription Routes
+ * ----------------------------------------------------------------------------------------------------------
+ */
+Route::get('/subscription/select', [SubscriptionController::class, 'Packages'])->name('subscription.packages')->middleware(['auth']);
+Route::post('/subscription/current-balance', [SubscriptionController::class, 'CurrentBalance'])->name('current.balance')->middleware(['auth']);
+Route::post('/subscription/charge', [SubscriptionController::class, 'Charge'])->name('subscription.charge')->middleware(['auth']);

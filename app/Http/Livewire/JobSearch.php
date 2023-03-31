@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Models\AssignedJobCategory;
 use App\Models\Company;
 use App\Models\Job;
+use App\Models\JobCategory;
 use Livewire\Component;
 
 class JobSearch extends Component
@@ -33,23 +34,41 @@ class JobSearch extends Component
         }
 
         $country = country('tz');
-        //dd($country->getGeoData);
-
-        $slug = makeSlug($this->search);
-        $keyword = \DB::table('keywords')->where('keyword', $this->search)->orWhere(function($q) use ($slug){
+        $search = request()->search??(request()->keyword?request()->keyword." ".request()->comp:$this->search);
+        //dd($search);
+        $slug = makeSlug(urldecode(request()->search));
+        
+        $keyword = \DB::table('keywords')->where('keyword', urldecode($search))/* ->orWhere('keyword', 'LIKE', '%'.$search.'%') */->orWhere(function($q) use ($slug){
             return $q->whereNotNull('slug')->where('slug', $slug);
         })->first();
-        //dd($keyword);
+        
+        /* if(request()->search){
+            // check if there is any category matching
+            $categories = JobCategory::where('name', 'LIKE', request()->search)->orWhere(function($q){
+                $splitted = explode(" ", request()->search);
+                foreach($splitted as $split){
+                    $q = $q->orWhere('name', 'LIKE', '%'.$split.'%');
+                }
+            })->pluck('id');
+
+            $assigned_jobs = AssignedJobCategory::whereIn()
+        } */
+        
         if($keyword){
+            $this->search = $search;
             $search = strlen($keyword->main_words)?$keyword->main_words:$this->search;
         }else{
             if(request()->search){
                 $self->search =  request()->search;
             }
             $search = $self->search;
+        }  
+        $companies = [];
+        if(request()->comp){
+            $companies = Company::where('name', 'LIKE', '%'.request()->comp.'%')->pluck('id');
         }
-
-        //dd($keyword);
+        
+        //dd($search);
         $jobs =  Job::orderBy('id', 'DESC')/* ->when($companies, function($q) use ($companies){
             $q->whereIn('company_id', $companies);
         }) */->when($search, function($q) use ($search, $self){
@@ -79,10 +98,14 @@ class JobSearch extends Component
         })->when($this->selected_industries, function($q) use($self){
             $companies = Company::whereIn('industry_id', $self->selected_industries)->pluck('id');
             $q->whereIn('company_id', $companies);
+        })->when(request()->comp, function($q) use($companies){
+            $q->whereIn('company_id', $companies);
         })->when($this->selected_employment_types, function($q) use($self){
             $q->whereIn('job_type', $self->selected_employment_types);
-        })->limit(15)->get();
-        //dd($jobs);
+        })->when(request()->location, function($q){
+            $q->where('location', 'LIKE', "%".request()->location."%");
+        })->paginate(10);
+        //dd($jobs->lastPage());
         return view('livewire.job-search', compact('jobs'));
     }
 }

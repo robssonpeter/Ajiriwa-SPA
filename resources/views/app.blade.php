@@ -19,6 +19,13 @@
     </head>
     <body class="font-sans antialiased">
         @inertia
+        @production
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0L92N1SB1"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+            </script>
+        @endproduction
 
         @env ('local')
             <script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>

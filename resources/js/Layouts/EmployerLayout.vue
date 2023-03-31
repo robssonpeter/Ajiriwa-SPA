@@ -3,7 +3,7 @@
     <div class="flex">
         <Head :title="title" />
         <aside class="h-screen sticky top-0">
-            <section class="h-16 align-middle shadow-md pt-2 w-full">
+            <section class="h-16 align-middle shadow-md pt-2 pr-8">
                 <Link :href="route('dashboard')" class="flex space-x-2 place-self-center">
                     <span class="sr-only">Workflow</span>
                     <!-- <img class="h-8 w-auto sm:h-10" src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg" alt=""> -->
@@ -63,11 +63,15 @@
                 </li>
             </ul>
         </aside>
-        <main class="">
+        <main class="w-full">
             <div class="h-16 bg-white shadow-md z-50 sticky top-0 w-full">
-                
+                <div class="flex space-x-1 px-4 pt-4">
+                    <span class="flex-grow"></span>
+                    <p class="self-center float-right text-gray-400">Balance: <span class="text-green-400 font-weight-bold cursor-pointer" title="Ajiriwa Balance" @click="balance_modal = true">TZS {{ $page.props.user.ajiriwa_balance.toLocaleString() }}</span></p>
+                </div>
+
+                <ajiriwa-balance :show_modal="balance_modal"></ajiriwa-balance>
             </div>
-            hello
             <slot></slot>
         </main>
     </div>
@@ -76,14 +80,20 @@
 <script>
     import TheFooter from '@/Layouts/TheFooter';
     import { Head, Link } from '@inertiajs/inertia-vue3';
+    import AjiriwaBalance from "../Custom/AjiriwaBalance.vue";
     export default {
         name: "EmployerLayout",
         components: {
-            Head, Link
+            Head, Link, AjiriwaBalance
         },
         methods: {
             logout() {
                 this.$inertia.post(route('logout'));
+            }
+        },
+        data(){
+            return {
+                balance_modal: false,
             }
         }
     }

@@ -6,6 +6,7 @@ namespace App\Repositories;
 
 use App\Models\Candidate;
 use App\Models\Company;
+use App\Models\SubscriptionPlan;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Inertia\Inertia;
@@ -19,9 +20,10 @@ class UserRepository
                 // create an employer profile
                 $data = ['original_user' => $user_id];
                 $created = Company::updateOrCreate($data, $data);
+                $default_subscription = SubscriptionPlan::where('user_type', 'employer')->where('level', 1)->first();
 
                 // assign a rol
-                $updated = User::where('id', $user_id)->update(['role' => $role]);
+                $updated = User::where('id', $user_id)->update(['role' => $role, 'subscription_id' => $default_subscription->id??null]);
                 $user->assignRole($role);
                 return route('my-company.edit');
                 break;

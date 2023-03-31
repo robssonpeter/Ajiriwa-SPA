@@ -3,8 +3,8 @@
         <div class="md:grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-6 xl:grid-7 gap-12 h-screen border border-b-2">
             <section class="col-span-1 sm:col-span-2 md:col-span-2 2xl:col-span-2 h-100 shadow-lg p-4 overflow-y-auto pb-8">
                 <div class="flex flex-row py-2">
-                    <input type="text" class="flex-grow border border-gray-300 rounded-l-md" placeholder="Search Jobs">
-                    <button class="bg-green-500 px-2 text-white rounded-r-md">Search</button>
+                    <input type="text" v-model="keyword" class="flex-grow border border-gray-300 rounded-l-md" placeholder="Search Jobs">
+                    <button @click="findCandidate" class="bg-green-500 px-2 text-white rounded-r-md">Search</button>
                 </div>
                 <div v-for="candidate in candidates" class="my-1 grid grid-cols-3 border border-gray-300 sm:rounded-md">
                     <img :src="candidate.logo_url??'https://placeimg.com/150/150/any?1'" class="h-24 rounded-l-md" alt="">
@@ -63,6 +63,7 @@ import axios from "axios";
             return {
                 candidates: this.$page.props.candidates,
                 loading: false,
+                keyword: '',
                 current_candidate: {
                     empty: true
                 }
@@ -85,6 +86,16 @@ import axios from "axios";
                 }).catch(error => {
                     this.loading = false;
                 })
+            },
+            findCandidate(){
+                return alert('now searching for '+this.keyword);
+                axios.post(route('company.candidates.search'), {
+                    keyword: this.keyword
+                }).then(response => {
+                    this.candidates = response.data;
+                }).catch(error => {
+                    console.log(error.response.data);
+                });
             }
         },
         computed: {

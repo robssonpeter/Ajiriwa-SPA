@@ -33,6 +33,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use PHPMailer\PHPMailer\PHPMailer;
+use Route;
 use Spatie\Image\Image;
 use Spatie\MediaLibrary\Models\Media;
 
@@ -41,6 +42,11 @@ class   JobController extends Controller
 
     public function browseGuest(){
         //dd(request()->keyword);
+        $current_route = Route::current()->getName();
+        /* dd(request()->all()); */
+        /* if(request()->currentpage){
+            return redirect(route($current_route)."?page=".request()->currentpage, 301);
+        } */
         switch(request()->url()){
             case route('jobs.browse.alt'):
                 if(request()->keyword){
@@ -359,11 +365,37 @@ class   JobController extends Controller
         event(new JobViewed(request()->job_id, session()->get('uniqid')));
     }
 
+    public function oldJobsByCategory(){
+        if(request()->search){
+            return redirect(route('jobs.by-category', makeSlug(request()->search)), 301);
+        }
+        return abort(404);
+    }
+
     public function jobsByCategory($slug){
         $category = JobCategory::where('slug', $slug)->first();
         if(!$category){
             abort(404);
         }
+
+        SEOMeta::setTitle($category->name." Jobs");
+        SEOMeta::setDescription($category->description);
+        if($category->keywords)
+            SEOMeta::setKeywords($category->keywords);
+        SEOMeta::addMeta('theme-color', '#6ad3ac');
+
+        OpenGraph::setTitle($category->name." Jobs");
+        OpenGraph::setDescription($category->description);
+        OpenGraph::setUrl(route('jobs.by-category', $category->slug));
+        OpenGraph::setSiteName('Ajiriwa Network');
+        OpenGraph::setType('website');
+        OpenGraph::setUrl(route('jobs.browse'));
+        JsonLdMulti::addValue('itemListElement', [
+            ['@type' => 'ListItem',
+                'position' => 1,
+                'name' => 'Browse '.$category->name.' Jobs',
+                'item' => route('jobs.by-category', $category->slug)],
+        ]);
 
         $assignments = AssignedJobCategory::where('category_id', $category->id)->pluck('job_id');
         $jobs = Job::whereIn('id', $assignments)->where('deadline', '>=', date('Y-m-d'))->get();

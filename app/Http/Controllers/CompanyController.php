@@ -20,16 +20,25 @@ use App\Models\JobScreening;
 use App\Models\JobType;
 use App\Models\ScreeningResponse;
 use App\Models\Setting;
+use App\Models\SubscriptionPlan;
 use App\Models\User;
 use Auth;
 use DB;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\VerificationAttempt;
+use App\Repositories\CandidateRepository;
+use App\Repositories\SubscriptionRepository;
 use Illuminate\Support\Facades\File;
 
 class CompanyController extends Controller
 {
+    public function saveNewCompany(){
+        $data = request()->all();
+        $data['slug'] = makeSlug(request()->name);
+        return Company::create($data);
+    }
+
     public function show($slug){
         $company = Company::where('slug', $slug)->first();
         return view('company.view', compact('company'));
@@ -92,6 +101,21 @@ class CompanyController extends Controller
     }
 
     public function postJob(){
+        $user = Auth::user();
+        $company = Company::where('original_user', \Auth::user()->id)->first();
+        $subscription = SubscriptionRepository::currentPlan($user->id);
+        //dd($subscription);
+        if(Auth::user()->hasRole('admin')){
+            $is_admin = true;
+        }else{
+            $allowed_active_jobs = $subscription->contents->where('name', 'allowed_active_jobs')->first()->value??1;
+            $is_admin = false;
+        }
+        if(!$is_admin && activeJobs($company->id) >= $allowed_active_jobs){
+            // return the view that says that you can not have more that 1 active job with your subscription
+            $subscription = SubscriptionRepository::currentPlan($user->id);
+            return Inertia::render("Company/UpgradeSubscription", compact('company', 'subscription'));
+        }
         $categories = JobCategory::orderBy('name', 'DESC')->get();
         $status = Job::STATUS;
         $jobTypes = JobType::all();
@@ -100,7 +124,7 @@ class CompanyController extends Controller
             $companies = DB::table('companies')->whereNotNull('name')->select('name', 'id')->get();
             $is_admin = true;
         }
-        $company = Company::where('original_user', \Auth::user()->id)->first();
+        
         return Inertia::render('Company/Jobs/Post', [
             'categories' => $categories,
             'jobTypes' => $jobTypes,
@@ -143,11 +167,15 @@ class CompanyController extends Controller
         $user = \Auth::user();
         $jobs = Job::when($user->hasRole('employer'), function($q) use ($user){
             return $q->where('company_id', $user->company->id);
-        })->orderBy('id', 'DESC')->get();
+        })->orderBy('id', 'DESC')->simplePaginate(15);
+        //dd($jobs->previousPageUrl());
         return Inertia::render('Company/Jobs/Index', [
             'is_admin' => $user->hasRole('admin'),
-            'jobs' => $jobs,
-            'status' => Job::STATUS
+            'jobs' => $jobs->items(),
+            'status' => Job::STATUS,
+            'paginate' => $jobs,
+            'next' => $jobs->nextPageUrl(),
+            'previous' => $jobs->previousPageUrl(),
         ]);
     }
 
@@ -273,6 +301,11 @@ class CompanyController extends Controller
         //dd($candidates);
 
         return Inertia::render('Company/BrowseCandidates', compact('candidates'));
+    }
+
+    public function searchCandidates(){
+        $keyword = request()->keyword;
+        return CandidateRepository::searchCandidate($keyword);
     }
 
     public function showRecommendedCandidates(){

@@ -110,11 +110,26 @@
                     <span>No results to display</span>
                 </div>
             @endif
-
+            <div class="rounded-lg shadow-lg bg-white mb-2 px-4 py-2 cursor-pointer">
+            @if($jobs->lastPage() > 1)
+                {{ $jobs->appends(request()->except('page'))->onEachSide(1)->links() }}
+            @endif
+            </div>
         </section>
 
         <div class="rounded-lg shadow-lg bg-white sticky top-20 self-start hidden md:block">
-            <p>hello there</p>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2822549997571103"
+                crossorigin="anonymous"></script>
+                <!-- Side Ad Vert -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-2822549997571103"
+                    data-ad-slot="6027627770"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
         </div>
     </div>
 </div>

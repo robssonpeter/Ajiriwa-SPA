@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="Browse Jobs">
+    <app-layout :title="'Build Profile ('+section+')'">
             <section class="text-gray-500 max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
             <div class="p-2 bg-white border-1 shadow-md flex flex-row sticky top-12 z-40">
                 <h1 class="text-xl font-semibold flex-grow">Profile Builder: {{ section.charAt(0).toUpperCase() + section.slice(1) }}</h1>

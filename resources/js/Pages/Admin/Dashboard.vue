@@ -66,7 +66,13 @@
 
         <main class="w-full">
             <div class="h-16 bg-white shadow-md z-50 sticky top-0">
+                <div class="flex space-x-1 px-4 pt-4">
+                    <span class="flex-grow"></span>
+                    <p class="self-center float-right text-gray-400">Balance: <span class="text-green-400 font-weight-bold cursor-pointer" title="Ajiriwa Balance" @click="balance_modal = true">TZS 1,000,000.00</span></p>
+                </div>
 
+                <ajiriwa-balance :show_modal="balance_modal"></ajiriwa-balance>
+                
             </div>
             <div class="z-40 px-4 ">
                 <section class="flex flex-row py-3">
@@ -243,17 +249,24 @@
     import AppLayout from "@/Layouts/AppLayout";
     import { Head, Link } from '@inertiajs/inertia-vue3';
     import Button  from "@/Jetstream/Button";
+    import DialogModal from "@/Jetstream/DialogModal";
+    import AjiriwaBalance from "../../Custom/AjiriwaBalance.vue";
     import iziToast from "izitoast";
     import "izitoast/dist/css/iziToast.css";
     export default {
         name: "Customize",
         components: {
-            AppLayout, Head, Link, Button
+            AppLayout, Head, Link, Button, DialogModal, AjiriwaBalance
         },
         mounted(){
             //alert('hello there'+this.$page.props.pending_companies);
             if(this.$page.props.pending_companies){
                 iziToast.warning({title: "Alert", message: "You have "+this.$page.props.pending_companies+" companies waiting to be verified"});
+            }
+        },
+        data(){
+            return {
+                balance_modal: false,
             }
         }
     }

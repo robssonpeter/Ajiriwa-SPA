@@ -7,7 +7,7 @@
         </template>-->
 
         <div class="">
-            <div class="">
+            <!-- <div class="">
                 <div class="bg-white overflow-hidden shadow-xl ">
                     <div class="md:h-40 pt-32 pb-4 px-4 md:px-2 lg:px-4 z-40" id="banner" >
                         <div class="max-w-7xl mx-auto -mt-24 px-2 sm:px-6  sm:px-4 md:px-2 lg:px-4 xl:px-12">
@@ -33,7 +33,69 @@
 
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <section class="text-gray-500 max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 md:grid grid-cols-4">
+                <Link :href="route('my-resume')">
+                    <div class="hover:shadow-lg hover:bg-green-200 rounded-md bg-white shadow-md p-4 hidden md:block border border-green-400 mx-4 text-center flex flex-column"> 
+                        <section class="flex flex-col">
+                            <span class="text-green-400 font-bold">My Profile</span>   
+                            <section class="flex flex">
+                                <span class="flex-grow "></span>
+                                <span class="mx-auto">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 h-10 w-10 text-green-400 " fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                                    </svg>
+                                </span>
+                                <span class="flex-grow"></span>    
+                            </section>
+                        </section>
+                    </div>
+                </Link>
+                <Link :href="route('jobs.browse')">
+                    <div class="hover:shadow-lg hover:bg-green-200 rounded-md bg-white shadow-md p-4 hidden md:block mx-4 text-center flex flex-column border border-green-400">
+                        <span class="text-green-400 font-bold">Browse Jobs</span>   
+                        <section class="flex">
+                            <span class="flex-grow "></span>
+                            <span class="mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="h-10 w-10 text-green-400">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+                                </svg>
+                            </span>
+                            <span class="flex-grow"></span>    
+                        </section>
+                    </div>
+                </Link>
+                <Link :href="route('my-resume.edit')">
+                    <div class="hover:shadow-lg hover:bg-green-200 rounded-md bg-white shadow-md p-4 hidden md:block mx-4 text-center flex flex-column border border-green-400">
+                        <span class="text-green-400 font-bold">Update Profile</span>   
+                        <section class="flex">
+                            <span class="flex-grow "></span>
+                            <span class="mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-10 h-10 text-green-400">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+
+                            </span>
+                            <span class="flex-grow"></span>    
+                        </section>
+                    </div>
+                </Link>
+                <Link :href="route('my-applications')">
+                    <div class="hover:shadow-lg hover:bg-green-200 rounded-md bg-white shadow-md p-4 hidden md:block mx-4 text-center flex flex-column border border-green-400">
+                        <span class="text-green-400 font-bold">View My Applications</span>   
+                        <section class="flex">
+                            <span class="flex-grow "></span>
+                            <span class="mx-auto">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-10 h-10 text-green-400">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5" />
+                                </svg>
+
+                            </span>
+                            <span class="flex-grow"></span>    
+                        </section>
+                    </div>
+                </Link>
+            </section>
             <section class="text-gray-500 max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 <span class="text-3xl ml-4">{{ $page.props.greeting }}, {{ $page.props.candidate.first_name }}</span>
 

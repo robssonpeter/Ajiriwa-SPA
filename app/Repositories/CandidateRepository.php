@@ -6,8 +6,10 @@ namespace App\Repositories;
 
 use App\Events\ProfileUpdated;
 use App\Models\Candidate;
+use App\Models\CandidateCertificate;
 use App\Models\CandidateEducation;
 use App\Models\CandidateExperience;
+use App\Models\CandidateLanguage;
 use App\Models\CandidateReferee;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -47,9 +49,8 @@ class CandidateRepository
             }
             $candidate->addMedia($input['file'])
                 ->withCustomProperties([
-                    //'is_default' => isset($input['is_default'])?$input['is_default']:false,
                     'title'      => $input['title'],
-                ])/*->usingFileName($fileExtension)*/->toMediaCollection($mediaCollection);
+                ])->toMediaCollection($mediaCollection);
             return true;
         } catch (Exception $e) {
             throw new UnprocessableEntityHttpException($e->getMessage());
@@ -94,5 +95,39 @@ class CandidateRepository
         
         $candidate->update(['profile_completion' => $completion]);
         return $completion;
+    }
+
+    public static function searchCandidate($search){
+        $search_term =  explode(" ", $search);
+        
+        $experiences = CandidateExperience::where(function($q) use($search){
+            return $q->where('title', 'LIKE', "%".$search."%")->orWhere('company', 'LIKE', "%".$search."%");
+        })->pluck('candidate_id')->toArray();
+        $education = CandidateEducation::where(function($q) use($search){
+            return $q->where('degree_title', 'LIKE', "%".$search."%")->orWhere('institute', 'LIKE', "%".$search."%");
+        })->pluck('candidate_id')->toArray();
+        $certificate = CandidateCertificate::where(function($q) use($search){
+            return $q->where('name', 'LIKE', "%".$search."%");
+        })->pluck('candidate_id')->toArray();
+
+        $exeptions = array("and", "in", "on", "at", "with", "if", "be", "is", "by", "of", "for", "to", "up", "like", "from", " ");
+        $candidates = Candidate::where(function($q) use($search, $search_term, $exeptions){
+            $q = $q ->where('first_name', "LIKE", "%".$search."%")
+                    ->orWhere('middle_name', "LIKE", "%".$search."%")
+                    ->orWhere('last_name', "LIKE", "%".$search."%");
+            foreach($search_term as $term){
+                if(in_array($term, $exeptions)){
+                    continue;
+                }
+                $q = $q ->orWhere('first_name', "LIKE", "%".$term."%")
+                        ->orWhere('middle_name', "LIKE", "%".$term."%")
+                        ->orWhere('last_name', "LIKE", "%".$term."%");
+            }
+            return $q;
+        })->orWhere(function($q) use($experiences, $education, $certificate){
+            $candidate_ids = array_merge($experiences, $education, $certificate);
+            return $q->whereIn('id', $candidate_ids);
+        })->orWhere('professional_title', "LIKE", "%".$search."%")->get();
+        return $candidates;        
     }
 }

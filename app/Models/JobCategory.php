@@ -10,7 +10,7 @@ class JobCategory extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'slug', 'icon'
+        'name', 'slug', 'icon', 'description', 'keywords'
     ];
 
     

@@ -34,7 +34,9 @@ class User extends Authenticatable
         'phone',
         'fcm_token',
         'provider',
-        'provider_id'
+        'provider_id',
+        'subscription_id',
+        'subscription_end_date'
     ];
 
     /**

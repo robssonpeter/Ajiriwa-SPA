@@ -19,6 +19,24 @@
                             </template>
                         </v-select>
                     </div>
+                    <section class="md:grid md:grid-cols-3 gap-4 gap-y-4 pb-4" v-if="$page.props.is_admin && !selected_company">
+                        <div class="input flex flex-col">
+                            <label for="job_title" class="font-bold">Company Name</label>
+                            <input type="text" v-model="new_company.name" class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300" id="job_title" required>
+                        </div>
+
+                        <div class="input flex flex-col">
+                            <label for="reports_to" class="font-bold">Website</label>
+                            <input type="url" placeholder="http://.." v-model="new_company.website" id="reports_to" class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300" >
+                        </div>
+                        <div class="input flex flex-col">
+                            <span class="invisible">butn</span>
+                            <button :disabled="new_company.saving" @click="saveNewCompany" class="border border-green-400 py-2 color-green-400 hover:bg-green-400 hover:text-white text-green-400">
+                                <span v-if="!new_company.saving">Save Company</span>
+                                <Loader color="white" class="self-center" v-else></Loader>
+                            </button>
+                        </div>
+                    </section>
                     <section class="md:grid md:grid-cols-3 gap-4 gap-y-4">
                         <div class="input flex flex-col">
                             <label for="job_title" class="font-bold">Job Title</label>
@@ -59,7 +77,26 @@
                     </section>
                     <section class="py-4">
                         <span class="font-bold">Job Description</span>
-                        <text-editor @change="editorChanged" :text="$page.props.job?$page.props.job.description:''" v-model:content="description"></text-editor>
+                        <editor
+                            api-key="jjad0mn6spynym8qygjn9s5rh9pdsngw4gmev06owjdt277s"
+                            :initial-value="'Your job description here...'"
+                            v-model="description"
+                            :init="{
+                                height: 400,
+                                menubar: false,
+                                link_title: false,
+                                plugins: [
+                                'advlist autolink lists link image charmap print preview anchor',
+                                'searchreplace visualblocks code fullscreen',
+                                'insertdatetime media table paste code help wordcount'
+                                ],
+                                toolbar:
+                                'undo redo | formatselect | bold italic | \
+                                alignleft aligncenter alignright alignjustify | \
+                                bullist numlist | help'
+                            }"
+                            />
+                        <!--<text-editor @change="editorChanged" :text="$page.props.job?$page.props.job.description:''" v-model:content="description"></text-editor>-->
                     </section>
                     <section class="py-2">
                         <span class="font-bold">Keywords</span>
@@ -148,13 +185,15 @@
     import TagInput from "../../../Custom/TagInput.vue";
     import vSelect from "vue-select";
     import 'vue-select/dist/vue-select.css';
+    import Editor from '@tinymce/tinymce-vue'
+import axios from "axios";
     export default {
         name: "Post",
         props: {
             title: String,
         },
         components: {
-            EmployerLayout, Head, TextEditor, Input, QuillEditor, Loader, TagInput, vSelect
+            EmployerLayout, Head, TextEditor, Input, QuillEditor, Loader, TagInput, vSelect, Editor
         },
         mounted(){
            /*if(this.$page.props.job){
@@ -177,7 +216,7 @@
                 reports_to: this.$page.props.job?this.$page.props.job.reports_to:'',
                 job_type: this.$page.props.job?this.$page.props.job.job_type:'',
                 category: '',
-                description: this.$page.props.job ? this.$page.props.job.description :'',
+                description: this.$page.props.job ? this.$page.props.job.description :'Your job description here',
                 deadline: this.$page.props.job?this.$page.props.job.deadline:'',
                 cover_letter: this.$page.props.job?this.$page.props.job.cover_letter:'',
                 saving: false,
@@ -188,6 +227,11 @@
                 status: this.$page.props.job?this.$page.props.job.status:1,
                 company_options: [],
                 selected_company: null,
+                new_company: {
+                    name: '',
+                    website: '',
+                    saving: false,
+                }
             }
         },
         computed: {
@@ -204,6 +248,22 @@
             }
         },
         methods: {
+            saveNewCompany(){
+                //alert('you about to save a new company');
+                this.new_company.saving = true;
+                axios.post(route('company.new'), this.new_company).then(response => {
+                    if(response.data){
+                        this.company_options.push(response.data);
+                        this.selected_company = response.data.name;
+                        this.company_id = response.data.id;
+                    }
+                }).catch(error => {
+                    console.log(error.response.data);
+                    this.new_company.saving = false;
+                    this.new_company.name = "";
+                    this.new_company.website = "";
+                });
+            },
             company_selected(){
                 if(this.selected_company){
                     this.company_id =  this.selected_company.code;

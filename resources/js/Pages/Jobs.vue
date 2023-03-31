@@ -27,7 +27,7 @@
                     <span>There are no jobs to display</span>
                 </section>
 
-                <section v-else v-for="(job, index) in jobs" class="my-1 grid grid-cols-3 border border-gray-300 sm:rounded-md">
+                <section v-else v-for="(job, index) in jobs" :class="'my-1 grid grid-cols-3 border border-gray-300 sm:rounded-md '+currentJob(job)">
                     <img :src="job.company.logo_url" class="h-24 rounded-l-md" alt="">
                     <div class="col-span-2 text-gray-600 pt-2">
                         <a href="#" @click.prevent="showJob(index)" class="text-green-500 font-bold">{{ job.title }}</a>
@@ -223,6 +223,14 @@
             }
         },
         computed: {
+            currentJob(){
+                return job => {
+                    console.log(this.current_job);
+                    if(this.current_job == job){
+                        return "bg-green-200";
+                    }
+                }
+            },
             paginationLinkClass(){
                 return data => {
                     if(!data.url && !data.active){
@@ -273,6 +281,9 @@
             }
         },
         methods: {
+            scrollToTop(){
+                window.scrollTo({top: 0, behavior: "smooth"});
+            },
             searchJobs(){
                 this.loading = true;
                 axios.post(route('jobs.search', {search: this.search, ajax: 1})).then((response) => {
@@ -319,7 +330,7 @@
             },
             showJob(index){
                 this.current_job = this.jobs[index];
-
+                this.scrollToTop()
                 // check if the user already applied for the job
                 if(this.$page.user && this.$page.props.user.candidate.applied_jobs.indexOf(this.jobs[index].id) !== -1){
                     // the user has already applied for the job

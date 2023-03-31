@@ -1,3 +1,4 @@
+import "ionicons/dist/ionicons";
 /* import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 import { Swiper, SwiperSlide } from "swiper/vue";

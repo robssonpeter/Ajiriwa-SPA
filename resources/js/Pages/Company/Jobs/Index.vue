@@ -87,6 +87,11 @@
                     </tr>
                     </tbody>
                 </table>
+                <div class="flex py-2">
+                    <Link v-if="$page.props.previous" :href="$page.props.previous" class="bg-white px-2 border border-gray-400 text-gray-500 hover:text-green-500">Previous</Link>
+                    <div class="flex-grow"></div>
+                    <Link v-if="$page.props.next" :href="$page.props.next" class="bg-white px-2 border border-gray-400 text-gray-500 hover:text-green-500">Next</Link>
+                </div>
             </div>
             <!--<div class="col-span-1">
                 <div class="sticky top-20 shadow-md p-4">

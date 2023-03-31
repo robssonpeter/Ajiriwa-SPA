@@ -14,6 +14,7 @@
                 </div>
                 <div class="-mr-2 -my-2 md:hidden">
                     <button type="button"
+                            @click="openMenu"
                             class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                             aria-expanded="false">
                         <span class="sr-only">Open menu</span>
@@ -25,6 +26,106 @@
                         </svg>
                     </button>
                 </div>
+                <Menu>
+                    <div id="mobile-menu" class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right hidden md:hidden">
+                        <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+                            <div class="pt-5 pb-6 px-5">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex space-x-2">
+                                        <img class="h-8 w-auto sm:h-10" :src="route('root')+'/images/ajiriwa-new-logo.png'" alt="Ajiriwa Network">
+                                        <span class=" self-center text-2xl font-bold text-gray-500">Ajiriwa.net</span>
+                                    </div>
+                                    <div class="-mr-2">
+                                        <button type="button"
+                                                onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+                                                class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                                            <span class="sr-only">Close menu</span>
+                                            <!-- Heroicon name: outline/x -->
+                                            <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                 stroke="currentColor" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                      d="M6 18L18 6M6 6l12 12"/>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="mt-6">
+                                    <nav class="grid gap-y-8">
+                                        <Link :href="route('jobs.browse')" class="-m-3 p-3 flex text-gray-500 items-start rounded-md hover:bg-green-50">
+                                            <!-- Heroicon name: outline/chart-bar -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="flex-shrink-0 h-6 w-6 text-green-600">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 00.75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 00-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0112 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 01-.673-.38m0 0A2.18 2.18 0 013 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 013.413-.387m7.5 0V5.25A2.25 2.25 0 0013.5 3h-3a2.25 2.25 0 00-2.25 2.25v.894m7.5 0a48.667 48.667 0 00-7.5 0M12 12.75h.008v.008H12v-.008z" />
+                                            </svg>
+                                        
+                                            <div class="ml-4">
+                                                <span class="text-base font-medium text-gray-900">
+                                                    Jobs
+                                                </span>
+                                                <p class="mt-1 text-sm text-gray-500"> Find the right job and make your application </p>
+                                            </div>
+                                        </Link>
+                                        
+                                        <Link :href="route('my-resume')" class="-m-3 p-3 flex text-gray-500 items-start rounded-md hover:bg-green-50">
+                                            <!-- Heroicon name: outline/chart-bar -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+                                            </svg>
+                                              
+                                            <div class="ml-4">
+                                                <span class="text-base font-medium text-gray-900">
+                                                    My Resume
+                                                </span>
+                                                <p class="mt-1 text-sm text-gray-500"> Have a look at your current CV that is visible to employers </p>
+                                            </div>
+                                        </Link>
+
+                                        <Link :href="route('my-resume.edit')" class="-m-3 p-3 flex text-gray-500 items-start rounded-md hover:bg-green-50">
+                                            <!-- Heroicon name: outline/chart-bar -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="flex-shrink-0 h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                                            </svg>
+                                              
+                                            <div class="ml-4">
+                                                <span class="text-base font-medium text-gray-900">
+                                                    Update My Resume
+                                                </span>
+                                                <p class="mt-1 text-sm text-gray-500"> Make changes to your CV Info </p>
+                                            </div>
+                                        </Link>
+
+                                        <Link :href="route('my-applications')" class="-m-3 p-3 flex text-gray-500 items-start rounded-md hover:bg-green-50">
+                                            <!-- Heroicon name: outline/chart-bar -->
+                                            <svg class="flex-shrink-0 h-6 w-6 text-green-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"></path>
+                                            </svg>
+                                              
+                                            <div class="ml-4">
+                                                <span class="text-base font-medium text-gray-900">
+                                                    My Applications
+                                                </span>
+                                                <p class="mt-1 text-sm text-gray-500"> Keep track of the status of all applications that you've made. </p>
+                                            </div>
+                                        </Link>
+
+                                        <Link :href="route('saved-jobs')" class="-m-3 p-3 flex text-gray-500 items-start rounded-md hover:bg-green-50">
+                                            <!-- Heroicon name: outline/chart-bar -->
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"></path>
+                                            </svg>
+                                            <div class="ml-4">  
+                                                <span class="text-base font-medium text-gray-900">
+                                                    Saved Jobs
+                                                </span>
+                                                <p class="mt-1 text-sm text-gray-500"> See your bookmarked jobs here. </p>
+                                            </div>
+                                        </Link>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </Menu>
+                
                 <nav class="hidden md:flex space-x-10">
                     <Link :href="route('jobs.browse')" class="text-gray-500">Jobs</Link>
                     <div class="relative">
@@ -441,6 +542,8 @@
                     </div>
                 </nav>
 
+                
+
                 <dropdown align="right" width="48" v-if="$page.props.user" class="hidden md:block float-right">
                     <template #trigger>
                         <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
@@ -647,6 +750,9 @@
             };
         },
         methods: {
+            openMenu(){
+                document.getElementById('mobile-menu').classList.remove('hidden');
+            },
             dropdownControl: function (type, is_open) {
                 this.dropdowns.one.is_open = false;
                 this.dropdowns.two.is_open = false;

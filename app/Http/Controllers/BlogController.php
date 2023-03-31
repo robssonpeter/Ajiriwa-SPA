@@ -96,6 +96,8 @@ class BlogController extends Controller
     }
 
     public function employers(){
+        SEOMeta::setTitle('Post a Job and Hire in Tanzania');
+        SEOMeta::setDescription('Find the right talent for your company with Ajiriwa Platform, Create Job posts, accept and reject applications, filter and create a list of shortlisted candidates. You can do all of these on site for free.');
         return view('Blog.employers');
     }
 }

@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="Company Info">
+    <employer-layout title="Company Info">
         <div class="mt-8 flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-gray-100">
         <div class="border py-6 px-8 shadow-md rounded-lg bg-white">
             <form action="" v-on:submit.prevent="submit">
@@ -58,17 +58,18 @@
             </form>
         </div>
     </div>
-    </app-layout>
+    </employer-layout>
 </template>
 
 <script>
     import {Head, Link} from '@inertiajs/inertia-vue3';
     import AppLayout from "@/Layouts/AppLayout";
+    import EmployerLayout from "@/Layouts/EmployerLayout";
     import Loader from "@/Custom/Loader";
     export default {
         name: "InitialInfo",
         components: {
-            Link, Head, AppLayout, Loader
+            Link, Head, AppLayout, Loader, EmployerLayout
         },
         mounted(){
               //document.getElementById('next').click();

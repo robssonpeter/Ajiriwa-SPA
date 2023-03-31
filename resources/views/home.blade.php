@@ -87,9 +87,7 @@
                         <span class="font-bold"><a href="{{ route('jobs.by-category', $category->slug) }}">{{ $category->name }}</a></span>
                         <span class="mt-4 text-gray-500 font-bold">{{ $category->active_jobs_count}} Jobs</span>
                     </div>
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-12 h-12 self-center">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
-                    </svg>
+                    {!! $category->icon !!}
                 </section>
             @endforeach
             <section class="py-4 border border-green-400 px-4 cols-5 flex flex-col cursor-pointer hover:bg-green-300 hover:text-white text-green-400">
@@ -120,9 +118,10 @@
                     <span class="font-bold">Creative Arts & Media</span>
                     <span class="mt-4 text-gray-500 font-bold">1500 Jobs</span>
                 </div>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-12 h-12 self-center">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 11.25l1.5 1.5.75-.75V8.758l2.276-.61a3 3 0 10-3.675-3.675l-.61 2.277H12l-.75.75 1.5 1.5M15 11.25l-8.47 8.47c-.34.34-.8.53-1.28.53s-.94.19-1.28.53l-.97.97-.75-.75.97-.97c.34-.34.53-.8.53-1.28s.19-.94.53-1.28L12.75 9M15 11.25L12.75 9" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-12 h-12">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                   </svg>
+                  
                   
                   
             </section>
@@ -144,12 +143,12 @@
         <div class="max-w-7xl  pt-5 mb-12 ">
             <span class="text-xl font-bold text-gray-500 mb-4">Recent Posts</span>
 
-            <div class="flex space-x-2 pb-4">
+            <div class="flex flex-row space-x-2 pb-4">
                 @foreach($blog_posts as $post)
-                    <div >
+                    <div class="flex-grow">
                         <div class="recent-post block rounded-lg shadow-lg bg-white">
                             <div class="recent-post-img">
-                                <a href="blog-single-post.php?id=14"><img class="rounded-t-lg" src="https://www.ajiriwa.net/uploads/blog/productivity%20improvement.jpg{{-- {{ strlen($post->scaled_down_cover)?$post->scaled_down_cover:$post->cover_photo }} --}}" alt="{{$post->Title}}"></a>
+                                <a href="{{ route('blog.post.view', $post->slug) }}"><img class="rounded-t-lg" src="{{ strlen($post->scaled_down_cover)?$post->scaled_down_cover:$post->cover_photo }}" alt="{{$post->Title}}"></a>
                                 <div class="hover-icon"></div>
                             </div>
                             <div class="px-4">
@@ -158,18 +157,19 @@
                                 </a>
                             </div>
                             <div class="mb-2 px-4">
-                                <span><a href="#" class="text-sm">59 Comments</a></span>
+                                {{-- <span><a href="#" class="text-sm">59 Comments</a></span> --}}
                             </div>
                             <div class="px-4">
-                                <p class="text-gray-900 leading-tight font-medium mb-2">{{ \Illuminate\Support\Str::limit($post->Summary, 200) }}</p>
+                                <p class="text-gray-700 leading-tight font-medium mb-2">{{ \Illuminate\Support\Str::limit($post->Summary, 200) }}</p>
                                 <br>
-                                <a href="blog-single-post.php?id=14" class="button bg-green-500 rounded-md p-2 text-white mt-2">Read More</a>
+                                <a href="{{ route('blog.post.view', $post->slug) }}" class="button bg-green-500 rounded-md p-2 text-white mt-2">Read More</a>
                             </div>
                         </div>
                     </div>
                 @endforeach
             </div>
         </div>
+        <span><ion-icon name="heart"></ion-icon>hell</span>
     </div>
 
     <script src="{{ mix('js/homepage.js') }}">

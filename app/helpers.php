@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Job;
+
 function getFileName($fileName, $attachment)
 {
     $fileNameExtension = $attachment->getClientOriginalExtension();
@@ -73,4 +75,8 @@ function unitSeparator($product_id, $quantity){
         $x++;
     }
     return implode(' ', $output_array);
+}
+
+function activeJobs($company_id){
+    return Job::where('company_id', $company_id)->where('deadline', '>=', date('Y-m-d'))->where('status', 1)->count();
 }
