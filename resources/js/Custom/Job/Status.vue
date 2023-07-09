@@ -90,7 +90,11 @@ export default {
                 this.changing = false;
                 this.$emit('change', {status:status, id: this.job.id});
             }).catch((error) => {
-                Swal.fire('Failed', 'Status could not be updated', 'error');
+                if(error.response.data.message){
+                    Swal.fire('Failed', error.response.data.message, 'error');
+                }else{
+                    Swal.fire('Failed', 'Status could not be updated', 'error');
+                }
                 console.log(error.response.data);
                 this.changing = false;
             })

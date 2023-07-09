@@ -24,7 +24,7 @@
                             <th class="text-left px-8 py-3 text-center">Location</th>
                             <!--<th class="bg-green-100 border text-left px-8 py-3 text-center">Promotion</th>-->
                             <th class="text-left px-8 py-3 text-center">Date Posted</th>
-                            <th class="text-left px-8 py-3 text-center">Views</th>
+                            <th class="text-left px-8 py-3 text-center">Promotion</th>
                             <th class="text-left px-8 py-3 text-center">Status</th>
                             <th class="text-left px-8 py-3 text-center">Closing Date</th>
                             <th class="text-left px-8 py-3 text-center">Applications</th>
@@ -38,7 +38,7 @@
                                 <span class="text-sm" v-if="$page.props.is_admin">{{ job.company.name }}</span>
                             </td>
                             <td class="border px-8 py-2 text-center">
-                                <span>{{ job.location }}</span>
+                                <small>{{ job.location }}</small>
                             </td>
                             <!--<td class="border px-8 py-2 text-center">
                                 <span class="bg-green-400 p-1 text-white cursor-pointer rounded-md text-center"><small>Promote</small></span>
@@ -54,7 +54,7 @@
                                     </template>
                                 </time-ago>-->
                             </td>
-                            <td class="border px-8 py-2 text-center">{{ job.views_count }}</td>
+                            <td class="border px-8 py-2 text-center"><promotion :key="job.id" :job="job"></promotion></td>
                             <td class="border px-8 py-2 text-center">
                                 <Status :job="job" :options="$page.props.status" :key="job.id" @change="statusUpdated"></Status>
                             </td>
@@ -107,6 +107,7 @@
     import { Head, Link } from '@inertiajs/inertia-vue3';
     import Input from "@/Jetstream/Input";
     import Loader from "@/Custom/Loader";
+    import Promotion from "@/Custom/Job/Promotion";
     import TimeAgo from 'vue3-timeago';
     import CheckableDropdown from "@/Custom/CheckableDropdown";
     import Status from "@/Custom/Job/Status";
@@ -123,7 +124,8 @@
             Link,
             TimeAgo,
             CheckableDropdown,
-            Status
+            Status,
+            Promotion
         },
         mounted() {
             console.log(this.jobs);

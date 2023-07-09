@@ -11,32 +11,45 @@
                             <template slot="no-options">
                                 type to search companies..
                             </template>
-                            <template slot="option" slot-scope="option">
+                            <!-- <template slot="option" slot-scope="option">
                             <div class="d-center">
                                 <img :src='option.logo_url'/> 
                                 {{ option.name }}
                                 </div>
-                            </template>
+                            </template> -->
                         </v-select>
                     </div>
                     <section class="md:grid md:grid-cols-3 gap-4 gap-y-4 pb-4" v-if="$page.props.is_admin && !selected_company">
                         <div class="input flex flex-col">
                             <label for="job_title" class="font-bold">Company Name</label>
-                            <input type="text" v-model="new_company.name" class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300" id="job_title" required>
+                            <input type="text" placeholder="New Company" v-model="new_company.name" class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300" id="job_title" required>
                         </div>
 
                         <div class="input flex flex-col">
                             <label for="reports_to" class="font-bold">Website</label>
                             <input type="url" placeholder="http://.." v-model="new_company.website" id="reports_to" class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300" >
                         </div>
+                        
                         <div class="input flex flex-col">
-                            <span class="invisible">butn</span>
+                            <span class="invisible">Save</span>
                             <button :disabled="new_company.saving" @click="saveNewCompany" class="border border-green-400 py-2 color-green-400 hover:bg-green-400 hover:text-white text-green-400">
-                                <span v-if="!new_company.saving">Save Company</span>
+                                <span v-if="!new_company.saving">Save New Company</span>
                                 <Loader color="white" class="self-center" v-else></Loader>
                             </button>
                         </div>
                     </section>
+                    
+                    <div class="input flex flex-col" v-if="company_id && !company_logo && $page.props.is_admin">
+                        <!-- <label for="reports_to" class="font-bold">Logo</label> -->
+                        <file-uploader :label="'Logo'"
+                                       :model="'App\\Models\\Company'"
+                                       :collection="'logo'"
+                                       :model_id="company_id" 
+                                       :key="'company-logo'" 
+                                       :title="new_company.name+'company-logo'">
+                                    </file-uploader>
+                        <!-- <input type="file" id="reports_to" class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300" > -->
+                    </div>
                     <section class="md:grid md:grid-cols-3 gap-4 gap-y-4">
                         <div class="input flex flex-col">
                             <label for="job_title" class="font-bold">Job Title</label>
@@ -57,7 +70,7 @@
                             <label for="job-type" class="font-bold">JobType</label>
                             <select name="job_type" id="job-type" v-model="job_type" class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300" required>
                                 <option value="">Job Type</option>
-                                <option :value="type.id" v-for="type in $page.props.jobTypes">{{ type.name }}</option>
+                                <option :value="type.id" v-for="type in $page.props.jobTypes"> {{ type.name }}</option>
                             </select>
                         </div>
                         <div class="input flex flex-col">
@@ -114,7 +127,7 @@
                         </section>
                         <section class="py-2 flex flex-col col-span-1">
                             <label for="apply_method" class="font-bold">Applications Deadline</label>
-                            <input type="date" v-model="deadline" class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300" required>
+                            <input type="date" :disabled="editing && !$page.props.is_admin" v-model="deadline" class="disabled:bg-gray-200 disabled:cursor-not-allowed focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300" required>
                         </section>
                         <section class="py-2 flex flex-col col-span-1">
                             <label for="apply_method" class="font-bold">Number of Positions</label>
@@ -181,19 +194,20 @@
     import Input from "@/Jetstream/Input";
     import { QuillEditor } from '@vueup/vue-quill';
     import Loader from "@/Custom/Loader";
+    import FileUploader from "@/Custom/FileUploader";
     import Swal from "sweetalert2";
     import TagInput from "../../../Custom/TagInput.vue";
     import vSelect from "vue-select";
     import 'vue-select/dist/vue-select.css';
     import Editor from '@tinymce/tinymce-vue'
-import axios from "axios";
+    import axios from "axios";
     export default {
         name: "Post",
         props: {
             title: String,
         },
         components: {
-            EmployerLayout, Head, TextEditor, Input, QuillEditor, Loader, TagInput, vSelect, Editor
+            EmployerLayout, Head, TextEditor, Input, QuillEditor, Loader, TagInput, vSelect, Editor, FileUploader
         },
         mounted(){
            /*if(this.$page.props.job){
@@ -227,14 +241,22 @@ import axios from "axios";
                 status: this.$page.props.job?this.$page.props.job.status:1,
                 company_options: [],
                 selected_company: null,
+                company_logo: null,
                 new_company: {
                     name: '',
                     website: '',
+                    logo: '',
                     saving: false,
                 }
             }
         },
         computed: {
+            editing(){
+                if(this.$page.props.job){
+                    return true;
+                }
+                return false;
+            },
             allowCC(){
                 let count = this.application_email_cc.length;
                 if(!count){
@@ -267,7 +289,11 @@ import axios from "axios";
             company_selected(){
                 if(this.selected_company){
                     this.company_id =  this.selected_company.code;
+                    this.company_logo = this.selected_company.logo;
+                    this.company_options = [];
+                    //alert('you are here');
                 }
+                
             },
             tagChanged(event){
                 console.log(event);
@@ -286,12 +312,14 @@ import axios from "axios";
                 //console.log(this.description);
             },
             fetchCompanies(searching, loading){
-                axios.post(route('companies.search'), {keyword: searching}).then((response) => {
-                    console.log(response.data);
-                    this.company_options = response.data;
-                }).catch((error) => {
-                    console.log(error)
-                });
+                if(searching.length){
+                    axios.post(route('companies.search'), {keyword: searching}).then((response) => {
+                        console.log(response.data);
+                        this.company_options = response.data;
+                    }).catch((error) => {
+                        console.log(error)
+                    });
+                }
             },
             submitJob(){
                 this.saving = true;

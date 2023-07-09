@@ -20,6 +20,7 @@ use App\Models\JobType;
 use App\Models\JobView;
 use App\Models\ScreeningResponse;
 use App\Models\User;
+use App\Repositories\JobRepository;
 use Artesaos\SEOTools\Facades\JsonLd;
 use Artesaos\SEOTools\Facades\JsonLdMulti;
 use Artesaos\SEOTools\Facades\OpenGraph;
@@ -36,6 +37,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use Route;
 use Spatie\Image\Image;
 use Spatie\MediaLibrary\Models\Media;
+use App\Repositories\SubscriptionRepository;
 
 class   JobController extends Controller
 {
@@ -286,6 +288,8 @@ class   JobController extends Controller
             ]);
         }*/
         $applied = [12];
+
+        JobRepository::addToViewedJobs($job->id);
         
         if(\Auth::check() && Auth::user()->hasRole('candidate')){
             $deadline_formated = \Carbon\Carbon::parse($job->deadline)->format('jS F Y');
@@ -321,6 +325,19 @@ class   JobController extends Controller
     public function changeJobStatus(){
         $job_id = request()->job_id;
         $status = request()->status;
+        $active_status = array_search("Active", Job::STATUS);
+
+        // check if the user has a role as employee
+        if(Auth::check() && Auth::user()->hasRole('employer')){
+            $company = Company::where('original_user', \Auth::user()->id)->first();
+            $subscription = SubscriptionRepository::currentPlan(Auth::user()->id);
+            $allowed_active_jobs = $subscription->contents->where('name', 'allowed_active_jobs')->first()->value??1;
+            $active_jobs_count = activeJobs($company->id);
+            if( $active_status == $status && $active_jobs_count >= $allowed_active_jobs){
+                Throw new \Exception('Your plan does not allow more than '.$active_jobs_count." active jobs");
+            }
+        }
+        // yes check if there are any active jbs
         return Job::where('id', $job_id)->update(['status' => $status]);
     }
 
@@ -578,4 +595,53 @@ class   JobController extends Controller
         return JobScreening::where('id', $id)->delete();
     }
 
+    public function submitPromotion(){	
+        //echo "here are your postings";
+        $user = Auth::user();
+        $ajiriwa_balance = $user->ajiriwa_balance;
+            
+        $budget = request()->budget;
+        $gender = request()->gender;
+        $location = request()->location;
+        $title = request()->professional_title;
+        $skills = request()->skills;
+        $jobid = request()->jobid;
+    
+        if($ajiriwa_balance>$budget OR $ajiriwa_balance==$budget){
+            
+            // this will deduct the amount stated in the budget from the employer ajiriwa balance
+            $charge = "UPDATE employer SET ajiriwa_balance = ajiriwa_balance-$budget WHERE username = '$user'";
+            $charge = User::where('id', Auth::user()->id)->decrement('ajiriwa_balance', $budget);
+            // When the deduction is successful insert the promotion into the promotion table
+            if($charge){
+                $data = [
+                    "Job_ID" => $jobid,
+                    "Budget" => $budget,
+                    "Location" => $location,
+                    "Professional_title" => $title,
+                    "Skills" => $skills,
+                    "Available_balance" => $budget,
+                    "Gender" => $gender,
+                    "Promoter" => $user->id,
+                    "Status" => 'Active',
+                ];              
+                $promoted = \DB::table('job_promotions')->insert($data);
+                
+                /* if($promoted){
+                    echo "The transaction is complete, your promotion is now active";
+                } */
+                return $promoted;
+            }else{
+                return false;
+            }
+        }else{
+            //insufficient balance
+            return -1;
+            return "insufficient";
+            echo "<p>Sorry, your ajiriwa balance is not sufficient. Please top up to continue</p>";	
+            echo "<p><strong>Current Balance: </strong>".$remaining['ajiriwa_balance']."</p>";
+            echo "<a href='#back-to-promote-".$jobid."' id='".$jobid."' class='promote w3-black w3-margin-right w3-button' onclick='openPromotion()'>Go Back</a>";
+            echo "<a class='w3-button w3-green' onclick='howMuchToTopup()' id='topup'>Topup</a>";
+        }
+    }
 }

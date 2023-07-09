@@ -15,8 +15,9 @@
 
             </div>
             <div class="h-32 w-32 bg-gray-100 -mt-16">
-                <span class="ml-2 mt-2 mr-1 absolute" id="add-logo" @click="$refs.logo_select.click()">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-gray-500 hover:text-green-400 font-bold cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <span title="Change Logo" class="ml-2 mt-2 p-1 rounded-md mr-1 absolute bg-green-400 text-white" id="add-logo" ref="el" @click="$refs.logo_select.click()">
+                    <button v-if="!company.logo" class=" ">Add Logo</button>  
+                    <svg v-else xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white font-bold cursor-pointer" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                       <path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                     </svg>
                 </span>
@@ -44,7 +45,7 @@
             <span :class="sectionClass('reviews')" @click="getSectionDetails('reviews')">Reviews</span>
         </section>
 
-        <section class="bg-white max-w-7xl mx-auto sm:px-6 py-2 mt-2 text-gray-500">
+        <section class="bg-white max-w-7xl mx-auto xs:px-4 md:m sm:px-6 py-2 mt-2 text-gray-500">
             <div v-if="current_section === 'about'">
                 <div class="border border-dashed p-4 text-center text-gray-500" v-if="!company.description && canCustomize && !entering.description">
                     <span class="cursor-pointer" id="add-company-description" @click="addCompanyDescription">Click to add description</span>
@@ -72,6 +73,22 @@
                         <span v-if="!jobs.length" class="text-gray-400">Jobs that you post will appear here</span>
                         <Link :href="route('company.post-job')" class="text-green-400 font-bold ml-4">Post A Job</Link>
                     </div>
+                    <div class="class" v-if="jobs.length">
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Job Card 1 -->
+                        <div class="bg-white rounded-lg border border-gray-300 p-4" v-for="job in jobs">
+                            <h3 class="text-l text-green-500 font-bold mb-2">{{ job.title }}</h3>
+                            <p class="text-gray-600 mb-2 text-sm">{{ job.location }}</p>
+                            <div class="flex justify-between">
+                            <p class="text-gray-600">{{ job.type.name }}</p>
+                            <p class="text-gray-500">Views: {{ job.views_count }}</p>
+                            </div>
+                        </div>
+
+                        <!-- Add more job cards as needed -->
+                        </div>
+
+                    </div>
                 </section>
             </div>
             <div v-if="current_section === 'reviews'" class="py-2">
@@ -82,7 +99,7 @@
             </div>
         </section>
         <div>
-            <v-tour name="myTour" :steps="tour_steps" onStart></v-tour>
+            <v-tour name="myTour" :steps="tour_steps"></v-tour>
         </div>
 <!--        <v-tour name="myTour" :steps="tour_steps"></v-tour>-->
 <!--        <cropper
@@ -121,10 +138,10 @@ import { ResizeEvent } from 'vue-advanced-cropper'
 export default {
         name: "Customize",
         components: {
-            AppLayout, Head, Link, Button, QuillEditor, Loader, Cropper
+            AppLayout, Head, Link, Button, QuillEditor, Loader
         },
         mounted() {
-            console.log(this.company);
+            //console.log(this.company);
             /*let image = new Image();
             image.src = this.company.logo_url;*/
             /*for(let x = 0; x < 100; x++){
@@ -136,7 +153,11 @@ export default {
                 this.logo.height = image.height;
                 this.logo.width = image.width;
             }*/
-            this.$tours['myTour'].start()
+            //this.$tours['myTour'].start();
+            /* this.createTour();
+            this.tour.start(); */
+            //window.scrollTo(0, 0);
+            
         },
         data(){
             return {
@@ -150,8 +171,9 @@ export default {
                     top: 0,
                     left: 0,
                 },
+                tr: null,
                 current_logo: '',
-                jobs: [],
+                jobs: this.$page.props.jobs,
                 reviews: [],
                 entering: {
                     description: false,
@@ -160,6 +182,13 @@ export default {
                     description: false,
                     logo: false
                 },
+                shepherd_steps: [
+                    {
+                    id: 'step1',
+                    attachTo: { element: '#add-logo', on: 'bottom' },
+                    text: 'Step 1 description',
+                    }
+                ],
                 tour_steps: [
                     {
                         target: '#add-logo',  // We're using document.querySelector() under the hood
@@ -168,7 +197,7 @@ export default {
                         },
                         content: `Click here to add your company logo!`,
                         params: {
-                            placement: 'top' // Any valid Popper.js placement. See https://popper.js.org/popper-documentation.html#Popper.placements
+                            placement: 'right' // Any valid Popper.js placement. See https://popper.js.org/popper-documentation.html#Popper.placements
                         }
                     }
                 ],
@@ -195,6 +224,17 @@ export default {
             }
         },
         methods: {
+            createTour(){
+                this.tour = this.$shepherd({
+                useModalOverlay: true,
+
+                });
+                for (let x = 0; x < this.shepherd_steps.length; x++){
+                    this.tour.addStep(this.shepherd_step[x]);
+                }
+                
+            
+            },
             greet({ coordinates, canvas }){
                 console.log('Coordinates was changed', coordinates, canvas);
                 console.log("The canvas width is "+canvas.width);

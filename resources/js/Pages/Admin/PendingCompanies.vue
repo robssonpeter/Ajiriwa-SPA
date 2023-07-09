@@ -52,11 +52,8 @@
                                     </template>
 
                                     <template #content>
-                                        <dropdown-link as="button">
-                                            hello there
-                                        </dropdown-link>
-                                        <dropdown-link as="button" v-for="attachment in company.verification_attempt.documents">
-                                            {{ attachment }}
+                                        <dropdown-link class="hover:bg-green-300 flex flex-col" as="button" v-for="(attachment, index) in company.verification_attempt.documents">
+                                            <span><a target="_blank" :href="$page.props.host+attachment.file" class="class">Attachment {{ index + 1 }}</a></span>
                                         </dropdown-link>
                                     </template>
                                 </dropdown>
@@ -136,6 +133,7 @@
             /*messaging.onMessage(function({data:{body,title}}){
                 new Notification(title, {body});
             });*/
+            console.log(this.companies[0].verification_attempt.documents);
         },
         data(){
             return {

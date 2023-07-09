@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Custom\Promoter;
 use App\Events\ApplicationRejected;
 use App\Events\ApplicationStatusUpdated;
 use App\Events\CompanyVerified;
@@ -88,6 +89,7 @@ class CompanyController extends Controller
         $jobs = Job::where('company_id', $company->id)->where('deadline', '>=', $today)->get();
         //dd($company);
         $company->description = htmlspecialchars_decode($company->description);
+        //dd($company->logo);
         return Inertia::render('Company/Customize', [
             'company' => $company,
             'jobs' => $jobs,
@@ -168,6 +170,8 @@ class CompanyController extends Controller
         $jobs = Job::when($user->hasRole('employer'), function($q) use ($user){
             return $q->where('company_id', $user->company->id);
         })->orderBy('id', 'DESC')->simplePaginate(15);
+        $promoter = new Promoter();
+        //dd(Auth::user());
         //dd($jobs->previousPageUrl());
         return Inertia::render('Company/Jobs/Index', [
             'is_admin' => $user->hasRole('admin'),
@@ -176,6 +180,9 @@ class CompanyController extends Controller
             'paginate' => $jobs,
             'next' => $jobs->nextPageUrl(),
             'previous' => $jobs->previousPageUrl(),
+            'cpc' => $promoter->costperclick,
+            'cpa' => $promoter->costperapplication,
+            'cpm' => $promoter->costperimpression,
         ]);
     }
 
@@ -464,7 +471,7 @@ class CompanyController extends Controller
 
     public function searchCompanies(){
         $keyword = request()->keyword;
-        $companies = Company::where('name', 'LIKE', '%'.$keyword.'%')->select('id as code', 'name as label')->get();
+        $companies = Company::where('name', 'LIKE', '%'.$keyword.'%')->select('id as code', 'name as label', 'logo')->get();
         return $companies;
     }
 
@@ -548,7 +555,8 @@ class CompanyController extends Controller
 
         }
         //dd($companies);
-        return Inertia::render('Admin/PendingCompanies', compact('companies'));
+        $host = asset('');
+        return Inertia::render('Admin/PendingCompanies', compact('companies', 'host'));
         //return view('companies.to-verify', compact('featured', 'statusArr', 'companies'));
     }
 

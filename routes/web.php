@@ -149,6 +149,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::delete('/candidate/data/{type}/delete/{id}', [CandidateController::class, 'deleteData'])->name('delete.candidate.data');
 
     Route::post('/certificates', [CandidateController::class, 'uploadFile'])->name('candidate.certificates');
+    
+    Route::post('/file-upload', [FileController::class, 'SaveFile'])->name('file.uploads');
 
     Route::delete('/certificate/{media}', [CandidateController::class, 'removeFile'])->name('delete.candidate.file');
 
@@ -162,6 +164,7 @@ Route::group(['middleware' => ['auth', 'role:employer|admin']], function(){
     Route::get('/company/post-job', [CompanyController::class, 'postJob'])->middleware('verifier')->name('company.post-job');
     Route::get('/company/edit-job/{slug}', [CompanyController::class, 'editJob'])->name('company.edit-job');
     Route::post('/company/save-job', [JobController::class, 'saveJob'])->name('job.save');
+    Route::post('/company/promotion-submit', [JobController::class, 'submitPromotion'])->name('promotion.submit');
     Route::post('/company/job-status/change', [JobController::class, 'changeJobStatus'])->name('job.status.change');
     Route::post('/company/save-description', [CompanyController::class, 'saveDescription'])->name('company.description.save');
     Route::get('/company/job/{slug}', [CompanyController::class, 'viewJob'])->name('company.job.view');
@@ -205,7 +208,7 @@ Route::post('/company/search', [CompanyController::class, 'searchCompanies'])->n
             'total_spending' => 0,
             'recent_applications' => \App\Models\JobApplication::when(Auth::user()->hasRole('employer'), function($q) use($jobs){
                 return $q->whereIn('job_id', $jobs);
-            })->join('jobs', 'jobs.id', 'job_applications.job_id')->orderBy('job_applications.id', 'DESC')->with('candidate')->limit(5)->get()
+            })->join('jobs', 'jobs.id', 'job_applications.job_id')->orderBy('job_applications.id', 'DESC')->with('candidate')->limit(4)->get()
         ];
         //dd($props);
     }else if($user->hasRole('admin')){
@@ -219,7 +222,7 @@ Route::post('/company/search', [CompanyController::class, 'searchCompanies'])->n
             'active_jobs' => Job::where('status', array_search('Active', Job::STATUS))->where('deadline', '>=', date('Y-m-d'))->count(),
             'total_spending' => 0,
             'pending_companies' => Company::with('verification_attempt', 'verification', 'user')->whereHas('verification_attempt')->whereDoesntHave('verification')->count(),
-            'recent_applications' => \App\Models\JobApplication::join('jobs', 'jobs.id', 'job_applications.job_id')->orderBy('job_applications.id', 'DESC')->with('candidate')->limit(5)->get()
+            'recent_applications' => \App\Models\JobApplication::join('jobs', 'jobs.id', 'job_applications.job_id')->orderBy('job_applications.id', 'DESC')->with('candidate')->limit(4)->get()
         ];
     }else{
         $candidate = \App\Models\Candidate::where('user_id', $user->id)->first();

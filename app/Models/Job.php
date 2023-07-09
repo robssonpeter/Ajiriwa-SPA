@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Custom\Promoter;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -42,11 +43,11 @@ class Job extends Model
     ];
 
     protected $with = [
-        'company', 'type'
+        'company', 'type', 'promotion'
     ];
 
     protected $appends = [
-        'applied', 'current_status', 'time_ago'
+        'applied', 'current_status', 'time_ago', 'promotion_details'
     ];
 
     protected $withCount = [
@@ -59,6 +60,15 @@ class Job extends Model
 
     public function clicks(){
         return $this->hasMany(LinkClick::class, 'job_id', 'id');
+    }
+
+    public function getPromotionDetailsAttribute(){
+        $prom = new Promoter();
+        return [
+            'cost_per_click' => $prom->costperclick,
+            'cost_per_application' => $prom->costperapplication,
+            'cost_per_impression' => $prom->costperimpression,
+        ];
     }
 
     public function getTimeAgoAttribute(){
@@ -99,5 +109,9 @@ class Job extends Model
 
     public function Job_screening(){
         return $this->hasMany(JobScreening::class, 'job_id', 'id');
+    }
+
+    public function promotion(){
+        return $this->hasOne(JobPromotion::class, 'Job_ID', 'id');
     }
 }

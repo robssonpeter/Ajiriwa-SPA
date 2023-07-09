@@ -7,6 +7,8 @@ import Vue3Tour from 'vue3-tour';
 import 'vue3-tour/dist/vue3-tour.css';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import VueShepherdPlugin from 'vue-shepherd';
+import 'shepherd.js/dist/css/shepherd.css';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCc2eq23_efjual1WZ329gMP5bZlOunv9s",
@@ -30,6 +32,7 @@ createInertiaApp({
     setup({ el, app, props, plugin }) {
         return createApp({ render: () => h(app, props, firebaseConfig) })
             .use(Vue3Tour)
+            .use(VueShepherdPlugin)
             .use(plugin)
             .mixin({ methods: { route } })
             .mount(el);

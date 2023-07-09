@@ -70,11 +70,64 @@
             </div>
             <div class="z-40 px-4 ">
                 <section class="flex flex-row py-3">
-                    <h1 class="flex-grow self-center text-2xl text-gray-500">Overview</h1>
+                    <h1 class="flex-grow self-center text-2xl text-gray-500">Dashboard</h1>
                     <button class="bg-green-400 p-2 text-white"><Link :href="route('company.post-job')">Post a Job</Link></button>
                 </section>
-
-                <section class="grid grid-cols-4 gap-2">
+                <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <div class="bg-green-500 rounded-lg p-6 text-white">
+                        <h3 class="text-xl font-semibold mb-2">Total Job Views</h3>
+                        <p class="text-4xl font-bold">{{ $page.props.job_views.toLocaleString()}}</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 float-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <div class="bg-gray-500 rounded-lg p-6 text-white">
+                        <h3 class="text-xl font-semibold mb-2">Total Applications</h3>
+                        <p class="text-4xl font-bold">{{ $page.props.total_applications.toLocaleString() }}</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 float-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
+                        </svg>
+                    </div>
+                    <div class="bg-white border border-gray-300 rounded-lg p-6">
+                        <h3 class="text-xl font-semibold mb-2">Active Jobs</h3>
+                        <p class="text-4xl font-bold">{{ $page.props.active_jobs.toLocaleString() }}</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 float-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                    </div>
+                    <div class="bg-black rounded-lg p-6 text-white">
+                        <h3 class="text-xl font-semibold mb-2">Total Spending</h3>
+                        <p class="text-4xl font-bold">TZS {{ $page.props.total_spending.toLocaleString() }}</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 float-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>      
+                </div>
+                
+                <h2 class="flex-grow self-center text-xl text-gray-500 mt-4">Recent Applicants</h2>
+                <div class="flex flex-wrap -mx-4 mt-4">
+                <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 px-4 mb-4" v-for="application in $page.props.recent_applications">
+                    <div class="bg-white border border-gray-100 rounded-lg shadow-lg p-6">
+                        <div class="flex items-center mb-4">
+                        <img class="w-12 h-12 rounded-full mr-4" :src="application.candidate.logo_url" :alt="application.candidate.full_name">
+                        <div>
+                            <h3 class="text-xl font-semibold">{{ application.candidate.full_name }}</h3>
+                            <p class="text-green-500">{{ application.title }}</p>
+                            <small class="text-gray-500">{{ application.location }}</small>
+                        </div>
+                    </div>
+                    <div class="mt-4">
+                    
+                        <div class="flex flex-wrap">
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm mr-2 mb-2">Java</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm mr-2 mb-2">Python</span>
+                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm mr-2 mb-2">JavaScript</span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+                <!-- <section class="grid grid-cols-4 gap-2">
                     <div class="bg-grey-after-transparency gap-y-4 text-gray-500 border border-gray-200 rounded-md shadow-md col-span-1 p-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 float-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -85,7 +138,7 @@
                         </div>
                         <Button class="bg-green-400 hover:bg-green-500"><Link :href="route('company.jobs.index')">Manage Jobs</Link></Button>
                     </div>
-                    <div class="bg-grey-after-transparency text-gray-500 border border-gray-200 rounded-md shadow-md col-span-1 p-2">
+                    <div class="bg-gray-200 border border-gray-300 rounded-md shadow-md col-span-1 p-4 text-gray-500 border border-gray-200 rounded-md shadow-md col-span-1 p-2">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 float-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2" />
                         </svg>
@@ -117,55 +170,7 @@
                         <Button class="bg-green-400 hover:bg-green-500">Add Money</Button>
 
                     </div>
-                </section>
-                <section class="grid grid-cols-4 gap-2 mt-2 text-gray-500">
-                    <div class="col-span-2 shadow-md rounded-md border-t border-gray-2 mt-2">
-                        <section class="border-b border-gray-200 p-2">
-                            <span class="text-2xl">Recent Applicants</span>
-                        </section>
-                        <section class="p-2">
-                            <div class="flex flex-col py-2 border-b border-gray-200" v-for="application in $page.props.recent_applications">
-                                <span class="text-green-400 font-bold cursor-pointer">{{ application.candidate.full_name }}</span>
-                                <span>{{ application.title }}</span>
-                            </div>
-<!--                            <div class="flex flex-col py-2 border-b border-gray-200">
-                                <span class="text-green-400 font-bold cursor-pointer">Ntakandi karavina</span>
-                                <span>Accountant</span>
-                            </div>
-                            <div class="flex flex-col py-2 border-b border-gray-200">
-                                <span class="text-green-400 font-bold cursor-pointer">Ntakandi karavina</span>
-                                <span>Accountant</span>
-                            </div>
-                            <div class="flex flex-col py-2 border-b border-gray-200">
-                                <span class="text-green-400 font-bold cursor-pointer">Ntakandi karavina</span>
-                                <span>Accountant</span>
-                            </div>-->
-                        </section>
-                    </div>
-                    <div class="col-span-2 shadow-md rounded-md border-t border-gray-2 mt-2">
-                        <section class="border-b border-gray-200 p-2">
-                            <span class="text-2xl">Recent Visitors</span>
-                        </section>
-                        <section class="p-2">
-                            <div class="flex flex-col py-2 border-b border-gray-200" v-for="application in $page.props.recent_applications">
-                                <span class="text-green-400 font-bold cursor-pointer">{{ application.candidate.full_name }}</span>
-                                <span>{{ application.title }}</span>
-                            </div>
-<!--                            <div class="flex flex-col py-2 border-b border-gray-200">
-                                <span class="text-green-400 font-bold cursor-pointer">Ntakandi karavina</span>
-                                <span>Accountant</span>
-                            </div>
-                            <div class="flex flex-col py-2 border-b border-gray-200">
-                                <span class="text-green-400 font-bold cursor-pointer">Ntakandi karavina</span>
-                                <span>Accountant</span>
-                            </div>
-                            <div class="flex flex-col py-2 border-b border-gray-200">
-                                <span class="text-green-400 font-bold cursor-pointer">Ntakandi karavina</span>
-                                <span>Accountant</span>
-                            </div>-->
-                        </section>
-                    </div>
-                </section>
+                </section> -->
 
             </div>
         </main>
@@ -249,6 +254,9 @@
         components: {
             AppLayout, Head, Link, Button
         },
+        mounted(){
+            console.log(this.$page.props.recent_applications)
+        }
         /*mounted(){
             alert('you are mounted here')
         }*/
