@@ -88,6 +88,7 @@ class DataTransfer {
         foreach($new_jobs as $new_job){
             // find the company responsible for the job
             $company = Company::where('name', $new_job->Company_name)->first();
+            
             $apply_method = '';
             if($new_job->application_email_url){
                 $apply_method = 'email';

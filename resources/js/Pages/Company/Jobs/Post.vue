@@ -19,7 +19,7 @@
                             </template> -->
                         </v-select>
                     </div>
-                    <section class="md:grid md:grid-cols-3 gap-4 gap-y-4 pb-4" v-if="$page.props.is_admin && !selected_company">
+                    <section class="md:grid md:grid-cols-3 gap-4 gap-y-4 pb-4" v-if="$page.props.is_admin && !selected_company && !$page.props.job">
                         <div class="input flex flex-col">
                             <label for="job_title" class="font-bold">Company Name</label>
                             <input type="text" placeholder="New Company" v-model="new_company.name" class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300" id="job_title" required>
@@ -221,8 +221,8 @@
         data(){
             return {
                 apply_method: this.$page.props.job?this.$page.props.job.apply_method:'ajiriwa',
-                email_subject_line: '',
-                application_email: '',
+                email_subject_line: this.$page.props.job?this.$page.props.job.email_subject:'',
+                application_email: this.$page.props.job?this.$page.props.job.application_email:'',
                 application_email_cc: [],
                 application_url: this.$page.props.job?this.$page.props.job.application_url:'',
                 title: this.$page.props.job?this.$page.props.job.title:'',
