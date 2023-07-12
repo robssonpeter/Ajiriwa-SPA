@@ -31,6 +31,7 @@ use App\Models\VerificationAttempt;
 use App\Repositories\CandidateRepository;
 use App\Repositories\SubscriptionRepository;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class CompanyController extends Controller
 {
@@ -312,9 +313,16 @@ class CompanyController extends Controller
         return Inertia::render('Company/BrowseCandidates', compact('candidates', 'next', 'prev'));
     }
 
-    public function searchCandidates(){
+    public function searchCandidates(FacadesRequest $request){
         $keyword = request()->keyword;
-        return CandidateRepository::searchCandidate($keyword);
+        $result = CandidateRepository::searchCandidate($keyword);
+        //return [$result->items(), $result->nextPageUrl()];
+        //return $result->items();
+        return [
+            "items" => $result->items(),
+            "next" => $result->nextPageUrl(),
+            "prev" => $result->previousPageUrl(),
+        ];
     }
 
     public function showRecommendedCandidates(){

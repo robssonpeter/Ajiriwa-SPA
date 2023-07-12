@@ -127,7 +127,7 @@ class CandidateRepository
         })->orWhere(function($q) use($experiences, $education, $certificate){
             $candidate_ids = array_merge($experiences, $education, $certificate);
             return $q->whereIn('id', $candidate_ids);
-        })->orWhere('professional_title', "LIKE", "%".$search."%")->get();
+        })->orWhere('professional_title', "LIKE", "%".$search."%")->paginate(12);
         return $candidates;        
     }
 }

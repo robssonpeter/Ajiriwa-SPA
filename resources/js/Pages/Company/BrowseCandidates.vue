@@ -94,7 +94,15 @@
 
 
       <!-- Pagination -->
-      <div class="mt-4 flex justify-center">
+      <div class="mt-4 flex justify-center" v-if="prev_page || next_page">
+        <button @click="findCandidate('prev')" :disabled="prev_page?false:true" class="bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded-l">
+          Previous
+        </button>
+        <button @click="findCandidate('next')" :disabled="next_page?false:true" class="bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded-r">
+          Next
+        </button>
+      </div>
+      <div class="mt-4 flex justify-center" v-else>
         <Link :disabled="$page.props.prev?false:true" :href="$page.props.prev" class="bg-gray-300 hover:bg-gray-400 text-gray-700 py-2 px-4 rounded-l">
           Previous
         </Link>
@@ -175,6 +183,8 @@ import axios from "axios";
                 candidates: this.$page.props.candidates,
                 loading: false,
                 searching: false,
+                next_page: '',
+                prev_page: '',
                 keyword: '',
                 locationFilter: '',
                 workExperienceFilter: '',
@@ -204,14 +214,31 @@ import axios from "axios";
                     this.loading = false;
                 })
             },
-            findCandidate(){
+            findCandidate(page=''){
                 //return alert('now searching for '+this.keyword);
                 this.searching = true;
-                axios.post(route('company.candidates.search'), {
-                    keyword: this.keyword
+                let url;
+                if(page == ''){
+                    url = route('company.candidates.search');
+                }
+                else if(page == 'next')
+                {
+                    url = this.next_page
+                }
+                else
+                {
+                    url = this.prev_page
+                }
+                axios.post(url, {
+                    keyword: this.keyword,
+                    experience: this.workExperienceFilter,
+                    location: this.locationFilter,
+                    industry: this.industryFilter
                 }).then(response => {
-                    this.candidates = response.data;
+                    this.candidates = response.data.items;
                     this.searching = false
+                    this.next_page = response.data.next;
+                    this.prev_page = response.data.prev;
                 }).catch(error => {
                     console.log(error.response.data);
                     this.searching = false;
