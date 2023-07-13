@@ -46,7 +46,15 @@ class FileController extends Controller
         $model =  new $model;
         $model =  $model->find($model_id);
         $savedMedia = $model->addMediaFromRequest('files')->toMediaCollection($collection, 'public');
-        $model->update(['logo' => $savedMedia->id ]);
+        if(request()->collection == 'logo')
+        {
+            $model->update(['logo' => $savedMedia->id ]);
+        }
+        else if(request()->collection == 'cover')
+        {
+            $model->update(['cover' => $savedMedia->id ]);
+        }
+
         if(request()->remove_media){
             Media::where('id', request()->remove_media)->delete();
         }

@@ -13,10 +13,11 @@ class CreateJobPromotionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('job_promotions', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('job_promotions'))
+            Schema::create('job_promotions', function (Blueprint $table) {
+                $table->id();
+                $table->timestamps();
+            });
     }
 
     /**

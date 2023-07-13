@@ -19,7 +19,7 @@ class Company extends Model implements HasMedia
     ];
 
     protected $appends = [
-        'logo_url'
+        'logo_url', 'cover_url'
     ];
 
     protected $fillable = [
@@ -31,6 +31,7 @@ class Company extends Model implements HasMedia
         'description',
         'tin_number',
         'logo',
+        'cover',
         'ajiriwa_balance',
         'hires_per_year',
         'source',
@@ -39,6 +40,14 @@ class Company extends Model implements HasMedia
         'page_views',
         'slug'
     ];
+
+    public function getCoverUrlAttribute(){
+        $media_id = $this->cover;
+        if($media_id){
+            return asset(Media::find($media_id)->getUrl());
+        }
+        return asset('/images/logo-placeholder-image.png');
+    }
 
     public function getLogoUrlAttribute(){
         $media_id = $this->logo;
