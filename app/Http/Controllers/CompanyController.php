@@ -300,7 +300,27 @@ class CompanyController extends Controller
         $table_types = EmailTemplate::TYPES_TABLES;
 
         return Inertia::render('Company/EmailTemplates', compact('emails', 'template_types', 'table_types'));
-        //return \view('employer.email_templates.index-temp');
+    }
+
+
+    public function saveNewTemplate(){
+        $data =  request()->all();
+        $company = Company::where('original_user', Auth::user()->id)->first();
+        $data['company_id'] = $company->id;
+        $data['created_by'] = Auth::user()->id;
+        $created = EmailTemplate::create($data);
+        return $created;
+    }
+
+    public function updateTemplate(){
+        $data = request()->only('name', 'type', 'content');
+        $updated = EmailTemplate::where('id', request()->id)->update($data);
+        return $updated;
+    }
+
+    public function deleteTemplate(){
+        $id = request()->id;
+        return EmailTemplate::where('id', $id)->delete();
     }
 
     public function browseCandidates(){

@@ -279,9 +279,12 @@ Route::get('auth/{provider}/callback', [LoginController::class, 'handleProviderC
  * -----------------------------------------------------------------------------------------------------------
  */
 Route::get('company/email-templates', [CompanyController::class,'emailTemplates'])->name('company.email-templates')->middleware(['auth','role:employer']);
-Route::get('company/email-template/get', 'CompanyController@getEmailTemplates')->name('email.templates.get')->middleware(['auth','role:Employer']);
-Route::get('company/{template_id}/email-template', 'CompanyController@showEmailTemplate')->name('email.template.get')->middleware(['auth','role:Employer']);
-Route::get('company/available-templates/{type}', 'CompanyController@availableTemplates')->name('templates.available')->middleware(['auth','role:Employer']);
+Route::get('company/email-template/get', [CompanyController::class,'getEmailTemplates'])->name('email.templates.get')->middleware(['auth','role:employer']);
+Route::get('company/{template_id}/email-template', [CompanyController::class, 'showEmailTemplate'])->name('email.template.get')->middleware(['auth','role:employer']);
+Route::get('company/available-templates/{type}', [CompanyController::class, 'availableTemplates'])->name('templates.available')->middleware(['auth','role:employer']);
+Route::post('company/template/store', [CompanyController::class, 'saveNewTemplate'])->name('template.store')->middleware(['auth','role:employer']);
+Route::post('company/template/update', [CompanyController::class, 'updateTemplate'])->name('template.update')->middleware(['auth','role:employer']);
+Route::post('company/template/delete', [CompanyController::class, 'deleteTemplate'])->name('template.delete')->middleware(['auth','role:employer']);
 
 
 /*
