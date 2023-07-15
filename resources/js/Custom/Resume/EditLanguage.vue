@@ -18,33 +18,33 @@
                         <div class="edit-language gap-y-2"  v-if="language.editing">
                             <div class="sm:col-span-2 md:col-span-8 flex flex-grow flex-col">
                                 <label :for="'name_'+index" class="font-bold">Language Name</label>
-                                <input type="text" v-model="languages[index].name" class="border border-gray-300" :id="'name_'+index">
+                                <input type="text" v-model="languages[index].name" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'name_'+index">
                             </div>
                             <section class="md:grid md:grid-cols-4 gap-2 py-2">
                                 <div class="flex flex-col">
                                     <label :for="'listening_'+index" class="font-bold">Listening</label>
-                                    <select class="border border-gray-300" v-model="languages[index].listening" :id="'listening_'+index">
+                                    <select class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" v-model="languages[index].listening" :id="'listening_'+index">
                                         <option value="">Select Level</option>
                                         <option :value="key" v-for="(level, key) in language_levels">{{ level }}</option>
                                     </select>
                                 </div>
                                 <div class="flex flex-col">
                                     <label :for="'speaking_'+index" class="font-bold">Speaking</label>
-                                    <select class="border border-gray-300" v-model="languages[index].speaking" :id="'speaking_'+index">
+                                    <select class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" v-model="languages[index].speaking" :id="'speaking_'+index">
                                         <option value="">Select Level</option>
                                         <option :value="key" v-for="(level, key) in language_levels">{{ level }}</option>
                                     </select>
                                 </div>
                                 <div class="flex flex-col">
                                     <label :for="'reading_'+index" class="font-bold">Reading</label>
-                                    <select class="border border-gray-300" v-model="languages[index].reading" :id="'reading_'+index">
+                                    <select class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" v-model="languages[index].reading" :id="'reading_'+index">
                                         <option value="">Select Level</option>
                                         <option :value="key" v-for="(level, key) in language_levels">{{ level }}</option>
                                     </select>
                                 </div>
                                 <div class="flex flex-col">
                                 <label :for="'writing_'+index" class="font-bold">Writing</label>
-                                <select class="border border-gray-300" v-model="languages[index].writing" :id="'writing_'+index">
+                                <select class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" v-model="languages[index].writing" :id="'writing_'+index">
                                     <option value="">Select Level</option>
                                     <option :value="key" v-for="(level, key) in language_levels">{{ level }}</option>
                                 </select>
@@ -52,8 +52,8 @@
                             </section>
 
                             <div class="flex flex-row gap-2">
-                                <button @click="cancelEdit(index)" class="bg-gray-400 self-end hover:shadow-lg text-white p-2">Cancel</button>
-                                <button :disabled="false" @click="addLanguage(index)" class="self-end bg-green-500 hover:shadow-lg text-white p-2">
+                                <button @click="cancelEdit(index)" class="rounded-md bg-gray-400 self-end hover:shadow-lg text-white p-2">Cancel</button>
+                                <button :disabled="false" @click="addLanguage(index)" class="self-end bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md hover:shadow-lg text-white p-2">
                                     <span v-if="!languages[index].saving">Save</span>
                                     <Loader v-else class="py-2" :color="'white'"></Loader>
                                 </button>
@@ -85,12 +85,12 @@
                     </div>
             </div>
             <div class=" border-dotted border border-gray-300 text-center flex gap-3 justify-right px-2 py-4 self-center" v-if="languages.length && allow_add">
-                <span @click="newLanguage" class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500 self-center">
+                <span @click="newLanguage" class="rounded-md py-2 px-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500 self-center">
                     <a href="#" @click.prevent="">
                         <span>Add Another Language</span>
                     </a>
                 </span>
-                <Link :href="route('my-resume.edit.sectional', 'skills')" class="bg-green-500 p-1 text-white text-center self-center">
+                <Link :href="route('my-resume.edit.sectional', 'skills')" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md self-center">
                     <span>Next</span>
                 </Link>
             </div>

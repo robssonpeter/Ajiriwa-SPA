@@ -162,7 +162,7 @@ Route::group(['middleware' => ['auth', 'role:employer|admin']], function(){
     Route::post('/company/info/save', [CompanyController::class, 'saveInitialInformation'])->name('company.initial.save');
 
     Route::get('/company/post-job', [CompanyController::class, 'postJob'])->middleware('verifier')->name('company.post-job');
-    Route::get('/company/edit-job/{slug}', [CompanyController::class, 'editJob'])->name('company.edit-job');
+    Route::get('/company/edit-job/{slug}', [CompanyController::class, 'editJob'])->name('company.edit-job')->middleware('verifier');
     Route::post('/company/save-job', [JobController::class, 'saveJob'])->name('job.save');
     Route::post('/company/promotion-submit', [JobController::class, 'submitPromotion'])->name('promotion.submit');
     Route::post('/company/job-status/change', [JobController::class, 'changeJobStatus'])->name('job.status.change');
@@ -173,14 +173,15 @@ Route::group(['middleware' => ['auth', 'role:employer|admin']], function(){
     Route::get('/company/job/applications/{slug}', [CompanyController::class, 'jobApplications'])->name('company.job.applications');
     Route::get('/company/job/applications/{slug}/{application_id}', [CompanyController::class, 'jobApplication'])->name('company.job.application');
     Route::post('company/applications/filter', [CompanyController::class, 'FilterApplications'])->name('job.applications.filter')->middleware(['auth']);
-    Route::get('/company/jobs', [CompanyController::class, 'showJobs'])->name('company.jobs.index');
-    Route::get('/company/browse-candidates', [CompanyController::class, 'browseCandidates'])->name('company.candidates.browse');
+    Route::get('/company/jobs', [CompanyController::class, 'showJobs'])->name('company.jobs.index')->middleware('verifier');
+    Route::get('/company/browse-candidates', [CompanyController::class, 'browseCandidates'])->name('company.candidates.browse')->middleware('verifier');
     Route::post('/company/search-candidates', [CompanyController::class, 'searchCandidates'])->name('company.candidates.search');
     Route::post('/company/recommend-candidates', [CompanyController::class, 'showRecommendedCandidates'])->name('company.candidates.recommend');
     Route::post('/application/change-status', [CompanyController::class, 'changeApplicationStatus'])->name('application.change-status');
 
 });
 Route::post('/company/search', [CompanyController::class, 'searchCompanies'])->name('companies.search');
+Route::post('/company/claiming', [CompanyController::class, 'markClaimingCompany'])->name('company.claiming');
 
 
     Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -194,6 +195,20 @@ Route::post('/company/search', [CompanyController::class, 'searchCompanies'])->n
         $component = 'Company/Dashboard';
         $candidate = false;
         $company = \App\Models\Company::where('original_user', Auth::user()->id)->first();
+        // if the user does not have the account information
+        if(!$company->name){
+            $industries = \App\Models\Industry::orderBy('name', 'ASC')->get();
+            $user = Auth::user();
+            // check if the user already attempted to claim their account
+            if($user->claiming_company_id){
+                return redirect()->route('company.claim.verify');
+            }
+            return Inertia::render('Company/InitialInfo', [
+                'industries' => $industries,
+                'company' => $company,
+                'user' => $user
+            ]);
+        }
         $jobs = \App\Models\Job::where('company_id', $company->id)->pluck('id');
         $job_views = \App\Models\JobView::whereIn('job_id', $jobs)->count();
         $props = [
@@ -278,7 +293,7 @@ Route::get('auth/{provider}/callback', [LoginController::class, 'handleProviderC
  *          Email Template Routes
  * -----------------------------------------------------------------------------------------------------------
  */
-Route::get('company/email-templates', [CompanyController::class,'emailTemplates'])->name('company.email-templates')->middleware(['auth','role:employer']);
+Route::get('company/email-templates', [CompanyController::class,'emailTemplates'])->name('company.email-templates')->middleware(['auth','role:employer', 'verifier']);
 Route::get('company/email-template/get', [CompanyController::class,'getEmailTemplates'])->name('email.templates.get')->middleware(['auth','role:employer']);
 Route::get('company/{template_id}/email-template', [CompanyController::class, 'showEmailTemplate'])->name('email.template.get')->middleware(['auth','role:employer']);
 Route::get('company/available-templates/{type}', [CompanyController::class, 'availableTemplates'])->name('templates.available')->middleware(['auth','role:employer']);
@@ -305,6 +320,7 @@ Route::post('/job-posting/assessments/{hash}/save', [JobController::class, 'Stor
  * ----------------------------------------------------------------------------------------------------------
  */
 Route::get('company/verify', [CompanyController::class, 'verificationAttempt'])->name('company.verify')->middleware(['auth']);
+Route::get('company/claim/verify', [CompanyController::class, 'claimVerificationAttempt'])->name('company.claim.verify')->middleware(['auth']);
 Route::group(["prefix" => 'admin/', 'middleware' => 'role:admin'], function(){
     Route::get('companies/verify', [CompanyController::class, 'verify'])->name('admin.company.verify');
     Route::post('companies/verify/{id}', [CompanyController::class, 'verifySave'])->name('admin.company.verify.save');

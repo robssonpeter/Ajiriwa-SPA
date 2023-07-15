@@ -115,11 +115,14 @@
                             {{ $user->email }}   </span>
                     </div>
 
+                    @if($candidate->career_objective)
                     <h2 class="bg-green-400 text-xl text-white mt-4 px-2">
                         PERSONAL PROFILE
                     </h2>
 
                     <p class="px-2">{!! $candidate->career_objective !!}</p>
+                    @endif
+                    
                     @if(count($candidate->experiences))
                     <section class="mt-2">
                         <h2 class="bg-green-400 text-xl text-white mt-4 px-2">

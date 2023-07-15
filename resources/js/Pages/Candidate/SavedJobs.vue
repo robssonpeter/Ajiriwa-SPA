@@ -1,82 +1,86 @@
 <template>
     <app-layout title="View jobs">
-        <div class="max-w-7xl mx-auto hidden md:block sm:px-6 sticky top-12 md:top-14 ">
-            <BreadCrumb :links="$page.props.breadcrumb"></BreadCrumb>
-        </div>
-        <div class="gap-3 md:grid md:grid-cols-3 gap-4 max-w-7xl mx-auto py-1 px-4 sm:px-6 lg:px-8">
-            <div class="px-4 min-h-screen col-span-3 bg-gray-50 my-4 p-4 shadow-md">
-                <div class="flex row gap-2 pb-2">
-                    <div class="flex-grow">
-                        <h2 class="text-2xl flex-grow">Saved Jobs</h2>
-                        <span>Here you can see all the jobs that you've saved</span>
-                    </div>
-                </div>
-                <div class="border shadow-md md:hidden flex flex-col p-2 w-100" v-for="(job, index) in jobs">
-                    <section class="w-100">
-                        <span class="flex-fill py-2 col-4 text-green-500 hover:text-green-400 font-bold"><Link :href="route('candidate.view-job', job.job.slug)">{{ job.job.title }}</Link></span>
-                        <span v-if="job.status <= 1" class="col-1 text-red-500 hover:text-red-400 align-center cursor-pointer" @click="unsaveJob(index)" title="Withdraw Application">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 float-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                            </svg>
-                        </span>
-                    </section>
-                    <span>{{ job.job.location }}</span>
-                    <section >
-                        <small class="mt-1">{{ job.job.deadline}}</small>
-                    </section>
-
-                    <job-status :job="job" :key="job.id" ></job-status>
-                </div>
-                <table class="bg-white col-span-3 text-gray-600 rounded-md hidden md:block">
-                    <thead>
-                    <tr class="bg-gray-50">
-                        <th class="text-left px-8 py-3">Position</th>
-                        <th class="text-left px-8 py-3 text-center">Company</th>
-                        <th class="text-left px-8 py-3 text-center">Location</th>
-                        <th class="text-left px-8 py-3 text-center">Status</th>
-                        <th class="text-left px-8 py-3 text-center">Closing Date</th>
-                        <th class="text-left px-8 py-3 text-center">Actions</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr v-for="(job, index) in jobs" >
-                        <td class="border px-8 py-2 text-green-500 hover:text-green-400 font-bold"><Link :href="route('candidate.view-job', job.job.slug)">{{ job.job.title }}</Link></td>
-                        <td class="border px-8 py-2 text-center">
-                            <span>{{ job.job.company.name }}</span>
-                        </td>
-
-                        <td class="border px-8 py-2 text-center">
-                            {{ job.job.location }}
-                        </td>
-
-                        <td class="border px-8 py-2 text-center">
-<!--                            <job-status :job="job" :key="job.id" ></job-status>-->
-                        </td>
-                        <td class="border px-8 py-2 text-center">{{ job.job.deadline }}</td>
-                        <td class="border px-8 py-2 text-center">
-                            <span class="text-red-500 hover:text-red-400 align-center cursor-pointer" @click="unsaveJob(index)" title="Withdraw Application">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                                </svg>
-                            </span>
-                        </td>
-                    </tr>
-                    <tr v-if="!jobs.length" class="w-full">
-                        <td class="text-center border px-8 py-4" colspan="6">
-                            <span>You have not saved any jobs</span>
-                            <span>
-                                <button class="bg-green-400 p-1 rounded-md text-white"><Link :href="route('jobs.browse')">Browse Jobs</Link></button>
-                            </span>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
-
+      <div class="max-w-7xl mx-auto hidden md:block sm:px-6 sticky top-12 md:top-14">
+        <BreadCrumb :links="$page.props.breadcrumb"></BreadCrumb>
+      </div>
+      <div class="gap-3 md:grid md:grid-cols-3 gap-4 max-w-7xl mx-auto py-1 px-4 sm:px-6 lg:px-8">
+        <div class="px-4 min-h-screen col-span-3 bg-gray-50 my-4 p-4 shadow-md">
+          <div class="flex flex-col gap-2 pb-2">
+            <div class="flex-grow">
+              <h2 class="text-2xl font-bold">Saved Jobs</h2>
+              <span class="text-gray-500">Here you can see all the jobs that you've saved</span>
             </div>
-
+          </div>
+          <div class="grid gap-2 md:hidden" v-for="(job, index) in jobs" :key="job.id">
+            <div class="border shadow-md p-4">
+              <span class="text-green-500 font-bold">
+                <Link :href="route('candidate.view-job', job.job.slug)">{{ job.job.title }}</Link>
+              </span>
+              <span class="text-red-500 hover:text-red-400 cursor-pointer" @click="unsaveJob(index)">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 float-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                  />
+                </svg>
+              </span>
+              <span>{{ job.job.location }}</span>
+              <small class="mt-1">{{ job.job.deadline }}</small>
+              <job-status :job="job"></job-status>
+            </div>
+          </div>
+          <table class="w-full bg-white rounded-md hidden md:block">
+      <thead>
+        <tr class="bg-gray-50">
+          <th class="px-8 py-3 text-left">Position</th>
+          <th class="px-8 py-3 text-center">Company</th>
+          <th class="px-8 py-3 text-center">Location</th>
+          <th class="px-8 py-3 text-center">Status</th>
+          <th class="px-8 py-3 text-center">Closing Date</th>
+          <th class="px-8 py-3 text-center">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="(job, index) in jobs" :key="job.id" class="border-t">
+          <td class="px-8 py-5">
+            <Link :href="route('candidate.view-job', job.job.slug)" class="text-green-500 font-bold hover:text-green-700">{{ job.job.title }}</Link>
+          </td>
+          <td class="px-8 py-5 text-center">{{ job.job.company.name }}</td>
+          <td class="px-8 py-5 text-center">{{ job.job.location }}</td>
+          <td class="px-8 py-5 text-center">
+            <!-- <job-status :job="job" :key="job.id"></job-status> -->
+          </td>
+          <td class="px-8 py-5 text-center">{{ job.job.deadline }}</td>
+          <td class="px-8 py-5 text-center">
+            <button class="text-red-500 hover:text-red-700" @click="unsaveJob(index)">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 inline-block align-text-bottom" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                />
+              </svg>
+            </button>
+          </td>
+        </tr>
+        <tr v-if="!jobs.length">
+          <td class="text-center px-8 py-4" colspan="6">
+            <span class="text-gray-500">You have not saved any jobs</span>
+            <button class="mt-2 px-4 py-2 bg-green-400 rounded-md text-white">
+              <Link :href="route('jobs.browse')">Browse Jobs</Link>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
         </div>
+      </div>
     </app-layout>
-</template>
+  </template>
+  
 
 <script>
     import AppLayout from "@/Layouts/AppLayout";

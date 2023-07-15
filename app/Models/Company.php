@@ -73,6 +73,10 @@ class Company extends Model implements HasMedia
         $this->addMediaCollection('cover');
     }
 
+    public function claimingUser(){
+        return $this->hasOne(User::class, 'claiming_company_id', 'id');
+    }
+
     public function verification(){
         return $this->hasOne(CompanyVerification::class, 'company_id', 'id');
     }

@@ -18,19 +18,19 @@
                         <div class="edit-skill md:grid md:grid-cols-3 gap-2"  v-if="skill.editing">
                             <div class="flex flex-col py-2">
                                 <label :for="'name_'+index" class="font-bold">Skill Name</label>
-                                <input type="text" v-model="skills[index].name" class="border border-gray-300" :id="'name_'+index">
+                                <input type="text" v-model="skills[index].name" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'name_'+index">
                             </div>
                             <div class="flex flex-col py-2">
                                 <label :for="'reading_'+index" class="font-bold">Reading</label>
-                                <select class="border border-gray-300" v-model="skills[index].rating" :id="'reading_'+index">
+                                <select class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" v-model="skills[index].rating" :id="'reading_'+index">
                                     <option value="">Select Level</option>
                                     <option :value="key" v-for="(level, key) in skill_levels">{{ level }}</option>
                                 </select>
                             </div>
 
                             <div class="flex flex-row gap-2 py-3">
-                                <button @click="cancelEdit(index)" class="bg-gray-400 self-end hover:shadow-lg text-white p-2">Cancel</button>
-                                <button :disabled="false" @click="addSkill(index)" class="self-end bg-green-500 hover:shadow-lg text-white p-2">
+                                <button @click="cancelEdit(index)" class="rounded-md bg-gray-400 self-end hover:shadow-lg text-white p-2">Cancel</button>
+                                <button :disabled="false" @click="addSkill(index)" class="self-end bg-green-500 focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400 hover:shadow-lg text-white p-2">
                                     <span v-if="!skills[index].saving">Save</span>
                                     <Loader v-else class="py-2" :color="'white'"></Loader>
                                 </button>
@@ -62,12 +62,12 @@
                     </div>
             </div>
             <div class=" border-dotted border border-gray-300 text-center flex gap-3 justify-right px-2 py-4 self-center" v-if="skills.length && allow_add">
-                <span @click.prevent="newSkill" class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500 self-center">
+                <span @click.prevent="newSkill" class="rounded-md py-2 px-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500 self-center">
                     <a href="#" @click.prevent="">
                         <span>Add Another Skill</span>
                     </a>
                 </span>
-                <Link :href="route('my-resume.edit.sectional', 'awards')" class="bg-green-500 p-1 text-white text-center self-center">
+                <Link :href="route('my-resume.edit.sectional', 'awards')" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md p-1 text-white text-center self-center">
                     <span>Next</span>
                 </Link>
             </div>

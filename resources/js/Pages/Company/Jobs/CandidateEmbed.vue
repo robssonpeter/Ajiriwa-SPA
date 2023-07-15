@@ -25,18 +25,6 @@
                         <span class="text-xl font-bold">Applicant Information</span>
                     </div>
                     <div class="p-4 grid grid-cols-2 gap-2">
-                        <!-- <div class="flex flex-col">
-                            <span class="text-gray-400">Application for</span>
-                            <span class="text-gray-500 font-bold">{{ job_title }}</span>
-                        </div> -->
-                        <!-- <div class="flex flex-col">
-                            <span class="text-gray-400">Email Address</span>
-                            <span class="text-gray-500 font-bold">{{ application.candidate.email }}</span>
-                        </div>
-                        <div class="flex flex-col">
-                            <span class="text-gray-400">Phone</span>
-                            <span class="text-gray-500 font-bold">{{ application.candidate.phone }}</span>
-                        </div> -->
                         <div class="flex flex-col">
                             <span class="text-gray-400">Salary Expectation</span>
                             <span class="text-gray-500 font-bold">Tsh. 2,000,000</span>

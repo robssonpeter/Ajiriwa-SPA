@@ -9,7 +9,7 @@ class VerificationAttempt extends Model
 {
     //
     protected $fillable = [
-        'role', 'document', 'company_id', 'verified'
+        'role', 'document', 'company_id', 'verified', 'is_profile_claim', 'user_id'
     ];
 
     protected $appends = [

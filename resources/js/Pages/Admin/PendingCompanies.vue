@@ -29,9 +29,12 @@
                         <tr v-for="company in companies" >
                             <td class="border px-8 py-4 flex flex-col">
                                 <Link class="text-green-500 hover:text-green-400 font-bold" :href="'/'">{{ company.name }}</Link> 
+                                <p v-if="company.claiming_user"><small class="text-white bg-green-500 p-1 rounded-sm">Profile Claim</small></p>
                             </td>
                             <td class="border px-8 py-2 text-center">
-                                <span>{{ company.user.name }}</span>
+                                <span v-if="company.user">{{ company.user.name }}</span>
+                                <span v-else-if="company.claiming_user">{{ company.claiming_user.name }}</span>
+                                <p><small>{{ company.verification_attempt.role }}</small></p>
                             </td>
                             <td class="border px-8 py-2 text-center">
                                 {{ company.verification_attempt.time_ago }}
@@ -133,7 +136,7 @@
             /*messaging.onMessage(function({data:{body,title}}){
                 new Notification(title, {body});
             });*/
-            console.log(this.companies[0].verification_attempt.documents);
+            console.log(this.companies);
         },
         data(){
             return {

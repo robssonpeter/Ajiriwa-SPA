@@ -1,7 +1,7 @@
 <template>
     <div>
         <section class=" gap-2">
-            <div class=" border-dotted border border-gray-300 text-center flex gap-3 px-2 py-8 self-center" v-if="!certificates.length">
+            <div class=" border-dotted focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400 text-center flex gap-3 px-2 py-8 self-center" v-if="!certificates.length">
                 <span class="p-2 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500">
                     <a href="#" @click.prevent="newCertificate">
                         <span>Add Certificate</span>
@@ -18,31 +18,31 @@
                         <div class="edit-certificate grid sm:grid-cols-2 md:grid-cols-6 gap-2"  v-if="certificate.editing">
                             <div class="md:col-span-2 flex flex-col">
                                 <label :for="'name_'+index" class="font-bold">Title</label>
-                                <input placeholder="Full Name" type="text" v-model="certificates[index].name" class="border border-gray-300" :id="'name_'+index">
+                                <input placeholder="Full Name" type="text" v-model="certificates[index].name" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'name_'+index">
                             </div>
                             <div class="md:col-span-2 flex flex-col">
                                 <label :for="'category_'+index" class="font-bold">Certificate Category</label>
-                                <select class="border border-gray-300" v-model="certificates[index].category" :id="'degree_level_'+index">
+                                <select class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" v-model="certificates[index].category" :id="'degree_level_'+index">
                                     <option value="">Select Level</option>
                                     <option :value="category.id" v-for="category in categories">{{ category.name }}</option>
                                 </select>
                             </div>
                             <div class="md:col-span-2 flex flex-col">
                                 <label :for="'institution_'+index" class="font-bold">Awarding Institution</label>
-                                <input type="text" v-model="certificates[index].institution" class="border border-gray-300" :id="'institution_'+index">
+                                <input type="text" v-model="certificates[index].institution" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'institution_'+index">
                             </div>
                             <div class="md:col-span-2 flex flex-col">
                                 <label :for="'completion_date_'+index" class="font-bold">Completion Date</label>
-                                <input type="date" v-model="certificates[index].completion_date" class="border border-gray-300" :id="'completion_date_'+index">
+                                <input type="date" v-model="certificates[index].completion_date" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'completion_date_'+index">
                             </div>
                             <div class="md:col-span-2 flex flex-col">
                                 <label :for="'valid_until_'+index" class="font-bold">Valid Until <small>(leave blank if not applicable)</small></label>
-                                <input type="date" v-model="certificates[index].valid_until" class="border border-gray-300" :id="'valid_until_'+index">
+                                <input type="date" v-model="certificates[index].valid_until" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'valid_until_'+index">
                             </div>
                             <div class="md:col-span-2 flex flex-col w-full">
                                 <div id="new-attachment-section" v-if="!certificates[index].media">
                                     <label :for="'certificate-'+index">Attachment</label>
-                                    <input type="file" @change="fileUpload" :key="index" :id="'certificate-'+index" class="border border-gray-300">
+                                    <input type="file" @change="fileUpload" :key="index" :id="'certificate-'+index" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400">
 
                                     <!--<div class="progress mt-2 " style="height: 5px">
                                         <div class="progress-bar" id="resume-progress-new" role="progressbar" style="width: 0%; height: 5px" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
@@ -69,8 +69,8 @@
                             </div>
 
                             <div class="flex flex-row gap-2">
-                                <button @click="cancelEdit(index)" class="bg-gray-400 hover:shadow-lg text-white p-2">Cancel</button>
-                                <button :disabled="false" @click="addCertificate(index)" class="bg-green-500 hover:shadow-lg text-white p-2">
+                                <button @click="cancelEdit(index)" class="rounded-md bg-gray-400 hover:shadow-lg text-white p-2">Cancel</button>
+                                <button :disabled="false" @click="addCertificate(index)" class="bg-green-500 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md hover:shadow-lg text-white p-2">
                                     <span v-if="!certificates[index].saving">Save</span>
                                     <Loader v-else :color="'white'"></Loader>
                                 </button>
@@ -114,13 +114,13 @@
                         </section>
                     </div>
             </transition>
-            <div class=" border-dotted border border-gray-300 text-center flex gap-3 justify-right px-2 py-4 self-center" v-if="certificates.length && allow_add">
-                <span @click="newCertificate" class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500 self-center">
+            <div class=" border-dotted focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400 text-center flex gap-3 justify-right px-2 py-4 self-center" v-if="certificates.length && allow_add">
+                <span @click="newCertificate" class="rounded-md py-2 px-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500 self-center">
                     <a href="#" @click.prevent="">
                         <span>Add Another Certificate</span>
                     </a>
                 </span>
-                <Link :href="route('my-resume.edit.sectional', 'reference')" class="bg-green-500 p-2 text-white text-center self-center">
+                <Link :href="route('my-resume.edit.sectional', 'reference')" class="bg-green-500 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md p-2 text-white text-center self-center">
                     <span>Next</span>
                 </Link>
             </div>

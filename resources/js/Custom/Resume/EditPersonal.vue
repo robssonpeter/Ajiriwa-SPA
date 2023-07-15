@@ -1,95 +1,86 @@
 <template>
-
     <div class="gap-y-4">
-        <transition class="animate__animated" enter-active-class="animate__fadeInDown" leave-active-class="animate__fadeOut">
-            <div class="content" id="personalContent" style="display: block;">
-            <section class="md:grid md:grid-cols-3 gap-4 gap-y-4">
-                <div class="input flex flex-col">
-                    <label for="firstName" class="input-placeholder">First Name</label>
-                    <input type="text" @change="changes" class="focus:border-green-400" id="firstName" v-model="personal.first_name">
-                </div>
-                <div class="input flex flex-col">
-                    <label for="middleName" class="input-placeholder">Middle Name</label>
-                    <input type="text" @change="changes" id="middleName" v-model="personal.middle_name">
-                </div>
-                <div class="input flex flex-col">
-                    <label for="lastName" class="input-placeholder">Last Name</label>
-                    <input type="text" @change="changes" id="lastName" v-model="personal.last_name">
-                </div>
-            </section>
-            <section class="md:grid md:grid-cols-3 gap-4 mt-4">
-                <div class="input flex flex-col">
-                    <label>Gender</label>
-                        <select name="gender" @change="changes" id="gender" v-model="personal.gender">
-                            <option :value="''">Select</option>
-                            <option :value="gender.id" v-for="gender in genders">{{ gender.name}}</option>
-                        </select>
-                </div>
-
-                <div class="input flex flex-col">
-                    <label for="nationality">Nationality</label>
-                    <input type="text" @change="changes" id="nationality" placeholder="Nationality" v-model="personal.nationality">
-                </div>
-                <div class="input flex flex-col">
-                    <label for="location">Location</label>
-                    <input type="text" @change="changes" id="location" v-model="personal.address">
-                </div>
-
-                <div class="input flex flex-col">
-                    <label for="professionalTitle">Professional Title</label>
-                    <input type="text" @change="changes" name="professionalTitle" id="professionalTitle" v-model="personal.professional_title" placeholder="e.g Accountant">
-                </div>
-
-                <div class="input flex flex-col">
-                    <label for="phone" class="input-placeholder">Phone Number</label>
-                    <input type="text" name="phone" @change="changes" v-model="personal.phone" id="phone" placeholder="Phone Number">
-                </div>
-                <div class="input flex flex-col">
-                    <label>Date of Birth</label>
-                    <input type="date" @change="changes" name="date_of_birth" id="date_of_birth" placeholder="date of birth" v-model="personal.dob">
-                </div>
-
-                <div class="input flex flex-col">
-                    <label>Work Status?</label>
-                    <select name="workingStatus" id="workingStatus">
-                    <option value="Working">Working</option>
-                    <option value="Not Working">Not Working</option>
-                </select>
-                </div>
-                <div class="input flex flex-col">
-                <label>Marital Status</label>
-                    <select name="maritalStatus" @change="changes" v-model="personal.marital_status" id="maritalStatus">
-                        <option value="1">I'm Single</option>
-                        <option value="2">I'm Married</option>
-                    </select>
-                </div>
-                <div class="input flex flex-col">
-                    <span class="invisible">save</span>
-                    <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut">
-                    <button v-if="changed" class="bg-green-500 p-2 text-white justify-center" @click="savePersonal" id="personalSave">
-                        <Loader color="white" class="justify-center" v-if="saving"></Loader>
-                        <span v-else>Save</span>
-                    </button>
-                    </transition>
-<!--                    <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut">-->
-                    <Link :href="route('my-resume.edit.sectional', 'career')" v-if="personal.first_name && personal.last_name && !changed" class="hover:bg-green-500 hover:text-white text-white border bg-green-500 p-2 text-center">
-                        <span class="flex flex-row gap-1 justify-center">
-                            Next
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 self-center" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                        </svg>
-                        </span>
-                    </Link>
-<!--                    </transition>-->
-                </div>
-            </section>
-
-            <Modal :show="false">hello</Modal>
+      <transition enter-active-class="animate__animated animate__fadeInDown" leave-active-class="animate__animated animate__fadeOut">
+        <div class="content" id="personalContent" style="display: block;">
+          <section class="md:grid md:grid-cols-3 gap-4 gap-y-4">
+            <div class="input flex flex-col">
+              <label for="firstName" class="input-placeholder">First Name</label>
+              <input type="text" @change="changes" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" id="firstName" v-model="personal.first_name">
+            </div>
+            <div class="input flex flex-col">
+              <label for="middleName" class="input-placeholder">Middle Name</label>
+              <input type="text" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" @change="changes" id="middleName" v-model="personal.middle_name">
+            </div>
+            <div class="input flex flex-col">
+              <label for="lastName" class="input-placeholder">Last Name</label>
+              <input type="text" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" @change="changes" id="lastName" v-model="personal.last_name">
+            </div>
+          </section>
+          <section class="md:grid md:grid-cols-3 gap-4 mt-4">
+            <div class="input flex flex-col">
+              <label>Gender</label>
+              <select name="gender" @change="changes" id="gender" v-model="personal.gender" class="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400">
+                <option :value="''">Select</option>
+                <option :class="{ '': personal.gender === gender.id }" :value="gender.id" v-for="gender in genders">{{ gender.name}}</option>
+              </select>
+            </div>
+            <div class="input flex flex-col">
+              <label for="nationality">Nationality</label>
+              <input type="text" @change="changes" id="nationality" placeholder="Nationality" v-model="personal.nationality" class="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400">
+            </div>
+            <div class="input flex flex-col">
+              <label for="location">Location</label>
+              <input type="text" @change="changes" id="location" v-model="personal.address" class="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400">
+            </div>
+            <div class="input flex flex-col">
+              <label for="professionalTitle">Professional Title</label>
+              <input type="text" @change="changes" name="professionalTitle" id="professionalTitle" v-model="personal.professional_title" placeholder="e.g Accountant" class="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400">
+            </div>
+            <div class="input flex flex-col">
+              <label for="phone" class="input-placeholder">Phone Number</label>
+              <input type="text" name="phone" @change="changes" v-model="personal.phone" id="phone" placeholder="Phone Number" class="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400">
+            </div>
+            <div class="input flex flex-col">
+              <label>Date of Birth</label>
+              <input type="date" @change="changes" name="date_of_birth" id="date_of_birth" placeholder="date of birth" v-model="personal.dob" class="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400">
+            </div>
+            <div class="input flex flex-col">
+              <label>Work Status?</label>
+              <select name="workingStatus" id="workingStatus" class="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400">
+                <option value="Working">Working</option>
+                <option value="Not Working">Not Working</option>
+              </select>
+            </div>
+            <div class="input flex flex-col">
+              <label>Marital Status</label>
+              <select name="maritalStatus" @change="changes" v-model="personal.marital_status" id="maritalStatus" class="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400">
+                <option value="1">I'm Single</option>
+                <option value="2">I'm Married</option>
+              </select>
+            </div>
+            <div class="input flex flex-col">
+              <span class="invisible">save</span>
+              <transition enter-active-class="animate__animated animate__fadeIn" leave-active-class="animate__animated animate__fadeOut">
+                <button v-if="changed" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md" @click="savePersonal" id="personalSave">
+                  <Loader color="white" class="justify-center" v-if="saving"></Loader>
+                  <span v-else>Save</span>
+                </button>
+              </transition>
+              <Link :href="route('my-resume.edit.sectional', 'career')" v-if="personal.first_name && personal.last_name && !changed" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md">
+                <span class="flex flex-row gap-1 justify-center">
+                  Next
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 self-center" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+              </Link>
+            </div>
+          </section>
+          <Modal :show="false">hello</Modal>
         </div>
-        </transition>
+      </transition>
     </div>
-
-</template>
+  </template>
 
 <script>
     import Modal from "@/Jetstream/Modal";

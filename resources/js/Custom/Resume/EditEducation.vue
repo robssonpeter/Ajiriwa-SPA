@@ -18,35 +18,35 @@
                         <div class="edit-education grid sm:grid-cols-2 md:grid-cols-6 gap-2"  v-if="education.editing">
                             <div class="md:col-span-2 flex flex-col">
                                 <label :for="'degree_level_'+index" class="font-bold">Education Level</label>
-                                <select class="border border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-5" v-model="educations[index].degree_level_id" :id="'degree_level_'+index">
+                                <select class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" v-model="educations[index].degree_level_id" :id="'degree_level_'+index">
                                     <option value="">Select Level</option>
                                     <option :value="level.id" v-for="level in education_levels">{{ level.name }}</option>
                                 </select>
                             </div>
                             <div class="md:col-span-2 flex flex-col">
                                 <label :for="'degree_title_'+index" class="font-bold">Degree Title</label>
-                                <input type="text" v-model="educations[index].degree_title" class="border border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-5" :id="'degree_title_'+index">
+                                <input type="text" v-model="educations[index].degree_title" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'degree_title_'+index">
                             </div>
                             <div class="md:col-span-2 flex flex-col">
                                 <label :for="'institution_'+index" class="font-bold">Institution Name</label>
-                                <input type="text" v-model="educations[index].institute" class="border border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-5" :id="'education_institution_'+index">
+                                <input type="text" v-model="educations[index].institute" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'education_institution_'+index">
                             </div>
                             <div class="md:col-span-2 flex flex-col">
                                 <label :for="'country_'+index" class="font-bold">Country</label>
-                                <select class="border border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-5" v-model="educations[index].country_id" :id="'country_'+index">
+                                <select class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" v-model="educations[index].country_id" :id="'country_'+index">
                                     <option value="">Select Country</option>
                                     <option :value="country.iso_3166_1_alpha2" v-for="country in countries">{{ country.name }}</option>
                                 </select>
                             </div>
                             <div class="md:col-span-2 flex flex-col">
                                 <label :for="'start_year_'+index" class="font-bold">Start Year</label>
-                                <input type="number" v-model="educations[index].start_year" class="border border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-5" :id="'start_year_'+index">
+                                <input type="number" v-model="educations[index].start_year" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'start_year_'+index">
                             </div>
                             <div class="md:col-span-2 flex flex-col">
                                 <label :for="'year_'+index" class="font-bold">End Year</label>
                                 <div class="flex flex-row gap-2">
-                                    <input v-if="educations[index].currently_studying" v-model="educations[index].year" type="number" :disabled="educations[index].currently_studying" class="border border-gray-300 disabled:bg-gray-200 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-5" :id="'year_'+index">
-                                    <input v-else type="number" v-model="educations[index].year" class="border border-gray-300 disabled:bg-gray-200 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-5" :id="'year_'+index">
+                                    <input v-if="educations[index].currently_studying" v-model="educations[index].year" type="number" :disabled="educations[index].currently_studying" class="border border-gray-300 disabled:bg-gray-200 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-5 rounded-md" :id="'year_'+index">
+                                    <input v-else type="number" v-model="educations[index].year" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'year_'+index">
                                     <!-- <span class="self-center text-green-400 font-bold">Studying</span>
                                     <input @change="currently_studyingControl(index)" :checked="educations[index].currently_studying" class="self-center text-green-500 focus:border-green-500 focus:border" type="checkbox"> -->
                                 </div>
@@ -58,11 +58,11 @@
 
                             <div class="md:col-span-6 flex flex-col">
                                 <label :for="'responsibilities_'+index" class="font-bold">Achievements</label>
-                                <textarea placeholder="Optional" v-model="educations[index].description" class="border border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-5" :id="'responsibilities_'+index"></textarea>
+                                <textarea placeholder="Optional" v-model="educations[index].description" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'responsibilities_'+index"></textarea>
                             </div>
                             <div class="flex flex-row gap-2">
-                                <button @click="cancelEdit(index)" class="bg-gray-400 hover:shadow-lg text-white p-2 self-center">Cancel</button>
-                                <button :disabled="false" @click="addEducation(index)" class="bg-green-500 hover:shadow-lg text-white p-2 self-center">
+                                <button @click="cancelEdit(index)" class="rounded-md bg-gray-400 hover:shadow-lg text-white p-2 self-center">Cancel</button>
+                                <button :disabled="false" @click="addEducation(index)" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md">
                                     <span v-if="!educations[index].saving">Save</span>
                                     <Loader v-else :color="'white'"></Loader>
                                 </button>
@@ -104,12 +104,12 @@
                     </div>
             </transition>
             <div class=" border-dotted border border-gray-300 text-center flex gap-3 justify-right px-2 py-4 self-center" v-if="educations.length && allow_add">
-                <span @click="newEducation" class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500 self-center">
+                <span @click="newEducation" class="py-2 rounded-md px-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500 self-center">
                     <a href="#" @click.prevent="">
                         <span>Add Another Education</span>
                     </a>
                 </span>
-                <Link :href="route('my-resume.edit.sectional', 'language')" class="bg-green-500 p-1 text-white text-center self-center">
+                <Link :href="route('my-resume.edit.sectional', 'language')" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md text-center self-center">
                     <span>Next</span>
                 </Link>
             </div>

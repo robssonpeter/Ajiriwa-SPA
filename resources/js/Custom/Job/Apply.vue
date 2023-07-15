@@ -78,6 +78,7 @@
                         this.$emit('applied', this.job.id);
                     }
                 }).catch((error) => {
+                    iziToast.error({title: "Failed", message: "Application could not be sent"})
                     console.log(error.response.data);
                 })
             }

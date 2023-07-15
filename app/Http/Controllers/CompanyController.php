@@ -57,6 +57,11 @@ class CompanyController extends Controller
         ]);
     }
 
+    public function markClaimingCompany(){
+        $id = request()->company_id;
+        return User::where('id', Auth::user()->id)->update(['claiming_company_id' => $id]);
+    }
+
     public function saveInitialInformation(){
         $company = request()->company;
         $userData = request()->user;
@@ -517,6 +522,32 @@ class CompanyController extends Controller
         return view('employer.verification.index', compact('company', 'documents'));
     }
 
+    public function claimVerificationAttempt(){
+        $user = User::where('id', Auth::user()->id)->with('profile_claim_attempt')->first();
+        $company = Company::find($user->claiming_company_id);
+        $docs = Setting::where('key', 'verification_documents')->first();
+        $documents = [];
+        /* if($docs){
+            $verification_documents = json_decode($docs->value);
+        }else{
+            $verification_documents = [];
+        } */
+        $claim = $user->profile_claim_attempt;
+        if($claim){
+            if(!$claim->verified){
+                $verifying = true;
+                return Inertia::render("Company/ClaimingCompanyVerification", compact('verifying'));
+            }
+            else{
+                // if the user is already verified redirect them to the dashboard
+                return redirect()->route('dashboard');
+            }
+        }
+        $verification_documents = Setting::where('key', 'verification_document')->get();
+        //dd($docs);
+        return Inertia::render('Company/VerificationClaim', compact('user', 'company', 'verification_documents'));
+    }
+
     public function verificationSave(Request $request){
         $rules = [
             'role_at_company' => 'required',
@@ -541,9 +572,10 @@ class CompanyController extends Controller
         $user = User::where('id', $user_id)->with('company')->first();
         $data = [
             'role' => $request->role_at_company,
-            /*'document' => $request->file,*/
             'document' => json_encode($docsToSave),
-            'company_id' => $user->company->id,
+            'company_id' => $user->claiming_company_id??$user->company->id,
+            'is_profile_claim' => request()->profile_claiming,
+            'user_id' => Auth::user()->id,
         ];
         
         $saved = VerificationAttempt::updateOrCreate(['company_id' => $user->company->id], $data);
@@ -576,7 +608,7 @@ class CompanyController extends Controller
     }
 
     public function verify(Request $request){
-        $companies = Company::with('verification_attempt', 'verification', 'user')->whereHas('verification_attempt')->whereDoesntHave('verification')->get();
+        $companies = Company::with('verification_attempt', 'verification', 'user', 'claimingUser')->whereHas('verification_attempt')->whereDoesntHave('verification')->get();
         if ($request->ajax) {
             /*return Datatables::of((new CompanyDataTable())->get($request->only([
                 'is_featured', 'is_status',
@@ -598,6 +630,21 @@ class CompanyController extends Controller
         ];
     
         $verified = CompanyVerification::updateOrCreate(['company_id' => $id], $data);
+        // check if the profile is being claimed
+        if($attempt->is_profile_claim){
+            // update the company original use to be the user id
+            $company = Company::find($id);
+            if(is_null($company->original_user)){
+                $company->update(['original_user' => $attempt->user_id]);
+                // update the attempt to and mark as verified
+                $attempt->update(['verified'=> 1]);
+                // delete the other company that was created
+                $old_comp = Company::where('original_user', $attempt->user_id)
+                                    ->orderBy('id', 'DESC')
+                                    ->first();
+                $old_comp->delete();
+            } 
+        }
 
         // Create a notification telling the user
         event(new CompanyVerified($id));
@@ -622,7 +669,8 @@ class CompanyController extends Controller
                     <p>&nbsp;</p>
                     <p>Regards</p>
                     <p>'.env('APP_NAME').' Team</p>';
-        $rejected =  CompanyVerificationRejection::create($data);
+  
+        $rejected =  \App\Models\CompanyVerificationRejection::create($data);
         $mail = Mail::to($company->user)->send(new VerificationRejected($message));
         if($rejected && $mail){
             $this->sendResponse( $rejected,'Successfully Rejected');

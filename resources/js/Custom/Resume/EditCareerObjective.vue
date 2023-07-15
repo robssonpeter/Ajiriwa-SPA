@@ -15,7 +15,7 @@
                         <Loader color="white" class="justify-center" v-if="saving"></Loader>
                         <span v-else>Save</span>
                     </button>
-                    <Link :href="route('my-resume.edit.sectional', 'experience')" v-if="!changed" class="hover:bg-green-500 hover:text-white text-white border bg-green-500 p-2 text-center">
+                    <Link :href="route('my-resume.edit.sectional', 'experience')" v-if="!changed" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md">
                         <span class="flex flex-row gap-1 place-self-center justify-center">
                             Go to Experience
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 self-center" viewBox="0 0 20 20" fill="currentColor">

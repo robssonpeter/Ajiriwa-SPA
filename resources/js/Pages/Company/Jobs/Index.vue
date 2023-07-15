@@ -8,7 +8,7 @@
                         <span>Here you can manage your job posts</span>
                     </div>
 
-                    <button class="bg-green-400 p-2 text-white self-end">Add Position</button>
+                    <Link :href="route('company.post-job')" class="bg-green-400 p-2 text-white self-end">Add Position</Link>
                     <button class="bg-white p-2 text-green-400 self-end border border-green-400 hover:bg-green-500 hover:text-white">Add Pool</button>
                 </div>
                 <div class="pb-2">

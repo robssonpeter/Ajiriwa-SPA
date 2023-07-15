@@ -9,6 +9,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Setting;
+use App\Models\User;
 
 class CheckCompanyVerification
 {
@@ -25,6 +26,13 @@ class CheckCompanyVerification
         {
             $company = Company::where('original_user', Auth::user()->id)->with('verification', 'verification_attempt')->first();
 
+            $user = User::where('id', Auth::user()->id)->with('profile_claim_attempt')->first();
+            
+            $claiming = $user->profile_claim_attempt;
+            if($claiming && !$claiming->verified){
+                $verifying = true;
+                return Inertia::render("Company/ClaimingCompanyVerification", compact('verifying'));
+            }
             $job_count = Job::where('company_id', $company->id)->count();
             
 

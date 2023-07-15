@@ -1,7 +1,7 @@
 <template>
     <div>
         <section class=" gap-2">
-            <div class=" border-dotted border border-gray-300 text-center flex gap-3 px-2 py-8 self-center" v-if="!referees.length">
+            <div class=" border-dotted focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400 text-center flex gap-3 px-2 py-8 self-center" v-if="!referees.length">
                 <span class="p-2 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500">
                     <a href="#" @click.prevent="newReferee">
                         <span>Add Referee</span>
@@ -18,32 +18,32 @@
                         <div class="edit-referee grid sm:grid-cols-2 md:grid-cols-6 gap-2"  v-if="referee.editing">
                             <div class="col-span-2 flex flex-col">
                                 <label :for="'name_'+index" class="font-bold">Name</label>
-                                <input placeholder="Full Name" type="text" v-model="referees[index].name" class="border border-gray-300" :id="'name_'+index">
+                                <input placeholder="Full Name" type="text" v-model="referees[index].name" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'name_'+index">
                             </div>
                             <div class="col-span-2 flex flex-col">
                                 <label :for="'position_'+index" class="font-bold">Position</label>
-                                <input type="text" v-model="referees[index].position" class="border border-gray-300" :id="'position_'+index">
+                                <input type="text" v-model="referees[index].position" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'position_'+index">
                             </div>
                             <div class="col-span-2 flex flex-col">
                                 <label :for="'company_'+index" class="font-bold">Company</label>
-                                <input type="text" v-model="referees[index].company" class="border border-gray-300" :id="'job_company_'+index">
+                                <input type="text" v-model="referees[index].company" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'job_company_'+index">
                             </div>
                             <div class="col-span-2 flex flex-col">
                                 <label :for="'email_'+index" class="font-bold">Email</label>
-                                <input type="email" v-model="referees[index].email" class="border border-gray-300" :id="'email_'+index">
+                                <input type="email" v-model="referees[index].email" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'email_'+index">
                             </div>
                             <div class="col-span-2 flex flex-col">
                                 <label :for="'phone_'+index" class="font-bold">Phone</label>
-                                <input class="border border-gray-300" type="tel" v-model="referees[index].phone" :id="'phone_'+index">
+                                <input class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" type="tel" v-model="referees[index].phone" :id="'phone_'+index">
                             </div>
                             <div class="col-span-2 flex flex-col">
                                 <label :for="'postal_address_'+index" class="font-bold">Postal Address</label>
-                                <input type="text" v-model="referees[index].postal_address" class="border border-gray-300" :id="'postal_address_'+index">
+                                <input type="text" v-model="referees[index].postal_address" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'postal_address_'+index">
                             </div>
 
                             <div class="flex flex-row gap-2">
-                                <button @click="cancelEdit(index)" class="bg-gray-400 hover:shadow-lg text-white p-2">Cancel</button>
-                                <button :disabled="false" @click="addReferee(index)" class="bg-green-500 hover:shadow-lg text-white p-2">
+                                <button @click="cancelEdit(index)" class="rounded-md bg-gray-400 hover:shadow-lg text-white p-2">Cancel</button>
+                                <button :disabled="false" @click="addReferee(index)" class="bg-green-500 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md hover:shadow-lg text-white p-2">
                                     <span v-if="!referees[index].saving">Save</span>
                                     <Loader v-else :color="'white'"></Loader>
                                 </button>
@@ -87,13 +87,13 @@
                         </section>
                     </div>
             </transition>
-            <div class=" border-dotted border border-gray-300 text-center flex gap-3 justify-right px-2 py-4 self-center" v-if="referees.length && allow_add">
-                <span @click="newReferee" class="p-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500">
+            <div class=" border-dotted focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400 text-center flex gap-3 justify-right px-2 py-4 self-center" v-if="referees.length && allow_add">
+                <span @click="newReferee" class="rounded-md py-2 px-1 cursor-pointer border border-green-500 text-green-500 hover:text-white hover:bg-green-500">
                     <a href="#" @click.prevent="">
                         <span>Add Another Referee</span>
                     </a>
                 </span>
-                <Link :href="route('my-resume')" class="bg-green-500 p-2 text-white text-center">
+                <Link :href="route('my-resume')" class="bg-green-500 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md p-2 text-white text-center">
                     <span>View Final CV</span>
                 </Link>
             </div>

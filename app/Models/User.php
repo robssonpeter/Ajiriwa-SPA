@@ -36,7 +36,8 @@ class User extends Authenticatable
         'provider',
         'provider_id',
         'subscription_id',
-        'subscription_end_date'
+        'subscription_end_date',
+        'claiming_company_id'
     ];
 
     /**
@@ -79,5 +80,9 @@ class User extends Authenticatable
 
     public function company(){
         return $this->hasOne(Company::class, 'original_user', 'id');
+    }
+
+    public function profile_claim_attempt(){
+        return $this->hasOne(VerificationAttempt::class, 'company_id', 'claiming_company_id');
     }
 }
