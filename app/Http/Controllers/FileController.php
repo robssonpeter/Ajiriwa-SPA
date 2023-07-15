@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Spatie\MediaLibrary\Models\Media;
@@ -46,7 +47,7 @@ class FileController extends Controller
         $model =  new $model;
         $model =  $model->find($model_id);
         $savedMedia = $model->addMediaFromRequest('files')->toMediaCollection($collection, 'public');
-        if(request()->collection == 'logo')
+        if(request()->collection == 'logo' || request()->collection == 'DPs')
         {
             $model->update(['logo' => $savedMedia->id ]);
         }
@@ -55,7 +56,7 @@ class FileController extends Controller
             $model->update(['cover' => $savedMedia->id ]);
         }
 
-        if(request()->remove_media){
+        if(request()->remove_media && request()->remove_media != 'null'){
             Media::where('id', request()->remove_media)->delete();
         }
         return [

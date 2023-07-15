@@ -255,6 +255,7 @@
                     formData.append('collection', type);
                     formData.append('model_id', this.candidate.id);
                     formData.append('remove_media', this.candidate.logo);
+                    formData.append('model_column', 'logo');
                     this.saving.dp = true;
                     axios.post(route('file.save'), formData, {
                         headers: {
