@@ -8,19 +8,26 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
     <!-- Include AOS CSS (Animate On Scroll) -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <!-- Font -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Nunito'
+        }
+    </style>
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100 text-gray-500">
 
     <!-- Header Section -->
     <header class="bg-green-500 p-4 text-white">
-        <div class="container mx-auto">
+        <div class="container mx-auto px-4">
             <h1 class="text-4xl font-bold">Welcome to Ajiriwa</h1>
             <p class="text-lg">Your Trusted Recruitment Platform</p>
         </div>
     </header>
 
     <!-- Main Content Container -->
-    <img src="images/front.png" alt="" class="-mt-2">
+    <img src="images/front.png" alt="" class="hidden-for-small">
     <main class="container mx-auto px-4 py-8">
 
         <!-- Hero Section -->
@@ -30,10 +37,13 @@
                     <h2 class="text-3xl font-semibold mb-4">Simplify Recruitment with Ajiriwa</h2>
                     <p class="text-gray-700 text-lg mb-4">Your all-in-one platform for job seekers and employers in Tanzania.</p>
                     <a href="https://beta.ajiriwa.net" class="bg-green-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition duration-300 ease-in-out">Explore Ajiriwa</a>
+                    <a href="https://github.com/robssonpeter/Ajiriwa-SPA" class="bg-white text-gray-600 px-6 py-3 rounded-full border border-gray-600 hover:bg-gray-600 hover:text-white transition duration-300 ease-in-out">Github</a>
                 </div>
                 <div data-aos="fade-left">
                     <!-- Placeholder for a project image -->
-                    <div class="bg-gray-300 h-64 rounded-lg"></div>
+                    <div class="bg-gray-300 h-64 rounded-lg" style="background-image: url('images/find-talent.png')">
+                        <!-- <img src="images/find-talent.png" class="h-100 w-100" alt=""> -->
+                    </div>
                 </div>
             </div>
         </section>
