@@ -53,7 +53,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
                 <div data-aos="fade-right">
                     <!-- Placeholder for a project image -->
-                    <div class="bg-gray-300 h-64 rounded-lg"></div>
+                    <div class="bg-gray-300 h-64 rounded-lg" style="background-image: url('images/candidate-dashboard.png'); background-size: cover;"></div>
                 </div>
                 <div data-aos="fade-left">
                     <h2 class="text-2xl font-semibold mb-4">About the Project</h2>
@@ -65,22 +65,32 @@
         <!-- Our Technology Stack Section -->
         <section class="bg-white rounded-lg p-6 mb-6 shadow-md">
             <h2 class="text-2xl font-semibold mb-4">Our Technology Stack</h2>
-            <ul class="list-disc list-inside text-gray-700">
-                <li>Front End: Vue.js for smooth user interfaces</li>
-                <li>Styling: Tailwind CSS for beautiful and responsive designs</li>
-                <li>Back End: Laravel framework powered by PHP</li>
-                <li>Database: MySQL for secure data storage</li>
-            </ul>
+            <section class="md:flex">
+                <ul class="list-disc list-inside text-gray-700">
+                    <li>Front End: Vue.js for smooth user interfaces</li>
+                    <li>Styling: Tailwind CSS for beautiful and responsive designs</li>
+                    <li>Back End: Laravel framework powered by PHP</li>
+                    <li>Database: MySQL for secure data storage</li>
+                </ul>
+                <div class="flex md:space-x-10 md:px-4 pt-2">
+                    <img src="images/Vue.js.png" class="responsive" alt="">
+                    <img src="images/Tailwind_CSS_Logo.png" alt="">
+                    <img src="images/Laravel.png" alt="">
+                    <img src="images/mysql.png" alt="">
+                </div>
+            </section>
+            
         </section>
 
         <!-- Our Challenge Section -->
         <section class="bg-white rounded-lg p-6 mb-6 shadow-md">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div class="md:flex  gap-6 items-center">
                 <div data-aos="fade-right">
                     <!-- Placeholder for a project image -->
-                    <div class="bg-gray-300 h-64 rounded-lg"></div>
+                    <img src="images/job-seeker-struggle.jpg" height="20" alt="">
+                    <!-- <div class="h-64 rounded-lg" style="background-image: url('images/job-seeker-struggle.jpg'); background-size: contain; background-repeat: no-repeat;"></div> -->
                 </div>
-                <div data-aos="fade-left">
+                <div data-aos="fade-left flex-grow">
                     <h2 class="text-2xl font-semibold mb-4">Our Challenge</h2>
                     <p class="text-gray-700">In Tanzania, job seekers often struggle to create professional profiles to land a job. Ajiriwa is here to guide candidates step by step, helping them create impressive profiles and generating professional CVs. For employers, we offer a sophisticated tool to manage job applications effectively, streamlining the hiring process.</p>
                 </div>
@@ -89,8 +99,8 @@
 
         <!-- What We Offer Section -->
         <section class="bg-white rounded-lg p-6 mb-6 shadow-md">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
-                <div data-aos="fade-right">
+            <div class="md:flex gap-6 items-center">
+                <div data-aos="fade-right flex-grow">
                     <h2 class="text-2xl font-semibold mb-4">What We Offer</h2>
                     <ol class="list-decimal list-inside text-gray-700">
                         <li><strong class="font-semibold">Candidate Section:</strong> Job seekers can create professional profiles and generate CVs effortlessly.</li>
@@ -100,19 +110,21 @@
                 </div>
                 <div data-aos="fade-left">
                     <!-- Placeholder for a project image -->
-                    <div class="bg-gray-300 h-64 rounded-lg"></div>
+                    <img src="images/what-we-offer.jpeg" alt="">
+                    <!-- <div class="bg-gray-300 h-64 rounded-lg"></div> -->
                 </div>
             </div>
         </section>
 
         <!-- Our Vision Section -->
         <section class="bg-white rounded-lg p-6 mb-6 shadow-md">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+            <div class="md:flex gap-6 items-center">
                 <div data-aos="fade-right">
                     <!-- Placeholder for a project image -->
-                    <div class="bg-gray-300 h-64 rounded-lg"></div>
+                    <img src="images/streamline-hiring.jpg" alt="">
+                    <!-- <div class="bg-gray-300 h-64 rounded-lg"></div> -->
                 </div>
-                <div data-aos="fade-left">
+                <div data-aos="fade-left flex-grow">
                     <h2 class="text-2xl font-semibold mb-4">Our Vision</h2>
                     <p class="text-gray-700">We aim to simplify recruitment procedures in Tanzania. While there are a few existing solutions, Ajiriwa stands out by offering advanced tools to streamline hiring. Employers can browse candidates based on experience, skills, and more, making the hiring process efficient and effective.</p>
                 </div>
@@ -126,19 +138,20 @@
             <p class="text-gray-700">I began my coding journey from scratch, driven by a desire to make a difference. I created the basic version of Ajiriwa, which, although functional, was susceptible to hacking and other vulnerabilities.</p>
             <p class="text-gray-700">Then, I discovered the Alx Software Engineering Program, and without hesitation, I applied. Today, I am a much-improved developer, armed with the knowledge and skills to rework the Ajiriwa recruitment project, making it modern and secure.</p>
             <p class="text-gray-700">My journey is a testament to the power of determination and continuous learning. I am excited to share this journey with you as we strive to make Ajiriwa a reliable and innovative platform for both job seekers and employers.</p>
+            <p><a href="https://www.linkedin.com/in/peter-robert-mgembe-ba805446/" class="text-blue-500">LinkedIn</a> | <a href="https://twitter.com/robssonpeter" class="text-blue-500">Twitter</a> | <a href="https://github.com/robssonpeter" class="text-blue-500">Github</a></p>
         </section>
     </main>
 
     <!-- Image and Screenshot Placeholders Section with Scrolling Animation -->
     <section class="bg-light-black text-white py-12">
         <div class="container mx-auto text-center">
-            <h2 class="text-2xl font-semibold mb-4" data-aos="fade-up">Explore Ajiriwa</h2>
-            <p class="text-gray-300 mb-8" data-aos="fade-up" data-aos-delay="100">Placeholder for project images and screenshots:</p>
+            <h2 class="text-2xl text-gray-600 font-semibold mb-4" data-aos="fade-up">Explore Ajiriwa</h2>
+            <!-- <p class="text-gray-300 mb-8" data-aos="fade-up" data-aos-delay="100">Placeholder for project images and screenshots:</p> -->
             <!-- You can add image placeholders here -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-gray-300 h-64 rounded-lg"></div>
-                <div class="bg-gray-300 h-64 rounded-lg"></div>
-                <div class="bg-gray-300 h-64 rounded-lg"></div>
+                <div class="bg-gray-300 h-64 rounded-lg" style="background-image: url('images/candidate-profile.png'); background-size: contain;"></div>
+                <div class="bg-gray-300 h-64 rounded-lg" style="background-image: url('images/employer-dashboard.png'); background-size: contain;"></div>
+                <div class="bg-gray-300 h-64 rounded-lg" style="background-image: url('images/application-status.png'); background-size: contain;"></div>
             </div>
         </div>
     </section>
