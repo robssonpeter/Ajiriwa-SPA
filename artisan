@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-
+/* laravel application */
 define('LARAVEL_START', microtime(true));
 
 /*
