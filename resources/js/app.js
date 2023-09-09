@@ -9,6 +9,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import VueShepherdPlugin from 'vue-shepherd';
 import 'shepherd.js/dist/css/shepherd.css';
+import { createPinia } from 'pinia';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCc2eq23_efjual1WZ329gMP5bZlOunv9s",
@@ -19,6 +20,8 @@ const firebaseConfig = {
     appId: "1:117362381735:web:0a00ccfa5024cc70fc9c82",
     measurementId: "G-JW3B32E4S6"
 };
+
+const pinia = createPinia();
 
 // Initialize Firebase
 /*const firebaseApp = initializeApp(firebaseConfig);
@@ -34,6 +37,7 @@ createInertiaApp({
             .use(Vue3Tour)
             .use(VueShepherdPlugin)
             .use(plugin)
+            .use(pinia)
             .mixin({ methods: { route } })
             .mount(el);
     },

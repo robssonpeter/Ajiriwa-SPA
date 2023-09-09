@@ -1,4 +1,4 @@
-<template>
+    <template>
     <dropdown align="right" width="48" class="hidden md:block float-right">
         <template #trigger>
             <span class="inline-flex rounded-md">

@@ -43,8 +43,27 @@ createApp({
         apply(){
             if(this.job.apply_method === 'url'){
                 // redirect to application url
+                //let url = application_url.replace('amp;', '');
+                //return console.log(decodeURI(application_url));
+                let queries = '';
+                let keys = Object.keys(url_query)
+                let query_array = []
+                let decodedUrl = '';
+                let query_string = '';
+                if (keys.length){
+                    for(let x = 0; x < keys.length; x++ ){
+                        query_array.push(keys[x]+"="+url_query[keys[x]]);
+                    }
+                }
+                decodedUrl = decodeURIComponent(application_url.replace('\\', ''));
+                if (query_array.length){
+                    query_string = "&"+query_array.join('&');
+                }
+                //return alert(decodedUrl+query_string);
+                //return alert(decodedUrl+query_string+"&"+link);
                 window.open(
-                    this.job.application_url,
+                    /* this.job.application_url */
+                    decodedUrl+query_string+"&"+link,
                     '_blank' // <- This is what makes it open in a new window.
                 );
             }else if(this.job.apply_method === 'email'){

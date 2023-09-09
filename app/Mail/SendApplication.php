@@ -49,7 +49,7 @@ class SendApplication extends Mailable
         ]);
         foreach($application->attachments as $attachment){
             $extension = explode(',', $attachment->media_url);
-            $email = $email->attach(/* public_path( */$attachment->media_url/* ) */, [
+            $email = $email->attach($attachment->media->getFullUrl(), [
                 'as' => $attachment->name.".".$extension[count($extension) - 1],
             ]);
         }

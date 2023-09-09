@@ -37,7 +37,8 @@ class User extends Authenticatable
         'provider_id',
         'subscription_id',
         'subscription_end_date',
-        'claiming_company_id'
+        'claiming_company_id',
+        'push_notify',
     ];
 
     /**
@@ -84,5 +85,9 @@ class User extends Authenticatable
 
     public function profile_claim_attempt(){
         return $this->hasOne(VerificationAttempt::class, 'company_id', 'claiming_company_id');
+    }
+
+    public function device_tokens(){
+        return $this->hasMany(NotificationToken::class, 'user_id', 'id');
     }
 }

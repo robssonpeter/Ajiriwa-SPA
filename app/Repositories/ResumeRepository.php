@@ -16,9 +16,13 @@ use Illuminate\Support\Facades\Auth;
 
 class ResumeRepository
 {
-    public static function addPersonal($data, $candidate_id){
+    public static function addPersonal($data, $candidate_id, $make_slug = false){
         $fillable = new Candidate;
         $fillable->getFillable();
+        if($make_slug){
+            $slug = $data['first_name']." ".$data['middle_name']." ".$data['last_name']." ".uniqid();
+            $data['slug'] = makeSlug($slug);
+        }
         return Candidate::where('id', $candidate_id)->update(Arr::only($data, $fillable->getFillable()));;
     }
 

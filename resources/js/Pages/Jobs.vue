@@ -9,7 +9,7 @@
                     <input type="text" @keypress.enter="searchJobs" v-model="search"
                         class="flex-grow border border-gray-300 text-gray-600 border-gray-300 focus:border-green-300 focus:ring focus:ring-green-200 focus:ring-opacity-50 rounded-l-md shadow-sm block w-full"
                         placeholder="Search Jobs">
-                    <button class="bg-green-500 px-2 text-white" @click="searchJobs">Search</button>
+                    <button class="bg-green-500 px-2 text-white rounded-r-md" @click="searchJobs">Search</button>
                 </div>
 
                 <div role="status" v-if="loading" v-for="x in jobs.length"
@@ -38,8 +38,10 @@
                     :class="'my-1 grid grid-cols-3 border border-gray-300 sm:rounded-md ' + currentJob(job)">
                     <img :src="job.company.logo_url" class="h-24 rounded-l-md" alt="">
                     <div class="col-span-2 text-gray-600 pt-2">
-                        <a href="#" @click.prevent="showJob(index)" class="hidden md:block text-green-500 font-bold">{{ job.title }}</a>
-                        <a href="#" @click.prevent="showJob(index); job_modal = true" class="md:hidden text-green-500 font-bold">{{ job.title }}</a>
+                        <a href="#" @click.prevent="showJob(index)" class="hidden md:block text-green-500 font-bold">{{
+                            job.title }}</a>
+                        <a href="#" @click.prevent="showJob(index); job_modal = true"
+                            class="md:hidden text-green-500 font-bold">{{ job.title }}</a>
                         <p class="text-sm font-bold mt-1">{{ job.company.name }}</p>
                         <small>{{ job.location }}</small>
                     </div>
@@ -77,7 +79,7 @@
 
                         <template v-slot:content>
                             <form @submit.prevent="apply">
-                                <apply @applied="doneApplying" @applying="applying" :selected_certs="selected_certs"
+                                <apply :candidate="$page.props.user.candidate.id" @applied="doneApplying" @applying="applying" :selected_certs="selected_certs"
                                     :assessments="current_assessments" :job="current_job" :ref="'apply'"></apply>
                                 <section class="flex flex-col py-2">
                                     <span class="font-bold">Attachments</span>
@@ -169,7 +171,7 @@
 
                                 <template v-slot:content>
                                     <form @submit.prevent="apply">
-                                        <apply @applied="doneApplying" @applying="applying" :selected_certs="selected_certs"
+                                        <apply :candidate="$page.props.user.candidate.id" @applied="doneApplying" @applying="applying" :selected_certs="selected_certs"
                                             :assessments="current_assessments" :job="current_job" :ref="'apply'"></apply>
                                         <section class="flex flex-col py-2">
                                             <span class="font-bold">Attachments</span>
@@ -279,6 +281,7 @@ export default {
     mounted() {
         let slug = window.location.hash.replace('#', '');
         let index = 0;
+        console.log(this.$page.props)
 
         if (this.jobs.length) {
             if (slug) {
@@ -290,27 +293,88 @@ export default {
             }
             this.showJob(index);
         }
-        if (0 > 1) {
-            Notification.requestPermission().then((permission) => {
-                if (permission === 'granted') {
-                    console.log('permission granted');
-                    getToken(messaging, { vapidKey: 'BPEeiMDqK4wcKxXE6h9ZbGaTaDhBqoAnO6Ifux11k5MRjt1eq_DnnJb7LlD9mYu41dBug20m5mPZ-ANB-3J3NUM' }).then((token) => {
-                        axios.post(route('fcmToken'), {
-                            _method: "PATCH",
-                            token
-                        }).then(({ data }) => {
-                            console.log(data)
-                        }).catch(({ response: { data } }) => {
-                            console.error(data)
-                        })
-                    })
+        if (0 < 1) {
+            const showPushNotificationPopup = () => {
+                /* return new Promise((resolve) => {
+                    resolve(true);
+                    Swal.fire({
+                            title: 'Push Notifications',
+                            text: 'Do you want to receive push notifications for new job updates?',
+                            icon: 'question',
+                            showCancelButton: true,
+                            confirmButtonText: 'Accept',
+                            cancelButtonText: 'Cancel',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                resolve(true);
+                            } else {
+                                resolve(false);
+                            }
+                        });
+                }); */
+                if (this.$page.props.user.push_notify == null) {
+                    return new Promise((resolve) => {
+                        Swal.fire({
+                            title: 'Push Notifications',
+                            text: 'Do you want to receive push notifications for new job updates?',
+                            icon: 'question',
+                            showCancelButton: true,
+                            confirmButtonText: 'Accept',
+                            cancelButtonText: 'Cancel',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                resolve(true);
+                            } else {
+                                resolve(false);
+                            }
+                        });
+                    });
+                }else if (Number(this.$page.props.user.push_notify) == 1){
+                    // the user already agreed before simply just raise the prompt
+                    return new Promise((resolve) => {
+                        resolve(true);
+                    });
+                }else {
+                    return new Promise((resolve) => {
+                        resolve(false);
+                    });
+                }
+            };
+
+            showPushNotificationPopup().then((accepted) => {
+                if (accepted) {
+                    // Initialize Firebase and request permission for push notifications
+                    const firebaseApp = initializeApp(firebaseConfig);
+                    const messaging = getMessaging(firebaseApp);
+
+                    Notification.requestPermission().then((permission) => {
+                        if (permission === 'granted') {
+                            console.log('Permission granted');
+                            getToken(messaging, {
+                                vapidKey: 'BPEeiMDqK4wcKxXE6h9ZbGaTaDhBqoAnO6Ifux11k5MRjt1eq_DnnJb7LlD9mYu41dBug20m5mPZ-ANB-3J3NUM',
+                            })
+                                .then((token) => {
+                                    axios
+                                        .post(route('fcmToken'), {
+                                            _method: 'PATCH',
+                                            push_notify: 1,
+                                            token,
+                                        })
+                                        .then(({ data }) => {
+                                            console.log(data);
+                                        })
+                                        .catch(({ response: { data } }) => {
+                                            console.error(data);
+                                        });
+                                })
+                                .catch((error) => {
+                                    console.error('Failed to get token:', error);
+                                });
+                        }
+                    });
                 }
             });
         }
-
-        /*messaging.onMessage(function({data:{body,title}}){
-            new Notification(title, {body});
-        });*/
     },
     data() {
         return {
@@ -461,7 +525,8 @@ export default {
         startApplying() {
             if (this.current_job.application_url) {
                 //alert('you are supposed to be redirected to another website');
-                window.open(this.current_job.application_url, "_blank");
+                let link = route('redirect')+"?jobid="+this.current_job.id+'&link='+this.current_job.application_url;
+                window.open(link, "_blank");
                 setTimeout(() => {
                     Swal.fire({
                         title: "Did you apply?",
@@ -491,13 +556,6 @@ export default {
 
             this.applied_jobs.push(this.current_job.id);
 
-            /*let index = this.jobs.findIndex(element => element.id === job);
-
-            if(index){
-                this.jobs[index].applied = true;
-            }*/
-
-            // show the popup notification that the application was successful
             iziToast.success({
                 title: "Done",
                 message: "Your application has been sent"

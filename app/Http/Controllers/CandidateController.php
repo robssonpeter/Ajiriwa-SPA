@@ -240,11 +240,13 @@ class CandidateController extends Controller
                 }
                 break;
         }
+
         return Inertia::render('MyResumeEdit', [
             'section' => $section,
             'countries' => $countries,
             'industries' => $industries,
             'data' => $data,
+            'return_to_link' => session()->get('return_to_link')
         ]);
     }
 
@@ -253,7 +255,8 @@ class CandidateController extends Controller
         $candidate = Candidate::where('user_id', Auth::user()->id)->select('id')->first();
         switch ($type){
             case 'personal':
-                $saved = ResumeRepository::addPersonal(request()->data, $candidate->id);
+                $make_slug = is_null($candidate->slug);
+                $saved = ResumeRepository::addPersonal(request()->data, $candidate->id, $make_slug);
                 return $saved;
             case 'experience':
                 $saved = ResumeRepository::addExperience(request()->data);
@@ -393,4 +396,5 @@ class CandidateController extends Controller
         return $pdf->download(makeSlug($candidate->full_name).'-cv.pdf');
 
     }
+
 }

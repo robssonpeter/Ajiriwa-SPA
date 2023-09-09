@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NotificationToken;
 use Auth;
 use Illuminate\Filesystem\Cache;
 use Illuminate\Http\Request;
@@ -44,7 +45,10 @@ class PushController extends Controller
 
     public function updateToken(Request $request){
         try{
-            $request->user()->update(['fcm_token'=>$request->token]);
+            $check = ['token' => $request->token];
+            $update = ['user_id' => $request->user()->id, 'token' => $request->token];
+            NotificationToken::updateOrCreate($check, $update);
+            $request->user()->update([ 'fcm_token' => $request->token, 'push_notify' => $request->push_notify]);
             return response()->json([
                 'success'=>true
             ]);

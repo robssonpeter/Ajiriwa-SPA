@@ -47,7 +47,8 @@ class Candidate extends Model implements HasMedia
         'profile_completion',
         'gender',
         'dob',
-        'phone'
+        'phone',
+        'slug',
     ];
 
     protected $appends = [
@@ -121,6 +122,6 @@ class Candidate extends Model implements HasMedia
     }
 
     public function skills(){
-        return $this->hasMany(CandidateSkill::class, 'candidate_id', 'id');
+        return $this->hasMany(CandidateSkill::class, 'candidate_id', 'id')->orderBy('rating', 'DESC');
     }
 }

@@ -141,6 +141,7 @@ class DataTransfer {
                 $created_jobs[] = $created->id;
             }
         }
+        self::fixJobHtml();
         return count($created_jobs);
     }
 
@@ -434,11 +435,33 @@ class DataTransfer {
         }
     }
 
+    public static function fixJobHtml(){
+        $jobs = Job::select('id', 'description')->where('description', 'LIKE', '%&lt;%')->get();
+        foreach($jobs as $job){
+            if($job->description[0] == "&"){
+                $description = htmlspecialchars_decode($job->description);
+                // update the database
+                Job::where('id', $job->id)->update(['description'=>$description]);
+            }
+        }
+    }
+
     public static function transferEmployers(){
         $existing_employers = Company::pluck('name');
         
         // get all the employers in the database
 
         // 
+    }
+
+    public static function fixCandidateSlug(){
+        $candidates = Candidate::whereNull('slug')
+                            ->select('id', 'first_name', 'middle_name', 'last_name')
+                            ->get();
+        foreach($candidates as $candidate){
+            $slug = makeSlug($candidate->full_name).'-'.uniqid();
+            Candidate::where('id', $candidate->id)->update(['slug' => $slug]);
+        }
+        return $candidates->count();
     }
 }

@@ -34,7 +34,7 @@ class JobApplication extends Model
     ];
 
     protected $appends  = [
-        'applied_on', 'application_date', 'application_date_time','application_status', 'current_status'
+        'applied_on', 'application_date', 'application_date_time','application_status', 'current_status', 'time_ago'
     ];
 
     protected $with = [
@@ -61,6 +61,10 @@ class JobApplication extends Model
 
     public function getAppliedOnAttribute(){
         return Carbon::parse(($this->created_at))->format('F j, Y');
+    }
+
+    public function getTimeAgoAttribute(){
+        return Carbon::parse($this->created_at)->diffForHumans();
     }
 
     public function candidate(){

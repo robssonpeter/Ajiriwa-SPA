@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use App\Models\Job;
 
 function getFileName($fileName, $attachment)
@@ -79,4 +80,44 @@ function unitSeparator($product_id, $quantity){
 
 function activeJobs($company_id){
     return Job::where('company_id', $company_id)->where('deadline', '>=', date('Y-m-d'))->where('status', 1)->count();
+}
+
+function userMenu(){
+    if(Auth::check()){
+        if(Auth::user()->role == 'candidate'){
+            return [
+                ['name' => 'Dashboard', 'link' => route('dashboard')],
+                ['name' => 'My Profile', 'link' => route('my-resume')],
+                ['name' => 'My Applications', 'link' => route('my-applications')],
+            ];
+        }else if (Auth::user()->hasRole('employer')){
+            return [
+                ['name' => 'Dashboard', 'link' => route('dashboard')],
+                ['name' => 'Post A Job', 'link' => route('company.post-job')],
+                ['name' => 'Manage Jobs', 'link' => route('company.jobs.index')],
+                ['name' => 'Search Candidates', 'link' => route('company.candidates.search')],
+            ];
+        }else{
+            return [];
+        }
+    }else{
+        return [];
+    }
+}
+
+/**
+ * Undocumented function
+ *
+ * @param number $amount amount to be charged
+ * @param string $change_type change type if + or -
+ * @param integer $user_id id of the user who is to charged
+ * @return void
+ */
+function chargeAjiriwaBalance($amount, $change_type, $user_id, $description=""){
+    if ($change_type == '+') {
+        $charged = User::where('id', $user_id)->increment('ajiriwa_balance', $amount);
+    }else {
+        $charged = User::where('id', $user_id)->decrement('ajiriwa_balance', $amount);
+    }
+    return $charged;
 }

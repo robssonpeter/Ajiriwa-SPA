@@ -9,7 +9,9 @@
                     </div>
 
                     <Link :href="route('company.post-job')" class="bg-green-400 p-2 text-white self-end">Add Position</Link>
-                    <button class="bg-white p-2 text-green-400 self-end border border-green-400 hover:bg-green-500 hover:text-white">Add Pool</button>
+                    <button
+                        class="bg-white p-2 text-green-400 self-end border border-green-400 hover:bg-green-500 hover:text-white">Add
+                        Pool</button>
                 </div>
                 <div class="pb-2">
                     <div class="flex flex-row gap-2">
@@ -32,9 +34,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="job in jobs" >
+                        <tr v-for="job in jobs">
                             <td class="border px-8 py-2 flex flex-col">
-                                <Link class="text-green-500 hover:text-green-400 font-bold" :href="route('company.job.view', job.slug)">{{ job.title }}</Link>
+                                <Link class="text-green-500 hover:text-green-400 font-bold"
+                                    :href="route('company.job.view', job.slug)">{{ job.title }}</Link>
                                 <span class="text-sm" v-if="$page.props.is_admin">{{ job.company.name }}</span>
                             </td>
                             <td class="border px-8 py-2 text-center">
@@ -54,43 +57,61 @@
                                     </template>
                                 </time-ago>-->
                             </td>
-                            <td class="border px-8 py-2 text-center"><promotion :key="job.id" :job="job"></promotion></td>
                             <td class="border px-8 py-2 text-center">
-                                <Status :job="job" :options="$page.props.status" :key="job.id" @change="statusUpdated"></Status>
+                                <promotion @activated="activatePromotion(job.id)" @click="openPromotion('prom_' + job.id)"
+                                    :ref="'prom_' + job.id" :key="job.id" :job="job"></promotion>
                             </td>
-                            <td :class="isPast(job.deadline)?'text-red-500 border px-8 py-2 text-center':'border px-8 py-2 text-center'">{{ job.deadline }}</td>
-                            <td class="border px-8 py-2 text-center"><span class="bg-green-400 p-1 text-white cursor-pointer rounded-md"><small><Link :href="route('company.job.applications', job.slug)">{{ job.applications_count }}</Link></small></span></td>
+                            <td class="border px-8 py-2 text-center">
+                                <Status :job="job" :options="$page.props.status" :key="job.id" @change="statusUpdated">
+                                </Status>
+                            </td>
+                            <td
+                                :class="isPast(job.deadline) ? 'text-red-500 border px-8 py-2 text-center' : 'border px-8 py-2 text-center'">
+                                {{ job.deadline }}</td>
+                            <td class="border px-8 py-2 text-center"><span
+                                    class="bg-green-400 p-1 text-white cursor-pointer rounded-md"><small>
+                                        <Link :href="route('company.job.applications', job.slug)">{{ job.applications_count
+                                        }}</Link>
+                                    </small></span></td>
                             <td class="border px-8 py-2 text-center">
                                 <div class="flex flex-row" title="Edit">
                                     <Link :href="route('company.edit-job', job.slug)">
-                                        <span class="text-green-500 hover:text-green-400">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                            </svg>
-                                        </span>
+                                    <span class="text-green-500 hover:text-green-400">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                        </svg>
+                                    </span>
                                     </Link>
                                     <span class="text-red-500 hover:text-red-400" title="Delete">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                         </svg>
                                     </span>
                                 </div>
                             </td>
                         </tr>
-                    <tr v-if="!jobs.length">
-                        <td class="text-center border px-8 py-4" colspan="8">
-                            <span>The jobs that you post will appear here</span>
-                            <span>
-                                <button class="bg-green-400 p-1 rounded-md text-white"><Link :href="route('company.post-job')">Post a Job</Link></button>
-                            </span>
-                        </td>
-                    </tr>
+                        <tr v-if="!jobs.length">
+                            <td class="text-center border px-8 py-4" colspan="8">
+                                <span>The jobs that you post will appear here</span>
+                                <span>
+                                    <button class="bg-green-400 p-1 rounded-md text-white">
+                                        <Link :href="route('company.post-job')">Post a Job</Link>
+                                    </button>
+                                </span>
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
                 <div class="flex py-2">
-                    <Link v-if="$page.props.previous" :href="$page.props.previous" class="bg-white px-2 border border-gray-400 text-gray-500 hover:text-green-500">Previous</Link>
+                    <Link v-if="$page.props.previous" :href="$page.props.previous"
+                        class="bg-white px-2 border border-gray-400 text-gray-500 hover:text-green-500">Previous</Link>
                     <div class="flex-grow"></div>
-                    <Link v-if="$page.props.next" :href="$page.props.next" class="bg-white px-2 border border-gray-400 text-gray-500 hover:text-green-500">Next</Link>
+                    <Link v-if="$page.props.next" :href="$page.props.next"
+                        class="bg-white px-2 border border-gray-400 text-gray-500 hover:text-green-500">Next</Link>
                 </div>
             </div>
             <!--<div class="col-span-1">
@@ -103,97 +124,118 @@
 </template>
 
 <script>
-    import EmployerLayout from "@/Layouts/EmployerLayout";
-    import { Head, Link } from '@inertiajs/inertia-vue3';
-    import Input from "@/Jetstream/Input";
-    import Loader from "@/Custom/Loader";
-    import Promotion from "@/Custom/Job/Promotion";
-    import TimeAgo from 'vue3-timeago';
-    import CheckableDropdown from "@/Custom/CheckableDropdown";
-    import Status from "@/Custom/Job/Status";
-    export default {
-        name: "Post",
-        props: {
-            title: String,
+import EmployerLayout from "@/Layouts/EmployerLayout";
+import { Head, Link } from '@inertiajs/inertia-vue3';
+import Input from "@/Jetstream/Input";
+import Loader from "@/Custom/Loader";
+import Promotion from "@/Custom/Job/Promotion";
+import TimeAgo from 'vue3-timeago';
+import CheckableDropdown from "@/Custom/CheckableDropdown";
+import Status from "@/Custom/Job/Status";
+export default {
+    name: "Post",
+    props: {
+        title: String,
+    },
+    components: {
+        EmployerLayout,
+        Head,
+        Input,
+        Loader,
+        Link,
+        TimeAgo,
+        CheckableDropdown,
+        Status,
+        Promotion
+    },
+    mounted() {
+        console.log(this.jobs);
+    },
+    data() {
+        return {
+            jobs: this.$page.props.jobs,
+            apply_method: 'ajiriwa',
+            application_email: '',
+            application_url: '',
+            title: '',
+            location: '',
+            reports_to: '',
+            job_type: '',
+            category: '',
+            description: '',
+            deadline: '',
+            cover_letter: '',
+            saving: false,
+            /*company_id: this.$page.props.company.id,*/
+            number_of_posts: 1,
+            location_menu: [
+                { label: 'Dar es Salaam', value: 1 },
+                { label: 'Iringa', value: 2 },
+            ]
+        }
+    },
+    methods: {
+        activatePromotion(job_id) {
+            //alert(job_id);
+            //this.$refs['prom_' + job_id][0].changeStatus('Active');
+            this.changeStatus('Active', job_id);
         },
-        components: {
-            EmployerLayout,
-            Head,
-            Input,
-            Loader,
-            Link,
-            TimeAgo,
-            CheckableDropdown,
-            Status,
-            Promotion
-        },
-        mounted() {
-            console.log(this.jobs);
-        },
-        data(){
-            return {
-                jobs: this.$page.props.jobs,
-                apply_method: 'ajiriwa',
-                application_email: '',
-                application_url: '',
-                title: '',
-                location: '',
-                reports_to: '',
-                job_type: '',
-                category: '',
-                description: '',
-                deadline: '',
-                cover_letter: '',
-                saving: false,
-                /*company_id: this.$page.props.company.id,*/
-                number_of_posts: 1,
-                location_menu: [
-                    { label: 'Dar es Salaam', value: 1},
-                    { label: 'Iringa', value: 2 },
-                ]
-            }
-        },
-        methods: {
-            statusUpdated(event){
-                let job_id = event.id;
-                let status = event.status;
-                let index = this.jobs.findIndex(element => element.id === job_id);
-                console.log(this.jobs[index]);
-                this.jobs[index].status = status;
-                //this.
-            },
-            editorChanged(html){
-                //alert(html)
-                this.description = html;
-                console.log(this.description);
-            },
-            submitJob(){
-                this.saving = true;
-                axios.post(route('job.save'), this.$data).then((response) => {
-                    console.log(response.data);
-                    if(response.data && response.data.id){
-                        // click the button to redirect
-                        this.$inertia.visit(route('company.job.view', response.data.slug))
-                    }
-                }).catch((error) => {
-                    console.log(error.response.data);
-                    swal.fire('Error', 'Your job could not be saved', 'error');
-                })
-            }
-        },
-        computed: {
-            isPast(){
-                return date => {
-                    let today = new Date();
-                    let new_date = new Date(date);
-                    return new_date < today;
+        changeStatus(status, job_id) {
+            axios.post(route('promotion.change.status'), {
+                job_id: job_id,
+                status: status
+            }).then((response) => {
+                if (response.data) {
+                    this.$refs['prom_'+job_id][0].current_status = status;
+                    //iziToast.success({ title: 'Done', message: 'Promotion is now ' + status });
                 }
+            }).catch((error) => {
+                //iziToast.error({ title: "Failed", message: "Status could not be changed" });
+                console.log(error.response.data);
+            })
+        },
+        openPromotion(ref) {
+            this.$refs[ref][0].getPromotionInsights();
+            //alert('your promotion is about to be loaded')
+        },
+        statusUpdated(event) {
+            let job_id = event.id;
+            let status = event.status;
+            let index = this.jobs.findIndex(element => element.id === job_id);
+            console.log(this.jobs[index]);
+            this.jobs[index].status = status;
+            //this.
+        },
+        editorChanged(html) {
+            //alert(html)
+            this.description = html;
+            console.log(this.description);
+        },
+        submitJob() {
+            this.saving = true;
+            axios.post(route('job.save'), this.$data).then((response) => {
+                console.log(response.data);
+                if (response.data && response.data.id) {
+                    // click the button to redirect
+                    this.$inertia.visit(route('company.job.view', response.data.slug))
+                }
+            }).catch((error) => {
+                console.log(error.response.data);
+                swal.fire('Error', 'Your job could not be saved', 'error');
+            })
+        }
+    },
+    computed: {
+        isPast() {
+            return date => {
+                let today = new Date();
+                let new_date = new Date(date);
+                return new_date < today;
             }
         }
-
     }
+
+}
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -110,7 +110,7 @@ class CandidateRepository
             return $q->where('name', 'LIKE', "%".$search."%");
         })->pluck('candidate_id')->toArray();
 
-        $exeptions = array("and", "in", "on", "at", "with", "if", "be", "is", "by", "of", "for", "to", "up", "like", "from", " ");
+        $exeptions = array("and", "in", "on", "at", "with", "if", "be", "is", "by", "of", "for", "to", "up", "like", "as", "from", " ");
         $candidates = Candidate::where(function($q) use($search, $search_term, $exeptions){
             $q = $q ->where('first_name', "LIKE", "%".$search."%")
                     ->orWhere('middle_name', "LIKE", "%".$search."%")

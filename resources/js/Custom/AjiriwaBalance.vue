@@ -75,6 +75,7 @@
     import DialogModal from "@/Jetstream/DialogModal";
     import Loader from "@/Custom/Loader";
     import Swal from "sweetalert2";
+import iziToast from "izitoast";
     export default {
         name: "TextEditor",
         components: {
@@ -85,6 +86,11 @@
                 this.amount = this.recharge_amount;
             }
             this.checkBalance();
+            this.$nextTick(function () {
+            window.setInterval(() => {
+                this.paymentStatus();
+            },10000);
+        })
         }, 
         props: {
            show_modal: {
@@ -101,7 +107,11 @@
               working: false,
               state: 'insert', // insert or pay,
               gateway_loading: false,
-              current_balance: '*'
+              current_balance: '*',
+              payment_tracking_id: '',
+              payment_complete: null,
+              payment_status: null,
+              payment_status_checking: false,
           }
         },
         methods: {
@@ -125,6 +135,7 @@
                         console.log(response.data);
                         this.state = "pay";
                         this.$refs['payment'].innerHTML = response.data.iframe;
+                        this.payment_tracking_id = response.data.order_tracking_id;
                         this.gateway_loading = true;
                     }).catch((error) => {
                         console.log(error.response.data);
@@ -133,6 +144,33 @@
                     Swal.fire({title: "Error", text: "Recharge amount should be at least 1000", icon: "error"});
                 }
                 
+            },
+            paymentStatus(){
+                if(this.payment_tracking_id && !this.payment_complete && !this.payment_status_checking && this.working){
+                    this.payment_status_checking = true;
+                    axios.post(route('payment.status'), {
+                        tracking_id: this.payment_tracking_id
+                    }).then((response) => {
+                        // Emit the message that payment is complete
+                        let status = response.data.payment_status_description;
+                        if(status == 'COMPLETED'){
+                            iziToast.success({title:'Paid', message: "Payment is successful"});
+                            this.payment_complete = true;
+                        }else if(status === 'INVALID'){
+                            iziToast.error({title: 'Cancelled', message: 'Payment has been cancelled'});
+                            this.$refs['payment'].innerHTML = '';
+                            this.gateway_loading = false;
+                            this.state = 'insert';
+                            this.working = false;
+                        }
+                        console.log(response.data);
+                        this.payment_status_checking = false;
+                    }).error((error) => {
+                        console.log(error.response.data);
+                        this.payment_status_checking = false;
+                        this.working = false;
+                    });
+                }
             }
         }
     }

@@ -9,7 +9,9 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\PushController;
+use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\SEOController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
@@ -53,10 +55,11 @@ Route::get('/', function () {
     SEOMeta::addMeta('robots', 'index, follow');
     SEOMeta::addMeta('language', 'English');
     SEOMeta::addMeta('revist-after', '1 days');
+    OpenGraph::setTitle("Jobs in Tanzania ".date('Y'));
     OpenGraph::addImage(asset('images/ajiriwa-new-logo.png'));
     OpenGraph::setUrl(route('root'));
     OpenGraph::setSiteName("Ajiriwa");
-    OpenGraph::setType('webssite');
+    OpenGraph::setType('website');
 
     $job_categories = JobCategory::withCount('active_jobs')->orderBy('active_jobs_count', 'desc')->limit(8)->get();
     //dd($latest_jobs->count());
@@ -86,6 +89,8 @@ Route::get('/employers', [BlogController::class, 'employers'])->name('employers'
 Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs.index');
 Route::get('/contact', [FaqsController::class, 'contact'])->name('contact');
 Route::get('/privacy-policy', [FaqsController::class, 'privacyPolicy'])->name('privacy.policy');
+Route::get('/showcv.php', [ResumeController::class, 'oldCv'])->name('guest.cv');
+Route::get('/profile/{slug}', [ResumeController::class, 'guestCv'])->name('candidate.profile');
 
 
 
@@ -95,7 +100,7 @@ Route::get('/jobs.php', [JobController::class, 'browseGuest'])->name('jobs.brows
 Route::match(['GET', 'POST'], '/search.php', [JobController::class, 'search'])->name('jobs.search');
 Route::get('/search/{keyword}', [JobController::class, 'search'])->name('jobs.search.friendly');
 
-Route::get('/browse-jobs', [JobController::class, 'browse'])->name('jobs.browse');
+Route::get('/browse-jobs', [JobController::class, 'browse'])->name('jobs.browse')->middleware('auth');
 
 Route::get('/job-by/category/{slug}', [JobController::class, 'jobsByCategory'])->name('jobs.by-category');
 Route::get('/browse-jobs-categories.php', [JobController::class, 'oldJobsByCategory'])->name('jobs.by-category.old');
@@ -103,6 +108,7 @@ Route::get('/browse-jobs-categories.php', [JobController::class, 'oldJobsByCateg
 
 Route::get('/job-page.php', [JobController::class, 'oldJob'])->name('old-job.view');
 Route::get('/view-job/{slug}', [JobController::class, 'viewJob'])->name('job.view');
+Route::get('/apply/{slug}', [JobController::class, 'applyJob'])->middleware('auth')->name('job.apply');
 
 Route::post('/job/register-view', [JobController::class, 'registerView'])->name('job.view.register');
 
@@ -120,6 +126,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('user/selected-role/{role}', [UserController::class, 'userAssignRole'])->name('user.role.selected');
 
     Route::post('/candidate/job/apply', [JobController::class, 'sendApplication'])->name('application.send');
+    Route::post('/candidate/job/apply/store', [JobController::class, 'storeApplication'])->name('application.store');
     Route::post('/candidate/info/{candidate_id}', [CandidateController::class, 'getCandidateInfo'])->name('candidate.get-info');
 });
 
@@ -165,6 +172,7 @@ Route::group(['middleware' => ['auth', 'role:employer|admin']], function(){
     Route::get('/company/edit-job/{slug}', [CompanyController::class, 'editJob'])->name('company.edit-job')->middleware('verifier');
     Route::post('/company/save-job', [JobController::class, 'saveJob'])->name('job.save');
     Route::post('/company/promotion-submit', [JobController::class, 'submitPromotion'])->name('promotion.submit');
+    Route::post('/company/promotion-insight', [PromotionController::class, 'promotionInsight'])->name('promotion.insights');
     Route::post('/company/job-status/change', [JobController::class, 'changeJobStatus'])->name('job.status.change');
     Route::post('/company/save-description', [CompanyController::class, 'saveDescription'])->name('company.description.save');
     Route::get('/company/job/{slug}', [CompanyController::class, 'viewJob'])->name('company.job.view');
@@ -335,6 +343,7 @@ Route::group(["prefix" => 'admin/', 'middleware' => 'role:admin'], function(){
  * ----------------------------------------------------------------------------------------------------------
  */
 Route::post('/payment/init', [PaymentController::class, 'PaymentInit'])->middleware(['auth'])->name('payment.init');
+Route::post('/payment-status.php', [PaymentController::class, 'PaymentStatus'])->middleware(['auth'])->name('payment.status');
 
 Route::post('company/verification/upload', [CompanyController::class, 'uploadVerificationAttachment'])->name('company.verification.upload')->middleware(['auth']);
 Route::post('company/verify', [CompanyController::class, 'verificationSave'])->name('company.verification.save')->middleware(['auth']);
@@ -348,3 +357,17 @@ require 'admin.php';
 Route::get('/subscription/select', [SubscriptionController::class, 'Packages'])->name('subscription.packages')->middleware(['auth']);
 Route::post('/subscription/current-balance', [SubscriptionController::class, 'CurrentBalance'])->name('current.balance')->middleware(['auth']);
 Route::post('/subscription/charge', [SubscriptionController::class, 'Charge'])->name('subscription.charge')->middleware(['auth']);
+
+Route::get('/php-info', function(){
+    phpinfo();
+});
+
+/**
+ * ----------------------------------------------------------------------------------------------------------
+ *          Promotion Routes
+ * ----------------------------------------------------------------------------------------------------------
+ */
+Route::get('/ads-trck.php', [PromotionController::class, 'adTrack'])->name('promotion.track');
+Route::post('/promotion/change-status', [PromotionController::class, 'changeStatus'])->name('promotion.change.status');
+Route::post('/promotion/change-budget', [PromotionController::class, 'changeBudget'])->name('promotion.change.budget');
+Route::get('/redirects.php', [JobController::class, 'externalRedirect'])->name('redirect');

@@ -89,6 +89,30 @@
             </div>
         </div>
         <section class="col-span-2">
+            @if($promotion)
+            <a href="{{ $promotion['Link'] }}">
+            <div class="bg-white shadow-lg rounded-lg overflow-hidden flex flex-col mb-2">
+                <div class="bg-green-500 text-white text-center py-1">
+                    <span class="text-xs">Sponsored Listing</span>
+                </div>
+                <div class="px-4 py-6 flex-1 bg-green-100">
+                    <div class="flex items-center mb-4">
+                        @if(isset($promotion['Logo']))
+                        <div class="flex-shrink-0">
+                            <img class="h-12 w-12 rounded-full" src="{{ $promotion['Logo'] }}" alt="Company Logo">
+                        </div>
+                        @endif
+                        <div class="ml-3">
+                            <span class="font-bold text-green-500 text-lg">{{ $promotion['Job_Title'] }}</span>
+                            <span class="text-gray-400 block">{{ $promotion['Company'] }}</span>
+                            <span class="text-gray-400 block">{{ $promotion['Location'] }}</span>
+                        </div>
+                    </div>
+                    <div><span class="text-gray-500 text-sm">{!! \Illuminate\Support\Str::limit($promotion['Summary'], 100) !!}</span></div>
+                </div>
+            </div>
+            </a>
+            @endif
             @foreach($jobs as $job)
             <div class="rounded-lg shadow-lg bg-white mb-2 px-4 py-2 cursor-pointer">
                 <a href="{{route('job.view', $job->slug)}}">

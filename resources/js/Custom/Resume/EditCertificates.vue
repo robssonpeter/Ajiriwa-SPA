@@ -123,6 +123,11 @@
                 <Link :href="route('my-resume.edit.sectional', 'reference')" class="bg-green-500 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md p-2 text-white text-center self-center">
                     <span>Next</span>
                 </Link>
+                <Link
+                    :title="$page.props.return_to_link.description?$page.props.return_to_link.description:''"
+                    class="bg-gray-600 hover:bg-black text-white font-semibold px-4 py-2 rounded-md p-2 text-white text-center self-center"
+                    v-if="$page.props.return_to_link" 
+                    :href="$page.props.return_to_link.link">{{ $page.props.return_to_link.label }}</Link>
             </div>
         </section>
     </div>

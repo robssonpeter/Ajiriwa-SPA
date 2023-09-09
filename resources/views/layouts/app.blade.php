@@ -123,6 +123,7 @@
 
 
                         <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+                            @if(!Auth::check())
                             <a href="{{route('login')}}" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
                                 Sign in
                             </a>
@@ -130,6 +131,35 @@
                                   class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-green-500 hover:bg-green-700">
                                 Register
                             </a>
+                            @else
+                            <div class="relative inline-block text-left">
+                                <button id="dropdown-button" type="button" class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-gray-700 bg-white rounded-md hover:bg-gray-50 focus:outline-none active:bg-gray-100 active:text-gray-800">
+                                    {{ Auth::user()->name }}
+                                    <!-- Heroicon name: chevron-down -->
+                                    <svg class="w-5 h-5 ml-2 -mr-1 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd" d="M6.293 7.293a1 1 0 011.414 0L10 9.586l2.293-2.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                                @php
+                                $user_menu = userMenu();
+                                @endphp
+
+                                <div id="dropdown-menu" class="absolute right-0 w-40 mt-2 origin-top-right bg-white border border-gray-300 divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none hidden">
+                                    <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
+                                        @foreach($user_menu as $menu)
+                                        <a href="{{ $menu['link'] }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">{{ $menu['name'] }}</a>
+                                        @endforeach
+                                        <a href="#" onclick="document.getElementById('logout-form').submit()" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Logout</a>
+                                    </div>
+                                    <form method="POST" id="logout-form" action="{{ route('logout') }}">
+                                        @csrf
+                                        {{-- <a href="#" onclick="event.preventDefault(); this.closest('form').submit();">Logout</a> --}}
+                                    </form>
+                                    
+                                </div>
+                            </div>
+                            
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -373,4 +403,19 @@
             </div>
         </footer>
     </body>
+    <script>
+        const dropdownButton = document.getElementById('dropdown-button');
+        const dropdownMenu = document.getElementById('dropdown-menu');
+    
+        dropdownButton.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+    
+        // Close the dropdown when clicking outside of it
+        window.addEventListener('click', (event) => {
+            if (!dropdownButton.contains(event.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+    </script>
 </html>

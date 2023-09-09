@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Custom\Promoter;
 use App\Models\AssignedJobCategory;
 use App\Models\Company;
 use App\Models\Job;
@@ -69,7 +70,8 @@ class JobSearch extends Component
         }
         
         //dd($search);
-        $jobs =  Job::orderBy('id', 'DESC')/* ->when($companies, function($q) use ($companies){
+        $active_index = array_search('Active', Job::STATUS);
+        $jobs =  Job::orderBy('id', 'DESC')->where('status', $active_index)/* ->when($companies, function($q) use ($companies){
             $q->whereIn('company_id', $companies);
         }) */->when($search, function($q) use ($search, $self){
             $all = explode(" ", $search);
@@ -106,6 +108,13 @@ class JobSearch extends Component
             $q->where('location', 'LIKE', "%".request()->location."%");
         })->paginate(10);
         //dd($jobs->lastPage());
-        return view('livewire.job-search', compact('jobs'));
+        $promo = new Promoter();
+        $rand = $promo->randomProm();
+        if($rand)
+            $promotion = $promo->promotionFetch($rand->PromotionID);
+        else
+            $promotion = null;
+        //dd($promotion);
+        return view('livewire.job-search', compact('jobs', 'promotion'));
     }
 }

@@ -20,6 +20,7 @@ mix.js('resources/js/app.js', 'public/js').vue()
 mix.js('resources/js/essential.js', 'public/js').vue();
 mix.js('resources/js/Company/details.js', 'public/js/Company').vue();
 mix.js('resources/js/job.js', 'public/js').vue();
+mix.js('resources/js/apply.js', 'public/js').vue();
 mix.js('resources/js/homepage.js', 'public/js');
 if (mix.inProduction()) {
     mix.version();

@@ -67,7 +67,7 @@
             <div class="h-16 bg-white shadow-md z-50 sticky top-0 w-full">
                 <div class="flex space-x-1 px-4 pt-4">
                     <span class="flex-grow"></span>
-                    <p class="self-center float-right text-gray-400">Balance: <span class="text-green-400 font-weight-bold cursor-pointer" title="Ajiriwa Balance" @click="balance_modal = true">TZS {{ $page.props.user.ajiriwa_balance.toLocaleString() }}</span></p>
+                    <p class="self-center float-right text-gray-400" ref="ajiriwa_balance">Balance: <span class="text-green-400 font-weight-bold cursor-pointer" title="Ajiriwa Balance" @click="balance_modal = true">TZS {{ $page.props.user.ajiriwa_balance.toLocaleString() }}</span></p>
                 </div>
 
                 <ajiriwa-balance :show_modal="balance_modal"></ajiriwa-balance>
