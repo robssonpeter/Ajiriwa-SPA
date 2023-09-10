@@ -157,9 +157,10 @@ class PaymentRepository
      * @param text $email Email address of the payer
      * @param string $token Authentication token if null it will be generated
      * @param string $transaction_type type of transaction default value is balance-recharge
+     * @param string $from_url the url where payment was initiated
      * @return void
      */
-    public static function initPay($amount, $email, $token = null, $transaction_type = 'balance-recharge')
+    public static function initPay($amount, $email, $token = null, $transaction_type = 'balance-recharge', $from_url=null)
     {
         $url = 'https://pay.pesapal.com/v3/api/Transactions/SubmitOrderRequest';
         $date = new \DateTime();
@@ -178,9 +179,9 @@ class PaymentRepository
             'currency' => $currency,
             'amount' => $amount,
             'description' => 'Recharge ' . $amount,
-            'callback_url' => 'https://www.ajiriwa.net/payment-status.php',
+            'callback_url' => 'https://beta.ajiriwa.net/payment-status.php',
             'redirect_mode' => '',
-            'notification_id' => '33ce89a4-8207-4308-9c6e-df77e8d6759c',
+            'notification_id' => 'fa225773-e432-4dd3-a60c-de33a47e8c34',//'33ce89a4-8207-4308-9c6e-df77e8d6759c',
             'branch' => 'HQ',
             'billing_address' => [
                 'email_address' => $email,
@@ -213,6 +214,12 @@ class PaymentRepository
                 'currency' => $currency,
                 'amount' => $amount
             ];
+            if(Auth::check()){
+                $data['user_id'] = Auth::user()->id;
+            }
+            if($from_url){
+                $data['from_url'] = $from_url;
+            }
             $payment = Payment::create($data);
             $resp = $response->json();
             $resp['payment'] = $payment;
@@ -237,8 +244,8 @@ class PaymentRepository
         // change the status
         if ($payment && $payment->status != $status_desc)
             $payment->update(['status' => $status_desc]);
-        switch ($status_desc) {
-            case 'COMPLETED':
+        switch (strtolower($status_desc)) {
+            case 'completed':
                 // check if the transaction has been redeemed if not redeem it
                 if (!$payment->redeemed && $payment->user_id) {
                     // add the balance to the ajiriwa balance

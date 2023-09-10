@@ -343,7 +343,7 @@ Route::group(["prefix" => 'admin/', 'middleware' => 'role:admin'], function(){
  * ----------------------------------------------------------------------------------------------------------
  */
 Route::post('/payment/init', [PaymentController::class, 'PaymentInit'])->middleware(['auth'])->name('payment.init');
-Route::post('/payment-status.php', [PaymentController::class, 'PaymentStatus'])->middleware(['auth'])->name('payment.status');
+Route::get('/payment-status.php', [PaymentController::class, 'PaymentStatus'])->name('payment.status');
 
 Route::post('company/verification/upload', [CompanyController::class, 'uploadVerificationAttachment'])->name('company.verification.upload')->middleware(['auth']);
 Route::post('company/verify', [CompanyController::class, 'verificationSave'])->name('company.verification.save')->middleware(['auth']);

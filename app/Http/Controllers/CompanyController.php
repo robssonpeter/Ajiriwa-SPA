@@ -332,7 +332,7 @@ class CompanyController extends Controller
         //dd('hello there how are you doing');
         $candid = Candidate::orderBy('id', 'DESC')->with('skills')->whereNotNull('first_name')->limit(10)->simplePaginate(15);
         $candidates = $candid->items();
-        dd($candidates[0]);
+        //dd($candidates[0]);
         $next = $candid->nextPageUrl();
         $prev = $candid->previousPageUrl();
 

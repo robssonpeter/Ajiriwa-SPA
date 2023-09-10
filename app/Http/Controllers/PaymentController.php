@@ -20,7 +20,7 @@ class PaymentController extends Controller
         session()->put('message', "Recharge my account");
         session()->put('email', Auth::user()->email);
         session()->put('transactionType', $transaction_type); */
-        return PaymentRepository::initPay($amount, Auth::user()->email);
+        return PaymentRepository::initPay($amount, Auth::user()->email, null, 'balance-recharge', request()->from_url);
     }
 
     public function PaymentStatus()
@@ -28,16 +28,21 @@ class PaymentController extends Controller
         if (request()->OrderTrackingId) {
             $notification_type = request()->OrderNotificationType;
             
-            if($notification_type == 'CALLBACKURL')
-            {
+            /* if($notification_type == 'CALLBACKURL')
+            { */
                 // the user attempted to make payment
-                $updated = Payment::where('transaction_tracking_id', request()->OrderTrackingId)->update(['attempted'=>true]);
+                Payment::where('transaction_tracking_id', request()->OrderTrackingId)->update(['attempted'=>true]);
+            /* } */
+            /* else if ($notification_type == 'IPNCHANGE')
+            { */
+            $status = PaymentRepository::checkPaymentStatus(request()->OrderTrackingId);
+            PaymentRepository::processPaymentStatus(request()->OrderTrackingId, $status);
+            $payment = Payment::where('transaction_tracking_id', request()->OrderTrackingId)->first();
+            if($payment->from_url){
+                return redirect($payment->from_url);
             }
-            else if ($notification_type == 'IPNCHANGE')
-            {
-                $status = PaymentRepository::checkPaymentStatus(request()->OrderTrackingId);
-                PaymentRepository::processPaymentStatus(request()->OrderTrackingId, $status);
-            }
+            return $status;
+            /* } */
         } else {
             // check if the user attempted to make payment
             $tracking_id = request()->tracking_id;
@@ -47,7 +52,9 @@ class PaymentController extends Controller
                 PaymentRepository::processPaymentStatus($tracking_id, $status);
                 return $status;
             }else{
-                return [];
+                return [
+                    'payment_status_description' => 'PENDING'
+                ];
             }
         }
     }

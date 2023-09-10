@@ -82,6 +82,7 @@ import iziToast from "izitoast";
             DialogModal, Loader
         },
         mounted(){
+            //alert(window.location);
             if(this.recharge_amount){
                 this.amount = this.recharge_amount;
             }
@@ -131,6 +132,7 @@ import iziToast from "izitoast";
                     //return alert("initiating payment of "+this.amount);
                     axios.post(route('payment.init'), {
                         amount: this.amount,
+                        from_url: window.location.href,
                     }).then((response) => {
                         console.log(response.data);
                         this.state = "pay";
@@ -153,10 +155,15 @@ import iziToast from "izitoast";
                     }).then((response) => {
                         // Emit the message that payment is complete
                         let status = response.data.payment_status_description;
-                        if(status == 'COMPLETED'){
+                        if(status.toLowerCase() == 'completed'){
                             iziToast.success({title:'Paid', message: "Payment is successful"});
                             this.payment_complete = true;
-                        }else if(status === 'INVALID'){
+                            this.$refs['payment'].innerHTML = '';
+                            this.gateway_loading = false;
+                            this.state = 'insert';
+                            this.working = false;
+                            this.checkBalance();
+                        }else if(status.toLowerCase() === 'invalid'){
                             iziToast.error({title: 'Cancelled', message: 'Payment has been cancelled'});
                             this.$refs['payment'].innerHTML = '';
                             this.gateway_loading = false;

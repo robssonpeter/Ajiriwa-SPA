@@ -11,6 +11,6 @@ class Payment extends Model
     
     protected $fillable = [
         'user_id', 'reference_number', 'email', 'transaction_type', 'transaction_tracking_id',
-        'status', 'redeemed', 'amount', 'currency', 'description', 'attempted'
+        'status', 'redeemed', 'amount', 'currency', 'description', 'attempted', 'from_url'
     ];
 }
