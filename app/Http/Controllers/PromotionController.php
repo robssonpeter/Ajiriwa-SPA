@@ -98,10 +98,20 @@ class PromotionController extends Controller
             $changed = DB::table('job_promotions')->where('PromotionID', $promotion_id)->decrement('Available_balance', $amount);
         }
 
+        $promotion = DB::table('job_promotions')->where('PromotionID', $promotion_id)->first();
+        $job = Job::where('id', $promotion->Job_ID)->select('title')->first();
+
+        
 
         // change the ajiriwa balance of that user
         $sign = strtolower($type) == 'increase' ? '-' : '+'; // inverse relationship
-        chargeAjiriwaBalance($amount, $sign, Auth::user()->id);
+        $act = $sign == "+" ? 'Reduce' : 'Increase';
+        if($job){
+            $description = 'Promotion Budget '.$act.' ('.$job->title.')';
+        }else{
+            $description = 'Promotion Budget Change';
+        }
+        chargeAjiriwaBalance($amount, $sign, Auth::user()->id, $description);
         return $changed;
     }
 }

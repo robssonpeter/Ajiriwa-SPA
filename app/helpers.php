@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\AjiriwaBalanceLog;
 use App\Models\User;
 use App\Models\Job;
 
@@ -118,6 +119,16 @@ function chargeAjiriwaBalance($amount, $change_type, $user_id, $description=""){
         $charged = User::where('id', $user_id)->increment('ajiriwa_balance', $amount);
     }else {
         $charged = User::where('id', $user_id)->decrement('ajiriwa_balance', $amount);
+    }
+    if ($charged){
+        // record the entry in to ajiriwa_balance_logs table
+        $entry = [
+            'user_id' => $user_id, 
+            'description' => $description, 
+            'change_type' => $change_type,
+            'amount' => $amount,
+        ];
+        AjiriwaBalanceLog::create($entry);
     }
     return $charged;
 }

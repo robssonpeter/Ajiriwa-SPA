@@ -249,7 +249,11 @@ class PaymentRepository
                 // check if the transaction has been redeemed if not redeem it
                 if (!$payment->redeemed && $payment->user_id) {
                     // add the balance to the ajiriwa balance
-                    $description = "Payment ID " . $payment->id;
+                    if($payment->user_id){
+                        $description = "Balance Topup (Payment ID ".$payment->id.")";
+                    }else{
+                        $description = "Payment ID " . $payment->id;
+                    }
                     chargeAjiriwaBalance($payment->amount, '+', $payment->user_id, $description);
                     // mark the payment as redeemed
                     $payment->update(['redeemed' => true]);
