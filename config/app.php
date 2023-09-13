@@ -240,8 +240,8 @@ return [
         'SEO' => Artesaos\SEOTools\Facades\SEOTools::class,
     ],
     'pesapal' => [
-        'consumer_key' => 'z3BdDR2pvzMM4yFeeNKl0sMy0Sk1tRqb',
-        'consumer_secret' => 'Gh2I6wzsgVFSCu/hafPRJYoYP7U='
+        'consumer_key' => '',
+        'consumer_secret' => ''
     ],
 
 ];
