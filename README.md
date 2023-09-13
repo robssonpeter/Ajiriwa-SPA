@@ -1,6 +1,6 @@
-# [Your Project Name]
+# Ajiriwa Recruitment Platform
 
-[Project Logo - If applicable]
+![Ajiriwa-Log](/docs/images/ajiriwa-logo.png)
 
 ## Table of Contents
 - [Overview](#overview)
@@ -52,7 +52,7 @@ Ajiriwa is a cutting-edge recruitment platform designed to streamline the hiring
 
 ## License
 
-This project is licensed under the [License Name] - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT - see the [LICENSE](MIT) file for details.
 
 ## Contact
 
