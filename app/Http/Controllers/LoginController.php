@@ -34,8 +34,10 @@ class LoginController extends Controller
         try {
             //create a user using socialite driver google
             $user = Socialite::driver('google')->user();
+            //dd($user);
             // if the user exits, use that user and login
-            $finduser = User::where('provider', 'google')->where('provider_id', $user->id)->first();
+            //$finduser = User::where('provider', 'google')->where('provider_id', $user->id)->first();
+            $finduser = User::where('email', $user->email)->first();
             if($finduser){
                 //if the user exists, login and show dashboard
                 Auth::login($finduser);
@@ -90,7 +92,13 @@ class LoginController extends Controller
     public function handleProviderCallback($provider)
     {
         $user = Socialite::driver($provider)->user();
-        //dd($user);
+
+        $existing_user = User::where('email', $user->email)->first();
+        if($existing_user){
+            // sign the user in
+            Auth::login($existing_user, true);
+            return redirect($this->redirectTo);
+        }
         $authUser = $this->findOrCreateUser($user, $provider);
         Auth::login($authUser, true);
         return redirect($this->redirectTo);
