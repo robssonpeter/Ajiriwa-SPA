@@ -1,5 +1,5 @@
 <template>
-    <app-layout title="Browse Jobs">
+    <app-layout title="My Resume">
         <div class="max-w-7xl mx-auto sm:px-6 sticky top-12 md:top-14 z-40 border-gray-300">
             <BreadCrumb :links="$page.props.breadcrumb" :actions="$page.props.breadcrumb_actions"></BreadCrumb>
         </div>

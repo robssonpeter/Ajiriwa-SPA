@@ -349,8 +349,16 @@ class CandidateController extends Controller
 
     public function withdrawApplication()
     {
-        $application_id =  request()->application_id;
-        $candidate = Candidate::where('user_id', Auth::user()->id)->first();
+        $application_id =  request()->application_id??request()->id;
+        if(request()->application_id){
+            $candidate = Candidate::where('user_id', Auth::user()->id)->first();
+        }else{
+            $candidate = Candidate::find(request()->candidate_id);
+        }
+        /* if(!Auth::user()->hasRole('employer') || !Auth::user()->hasRole('candidate')){
+            abort(401);
+        } */
+        
         $application =  JobApplication::find($application_id);
 
         if (!$candidate || $candidate->id != $application->candidate_id) {

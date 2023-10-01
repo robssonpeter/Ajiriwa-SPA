@@ -62,20 +62,47 @@
                 </section>
             </div>
             <div class="hidden md:block col-span-2 bg-white rounded-md self-start sticky top-20 overflow-y-auto shadow-md">
-                <div data-v-7df5818a="" class="border-b-2 p-4 text-gray-600 animate-pulse">
-                    <h2 data-v-7df5818a="" class="text-lg bg-gray-200 h-5 w-1/2"></h2>
-                    <p data-v-7df5818a="" class="bg-gray-200 h-4 w-1/4 mt-2"></p>
-                    <p data-v-7df5818a="" class="bg-gray-200 h-4 w-1/4 mt-2"></p>
-                    <div data-v-7df5818a="" class="flex gap-2 mt-4">
-                        <button data-v-7df5818a="" class="bg-gray-200 border border-gray-200 text-gray-200 rounded-md px-2"
-                            fdprocessedid="mmf91o">Loading</button>
-                        <button data-v-7df5818a=""
-                            class="border-2 p-2 rounded-md border-gray-200 hover:border-green-500 hover:text-green-500"
-                            fdprocessedid="q67osr">
-                            <div class="animate-pulse h-6 w-6 bg-gray-200 rounded-full"></div>
-                        </button>
+                <!-- Job Loading Placeholder Uncomment when needed -->
+                <!-- <section>
+                    <div data-v-7df5818a="" class="border-b-2 p-4 text-gray-600 animate-pulse">
+                        <h2 data-v-7df5818a="" class="text-lg bg-gray-200 h-5 w-1/2"></h2>
+                        <p data-v-7df5818a="" class="bg-gray-200 h-4 w-1/4 mt-2"></p>
+                        <p data-v-7df5818a="" class="bg-gray-200 h-4 w-1/4 mt-2"></p>
+                        <div data-v-7df5818a="" class="flex gap-2 mt-4">
+                            <button data-v-7df5818a=""
+                                class="bg-gray-200 border border-gray-200 text-gray-200 rounded-md px-2"
+                                fdprocessedid="mmf91o">Loading</button>
+                            <button data-v-7df5818a=""
+                                class="border-2 p-2 rounded-md border-gray-200 hover:border-green-500 hover:text-green-500"
+                                fdprocessedid="q67osr">
+                                <div class="animate-pulse h-6 w-6 bg-gray-200 rounded-full"></div>
+                            </button>
+                        </div>
                     </div>
-                </div>
+                    <div data-v-7df5818a="" class="p-4 text-gray-600 animate-pulse">
+                        <p class="bg-gray-200 h-4 w-1/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-3/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-1/2 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-4/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-3/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-3/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-4/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-4/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-2/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-4/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-4/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-3/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-4/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-4/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-3/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-4/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-4/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-3/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-4/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-4/4 mt-2"></p>
+                        <p class="bg-gray-200 h-4 w-3/4 mt-2"></p>
+                    </div>
+                </section> -->
                 <div v-if="current_job" class="description">
                     <dialog-modal :show="apply_modal" :closeable="true" :max-width="'2xl'">
                         <template v-slot:title>
@@ -616,4 +643,5 @@ div.description::v-deep h4 {
 
 div.description::v-deep h5 {
     margin-top: 8px;
-}</style>
+}
+</style>
