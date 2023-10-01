@@ -28,6 +28,10 @@
         <link rel="apple-touch-icon" sizes="120x120" href="{{asset('/images/favicon/apple-touch-icon.png')}}" /> 
         <link rel="apple-touch-icon" sizes="152x152" href="{{asset('/images/favicon/apple-touch-icon.png')}}" />
 
+        @if(session()->has('amp-page'))
+        <link rel="amphtml" href="{{ session()->get('amp-page') }}">
+        @endif
+
         <!-- Scripts -->
         {{-- <script src="{{ asset('js/essential.js') }}" defer></script> --}}
         @if(in_array(\Route::current()->getName(), $livewire_routes))

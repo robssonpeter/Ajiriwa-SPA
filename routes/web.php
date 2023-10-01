@@ -109,6 +109,7 @@ Route::get('/browse-jobs-categories.php', [JobController::class, 'oldJobsByCateg
 
 Route::get('/job-page.php', [JobController::class, 'oldJob'])->name('old-job.view');
 Route::get('/view-job/{slug}', [JobController::class, 'viewJob'])->name('job.view');
+Route::get('/job-amp/{slug}', [JobController::class, 'viewJob'])->name('job.amp');
 Route::get('/apply/{slug}', [JobController::class, 'applyJob'])->middleware('auth')->name('job.apply');
 
 Route::post('/job/register-view', [JobController::class, 'registerView'])->name('job.view.register');

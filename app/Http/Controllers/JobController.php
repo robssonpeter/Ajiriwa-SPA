@@ -42,6 +42,7 @@ use Spatie\Image\Image;
 use Spatie\MediaLibrary\Models\Media;
 use App\Repositories\SubscriptionRepository;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Request as FacadesRequest;
 
 class   JobController extends Controller
 {
@@ -338,6 +339,12 @@ class   JobController extends Controller
             $deadline_formated = \Carbon\Carbon::parse($job->deadline)->format('jS F Y');
             return redirect(route('jobs.browse')."#".$job->slug);
         } */
+        $uri = FacadesRequest::path();
+        $amproute = str_contains($uri, 'job-amp');
+        if($amproute){ 
+            return view('jobs.view-amp', compact('job', 'allow_apply', 'applied', 'prom', 'apply_url'));
+        }
+        session()->flash('amp-page', route('job.amp', $job->slug));
         return view('jobs.view', compact('job', 'allow_apply', 'applied', 'prom', 'apply_url'));
     }
 
