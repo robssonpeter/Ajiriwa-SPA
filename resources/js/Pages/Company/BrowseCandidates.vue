@@ -146,7 +146,7 @@
 
 <script>
     import EmployerLayout from "@/Layouts/EmployerLayout";
-    import ProfileEmbed from "@/Custom/Resume/ProfileEmbed"
+    import ProfileEmbed from "@/Custom/Resume/ProfileEmbed";
     import { Head, Link } from '@inertiajs/inertia-vue3';
     import Input from "@/Jetstream/Input";
     import Loader from "@/Custom/Loader";

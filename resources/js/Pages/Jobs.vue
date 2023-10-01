@@ -62,6 +62,20 @@
                 </section>
             </div>
             <div class="hidden md:block col-span-2 bg-white rounded-md self-start sticky top-20 overflow-y-auto shadow-md">
+                <div data-v-7df5818a="" class="border-b-2 p-4 text-gray-600 animate-pulse">
+                    <h2 data-v-7df5818a="" class="text-lg bg-gray-200 h-5 w-1/2"></h2>
+                    <p data-v-7df5818a="" class="bg-gray-200 h-4 w-1/4 mt-2"></p>
+                    <p data-v-7df5818a="" class="bg-gray-200 h-4 w-1/4 mt-2"></p>
+                    <div data-v-7df5818a="" class="flex gap-2 mt-4">
+                        <button data-v-7df5818a="" class="bg-gray-200 border border-gray-200 text-gray-200 rounded-md px-2"
+                            fdprocessedid="mmf91o">Loading</button>
+                        <button data-v-7df5818a=""
+                            class="border-2 p-2 rounded-md border-gray-200 hover:border-green-500 hover:text-green-500"
+                            fdprocessedid="q67osr">
+                            <div class="animate-pulse h-6 w-6 bg-gray-200 rounded-full"></div>
+                        </button>
+                    </div>
+                </div>
                 <div v-if="current_job" class="description">
                     <dialog-modal :show="apply_modal" :closeable="true" :max-width="'2xl'">
                         <template v-slot:title>
@@ -79,8 +93,9 @@
 
                         <template v-slot:content>
                             <form @submit.prevent="apply">
-                                <apply :candidate="$page.props.user.candidate.id" @applied="doneApplying" @applying="applying" :selected_certs="selected_certs"
-                                    :assessments="current_assessments" :job="current_job" :ref="'apply'"></apply>
+                                <apply :candidate="$page.props.user.candidate.id" @applied="doneApplying"
+                                    @applying="applying" :selected_certs="selected_certs" :assessments="current_assessments"
+                                    :job="current_job" :ref="'apply'"></apply>
                                 <section class="flex flex-col py-2">
                                     <span class="font-bold">Attachments</span>
                                     <v-select :options="certificates" v-model="selected_certs" multiple></v-select>
@@ -171,7 +186,8 @@
 
                                 <template v-slot:content>
                                     <form @submit.prevent="apply">
-                                        <apply :candidate="$page.props.user.candidate.id" @applied="doneApplying" @applying="applying" :selected_certs="selected_certs"
+                                        <apply :candidate="$page.props.user.candidate.id" @applied="doneApplying"
+                                            @applying="applying" :selected_certs="selected_certs"
                                             :assessments="current_assessments" :job="current_job" :ref="'apply'"></apply>
                                         <section class="flex flex-col py-2">
                                             <span class="font-bold">Attachments</span>
@@ -329,12 +345,12 @@ export default {
                             }
                         });
                     });
-                }else if (Number(this.$page.props.user.push_notify) == 1){
+                } else if (Number(this.$page.props.user.push_notify) == 1) {
                     // the user already agreed before simply just raise the prompt
                     return new Promise((resolve) => {
                         resolve(true);
                     });
-                }else {
+                } else {
                     return new Promise((resolve) => {
                         resolve(false);
                     });
@@ -525,7 +541,7 @@ export default {
         startApplying() {
             if (this.current_job.application_url) {
                 //alert('you are supposed to be redirected to another website');
-                let link = route('redirect')+"?jobid="+this.current_job.id+'&link='+this.current_job.application_url;
+                let link = route('redirect') + "?jobid=" + this.current_job.id + '&link=' + this.current_job.application_url;
                 window.open(link, "_blank");
                 setTimeout(() => {
                     Swal.fire({
@@ -600,5 +616,4 @@ div.description::v-deep h4 {
 
 div.description::v-deep h5 {
     margin-top: 8px;
-}
-</style>
+}</style>

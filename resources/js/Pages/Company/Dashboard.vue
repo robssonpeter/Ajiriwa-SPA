@@ -59,6 +59,14 @@
                     </Link>
                 </li>
                 <li>
+                    <a href="#" @click.prevent="$inertia.post(route('logout'))"
+                        class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
+                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i
+                                class="bx bx-log-out"></i></span>
+                        <span class="text-sm font-medium">Logout</span>
+                    </a>
+                </li>
+                <li class="invisible">
                     <a href="#"
                         class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
                         <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i
@@ -67,20 +75,16 @@
                         <span class="ml-auto mr-6 text-sm bg-red-100 rounded-full px-3 py-px text-red-500">5</span>
                     </a>
                 </li>
-                <li>
-                    <a href="#" @click.prevent="$inertia.post(route('logout'))"
-                        class="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800">
-                        <span class="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i
-                                class="bx bx-log-out"></i></span>
-                        <span class="text-sm font-medium">Logout</span>
-                    </a>
-                </li>
             </ul>
         </aside>
 
         <main class="w-full">
             <div class="h-16 bg-white shadow-md z-50 sticky top-0">
-
+                <div class="flex space-x-1 px-4 pt-4">
+                    <span class="flex-grow"></span>
+                    <p class="self-center float-right text-gray-400" ref="ajiriwa_balance">Balance: <span class="text-green-400 font-weight-bold cursor-pointer" title="Ajiriwa Balance" @click="balance_modal = true">TZS {{ $page.props.user.ajiriwa_balance.toLocaleString() }}</span></p>
+                </div>
+                <ajiriwa-balance :show_modal="balance_modal"></ajiriwa-balance>
             </div>
             <div class="z-40 px-4 ">
                 <section class="flex flex-row py-3">
@@ -132,7 +136,8 @@
                 <div class="flex flex-wrap -mx-4 mt-4">
                     <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 px-4 mb-4"
                         v-for="application in $page.props.recent_applications">
-                        <div class="bg-white border border-gray-100 rounded-lg shadow-lg p-6">
+                        <candidate-card :candidate="application.candidate" :application="application"></candidate-card>
+                        <!-- <div class="bg-white border border-gray-100 rounded-lg shadow-lg p-6">
                             <div class="flex items-center mb-4">
                                 <img class="w-12 h-12 rounded-full mr-4" :src="application.candidate.logo_url"
                                     :alt="application.candidate.full_name">
@@ -144,15 +149,10 @@
                             </div>
                             <div class="mt-4">
 
-                                <!-- <div class="flex flex-wrap">
-                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm mr-2 mb-2">Java</span>
-                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm mr-2 mb-2">Python</span>
-                            <span class="bg-gray-200 text-gray-700 px-2 py-1 rounded-full text-sm mr-2 mb-2">JavaScript</span>
-                        </div> -->
                             </div>
                             <span class="text-sm text-italic float-right text-gray-500 mb-2">{{ application.time_ago
                             }}</span>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <!-- <section class="grid grid-cols-4 gap-2">
@@ -269,23 +269,28 @@
             <p>hello ther</p>
         </div>
 
-    </div>--></template>
+    </div>-->
+</template>
 
 <script>
 import AppLayout from "@/Layouts/AppLayout";
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import Button from "@/Jetstream/Button";
+import CandidateCard from "@/Custom/CandidateCard.vue";
+import AjiriwaBalance from "@/Custom/AjiriwaBalance.vue";
 export default {
     name: "Customize",
     components: {
-        AppLayout, Head, Link, Button
+        AppLayout, Head, Link, Button, AjiriwaBalance, CandidateCard
     },
     mounted() {
-        console.log(this.$page.props.recent_applications)
+        console.log(this.$page.props.recent_applications);
+    },
+    data() {
+        return {
+            balance_modal: false,
+        }
     }
-    /*mounted(){
-        alert('you are mounted here')
-    }*/
 }
 </script>
 

@@ -71,7 +71,8 @@ class JobSearch extends Component
         
         //dd($search);
         $active_index = array_search('Active', Job::STATUS);
-        $jobs =  Job::orderBy('id', 'DESC')->where('status', $active_index)/* ->when($companies, function($q) use ($companies){
+        $date = date('Y-m-d');
+        $jobs =  Job::orderBy('id', 'DESC')->where('deadline', '>=', $date)->where('status', $active_index)/* ->when($companies, function($q) use ($companies){
             $q->whereIn('company_id', $companies);
         }) */->when($search, function($q) use ($search, $self){
             $all = explode(" ", $search);

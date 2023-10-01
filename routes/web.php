@@ -91,6 +91,7 @@ Route::get('/contact', [FaqsController::class, 'contact'])->name('contact');
 Route::get('/privacy-policy', [FaqsController::class, 'privacyPolicy'])->name('privacy.policy');
 Route::get('/showcv.php', [ResumeController::class, 'oldCv'])->name('guest.cv');
 Route::get('/profile/{slug}', [ResumeController::class, 'guestCv'])->name('candidate.profile');
+Route::get('/resume/{slug}', [ResumeController::class, 'exportCv'])->name('resume.pdf');
 
 
 

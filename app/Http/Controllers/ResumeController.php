@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Candidate;
+use App\Models\CandidateSkill;
 use App\Models\User;
 use Artesaos\SEOTools\Facades\JsonLd;
 use Artesaos\SEOTools\Facades\OpenGraph;
@@ -114,5 +115,15 @@ class ResumeController extends Controller
         
         
         return view('CvTemplates.summary', compact('candidate'));
+    }
+
+    public function exportCv($slug){
+        $candidate = Candidate::where('slug', $slug)->first();
+        //dd($candidate);
+        $skills = CandidateSkill::Levels;
+        $user = User::find($candidate->user_id);
+        $tailwind = true;
+        return view('CvTemplates.material', compact('candidate', 'skills', 'user', 'tailwind'));
+        //$pdf = Pdf::loadView('CvTemplates.material', compact('candidate', 'skills', 'user'));
     }
 }

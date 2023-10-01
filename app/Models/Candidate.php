@@ -56,7 +56,7 @@ class Candidate extends Model implements HasMedia
     ];
 
     protected $with = [
-        'sex', 'marital'
+        'sex', 'marital', 'skills'
     ];
 
     public function getLogoUrlAttribute(){

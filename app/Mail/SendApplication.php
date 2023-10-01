@@ -5,6 +5,7 @@ namespace App\Mail;
 use App\Models\CandidateSkill;
 use App\Models\JobApplication;
 use App\Models\User;
+use App\Repositories\ResumeRepository;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -39,9 +40,14 @@ class SendApplication extends Mailable
         $candidate = $application->candidate;
         $skills = CandidateSkill::Levels;
         $user = User::find($candidate->user_id);
-        $file_name = makeSlug($candidate->full_name)."-".$candidate->id.".pdf";
-        $pdf = Pdf::loadView('CvTemplates.material', compact('candidate', 'skills', 'user'));
-        $pdf->save(public_path('temp-files/'.$file_name));
+        $file_name = makeSlug($candidate->full_name)."-".$candidate->id."-cv.pdf";
+        //$pdf = Pdf::loadView('CvTemplates.material', compact('candidate', 'skills', 'user'));
+        // check if there is https connection if yes then we use the wkhtml to render cv
+        $url = route('root');
+        //if (str_contains($url, 'https:')){
+            ResumeRepository::renderCV($candidate->id, 'render');
+        //}
+        //$pdf->save(public_path('temp-files/'.$file_name));
         $email = $this->from('applications@ajiriwa.net', 'Ajiriwa Applications')
                     ->replyTo($application->candidate->email, $application->candidate->full_name);
         $email = $email->attach(public_path('temp-files/'.$file_name), [
