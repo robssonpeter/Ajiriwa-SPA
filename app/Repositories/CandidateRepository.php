@@ -79,12 +79,12 @@ class CandidateRepository
             'reference' => ['value' => 10, 'eligible' => $reference->count()],
             /*'achievements' => ['value' => 5, 'eligible' => $achievements->count()],*/
             'languages' => ['value' => 5, 'eligible' => $language->count()],
-            'picture' => ['value' => 5, 'eligible' => $pictures->count()],
+            'picture' => ['value' => 5, 'eligible' => $candidate->logo],
             /*'social' => ['value' => 2, 'eligible' => Self::hasSocialAccount(User::find($user_id))],*/
             'resumes' => ['value' => 20, 'eligible' => $resumes->count()],
             'certification' => ['value' => 5, 'eligible' => $certifications->count()]
         ];
-
+        //return $percentages;
         $sections = array_keys($percentages);
         $completion = 0;
         foreach ($sections as $section){

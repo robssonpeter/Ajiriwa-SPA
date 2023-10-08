@@ -3,9 +3,10 @@
     <div class="min-h-screen w-100 grid grid-cols-4 items-center justify-center" id="apply-page">
       <div class="md:col-span-1 "></div>
       <div class="bg-white shadow-md rounded-lg p-8 mx-4 col-span-4 md:col-span-2">
-        <h2 class="text-2xl font-semibold mb-4">Job Application Form</h2>
+        <h2 class="text-2xl font-semibold mb-4">Applying for <a class="text-green-500" :href="route('job.view', $page.props.job.slug)">{{ $page.props.job.title }}</a></h2>
         <form @submit.prevent="apply">
           <!-- <apply :job="$page.props.job" :assessments="current_assessments" :certificates="certificates" :selected_certs="selected_certs"></apply> -->
+          
           <section class="w-100">
             <apply 
               :cover="application.cover_letter" 
@@ -16,11 +17,14 @@
               :ref="'apply'" 
               @stored="navigateAway" 
               @applied="doneApplying" 
+              @loading="loading = true"
+              @loaded="loading = false"
+              @can_apply="canApply"
               @applying="applying">
             </apply>
           </section>
 
-          <section class="flex flex-col py-2">
+          <section class="flex flex-col py-2" v-if="!loading && can_apply">
             <section class="flex">
               <span class="font-bold flex-grow">Attachments</span>
               <small class="cursor-pointer text-green-500" @click="rememberDetails">Manage Attachments</small>
@@ -32,7 +36,8 @@
             <assessment-render :answer="question.applicant_answer" @changed="questionAnswered" v-for="question in current_assessments"
               :question="question"></assessment-render>
           </div>
-          <button @click="$refs['submit-application'].click()" :disabled="currently_applying"
+          <div v-if="loading" class="bg-green-500 h-8 w-12 rounded-md animate-pulse float-right"></div>
+          <button v-else-if="can_apply" @click="$refs['submit-application'].click()" :disabled="currently_applying"
             class="bg-green-500 hover:shadow-lg text-white p-2 flex flex-row rounded-md mt-2 float-right">
             <span class="flex-grow"></span>
             <loader v-if="currently_applying" :color="'white'"></loader>
@@ -113,6 +118,8 @@ export default {
       },
       //applying: false,
       job: this.$page.props.job,
+      loading: false,
+      can_apply: false,
     }
   },
   methods: {
@@ -126,12 +133,15 @@ export default {
         });
       }
     },
+    canApply(status){
+      this.can_apply = status;
+    },
     applying(status) {
       //alert(status);
       this.currently_applying = status;
     },
     apply() {
-      this.$refs.apply.sendApplication();
+      this.$refs.apply.sendApplication('apply');
     },
     questionAnswered(data) {
       let index = this.current_assessments.findIndex(element => element.id === data.question_id);

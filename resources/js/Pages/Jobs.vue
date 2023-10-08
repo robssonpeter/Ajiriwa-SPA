@@ -122,12 +122,21 @@
                             <form @submit.prevent="apply">
                                 <apply :candidate="$page.props.user.candidate.id" @applied="doneApplying"
                                     @applying="applying" :selected_certs="selected_certs" :assessments="current_assessments"
-                                    :job="current_job" :ref="'apply'"></apply>
-                                <section class="flex flex-col py-2">
-                                    <span class="font-bold">Attachments</span>
+                                    :job="current_job" :ref="'apply'" @loading="loading = true" @loaded="loading = false"
+                                    @can_apply="ableToApply">
+                                </apply>
+                                <section class="flex flex-col py-2" v-if="can_apply">
+                                    <section class="flex">
+                                        <span class="font-bold flex-grow">Attachments</span>
+                                        <small class="cursor-pointer text-green-500"
+                                            @click="rememberDetails(route('my-resume.edit.sectional', 'awards'))">Manage
+                                            Attachments</small>
+                                        <Link ref="manage_attachments" :href="route('my-resume.edit.sectional', 'awards')">
+                                        </Link>
+                                    </section>
                                     <v-select :options="certificates" v-model="selected_certs" multiple></v-select>
                                 </section>
-                                <div v-if="current_assessments.length">
+                                <div v-if="current_assessments.length && can_apply">
                                     <assessment-render @changed="questionAnswered" v-for="question in current_assessments"
                                         :question="question"></assessment-render>
                                 </div>
@@ -138,7 +147,8 @@
                         <template v-slot:footer>
                             <div class="flex flex-row">
                                 <span class="flex-grow"></span>
-                                <button @click="$refs['submit-application'].click()" :disabled="currently_applying"
+                                <button v-if="can_apply" @click="$refs['submit-application'].click()"
+                                    :disabled="currently_applying"
                                     class="bg-green-500 hover:shadow-lg text-white p-2 flex flex-row">
                                     <span class="flex-grow"></span>
                                     <loader v-if="currently_applying" :color="'white'"></loader>
@@ -215,9 +225,20 @@
                                     <form @submit.prevent="apply">
                                         <apply :candidate="$page.props.user.candidate.id" @applied="doneApplying"
                                             @applying="applying" :selected_certs="selected_certs"
-                                            :assessments="current_assessments" :job="current_job" :ref="'apply'"></apply>
-                                        <section class="flex flex-col py-2">
-                                            <span class="font-bold">Attachments</span>
+                                            :assessments="current_assessments" :job="current_job" @loaded="loading = false"
+                                            @can_apply="ableToApply" :ref="'apply'">
+                                        </apply>
+                                        <section class="flex flex-col py-2" v-if="can_apply">
+                                            <section class="flex">
+                                                <span class="font-bold flex-grow">Attachments</span>
+                                                <small class="cursor-pointer text-green-500"
+                                                    @click="rememberDetails(route('my-resume.edit.sectional', 'awards'))">Manage
+                                                    Attachments</small>
+                                                <Link ref="manage_attachments"
+                                                    :href="route('my-resume.edit.sectional', 'awards')">
+                                                </Link>
+                                            </section>
+
                                             <v-select :options="certificates" v-model="selected_certs" multiple></v-select>
                                         </section>
                                         <div v-if="current_assessments.length">
@@ -232,7 +253,8 @@
                                 <template v-slot:footer>
                                     <div class="flex flex-row">
                                         <span class="flex-grow"></span>
-                                        <button @click="$refs['submit-application'].click()" :disabled="currently_applying"
+                                        <button v-if="can_apply" @click="$refs['submit-application'].click()"
+                                            :disabled="currently_applying"
                                             class="bg-green-500 hover:shadow-lg text-white p-2 flex flex-row">
                                             <span class="flex-grow"></span>
                                             <loader v-if="currently_applying" :color="'white'"></loader>
@@ -435,6 +457,7 @@ export default {
             certificates: this.$page.props.certificates,
             selected_certs: [],
             search: "",
+            can_apply: false,
         }
     },
     computed: {
@@ -496,6 +519,9 @@ export default {
         }
     },
     methods: {
+        ableToApply(status) {
+            this.can_apply = status;
+        },
         scrollToTop() {
             window.scrollTo({ top: 0, behavior: "smooth" });
         },
@@ -555,6 +581,12 @@ export default {
                 this.registerView(this.current_job.id);
             }
         },
+        rememberDetails(redirect_url) {
+            // temporarily store the applications details in a session
+            console.log(this.$refs.apply);
+            this.$refs.apply.sendApplication('store');
+            this.$inertia.visit(redirect_url);
+        },
         getAssessments() {
             if (this.current_job.id) {
                 axios.post(route('job.assessment.get'), { job_id: this.current_job.id }).then(response => {
@@ -584,7 +616,7 @@ export default {
             }
         },
         apply() {
-            this.$refs.apply.sendApplication();
+            this.$refs.apply.sendApplication('apply');
         },
         doneApplying(job) {
             // close the modal

@@ -31,6 +31,22 @@
                         <span class="text-sm animate__animated animate__bounce">Profile Completion</span>
                         <div class="relative pt-1">
                             <div class="flex mb-2 items-center justify-between">
+                                <transition name="width-fade">
+                                    <div class="bg-green-500 h-1" :style="{ width: profile_completion + '%' }"></div>
+                                </transition>
+
+                                <transition name="fade">
+                                    <span class="ml-2 text-xs font-semibold inline-block text-emerald-600">{{
+                                        profile_completion }}%</span>
+                                </transition>
+                            </div>
+                            <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-emerald-200"></div>
+                        </div>
+                    </div>
+                    <!-- <div class="px-2">
+                        <span class="text-sm animate__animated animate__bounce">Profile Completion</span>
+                        <div class="relative pt-1">
+                            <div class="flex mb-2 items-center justify-between">
                                 <div class="w-full bg-gray-200 h-1">
                                     <div class="bg-green-500 h-1" :style="{ width: profile_completion + '%' }"></div>
                                 </div>
@@ -41,7 +57,7 @@
                             </div>
                             <div class="overflow-hidden h-2 mb-4 text-xs flex rounded bg-emerald-200"></div>
                         </div>
-                    </div>
+                    </div> -->
                     <Link :href="route('my-resume.edit.sectional', 'personal')">
                     <div :class="section === 'personal' || !section ? active_class : inactive_class"
                         class="p-2 pr-8 font-semibold hover:bg-green-300 hover:text-white cursor-pointer">
@@ -85,24 +101,27 @@
                     </Link>
                 </div>
                 <div class="col-span-4 md:col-span-3 px-2 py-4 bg-white shadow-md">
-                    <EditCareerObjective v-if="section === 'career'"></EditCareerObjective>
-                    <EditExperience :candidate_id="$page.props.data.candidate_id" :industries="$page.props.industries"
-                        :experiences="$page.props.data.experience" :countries="$page.props.countries"
-                        v-else-if="section === 'experience'"></EditExperience>
-                    <EditEducation :candidate_id="$page.props.data.candidate_id" :educations="$page.props.data.education"
-                        :education_levels="$page.props.data.education_levels" :countries="$page.props.countries"
-                        v-else-if="section === 'education'"></EditEducation>
-                    <EditLanguage :candidate_id="$page.props.data.candidate_id" :languages="$page.props.data.languages"
-                        :language_levels="$page.props.data.language_levels" v-else-if="section === 'language'">
+                    <EditCareerObjective @updated="updateProfileCompletion" v-if="section === 'career'">
+                    </EditCareerObjective>
+                    <EditExperience @updated="updateProfileCompletion" :candidate_id="$page.props.data.candidate_id"
+                        :industries="$page.props.industries" :experiences="$page.props.data.experience"
+                        :countries="$page.props.countries" v-else-if="section === 'experience'"></EditExperience>
+                    <EditEducation @updated="updateProfileCompletion" :candidate_id="$page.props.data.candidate_id"
+                        :educations="$page.props.data.education" :education_levels="$page.props.data.education_levels"
+                        :countries="$page.props.countries" v-else-if="section === 'education'"></EditEducation>
+                    <EditLanguage @updated="updateProfileCompletion" :candidate_id="$page.props.data.candidate_id"
+                        :languages="$page.props.data.languages" :language_levels="$page.props.data.language_levels"
+                        v-else-if="section === 'language'">
                     </EditLanguage>
-                    <EditSkills :candidate_id="$page.props.data.candidate_id" :skills="$page.props.data.skills"
-                        :skill_levels="$page.props.data.skill_levels" v-else-if="section === 'skills'"></EditSkills>
-                    <EditReferees :candidate_id="$page.props.data.candidate_id" :referees="$page.props.data.referees"
-                        v-else-if="section === 'reference'"></EditReferees>
-                    <EditCertificates :countries="$page.props.countries" :candidate_id="$page.props.data.candidate_id"
-                        :categories="$page.props.data.categories" :certificates="$page.props.data.certificates"
-                        v-else-if="section === 'awards'"></EditCertificates>
-                    <EditPersonal v-else></EditPersonal>
+                    <EditSkills @updated="updateProfileCompletion" :candidate_id="$page.props.data.candidate_id"
+                        :skills="$page.props.data.skills" :skill_levels="$page.props.data.skill_levels"
+                        v-else-if="section === 'skills'"></EditSkills>
+                    <EditReferees @updated="updateProfileCompletion" :candidate_id="$page.props.data.candidate_id"
+                        :referees="$page.props.data.referees" v-else-if="section === 'reference'"></EditReferees>
+                    <EditCertificates @updated="updateProfileCompletion" :countries="$page.props.countries"
+                        :candidate_id="$page.props.data.candidate_id" :categories="$page.props.data.categories"
+                        :certificates="$page.props.data.certificates" v-else-if="section === 'awards'"></EditCertificates>
+                    <EditPersonal @updated="updateProfileCompletion" v-else></EditPersonal>
                 </div>
 
             </div>
@@ -122,6 +141,7 @@ import EditReferees from "@/Custom/Resume/EditReferees";
 import EditCertificates from "@/Custom/Resume/EditCertificates";
 import EditCareerObjective from "@/Custom/Resume/EditCareerObjective";
 import 'animate.css';
+import axios from 'axios';
 
 export default {
     name: "MyResumeEdit",
@@ -152,6 +172,17 @@ export default {
         profileCompletion() {
 
         }
+    },
+    methods: {
+        updateProfileCompletion() {
+            axios.post(route('candidate.profile.completion',), {
+                candidate_id: this.$page.props.data.candidate_id
+            }).then((response) => {
+                this.profile_completion = response.data;
+            }).catch(error => {
+                console.error(error.response.data);
+            })
+        }
     }
 }
 </script>
@@ -163,4 +194,15 @@ input:focus {
 
 select:focus {
     border: 0px none white;
-}</style>
+}
+
+.width-fade-enter-active,
+.width-fade-leave-active {
+  transition: width 2s; /* Adjust the duration as needed */
+}
+
+.width-fade-enter,
+.width-fade-leave-to /* .width-fade-leave-active in <2.1.8 */ {
+  width: 0;
+}
+</style>

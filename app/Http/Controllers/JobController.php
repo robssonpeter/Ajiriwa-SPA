@@ -641,7 +641,6 @@ class   JobController extends Controller
         $job = Job::where('slug', $slug)->first();
         $remembered = session()->get('remembered_application');
         $applied = JobApplication::where('candidate_id', $candidate->id)->where('job_id', $job->id)->first();
-
         // check if the candidate has already applied for this position
         //dd($jobs);
 

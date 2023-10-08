@@ -63,6 +63,7 @@ export default {
                     console.log(response.data);
                     this.saving = false;
                     this.changed = false;
+                    this.$emit('updated', true);
                 }).catch((error) => {
                     console.log(error.response.data);
                 })

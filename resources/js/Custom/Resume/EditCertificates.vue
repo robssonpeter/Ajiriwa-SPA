@@ -18,7 +18,7 @@
                         <div class="edit-certificate grid sm:grid-cols-2 md:grid-cols-6 gap-2"  v-if="certificate.editing">
                             <div class="md:col-span-2 flex flex-col">
                                 <label :for="'name_'+index" class="font-bold">Title</label>
-                                <input placeholder="Full Name" type="text" v-model="certificates[index].name" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'name_'+index">
+                                <input placeholder="Award Title" type="text" v-model="certificates[index].name" class="focus:border-green-400 border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-green-400" :id="'name_'+index">
                             </div>
                             <div class="md:col-span-2 flex flex-col">
                                 <label :for="'category_'+index" class="font-bold">Certificate Category</label>
@@ -216,6 +216,7 @@
                                 if(result.data){
                                     // remove the certificate from the list
                                     this.certificates.splice(index, 1)
+                                    this.$emit('updated', true);
                                 }
                             }).catch((error) => {
                                 console.log(error.response.data)
@@ -290,6 +291,7 @@
                             this.allow_add = true;
                         }
                     }
+                    this.$emit('updated', true);
                 }).catch((error) => {
                     console.log(error.response.data)
                 })

@@ -111,6 +111,7 @@ Route::get('/job-page.php', [JobController::class, 'oldJob'])->name('old-job.vie
 Route::get('/view-job/{slug}', [JobController::class, 'viewJob'])->name('job.view');
 Route::get('/job-amp/{slug}', [JobController::class, 'viewJob'])->name('job.amp');
 Route::get('/apply/{slug}', [JobController::class, 'applyJob'])->middleware('auth')->name('job.apply');
+Route::post('/can-apply', [CandidateController::class, 'canApplyForJob'])->middleware('auth')->name('job.can-apply');
 
 Route::post('/job/register-view', [JobController::class, 'registerView'])->name('job.view.register');
 
@@ -130,6 +131,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/candidate/job/apply', [JobController::class, 'sendApplication'])->name('application.send');
     Route::post('/candidate/job/apply/store', [JobController::class, 'storeApplication'])->name('application.store');
     Route::post('/candidate/info/{candidate_id}', [CandidateController::class, 'getCandidateInfo'])->name('candidate.get-info');
+    Route::post('/candidate/profile-completion', [CandidateController::class, 'profileCompletion'])->name('candidate.profile.completion');
 });
 
 Route::group(['middleware' => ['auth']], function() {

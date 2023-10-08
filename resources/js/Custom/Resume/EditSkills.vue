@@ -70,6 +70,12 @@
                 <Link :href="route('my-resume.edit.sectional', 'awards')" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md p-1 text-white text-center self-center">
                     <span>Next</span>
                 </Link>
+
+                <Link
+                    :title="$page.props.return_to_link.description?$page.props.return_to_link.description:''"
+                    class="bg-gray-600 hover:bg-black text-white font-semibold px-4 py-2 rounded-md p-2 text-white text-center self-center"
+                    v-if="$page.props.return_to_link" 
+                    :href="$page.props.return_to_link.link">{{ $page.props.return_to_link.label }}</Link>
             </div>
         </section>
     </div>
@@ -156,7 +162,8 @@
                             axios.delete(route('delete.candidate.data', ['skill', this.skills[index].id])).then((result) => {
                                 if(result.data){
                                     // remove the skill from the list
-                                    this.skills.splice(index, 1)
+                                    this.skills.splice(index, 1);
+                                    this.$emit('updated', true);
                                 }
                             }).catch((error) => {
                                 console.log(error.response.data)
@@ -229,6 +236,7 @@
                             //this.controlRating(index);
                             this.allow_add = true;
                         }
+                        this.$emit('updated', true);
                     }
                 }).catch((error) => {
                     console.log(error.response.data)

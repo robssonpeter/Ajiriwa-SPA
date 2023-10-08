@@ -96,6 +96,12 @@
                 <Link :href="route('my-resume')" class="bg-green-500 bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md p-2 text-white text-center">
                     <span>View Final CV</span>
                 </Link>
+
+                <Link
+                    :title="$page.props.return_to_link.description?$page.props.return_to_link.description:''"
+                    class="bg-gray-600 hover:bg-black text-white font-semibold px-4 py-2 rounded-md p-2 text-white text-center self-center"
+                    v-if="$page.props.return_to_link" 
+                    :href="$page.props.return_to_link.link">{{ $page.props.return_to_link.label }}</Link>
             </div>
         </section>
     </div>
@@ -179,7 +185,8 @@
                             axios.delete(route('delete.candidate.data', ['referee', this.referees[index].id])).then((result) => {
                                 if(result.data){
                                     // remove the referee from the list
-                                    this.referees.splice(index, 1)
+                                    this.referees.splice(index, 1);
+                                    this.$emit('updated', true);
                                 }
                             }).catch((error) => {
                                 console.log(error.response.data)
@@ -254,6 +261,7 @@
                             this.referees[index].saving = false;
                             this.allow_add = true;
                         }
+                        this.$emit('updated', true);
                     }
                 }).catch((error) => {
                     console.log(error.response.data)

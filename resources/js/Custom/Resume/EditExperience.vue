@@ -135,6 +135,12 @@
                     class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md">
                 <span>Next</span>
                 </Link>
+
+                <Link
+                    :title="$page.props.return_to_link.description?$page.props.return_to_link.description:''"
+                    class="bg-gray-600 hover:bg-black text-white font-semibold px-4 py-2 rounded-md p-2 text-white text-center self-center"
+                    v-if="$page.props.return_to_link" 
+                    :href="$page.props.return_to_link.link">{{ $page.props.return_to_link.label }}</Link>
             </div>
         </section>
     </div>
@@ -218,6 +224,7 @@ export default {
                             if (result.data) {
                                 // remove the experience from the list
                                 this.experiences.splice(index, 1)
+                                this.$emit('updated', true);
                             }
                         }).catch((error) => {
                             console.log(error.response.data)
@@ -292,6 +299,7 @@ export default {
                         this.experiences[index].saving = false;
                         this.allow_add = true;
                     }
+                    this.$emit('updated', true);
                 }
             }).catch((error) => {
                 console.log(error.response.data)

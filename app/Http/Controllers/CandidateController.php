@@ -99,6 +99,15 @@ class CandidateController extends Controller
         ];
     }
 
+    public function profileCompletion(){
+        $candidate_id =  request()->candidate_id;
+        $candidate = Candidate::where('id', $candidate_id)->select('profile_completion')->first();
+        if($candidate){
+            return $candidate->profile_completion;
+        }
+        return 0;
+    }
+
     public function myApplications()
     {
         $breadcrumb = [
@@ -349,16 +358,16 @@ class CandidateController extends Controller
 
     public function withdrawApplication()
     {
-        $application_id =  request()->application_id??request()->id;
-        if(request()->application_id){
+        $application_id =  request()->application_id ?? request()->id;
+        if (request()->application_id) {
             $candidate = Candidate::where('user_id', Auth::user()->id)->first();
-        }else{
+        } else {
             $candidate = Candidate::find(request()->candidate_id);
         }
         /* if(!Auth::user()->hasRole('employer') || !Auth::user()->hasRole('candidate')){
             abort(401);
         } */
-        
+
         $application =  JobApplication::find($application_id);
 
         if (!$candidate || $candidate->id != $application->candidate_id) {
@@ -437,5 +446,83 @@ class CandidateController extends Controller
         return $pdf->send('test.pdf'); */
         $pdf = Pdf::loadView('CvTemplates.material', compact('candidate', 'skills', 'user'));
         return $pdf->download(makeSlug($candidate->full_name) . '-cv.pdf');
+    }
+
+    public function canApplyForJob()
+    {
+        $candidate = Candidate::where('user_id', Auth::user()->id)->first();
+        $job_application = JobApplication::where('candidate_id', $candidate->id)
+            ->where('job_id', request()->job_id)
+            ->first();
+        $job = Job::find(request()->job_id);
+        $active_status = array_search('Active', Job::STATUS);
+        $date = date('Y-m-d');
+        $response = [
+            "status" => true,
+        ];
+        // check the current status and expiry date of the job if applications are allowed
+        if ($job->deadline < $date || $job->status != $active_status) {
+            $response['status'] = false;
+            $response['title'] = 'Job Applications Closed';
+            $response['message'] = '
+            <p class="text-gray-700 mb-4">
+                The job you were interested in is no longer
+                accepting applications.
+            </p>
+            <p class="text-gray-700 mb-4">
+                Please browse our other available job opportunities to find one that suits
+                your interests and qualifications.
+            </p>
+            ';
+            $response['links'] = [
+                [
+                    'label' => 'Browse Jobs',
+                    'url' => route('jobs.browse')
+                ]
+            ];
+        }
+        // check if the candidate profile completion is at least 80 percent
+        else if ($candidate->profile_completion < 80) {
+            $response['status'] = false;
+            $response['title'] = 'Profile Not Complete';
+            $response['message'] = '
+            <p class="text-gray-700 mb-4">
+                Your profile completion is below 80%.
+            </p>
+            <p class="text-gray-700 mb-4">
+                Please update your profile before proceeding.
+            </p>
+            ';
+            $response['links'] = [
+                [
+                    'label' => 'Update My Profile',
+                    'url' => route('my-resume.edit')
+                ]
+            ];
+        }
+        // check if the candidate has already applied for the position
+        else if ($job_application) {
+            $response['status'] = false;
+            $response['title'] = 'Application Already Done';
+            $response['message'] = '
+            <p class="text-gray-700 mb-4">
+                You\'ve already applied for this position.
+            </p>
+            <p class="text-gray-700 mb-4">
+                Please browse for other positions to apply.
+            </p>
+            ';
+            $response['links'] = [
+                [
+                    'label' => 'Browse Jobs',
+                    'url' => route('jobs.browse')
+                ]
+            ];
+        }
+        // application can be made
+        else {
+            $response['status'] = true;
+        }
+        return response()->json($response);
     }
 }

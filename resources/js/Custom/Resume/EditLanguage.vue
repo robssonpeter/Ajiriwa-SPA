@@ -93,6 +93,11 @@
                 <Link :href="route('my-resume.edit.sectional', 'skills')" class="bg-green-500 hover:bg-green-600 text-white font-semibold px-4 py-2 rounded-md self-center">
                     <span>Next</span>
                 </Link>
+                <Link
+                    :title="$page.props.return_to_link.description?$page.props.return_to_link.description:''"
+                    class="bg-gray-600 hover:bg-black text-white font-semibold px-4 py-2 rounded-md p-2 text-white text-center self-center"
+                    v-if="$page.props.return_to_link" 
+                    :href="$page.props.return_to_link.link">{{ $page.props.return_to_link.label }}</Link>
             </div>
         </section>
     </div>
@@ -179,18 +184,13 @@
                             axios.delete(route('delete.candidate.data', ['language', this.languages[index].id])).then((result) => {
                                 if(result.data){
                                     // remove the language from the list
-                                    this.languages.splice(index, 1)
+                                    this.languages.splice(index, 1);
+                                    this.$emit('updated', true);
                                 }
                             }).catch((error) => {
                                 console.log(error.response.data)
                             })
                         }
-                        //this.languages.splice(index, 1)
-                        /*Swal.fire(
-                            'Deleted!',
-                            'Your file has been deleted.',
-                            'success'
-                        )*/
                     }
                 })
 
@@ -256,6 +256,7 @@
                             this.controlRating(index);
                             this.allow_add = true;
                         }
+                        this.$emit('updated', true);
                     }
                 }).catch((error) => {
                     console.log(error.response.data)
