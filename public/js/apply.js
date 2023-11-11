@@ -25851,16 +25851,16 @@ __webpack_require__.r(__webpack_exports__);
       candidate_id: this.$page.props.user.candidate.id,
       typed: '',
       assessment_responses: this.assessments,
-      loading: true
+      loading: false
     };
   },
   methods: {
     checkApplicability: function checkApplicability() {
       var _this = this;
 
-      this.loading = true; //alert('checking the applicability')
+      this.loading = true;
+      this.$emit('loading', true); //alert('checking the applicability')
 
-      this.$emit('loading', true);
       axios__WEBPACK_IMPORTED_MODULE_4___default().post(route('job.can-apply'), {
         job_id: this.job.id
       }).then(function (response) {
@@ -25872,8 +25872,13 @@ __webpack_require__.r(__webpack_exports__);
       })["catch"](function (error) {
         return console.error(error.response.data);
       });
-      this.loading = false;
-      this.$emit('loaded', true);
+      setTimeout(function () {
+        console.log('Waiting for sometime');
+        _this.loading = false;
+
+        _this.$emit('loaded', true);
+      }, 3000);
+      return '';
     },
     greet: function greet() {
       console.log(this.selected_certificates);
@@ -26165,7 +26170,8 @@ var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 
 var _hoisted_27 = ["onClick"];
 var _hoisted_28 = {
-  key: 2
+  key: 2,
+  "class": "animate__animated animate__fadeInUp"
 };
 
 var _hoisted_29 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
@@ -26199,7 +26205,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , _hoisted_27);
   }), 256
   /* UNKEYED_FRAGMENT */
-  ))])])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_text_editor, {
+  ))])])) : !$data.loading && $data.can_apply.status ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_28, [_hoisted_29, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_text_editor, {
     text: $props.cover ? $props.cover : '',
     onChange: $options.coverLetterChanged
   }, null, 8
@@ -26214,7 +26220,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , ["onChanged", "index", "question"]);
   }), 256
   /* UNKEYED_FRAGMENT */
-  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]));
+  ))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true);
 }
 
 /***/ }),

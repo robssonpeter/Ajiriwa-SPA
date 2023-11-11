@@ -125,7 +125,7 @@
                                     :job="current_job" :ref="'apply'" @loading="loading = true" @loaded="loading = false"
                                     @can_apply="ableToApply">
                                 </apply>
-                                <section class="flex flex-col py-2" v-if="can_apply">
+                                <section class="flex flex-col py-2 animate__animated animate__fadeInUp" v-if="can_apply && !loading">
                                     <section class="flex">
                                         <span class="font-bold flex-grow">Attachments</span>
                                         <small class="cursor-pointer text-green-500"
@@ -136,7 +136,7 @@
                                     </section>
                                     <v-select :options="certificates" v-model="selected_certs" multiple></v-select>
                                 </section>
-                                <div v-if="current_assessments.length && can_apply">
+                                <div class="animate__animated animate__fadeInUp" v-if="current_assessments.length && can_apply && !loading">
                                     <assessment-render @changed="questionAnswered" v-for="question in current_assessments"
                                         :question="question"></assessment-render>
                                 </div>
@@ -228,7 +228,7 @@
                                             :assessments="current_assessments" :job="current_job" @loaded="loading = false"
                                             @can_apply="ableToApply" :ref="'apply'">
                                         </apply>
-                                        <section class="flex flex-col py-2" v-if="can_apply">
+                                        <section class="flex flex-col py-2" v-if="can_apply && !loading">
                                             <section class="flex">
                                                 <span class="font-bold flex-grow">Attachments</span>
                                                 <small class="cursor-pointer text-green-500"
@@ -241,7 +241,7 @@
 
                                             <v-select :options="certificates" v-model="selected_certs" multiple></v-select>
                                         </section>
-                                        <div v-if="current_assessments.length">
+                                        <div v-if="current_assessments.length && can_apply && !loading">
                                             <assessment-render @changed="questionAnswered"
                                                 v-for="question in current_assessments"
                                                 :question="question"></assessment-render>
@@ -321,7 +321,8 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getMessaging, getToken } from "firebase/messaging";
 import vSelect from 'vue-select';
-import 'vue-select/dist/vue-select.css'
+import 'vue-select/dist/vue-select.css';
+import 'animate.css';
 
 const firebaseConfig = {
     apiKey: "AIzaSyCc2eq23_efjual1WZ329gMP5bZlOunv9s",
@@ -360,23 +361,6 @@ export default {
         }
         if (0 < 1) {
             const showPushNotificationPopup = () => {
-                /* return new Promise((resolve) => {
-                    resolve(true);
-                    Swal.fire({
-                            title: 'Push Notifications',
-                            text: 'Do you want to receive push notifications for new job updates?',
-                            icon: 'question',
-                            showCancelButton: true,
-                            confirmButtonText: 'Accept',
-                            cancelButtonText: 'Cancel',
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                resolve(true);
-                            } else {
-                                resolve(false);
-                            }
-                        });
-                }); */
                 if (this.$page.props.user.push_notify == null) {
                     return new Promise((resolve) => {
                         Swal.fire({

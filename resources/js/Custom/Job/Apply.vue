@@ -1,6 +1,5 @@
 <template>
     <section v-if="loading">
-
         <div class="bg-gray-300 h-4 w-20 rounded-full animate-pulse"></div>
         <br>
         <div class="bg-gray-300 h-8 w-80 rounded-full animate-pulse mt-2"></div>
@@ -39,7 +38,7 @@
             </button>
         </section>
     </section>
-    <div v-else>
+    <div class="animate__animated animate__fadeInUp" v-else-if="!loading && can_apply.status">
         <span class="font-bold">Cover letter</span>
         <text-editor :text="cover ? cover : ''" @change="coverLetterChanged"></text-editor>
 
@@ -100,21 +99,26 @@ export default {
             candidate_id: this.$page.props.user.candidate.id,
             typed: '',
             assessment_responses: this.assessments,
-            loading: true,
+            loading: false,
         }
     },
     methods: {
         checkApplicability() {
-            this.loading = true
-            //alert('checking the applicability')
+            this.loading = true;
             this.$emit('loading', true);
+            //alert('checking the applicability')
+            
             axios.post(route('job.can-apply'), { job_id: this.job.id }).then((response) => {
                 this.can_apply = response.data;
                 this.$emit('can_apply', response.data.status);
                 console.log(response.data)
             }).catch((error) => console.error(error.response.data));
-            this.loading = false;
-            this.$emit('loaded', true);
+            setTimeout(() => {
+                console.log('Waiting for sometime');
+                this.loading = false;
+                this.$emit('loaded', true);
+            }, 3000);
+            return '';
         },
         greet() {
             console.log(this.selected_certificates)

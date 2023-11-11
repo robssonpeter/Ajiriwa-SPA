@@ -23,7 +23,6 @@
               @applying="applying">
             </apply>
           </section>
-
           <section class="flex flex-col py-2" v-if="!loading && can_apply">
             <section class="flex">
               <span class="font-bold flex-grow">Attachments</span>
@@ -32,7 +31,7 @@
             </section>
             <v-select :options="certificates" v-model="selected_certs" multiple></v-select>
           </section>
-          <div v-if="current_assessments.length">
+          <div v-if="current_assessments.length && !loading && can_apply">
             <assessment-render :answer="question.applicant_answer" @changed="questionAnswered" v-for="question in current_assessments"
               :question="question"></assessment-render>
           </div>
