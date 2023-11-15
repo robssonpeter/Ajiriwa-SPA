@@ -78,7 +78,7 @@ Route::get('/sitemap', [SEOController::class, 'sitemap'])->name('sitemap');
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'viewPost'])->name('blog.post.view');
 Route::get('/blog-single-post.php', function(){
-    $blog = BlogPost::find(request()->id);
+    $blog = BlogPost::where('old_id', request()->id)->first();
     
     if(!$blog){
         abort(404);
