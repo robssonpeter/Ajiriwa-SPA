@@ -159,22 +159,21 @@ createApp({
         }
     }
 }).mount('#swiper'); */
-
 /* var $ = require( "jquery" ); */
 //import jQuery from 'jquery';
 //import flexslider from 'flexslider';
+
 //import $ from '../js/flexslider/node_modules/jquery';
-
 var jQuery = __webpack_require__(/*! detached-jquery-1.6.4 */ "./node_modules/detached-jquery-1.6.4/js/index.js");
-
-var $ = jQuery.getJQuery(); //var jQuery = ;
+var $ = jQuery.getJQuery();
+//var jQuery = ;
 
 /* import jQuery from 'jquery'; */
 //window.$ = window.jQuery = $;
-
 $(window).on('load', function () {
   alert('hello there');
 });
+
 /* $(window).load(function(){
     $('.flexslider').flexslider(
     {

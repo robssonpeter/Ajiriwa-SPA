@@ -10,133 +10,133 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "generateCodeFrame": () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_0__.generateCodeFrame),
-/* harmony export */   "BASE_TRANSITION": () => (/* binding */ BASE_TRANSITION),
-/* harmony export */   "CAMELIZE": () => (/* binding */ CAMELIZE),
-/* harmony export */   "CAPITALIZE": () => (/* binding */ CAPITALIZE),
-/* harmony export */   "CREATE_BLOCK": () => (/* binding */ CREATE_BLOCK),
-/* harmony export */   "CREATE_COMMENT": () => (/* binding */ CREATE_COMMENT),
-/* harmony export */   "CREATE_ELEMENT_BLOCK": () => (/* binding */ CREATE_ELEMENT_BLOCK),
-/* harmony export */   "CREATE_ELEMENT_VNODE": () => (/* binding */ CREATE_ELEMENT_VNODE),
-/* harmony export */   "CREATE_SLOTS": () => (/* binding */ CREATE_SLOTS),
-/* harmony export */   "CREATE_STATIC": () => (/* binding */ CREATE_STATIC),
-/* harmony export */   "CREATE_TEXT": () => (/* binding */ CREATE_TEXT),
-/* harmony export */   "CREATE_VNODE": () => (/* binding */ CREATE_VNODE),
-/* harmony export */   "FRAGMENT": () => (/* binding */ FRAGMENT),
-/* harmony export */   "GUARD_REACTIVE_PROPS": () => (/* binding */ GUARD_REACTIVE_PROPS),
-/* harmony export */   "IS_MEMO_SAME": () => (/* binding */ IS_MEMO_SAME),
-/* harmony export */   "IS_REF": () => (/* binding */ IS_REF),
-/* harmony export */   "KEEP_ALIVE": () => (/* binding */ KEEP_ALIVE),
-/* harmony export */   "MERGE_PROPS": () => (/* binding */ MERGE_PROPS),
-/* harmony export */   "NORMALIZE_CLASS": () => (/* binding */ NORMALIZE_CLASS),
-/* harmony export */   "NORMALIZE_PROPS": () => (/* binding */ NORMALIZE_PROPS),
-/* harmony export */   "NORMALIZE_STYLE": () => (/* binding */ NORMALIZE_STYLE),
-/* harmony export */   "OPEN_BLOCK": () => (/* binding */ OPEN_BLOCK),
-/* harmony export */   "POP_SCOPE_ID": () => (/* binding */ POP_SCOPE_ID),
-/* harmony export */   "PUSH_SCOPE_ID": () => (/* binding */ PUSH_SCOPE_ID),
-/* harmony export */   "RENDER_LIST": () => (/* binding */ RENDER_LIST),
-/* harmony export */   "RENDER_SLOT": () => (/* binding */ RENDER_SLOT),
-/* harmony export */   "RESOLVE_COMPONENT": () => (/* binding */ RESOLVE_COMPONENT),
-/* harmony export */   "RESOLVE_DIRECTIVE": () => (/* binding */ RESOLVE_DIRECTIVE),
-/* harmony export */   "RESOLVE_DYNAMIC_COMPONENT": () => (/* binding */ RESOLVE_DYNAMIC_COMPONENT),
-/* harmony export */   "RESOLVE_FILTER": () => (/* binding */ RESOLVE_FILTER),
-/* harmony export */   "SET_BLOCK_TRACKING": () => (/* binding */ SET_BLOCK_TRACKING),
-/* harmony export */   "SUSPENSE": () => (/* binding */ SUSPENSE),
-/* harmony export */   "TELEPORT": () => (/* binding */ TELEPORT),
-/* harmony export */   "TO_DISPLAY_STRING": () => (/* binding */ TO_DISPLAY_STRING),
-/* harmony export */   "TO_HANDLERS": () => (/* binding */ TO_HANDLERS),
-/* harmony export */   "TO_HANDLER_KEY": () => (/* binding */ TO_HANDLER_KEY),
-/* harmony export */   "TS_NODE_TYPES": () => (/* binding */ TS_NODE_TYPES),
-/* harmony export */   "UNREF": () => (/* binding */ UNREF),
-/* harmony export */   "WITH_CTX": () => (/* binding */ WITH_CTX),
-/* harmony export */   "WITH_DIRECTIVES": () => (/* binding */ WITH_DIRECTIVES),
-/* harmony export */   "WITH_MEMO": () => (/* binding */ WITH_MEMO),
-/* harmony export */   "advancePositionWithClone": () => (/* binding */ advancePositionWithClone),
-/* harmony export */   "advancePositionWithMutation": () => (/* binding */ advancePositionWithMutation),
-/* harmony export */   "assert": () => (/* binding */ assert),
-/* harmony export */   "baseCompile": () => (/* binding */ baseCompile),
-/* harmony export */   "baseParse": () => (/* binding */ baseParse),
-/* harmony export */   "buildDirectiveArgs": () => (/* binding */ buildDirectiveArgs),
-/* harmony export */   "buildProps": () => (/* binding */ buildProps),
-/* harmony export */   "buildSlots": () => (/* binding */ buildSlots),
-/* harmony export */   "checkCompatEnabled": () => (/* binding */ checkCompatEnabled),
-/* harmony export */   "convertToBlock": () => (/* binding */ convertToBlock),
-/* harmony export */   "createArrayExpression": () => (/* binding */ createArrayExpression),
-/* harmony export */   "createAssignmentExpression": () => (/* binding */ createAssignmentExpression),
-/* harmony export */   "createBlockStatement": () => (/* binding */ createBlockStatement),
-/* harmony export */   "createCacheExpression": () => (/* binding */ createCacheExpression),
-/* harmony export */   "createCallExpression": () => (/* binding */ createCallExpression),
-/* harmony export */   "createCompilerError": () => (/* binding */ createCompilerError),
-/* harmony export */   "createCompoundExpression": () => (/* binding */ createCompoundExpression),
-/* harmony export */   "createConditionalExpression": () => (/* binding */ createConditionalExpression),
-/* harmony export */   "createForLoopParams": () => (/* binding */ createForLoopParams),
-/* harmony export */   "createFunctionExpression": () => (/* binding */ createFunctionExpression),
-/* harmony export */   "createIfStatement": () => (/* binding */ createIfStatement),
-/* harmony export */   "createInterpolation": () => (/* binding */ createInterpolation),
-/* harmony export */   "createObjectExpression": () => (/* binding */ createObjectExpression),
-/* harmony export */   "createObjectProperty": () => (/* binding */ createObjectProperty),
-/* harmony export */   "createReturnStatement": () => (/* binding */ createReturnStatement),
-/* harmony export */   "createRoot": () => (/* binding */ createRoot),
-/* harmony export */   "createSequenceExpression": () => (/* binding */ createSequenceExpression),
-/* harmony export */   "createSimpleExpression": () => (/* binding */ createSimpleExpression),
-/* harmony export */   "createStructuralDirectiveTransform": () => (/* binding */ createStructuralDirectiveTransform),
-/* harmony export */   "createTemplateLiteral": () => (/* binding */ createTemplateLiteral),
-/* harmony export */   "createTransformContext": () => (/* binding */ createTransformContext),
-/* harmony export */   "createVNodeCall": () => (/* binding */ createVNodeCall),
-/* harmony export */   "extractIdentifiers": () => (/* binding */ extractIdentifiers),
-/* harmony export */   "findDir": () => (/* binding */ findDir),
-/* harmony export */   "findProp": () => (/* binding */ findProp),
-/* harmony export */   "generate": () => (/* binding */ generate),
-/* harmony export */   "getBaseTransformPreset": () => (/* binding */ getBaseTransformPreset),
-/* harmony export */   "getConstantType": () => (/* binding */ getConstantType),
-/* harmony export */   "getInnerRange": () => (/* binding */ getInnerRange),
-/* harmony export */   "getMemoedVNodeCall": () => (/* binding */ getMemoedVNodeCall),
-/* harmony export */   "getVNodeBlockHelper": () => (/* binding */ getVNodeBlockHelper),
-/* harmony export */   "getVNodeHelper": () => (/* binding */ getVNodeHelper),
-/* harmony export */   "hasDynamicKeyVBind": () => (/* binding */ hasDynamicKeyVBind),
-/* harmony export */   "hasScopeRef": () => (/* binding */ hasScopeRef),
-/* harmony export */   "helperNameMap": () => (/* binding */ helperNameMap),
-/* harmony export */   "injectProp": () => (/* binding */ injectProp),
-/* harmony export */   "isBuiltInType": () => (/* binding */ isBuiltInType),
-/* harmony export */   "isCoreComponent": () => (/* binding */ isCoreComponent),
-/* harmony export */   "isFunctionType": () => (/* binding */ isFunctionType),
-/* harmony export */   "isInDestructureAssignment": () => (/* binding */ isInDestructureAssignment),
-/* harmony export */   "isMemberExpression": () => (/* binding */ isMemberExpression),
-/* harmony export */   "isMemberExpressionBrowser": () => (/* binding */ isMemberExpressionBrowser),
-/* harmony export */   "isMemberExpressionNode": () => (/* binding */ isMemberExpressionNode),
-/* harmony export */   "isReferencedIdentifier": () => (/* binding */ isReferencedIdentifier),
-/* harmony export */   "isSimpleIdentifier": () => (/* binding */ isSimpleIdentifier),
-/* harmony export */   "isSlotOutlet": () => (/* binding */ isSlotOutlet),
-/* harmony export */   "isStaticArgOf": () => (/* binding */ isStaticArgOf),
-/* harmony export */   "isStaticExp": () => (/* binding */ isStaticExp),
-/* harmony export */   "isStaticProperty": () => (/* binding */ isStaticProperty),
-/* harmony export */   "isStaticPropertyKey": () => (/* binding */ isStaticPropertyKey),
-/* harmony export */   "isTemplateNode": () => (/* binding */ isTemplateNode),
-/* harmony export */   "isText": () => (/* binding */ isText$1),
-/* harmony export */   "isVSlot": () => (/* binding */ isVSlot),
-/* harmony export */   "locStub": () => (/* binding */ locStub),
-/* harmony export */   "noopDirectiveTransform": () => (/* binding */ noopDirectiveTransform),
-/* harmony export */   "processExpression": () => (/* binding */ processExpression),
-/* harmony export */   "processFor": () => (/* binding */ processFor),
-/* harmony export */   "processIf": () => (/* binding */ processIf),
-/* harmony export */   "processSlotOutlet": () => (/* binding */ processSlotOutlet),
-/* harmony export */   "registerRuntimeHelpers": () => (/* binding */ registerRuntimeHelpers),
-/* harmony export */   "resolveComponentType": () => (/* binding */ resolveComponentType),
-/* harmony export */   "stringifyExpression": () => (/* binding */ stringifyExpression),
-/* harmony export */   "toValidAssetId": () => (/* binding */ toValidAssetId),
-/* harmony export */   "trackSlotScopes": () => (/* binding */ trackSlotScopes),
-/* harmony export */   "trackVForSlotScopes": () => (/* binding */ trackVForSlotScopes),
-/* harmony export */   "transform": () => (/* binding */ transform),
-/* harmony export */   "transformBind": () => (/* binding */ transformBind),
-/* harmony export */   "transformElement": () => (/* binding */ transformElement),
-/* harmony export */   "transformExpression": () => (/* binding */ transformExpression),
-/* harmony export */   "transformModel": () => (/* binding */ transformModel),
-/* harmony export */   "transformOn": () => (/* binding */ transformOn),
-/* harmony export */   "traverseNode": () => (/* binding */ traverseNode),
-/* harmony export */   "walkBlockDeclarations": () => (/* binding */ walkBlockDeclarations),
-/* harmony export */   "walkFunctionParams": () => (/* binding */ walkFunctionParams),
-/* harmony export */   "walkIdentifiers": () => (/* binding */ walkIdentifiers),
-/* harmony export */   "warnDeprecation": () => (/* binding */ warnDeprecation)
+/* harmony export */   BASE_TRANSITION: () => (/* binding */ BASE_TRANSITION),
+/* harmony export */   CAMELIZE: () => (/* binding */ CAMELIZE),
+/* harmony export */   CAPITALIZE: () => (/* binding */ CAPITALIZE),
+/* harmony export */   CREATE_BLOCK: () => (/* binding */ CREATE_BLOCK),
+/* harmony export */   CREATE_COMMENT: () => (/* binding */ CREATE_COMMENT),
+/* harmony export */   CREATE_ELEMENT_BLOCK: () => (/* binding */ CREATE_ELEMENT_BLOCK),
+/* harmony export */   CREATE_ELEMENT_VNODE: () => (/* binding */ CREATE_ELEMENT_VNODE),
+/* harmony export */   CREATE_SLOTS: () => (/* binding */ CREATE_SLOTS),
+/* harmony export */   CREATE_STATIC: () => (/* binding */ CREATE_STATIC),
+/* harmony export */   CREATE_TEXT: () => (/* binding */ CREATE_TEXT),
+/* harmony export */   CREATE_VNODE: () => (/* binding */ CREATE_VNODE),
+/* harmony export */   FRAGMENT: () => (/* binding */ FRAGMENT),
+/* harmony export */   GUARD_REACTIVE_PROPS: () => (/* binding */ GUARD_REACTIVE_PROPS),
+/* harmony export */   IS_MEMO_SAME: () => (/* binding */ IS_MEMO_SAME),
+/* harmony export */   IS_REF: () => (/* binding */ IS_REF),
+/* harmony export */   KEEP_ALIVE: () => (/* binding */ KEEP_ALIVE),
+/* harmony export */   MERGE_PROPS: () => (/* binding */ MERGE_PROPS),
+/* harmony export */   NORMALIZE_CLASS: () => (/* binding */ NORMALIZE_CLASS),
+/* harmony export */   NORMALIZE_PROPS: () => (/* binding */ NORMALIZE_PROPS),
+/* harmony export */   NORMALIZE_STYLE: () => (/* binding */ NORMALIZE_STYLE),
+/* harmony export */   OPEN_BLOCK: () => (/* binding */ OPEN_BLOCK),
+/* harmony export */   POP_SCOPE_ID: () => (/* binding */ POP_SCOPE_ID),
+/* harmony export */   PUSH_SCOPE_ID: () => (/* binding */ PUSH_SCOPE_ID),
+/* harmony export */   RENDER_LIST: () => (/* binding */ RENDER_LIST),
+/* harmony export */   RENDER_SLOT: () => (/* binding */ RENDER_SLOT),
+/* harmony export */   RESOLVE_COMPONENT: () => (/* binding */ RESOLVE_COMPONENT),
+/* harmony export */   RESOLVE_DIRECTIVE: () => (/* binding */ RESOLVE_DIRECTIVE),
+/* harmony export */   RESOLVE_DYNAMIC_COMPONENT: () => (/* binding */ RESOLVE_DYNAMIC_COMPONENT),
+/* harmony export */   RESOLVE_FILTER: () => (/* binding */ RESOLVE_FILTER),
+/* harmony export */   SET_BLOCK_TRACKING: () => (/* binding */ SET_BLOCK_TRACKING),
+/* harmony export */   SUSPENSE: () => (/* binding */ SUSPENSE),
+/* harmony export */   TELEPORT: () => (/* binding */ TELEPORT),
+/* harmony export */   TO_DISPLAY_STRING: () => (/* binding */ TO_DISPLAY_STRING),
+/* harmony export */   TO_HANDLERS: () => (/* binding */ TO_HANDLERS),
+/* harmony export */   TO_HANDLER_KEY: () => (/* binding */ TO_HANDLER_KEY),
+/* harmony export */   TS_NODE_TYPES: () => (/* binding */ TS_NODE_TYPES),
+/* harmony export */   UNREF: () => (/* binding */ UNREF),
+/* harmony export */   WITH_CTX: () => (/* binding */ WITH_CTX),
+/* harmony export */   WITH_DIRECTIVES: () => (/* binding */ WITH_DIRECTIVES),
+/* harmony export */   WITH_MEMO: () => (/* binding */ WITH_MEMO),
+/* harmony export */   advancePositionWithClone: () => (/* binding */ advancePositionWithClone),
+/* harmony export */   advancePositionWithMutation: () => (/* binding */ advancePositionWithMutation),
+/* harmony export */   assert: () => (/* binding */ assert),
+/* harmony export */   baseCompile: () => (/* binding */ baseCompile),
+/* harmony export */   baseParse: () => (/* binding */ baseParse),
+/* harmony export */   buildDirectiveArgs: () => (/* binding */ buildDirectiveArgs),
+/* harmony export */   buildProps: () => (/* binding */ buildProps),
+/* harmony export */   buildSlots: () => (/* binding */ buildSlots),
+/* harmony export */   checkCompatEnabled: () => (/* binding */ checkCompatEnabled),
+/* harmony export */   convertToBlock: () => (/* binding */ convertToBlock),
+/* harmony export */   createArrayExpression: () => (/* binding */ createArrayExpression),
+/* harmony export */   createAssignmentExpression: () => (/* binding */ createAssignmentExpression),
+/* harmony export */   createBlockStatement: () => (/* binding */ createBlockStatement),
+/* harmony export */   createCacheExpression: () => (/* binding */ createCacheExpression),
+/* harmony export */   createCallExpression: () => (/* binding */ createCallExpression),
+/* harmony export */   createCompilerError: () => (/* binding */ createCompilerError),
+/* harmony export */   createCompoundExpression: () => (/* binding */ createCompoundExpression),
+/* harmony export */   createConditionalExpression: () => (/* binding */ createConditionalExpression),
+/* harmony export */   createForLoopParams: () => (/* binding */ createForLoopParams),
+/* harmony export */   createFunctionExpression: () => (/* binding */ createFunctionExpression),
+/* harmony export */   createIfStatement: () => (/* binding */ createIfStatement),
+/* harmony export */   createInterpolation: () => (/* binding */ createInterpolation),
+/* harmony export */   createObjectExpression: () => (/* binding */ createObjectExpression),
+/* harmony export */   createObjectProperty: () => (/* binding */ createObjectProperty),
+/* harmony export */   createReturnStatement: () => (/* binding */ createReturnStatement),
+/* harmony export */   createRoot: () => (/* binding */ createRoot),
+/* harmony export */   createSequenceExpression: () => (/* binding */ createSequenceExpression),
+/* harmony export */   createSimpleExpression: () => (/* binding */ createSimpleExpression),
+/* harmony export */   createStructuralDirectiveTransform: () => (/* binding */ createStructuralDirectiveTransform),
+/* harmony export */   createTemplateLiteral: () => (/* binding */ createTemplateLiteral),
+/* harmony export */   createTransformContext: () => (/* binding */ createTransformContext),
+/* harmony export */   createVNodeCall: () => (/* binding */ createVNodeCall),
+/* harmony export */   extractIdentifiers: () => (/* binding */ extractIdentifiers),
+/* harmony export */   findDir: () => (/* binding */ findDir),
+/* harmony export */   findProp: () => (/* binding */ findProp),
+/* harmony export */   generate: () => (/* binding */ generate),
+/* harmony export */   generateCodeFrame: () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_0__.generateCodeFrame),
+/* harmony export */   getBaseTransformPreset: () => (/* binding */ getBaseTransformPreset),
+/* harmony export */   getConstantType: () => (/* binding */ getConstantType),
+/* harmony export */   getInnerRange: () => (/* binding */ getInnerRange),
+/* harmony export */   getMemoedVNodeCall: () => (/* binding */ getMemoedVNodeCall),
+/* harmony export */   getVNodeBlockHelper: () => (/* binding */ getVNodeBlockHelper),
+/* harmony export */   getVNodeHelper: () => (/* binding */ getVNodeHelper),
+/* harmony export */   hasDynamicKeyVBind: () => (/* binding */ hasDynamicKeyVBind),
+/* harmony export */   hasScopeRef: () => (/* binding */ hasScopeRef),
+/* harmony export */   helperNameMap: () => (/* binding */ helperNameMap),
+/* harmony export */   injectProp: () => (/* binding */ injectProp),
+/* harmony export */   isBuiltInType: () => (/* binding */ isBuiltInType),
+/* harmony export */   isCoreComponent: () => (/* binding */ isCoreComponent),
+/* harmony export */   isFunctionType: () => (/* binding */ isFunctionType),
+/* harmony export */   isInDestructureAssignment: () => (/* binding */ isInDestructureAssignment),
+/* harmony export */   isMemberExpression: () => (/* binding */ isMemberExpression),
+/* harmony export */   isMemberExpressionBrowser: () => (/* binding */ isMemberExpressionBrowser),
+/* harmony export */   isMemberExpressionNode: () => (/* binding */ isMemberExpressionNode),
+/* harmony export */   isReferencedIdentifier: () => (/* binding */ isReferencedIdentifier),
+/* harmony export */   isSimpleIdentifier: () => (/* binding */ isSimpleIdentifier),
+/* harmony export */   isSlotOutlet: () => (/* binding */ isSlotOutlet),
+/* harmony export */   isStaticArgOf: () => (/* binding */ isStaticArgOf),
+/* harmony export */   isStaticExp: () => (/* binding */ isStaticExp),
+/* harmony export */   isStaticProperty: () => (/* binding */ isStaticProperty),
+/* harmony export */   isStaticPropertyKey: () => (/* binding */ isStaticPropertyKey),
+/* harmony export */   isTemplateNode: () => (/* binding */ isTemplateNode),
+/* harmony export */   isText: () => (/* binding */ isText$1),
+/* harmony export */   isVSlot: () => (/* binding */ isVSlot),
+/* harmony export */   locStub: () => (/* binding */ locStub),
+/* harmony export */   noopDirectiveTransform: () => (/* binding */ noopDirectiveTransform),
+/* harmony export */   processExpression: () => (/* binding */ processExpression),
+/* harmony export */   processFor: () => (/* binding */ processFor),
+/* harmony export */   processIf: () => (/* binding */ processIf),
+/* harmony export */   processSlotOutlet: () => (/* binding */ processSlotOutlet),
+/* harmony export */   registerRuntimeHelpers: () => (/* binding */ registerRuntimeHelpers),
+/* harmony export */   resolveComponentType: () => (/* binding */ resolveComponentType),
+/* harmony export */   stringifyExpression: () => (/* binding */ stringifyExpression),
+/* harmony export */   toValidAssetId: () => (/* binding */ toValidAssetId),
+/* harmony export */   trackSlotScopes: () => (/* binding */ trackSlotScopes),
+/* harmony export */   trackVForSlotScopes: () => (/* binding */ trackVForSlotScopes),
+/* harmony export */   transform: () => (/* binding */ transform),
+/* harmony export */   transformBind: () => (/* binding */ transformBind),
+/* harmony export */   transformElement: () => (/* binding */ transformElement),
+/* harmony export */   transformExpression: () => (/* binding */ transformExpression),
+/* harmony export */   transformModel: () => (/* binding */ transformModel),
+/* harmony export */   transformOn: () => (/* binding */ transformOn),
+/* harmony export */   traverseNode: () => (/* binding */ traverseNode),
+/* harmony export */   walkBlockDeclarations: () => (/* binding */ walkBlockDeclarations),
+/* harmony export */   walkFunctionParams: () => (/* binding */ walkFunctionParams),
+/* harmony export */   walkIdentifiers: () => (/* binding */ walkIdentifiers),
+/* harmony export */   warnDeprecation: () => (/* binding */ warnDeprecation)
 /* harmony export */ });
 /* harmony import */ var _vue_shared__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/shared */ "./node_modules/@vue/shared/dist/shared.esm-bundler.js");
 
@@ -954,7 +954,7 @@ function parseChildren(context, mode, ancestors) {
             continue;
           } else if (/[a-z]/i.test(s[2])) {
             emitError(context, 23);
-            parseTag(context, TagType.End, parent);
+            parseTag(context, 1 /* End */, parent);
             continue;
           } else {
             emitError(
@@ -1115,7 +1115,7 @@ function parseElement(context, ancestors) {
   const wasInPre = context.inPre;
   const wasInVPre = context.inVPre;
   const parent = last(ancestors);
-  const element = parseTag(context, TagType.Start, parent);
+  const element = parseTag(context, 0 /* Start */, parent);
   const isPreBoundary = context.inPre && !wasInPre;
   const isVPreBoundary = context.inVPre && !wasInVPre;
   if (element.isSelfClosing || context.options.isVoidTag(element.tag)) {
@@ -1150,7 +1150,7 @@ function parseElement(context, ancestors) {
   }
   element.children = children;
   if (startsWithEndTagOpen(context.source, element.tag)) {
-    parseTag(context, TagType.End, parent);
+    parseTag(context, 1 /* End */, parent);
   } else {
     emitError(context, 24, 0, element.loc.start);
     if (context.source.length === 0 && element.tag.toLowerCase() === "script") {
@@ -1169,11 +1169,6 @@ function parseElement(context, ancestors) {
   }
   return element;
 }
-var TagType = /* @__PURE__ */ ((TagType2) => {
-  TagType2[TagType2["Start"] = 0] = "Start";
-  TagType2[TagType2["End"] = 1] = "End";
-  return TagType2;
-})(TagType || {});
 const isSpecialTemplateDirective = /* @__PURE__ */ (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.makeMap)(
   `if,else,else-if,for,slot`
 );
@@ -1716,9 +1711,13 @@ function walk(node, context, doNotHoistNode = false) {
     context.transformHoist(children, context, node);
   }
   if (hoistedCount && hoistedCount === originalCount && node.type === 1 && node.tagType === 0 && node.codegenNode && node.codegenNode.type === 13 && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isArray)(node.codegenNode.children)) {
-    node.codegenNode.children = context.hoist(
+    const hoisted = context.hoist(
       createArrayExpression(node.codegenNode.children)
     );
+    if (context.hmr) {
+      hoisted.content = `[...${hoisted.content}]`;
+    }
+    node.codegenNode.children = hoisted;
   }
 }
 function getConstantType(node, context) {
@@ -1892,6 +1891,7 @@ function createTransformContext(root, {
   filename = "",
   prefixIdentifiers = false,
   hoistStatic: hoistStatic2 = false,
+  hmr = false,
   cacheHandlers = false,
   nodeTransforms = [],
   directiveTransforms = {},
@@ -1917,6 +1917,7 @@ function createTransformContext(root, {
     selfName: nameMatch && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.capitalize)((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.camelize)(nameMatch[1])),
     prefixIdentifiers,
     hoistStatic: hoistStatic2,
+    hmr,
     cacheHandlers,
     nodeTransforms,
     directiveTransforms,
@@ -1942,7 +1943,7 @@ function createTransformContext(root, {
     directives: /* @__PURE__ */ new Set(),
     hoists: [],
     imports: [],
-    constantCache: /* @__PURE__ */ new Map(),
+    constantCache: /* @__PURE__ */ new WeakMap(),
     temps: 0,
     cached: 0,
     identifiers: /* @__PURE__ */ Object.create(null),
@@ -3432,7 +3433,7 @@ const trackVForSlotScopes = (node, context) => {
     }
   }
 };
-const buildClientSlotFn = (props, children, loc) => createFunctionExpression(
+const buildClientSlotFn = (props, _vForExp, children, loc) => createFunctionExpression(
   props,
   children,
   false,
@@ -3454,7 +3455,7 @@ function buildSlots(node, context, buildSlotFn = buildClientSlotFn) {
     slotsProperties.push(
       createObjectProperty(
         arg || createSimpleExpression("default", true),
-        buildSlotFn(exp, children, loc)
+        buildSlotFn(exp, void 0, children, loc)
       )
     );
   }
@@ -3491,10 +3492,15 @@ function buildSlots(node, context, buildSlotFn = buildClientSlotFn) {
     } else {
       hasDynamicSlots = true;
     }
-    const slotFunction = buildSlotFn(slotProps, slotChildren, slotLoc);
+    const vFor = findDir(slotElement, "for");
+    const slotFunction = buildSlotFn(
+      slotProps,
+      vFor == null ? void 0 : vFor.exp,
+      slotChildren,
+      slotLoc
+    );
     let vIf;
     let vElse;
-    let vFor;
     if (vIf = findDir(slotElement, "if")) {
       hasDynamicSlots = true;
       dynamicSlots.push(
@@ -3539,7 +3545,7 @@ function buildSlots(node, context, buildSlotFn = buildClientSlotFn) {
           createCompilerError(30, vElse.loc)
         );
       }
-    } else if (vFor = findDir(slotElement, "for")) {
+    } else if (vFor) {
       hasDynamicSlots = true;
       const parseResult = vFor.parseResult || parseForExpression(vFor.exp, context);
       if (parseResult) {
@@ -3580,7 +3586,7 @@ function buildSlots(node, context, buildSlotFn = buildClientSlotFn) {
   }
   if (!onComponentSlot) {
     const buildDefaultSlotProperty = (props, children2) => {
-      const fn = buildSlotFn(props, children2, loc);
+      const fn = buildSlotFn(props, void 0, children2, loc);
       if (context.compatConfig) {
         fn.isNonScopedSlot = true;
       }
@@ -4849,150 +4855,150 @@ const noopDirectiveTransform = () => ({ props: [] });
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BASE_TRANSITION": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.BASE_TRANSITION),
-/* harmony export */   "CAMELIZE": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CAMELIZE),
-/* harmony export */   "CAPITALIZE": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CAPITALIZE),
-/* harmony export */   "CREATE_BLOCK": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_BLOCK),
-/* harmony export */   "CREATE_COMMENT": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_COMMENT),
-/* harmony export */   "CREATE_ELEMENT_BLOCK": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_ELEMENT_BLOCK),
-/* harmony export */   "CREATE_ELEMENT_VNODE": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_ELEMENT_VNODE),
-/* harmony export */   "CREATE_SLOTS": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_SLOTS),
-/* harmony export */   "CREATE_STATIC": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_STATIC),
-/* harmony export */   "CREATE_TEXT": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_TEXT),
-/* harmony export */   "CREATE_VNODE": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_VNODE),
-/* harmony export */   "FRAGMENT": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.FRAGMENT),
-/* harmony export */   "GUARD_REACTIVE_PROPS": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.GUARD_REACTIVE_PROPS),
-/* harmony export */   "IS_MEMO_SAME": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.IS_MEMO_SAME),
-/* harmony export */   "IS_REF": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.IS_REF),
-/* harmony export */   "KEEP_ALIVE": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.KEEP_ALIVE),
-/* harmony export */   "MERGE_PROPS": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.MERGE_PROPS),
-/* harmony export */   "NORMALIZE_CLASS": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.NORMALIZE_CLASS),
-/* harmony export */   "NORMALIZE_PROPS": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.NORMALIZE_PROPS),
-/* harmony export */   "NORMALIZE_STYLE": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.NORMALIZE_STYLE),
-/* harmony export */   "OPEN_BLOCK": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.OPEN_BLOCK),
-/* harmony export */   "POP_SCOPE_ID": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.POP_SCOPE_ID),
-/* harmony export */   "PUSH_SCOPE_ID": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.PUSH_SCOPE_ID),
-/* harmony export */   "RENDER_LIST": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.RENDER_LIST),
-/* harmony export */   "RENDER_SLOT": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.RENDER_SLOT),
-/* harmony export */   "RESOLVE_COMPONENT": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.RESOLVE_COMPONENT),
-/* harmony export */   "RESOLVE_DIRECTIVE": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.RESOLVE_DIRECTIVE),
-/* harmony export */   "RESOLVE_DYNAMIC_COMPONENT": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.RESOLVE_DYNAMIC_COMPONENT),
-/* harmony export */   "RESOLVE_FILTER": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.RESOLVE_FILTER),
-/* harmony export */   "SET_BLOCK_TRACKING": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.SET_BLOCK_TRACKING),
-/* harmony export */   "SUSPENSE": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.SUSPENSE),
-/* harmony export */   "TELEPORT": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.TELEPORT),
-/* harmony export */   "TO_DISPLAY_STRING": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.TO_DISPLAY_STRING),
-/* harmony export */   "TO_HANDLERS": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.TO_HANDLERS),
-/* harmony export */   "TO_HANDLER_KEY": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.TO_HANDLER_KEY),
-/* harmony export */   "TS_NODE_TYPES": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.TS_NODE_TYPES),
-/* harmony export */   "UNREF": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.UNREF),
-/* harmony export */   "WITH_CTX": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.WITH_CTX),
-/* harmony export */   "WITH_DIRECTIVES": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.WITH_DIRECTIVES),
-/* harmony export */   "WITH_MEMO": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.WITH_MEMO),
-/* harmony export */   "advancePositionWithClone": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.advancePositionWithClone),
-/* harmony export */   "advancePositionWithMutation": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.advancePositionWithMutation),
-/* harmony export */   "assert": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.assert),
-/* harmony export */   "baseCompile": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.baseCompile),
-/* harmony export */   "baseParse": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.baseParse),
-/* harmony export */   "buildDirectiveArgs": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.buildDirectiveArgs),
-/* harmony export */   "buildProps": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.buildProps),
-/* harmony export */   "buildSlots": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.buildSlots),
-/* harmony export */   "checkCompatEnabled": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.checkCompatEnabled),
-/* harmony export */   "convertToBlock": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.convertToBlock),
-/* harmony export */   "createArrayExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createArrayExpression),
-/* harmony export */   "createAssignmentExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createAssignmentExpression),
-/* harmony export */   "createBlockStatement": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createBlockStatement),
-/* harmony export */   "createCacheExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createCacheExpression),
-/* harmony export */   "createCallExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createCallExpression),
-/* harmony export */   "createCompilerError": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createCompilerError),
-/* harmony export */   "createCompoundExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createCompoundExpression),
-/* harmony export */   "createConditionalExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createConditionalExpression),
-/* harmony export */   "createForLoopParams": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createForLoopParams),
-/* harmony export */   "createFunctionExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createFunctionExpression),
-/* harmony export */   "createIfStatement": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createIfStatement),
-/* harmony export */   "createInterpolation": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createInterpolation),
-/* harmony export */   "createObjectExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createObjectExpression),
-/* harmony export */   "createObjectProperty": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createObjectProperty),
-/* harmony export */   "createReturnStatement": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createReturnStatement),
-/* harmony export */   "createRoot": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createRoot),
-/* harmony export */   "createSequenceExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createSequenceExpression),
-/* harmony export */   "createSimpleExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createSimpleExpression),
-/* harmony export */   "createStructuralDirectiveTransform": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createStructuralDirectiveTransform),
-/* harmony export */   "createTemplateLiteral": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createTemplateLiteral),
-/* harmony export */   "createTransformContext": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createTransformContext),
-/* harmony export */   "createVNodeCall": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createVNodeCall),
-/* harmony export */   "extractIdentifiers": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.extractIdentifiers),
-/* harmony export */   "findDir": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.findDir),
-/* harmony export */   "findProp": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.findProp),
-/* harmony export */   "generate": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.generate),
-/* harmony export */   "generateCodeFrame": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.generateCodeFrame),
-/* harmony export */   "getBaseTransformPreset": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.getBaseTransformPreset),
-/* harmony export */   "getConstantType": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.getConstantType),
-/* harmony export */   "getInnerRange": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.getInnerRange),
-/* harmony export */   "getMemoedVNodeCall": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.getMemoedVNodeCall),
-/* harmony export */   "getVNodeBlockHelper": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.getVNodeBlockHelper),
-/* harmony export */   "getVNodeHelper": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.getVNodeHelper),
-/* harmony export */   "hasDynamicKeyVBind": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.hasDynamicKeyVBind),
-/* harmony export */   "hasScopeRef": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.hasScopeRef),
-/* harmony export */   "helperNameMap": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.helperNameMap),
-/* harmony export */   "injectProp": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.injectProp),
-/* harmony export */   "isBuiltInType": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isBuiltInType),
-/* harmony export */   "isCoreComponent": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isCoreComponent),
-/* harmony export */   "isFunctionType": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isFunctionType),
-/* harmony export */   "isInDestructureAssignment": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isInDestructureAssignment),
-/* harmony export */   "isMemberExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isMemberExpression),
-/* harmony export */   "isMemberExpressionBrowser": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isMemberExpressionBrowser),
-/* harmony export */   "isMemberExpressionNode": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isMemberExpressionNode),
-/* harmony export */   "isReferencedIdentifier": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isReferencedIdentifier),
-/* harmony export */   "isSimpleIdentifier": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isSimpleIdentifier),
-/* harmony export */   "isSlotOutlet": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isSlotOutlet),
-/* harmony export */   "isStaticArgOf": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isStaticArgOf),
-/* harmony export */   "isStaticExp": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isStaticExp),
-/* harmony export */   "isStaticProperty": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isStaticProperty),
-/* harmony export */   "isStaticPropertyKey": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isStaticPropertyKey),
-/* harmony export */   "isTemplateNode": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isTemplateNode),
-/* harmony export */   "isText": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isText),
-/* harmony export */   "isVSlot": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isVSlot),
-/* harmony export */   "locStub": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.locStub),
-/* harmony export */   "noopDirectiveTransform": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.noopDirectiveTransform),
-/* harmony export */   "processExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.processExpression),
-/* harmony export */   "processFor": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.processFor),
-/* harmony export */   "processIf": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.processIf),
-/* harmony export */   "processSlotOutlet": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.processSlotOutlet),
-/* harmony export */   "registerRuntimeHelpers": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.registerRuntimeHelpers),
-/* harmony export */   "resolveComponentType": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.resolveComponentType),
-/* harmony export */   "stringifyExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.stringifyExpression),
-/* harmony export */   "toValidAssetId": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.toValidAssetId),
-/* harmony export */   "trackSlotScopes": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.trackSlotScopes),
-/* harmony export */   "trackVForSlotScopes": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.trackVForSlotScopes),
-/* harmony export */   "transform": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.transform),
-/* harmony export */   "transformBind": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.transformBind),
-/* harmony export */   "transformElement": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.transformElement),
-/* harmony export */   "transformExpression": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.transformExpression),
-/* harmony export */   "transformModel": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.transformModel),
-/* harmony export */   "transformOn": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.transformOn),
-/* harmony export */   "traverseNode": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.traverseNode),
-/* harmony export */   "walkBlockDeclarations": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.walkBlockDeclarations),
-/* harmony export */   "walkFunctionParams": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.walkFunctionParams),
-/* harmony export */   "walkIdentifiers": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.walkIdentifiers),
-/* harmony export */   "warnDeprecation": () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.warnDeprecation),
-/* harmony export */   "DOMDirectiveTransforms": () => (/* binding */ DOMDirectiveTransforms),
-/* harmony export */   "DOMNodeTransforms": () => (/* binding */ DOMNodeTransforms),
-/* harmony export */   "TRANSITION": () => (/* binding */ TRANSITION),
-/* harmony export */   "TRANSITION_GROUP": () => (/* binding */ TRANSITION_GROUP),
-/* harmony export */   "V_MODEL_CHECKBOX": () => (/* binding */ V_MODEL_CHECKBOX),
-/* harmony export */   "V_MODEL_DYNAMIC": () => (/* binding */ V_MODEL_DYNAMIC),
-/* harmony export */   "V_MODEL_RADIO": () => (/* binding */ V_MODEL_RADIO),
-/* harmony export */   "V_MODEL_SELECT": () => (/* binding */ V_MODEL_SELECT),
-/* harmony export */   "V_MODEL_TEXT": () => (/* binding */ V_MODEL_TEXT),
-/* harmony export */   "V_ON_WITH_KEYS": () => (/* binding */ V_ON_WITH_KEYS),
-/* harmony export */   "V_ON_WITH_MODIFIERS": () => (/* binding */ V_ON_WITH_MODIFIERS),
-/* harmony export */   "V_SHOW": () => (/* binding */ V_SHOW),
-/* harmony export */   "compile": () => (/* binding */ compile),
-/* harmony export */   "createDOMCompilerError": () => (/* binding */ createDOMCompilerError),
-/* harmony export */   "parse": () => (/* binding */ parse),
-/* harmony export */   "parserOptions": () => (/* binding */ parserOptions),
-/* harmony export */   "transformStyle": () => (/* binding */ transformStyle)
+/* harmony export */   BASE_TRANSITION: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.BASE_TRANSITION),
+/* harmony export */   CAMELIZE: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CAMELIZE),
+/* harmony export */   CAPITALIZE: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CAPITALIZE),
+/* harmony export */   CREATE_BLOCK: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_BLOCK),
+/* harmony export */   CREATE_COMMENT: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_COMMENT),
+/* harmony export */   CREATE_ELEMENT_BLOCK: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_ELEMENT_BLOCK),
+/* harmony export */   CREATE_ELEMENT_VNODE: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_ELEMENT_VNODE),
+/* harmony export */   CREATE_SLOTS: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_SLOTS),
+/* harmony export */   CREATE_STATIC: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_STATIC),
+/* harmony export */   CREATE_TEXT: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_TEXT),
+/* harmony export */   CREATE_VNODE: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.CREATE_VNODE),
+/* harmony export */   DOMDirectiveTransforms: () => (/* binding */ DOMDirectiveTransforms),
+/* harmony export */   DOMNodeTransforms: () => (/* binding */ DOMNodeTransforms),
+/* harmony export */   FRAGMENT: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.FRAGMENT),
+/* harmony export */   GUARD_REACTIVE_PROPS: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.GUARD_REACTIVE_PROPS),
+/* harmony export */   IS_MEMO_SAME: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.IS_MEMO_SAME),
+/* harmony export */   IS_REF: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.IS_REF),
+/* harmony export */   KEEP_ALIVE: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.KEEP_ALIVE),
+/* harmony export */   MERGE_PROPS: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.MERGE_PROPS),
+/* harmony export */   NORMALIZE_CLASS: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.NORMALIZE_CLASS),
+/* harmony export */   NORMALIZE_PROPS: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.NORMALIZE_PROPS),
+/* harmony export */   NORMALIZE_STYLE: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.NORMALIZE_STYLE),
+/* harmony export */   OPEN_BLOCK: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.OPEN_BLOCK),
+/* harmony export */   POP_SCOPE_ID: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.POP_SCOPE_ID),
+/* harmony export */   PUSH_SCOPE_ID: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.PUSH_SCOPE_ID),
+/* harmony export */   RENDER_LIST: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.RENDER_LIST),
+/* harmony export */   RENDER_SLOT: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.RENDER_SLOT),
+/* harmony export */   RESOLVE_COMPONENT: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.RESOLVE_COMPONENT),
+/* harmony export */   RESOLVE_DIRECTIVE: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.RESOLVE_DIRECTIVE),
+/* harmony export */   RESOLVE_DYNAMIC_COMPONENT: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.RESOLVE_DYNAMIC_COMPONENT),
+/* harmony export */   RESOLVE_FILTER: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.RESOLVE_FILTER),
+/* harmony export */   SET_BLOCK_TRACKING: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.SET_BLOCK_TRACKING),
+/* harmony export */   SUSPENSE: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.SUSPENSE),
+/* harmony export */   TELEPORT: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.TELEPORT),
+/* harmony export */   TO_DISPLAY_STRING: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.TO_DISPLAY_STRING),
+/* harmony export */   TO_HANDLERS: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.TO_HANDLERS),
+/* harmony export */   TO_HANDLER_KEY: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.TO_HANDLER_KEY),
+/* harmony export */   TRANSITION: () => (/* binding */ TRANSITION),
+/* harmony export */   TRANSITION_GROUP: () => (/* binding */ TRANSITION_GROUP),
+/* harmony export */   TS_NODE_TYPES: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.TS_NODE_TYPES),
+/* harmony export */   UNREF: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.UNREF),
+/* harmony export */   V_MODEL_CHECKBOX: () => (/* binding */ V_MODEL_CHECKBOX),
+/* harmony export */   V_MODEL_DYNAMIC: () => (/* binding */ V_MODEL_DYNAMIC),
+/* harmony export */   V_MODEL_RADIO: () => (/* binding */ V_MODEL_RADIO),
+/* harmony export */   V_MODEL_SELECT: () => (/* binding */ V_MODEL_SELECT),
+/* harmony export */   V_MODEL_TEXT: () => (/* binding */ V_MODEL_TEXT),
+/* harmony export */   V_ON_WITH_KEYS: () => (/* binding */ V_ON_WITH_KEYS),
+/* harmony export */   V_ON_WITH_MODIFIERS: () => (/* binding */ V_ON_WITH_MODIFIERS),
+/* harmony export */   V_SHOW: () => (/* binding */ V_SHOW),
+/* harmony export */   WITH_CTX: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.WITH_CTX),
+/* harmony export */   WITH_DIRECTIVES: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.WITH_DIRECTIVES),
+/* harmony export */   WITH_MEMO: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.WITH_MEMO),
+/* harmony export */   advancePositionWithClone: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.advancePositionWithClone),
+/* harmony export */   advancePositionWithMutation: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.advancePositionWithMutation),
+/* harmony export */   assert: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.assert),
+/* harmony export */   baseCompile: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.baseCompile),
+/* harmony export */   baseParse: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.baseParse),
+/* harmony export */   buildDirectiveArgs: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.buildDirectiveArgs),
+/* harmony export */   buildProps: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.buildProps),
+/* harmony export */   buildSlots: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.buildSlots),
+/* harmony export */   checkCompatEnabled: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.checkCompatEnabled),
+/* harmony export */   compile: () => (/* binding */ compile),
+/* harmony export */   convertToBlock: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.convertToBlock),
+/* harmony export */   createArrayExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createArrayExpression),
+/* harmony export */   createAssignmentExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createAssignmentExpression),
+/* harmony export */   createBlockStatement: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createBlockStatement),
+/* harmony export */   createCacheExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createCacheExpression),
+/* harmony export */   createCallExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createCallExpression),
+/* harmony export */   createCompilerError: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createCompilerError),
+/* harmony export */   createCompoundExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createCompoundExpression),
+/* harmony export */   createConditionalExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createConditionalExpression),
+/* harmony export */   createDOMCompilerError: () => (/* binding */ createDOMCompilerError),
+/* harmony export */   createForLoopParams: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createForLoopParams),
+/* harmony export */   createFunctionExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createFunctionExpression),
+/* harmony export */   createIfStatement: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createIfStatement),
+/* harmony export */   createInterpolation: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createInterpolation),
+/* harmony export */   createObjectExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createObjectExpression),
+/* harmony export */   createObjectProperty: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createObjectProperty),
+/* harmony export */   createReturnStatement: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createReturnStatement),
+/* harmony export */   createRoot: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createRoot),
+/* harmony export */   createSequenceExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createSequenceExpression),
+/* harmony export */   createSimpleExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createSimpleExpression),
+/* harmony export */   createStructuralDirectiveTransform: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createStructuralDirectiveTransform),
+/* harmony export */   createTemplateLiteral: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createTemplateLiteral),
+/* harmony export */   createTransformContext: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createTransformContext),
+/* harmony export */   createVNodeCall: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.createVNodeCall),
+/* harmony export */   extractIdentifiers: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.extractIdentifiers),
+/* harmony export */   findDir: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.findDir),
+/* harmony export */   findProp: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.findProp),
+/* harmony export */   generate: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.generate),
+/* harmony export */   generateCodeFrame: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.generateCodeFrame),
+/* harmony export */   getBaseTransformPreset: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.getBaseTransformPreset),
+/* harmony export */   getConstantType: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.getConstantType),
+/* harmony export */   getInnerRange: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.getInnerRange),
+/* harmony export */   getMemoedVNodeCall: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.getMemoedVNodeCall),
+/* harmony export */   getVNodeBlockHelper: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.getVNodeBlockHelper),
+/* harmony export */   getVNodeHelper: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.getVNodeHelper),
+/* harmony export */   hasDynamicKeyVBind: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.hasDynamicKeyVBind),
+/* harmony export */   hasScopeRef: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.hasScopeRef),
+/* harmony export */   helperNameMap: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.helperNameMap),
+/* harmony export */   injectProp: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.injectProp),
+/* harmony export */   isBuiltInType: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isBuiltInType),
+/* harmony export */   isCoreComponent: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isCoreComponent),
+/* harmony export */   isFunctionType: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isFunctionType),
+/* harmony export */   isInDestructureAssignment: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isInDestructureAssignment),
+/* harmony export */   isMemberExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isMemberExpression),
+/* harmony export */   isMemberExpressionBrowser: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isMemberExpressionBrowser),
+/* harmony export */   isMemberExpressionNode: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isMemberExpressionNode),
+/* harmony export */   isReferencedIdentifier: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isReferencedIdentifier),
+/* harmony export */   isSimpleIdentifier: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isSimpleIdentifier),
+/* harmony export */   isSlotOutlet: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isSlotOutlet),
+/* harmony export */   isStaticArgOf: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isStaticArgOf),
+/* harmony export */   isStaticExp: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isStaticExp),
+/* harmony export */   isStaticProperty: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isStaticProperty),
+/* harmony export */   isStaticPropertyKey: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isStaticPropertyKey),
+/* harmony export */   isTemplateNode: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isTemplateNode),
+/* harmony export */   isText: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isText),
+/* harmony export */   isVSlot: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.isVSlot),
+/* harmony export */   locStub: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.locStub),
+/* harmony export */   noopDirectiveTransform: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.noopDirectiveTransform),
+/* harmony export */   parse: () => (/* binding */ parse),
+/* harmony export */   parserOptions: () => (/* binding */ parserOptions),
+/* harmony export */   processExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.processExpression),
+/* harmony export */   processFor: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.processFor),
+/* harmony export */   processIf: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.processIf),
+/* harmony export */   processSlotOutlet: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.processSlotOutlet),
+/* harmony export */   registerRuntimeHelpers: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.registerRuntimeHelpers),
+/* harmony export */   resolveComponentType: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.resolveComponentType),
+/* harmony export */   stringifyExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.stringifyExpression),
+/* harmony export */   toValidAssetId: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.toValidAssetId),
+/* harmony export */   trackSlotScopes: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.trackSlotScopes),
+/* harmony export */   trackVForSlotScopes: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.trackVForSlotScopes),
+/* harmony export */   transform: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.transform),
+/* harmony export */   transformBind: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.transformBind),
+/* harmony export */   transformElement: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.transformElement),
+/* harmony export */   transformExpression: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.transformExpression),
+/* harmony export */   transformModel: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.transformModel),
+/* harmony export */   transformOn: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.transformOn),
+/* harmony export */   transformStyle: () => (/* binding */ transformStyle),
+/* harmony export */   traverseNode: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.traverseNode),
+/* harmony export */   walkBlockDeclarations: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.walkBlockDeclarations),
+/* harmony export */   walkFunctionParams: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.walkFunctionParams),
+/* harmony export */   walkIdentifiers: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.walkIdentifiers),
+/* harmony export */   warnDeprecation: () => (/* reexport safe */ _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__.warnDeprecation)
 /* harmony export */ });
 /* harmony import */ var _vue_compiler_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/compiler-core */ "./node_modules/@vue/compiler-core/dist/compiler-core.esm-bundler.js");
 /* harmony import */ var _vue_shared__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/shared */ "./node_modules/@vue/shared/dist/shared.esm-bundler.js");
@@ -5498,41 +5504,41 @@ function parse(template, options = {}) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "EffectScope": () => (/* binding */ EffectScope),
-/* harmony export */   "ITERATE_KEY": () => (/* binding */ ITERATE_KEY),
-/* harmony export */   "ReactiveEffect": () => (/* binding */ ReactiveEffect),
-/* harmony export */   "computed": () => (/* binding */ computed),
-/* harmony export */   "customRef": () => (/* binding */ customRef),
-/* harmony export */   "deferredComputed": () => (/* binding */ deferredComputed),
-/* harmony export */   "effect": () => (/* binding */ effect),
-/* harmony export */   "effectScope": () => (/* binding */ effectScope),
-/* harmony export */   "enableTracking": () => (/* binding */ enableTracking),
-/* harmony export */   "getCurrentScope": () => (/* binding */ getCurrentScope),
-/* harmony export */   "isProxy": () => (/* binding */ isProxy),
-/* harmony export */   "isReactive": () => (/* binding */ isReactive),
-/* harmony export */   "isReadonly": () => (/* binding */ isReadonly),
-/* harmony export */   "isRef": () => (/* binding */ isRef),
-/* harmony export */   "isShallow": () => (/* binding */ isShallow),
-/* harmony export */   "markRaw": () => (/* binding */ markRaw),
-/* harmony export */   "onScopeDispose": () => (/* binding */ onScopeDispose),
-/* harmony export */   "pauseTracking": () => (/* binding */ pauseTracking),
-/* harmony export */   "proxyRefs": () => (/* binding */ proxyRefs),
-/* harmony export */   "reactive": () => (/* binding */ reactive),
-/* harmony export */   "readonly": () => (/* binding */ readonly),
-/* harmony export */   "ref": () => (/* binding */ ref),
-/* harmony export */   "resetTracking": () => (/* binding */ resetTracking),
-/* harmony export */   "shallowReactive": () => (/* binding */ shallowReactive),
-/* harmony export */   "shallowReadonly": () => (/* binding */ shallowReadonly),
-/* harmony export */   "shallowRef": () => (/* binding */ shallowRef),
-/* harmony export */   "stop": () => (/* binding */ stop),
-/* harmony export */   "toRaw": () => (/* binding */ toRaw),
-/* harmony export */   "toRef": () => (/* binding */ toRef),
-/* harmony export */   "toRefs": () => (/* binding */ toRefs),
-/* harmony export */   "toValue": () => (/* binding */ toValue),
-/* harmony export */   "track": () => (/* binding */ track),
-/* harmony export */   "trigger": () => (/* binding */ trigger),
-/* harmony export */   "triggerRef": () => (/* binding */ triggerRef),
-/* harmony export */   "unref": () => (/* binding */ unref)
+/* harmony export */   EffectScope: () => (/* binding */ EffectScope),
+/* harmony export */   ITERATE_KEY: () => (/* binding */ ITERATE_KEY),
+/* harmony export */   ReactiveEffect: () => (/* binding */ ReactiveEffect),
+/* harmony export */   computed: () => (/* binding */ computed),
+/* harmony export */   customRef: () => (/* binding */ customRef),
+/* harmony export */   deferredComputed: () => (/* binding */ deferredComputed),
+/* harmony export */   effect: () => (/* binding */ effect),
+/* harmony export */   effectScope: () => (/* binding */ effectScope),
+/* harmony export */   enableTracking: () => (/* binding */ enableTracking),
+/* harmony export */   getCurrentScope: () => (/* binding */ getCurrentScope),
+/* harmony export */   isProxy: () => (/* binding */ isProxy),
+/* harmony export */   isReactive: () => (/* binding */ isReactive),
+/* harmony export */   isReadonly: () => (/* binding */ isReadonly),
+/* harmony export */   isRef: () => (/* binding */ isRef),
+/* harmony export */   isShallow: () => (/* binding */ isShallow),
+/* harmony export */   markRaw: () => (/* binding */ markRaw),
+/* harmony export */   onScopeDispose: () => (/* binding */ onScopeDispose),
+/* harmony export */   pauseTracking: () => (/* binding */ pauseTracking),
+/* harmony export */   proxyRefs: () => (/* binding */ proxyRefs),
+/* harmony export */   reactive: () => (/* binding */ reactive),
+/* harmony export */   readonly: () => (/* binding */ readonly),
+/* harmony export */   ref: () => (/* binding */ ref),
+/* harmony export */   resetTracking: () => (/* binding */ resetTracking),
+/* harmony export */   shallowReactive: () => (/* binding */ shallowReactive),
+/* harmony export */   shallowReadonly: () => (/* binding */ shallowReadonly),
+/* harmony export */   shallowRef: () => (/* binding */ shallowRef),
+/* harmony export */   stop: () => (/* binding */ stop),
+/* harmony export */   toRaw: () => (/* binding */ toRaw),
+/* harmony export */   toRef: () => (/* binding */ toRef),
+/* harmony export */   toRefs: () => (/* binding */ toRefs),
+/* harmony export */   toValue: () => (/* binding */ toValue),
+/* harmony export */   track: () => (/* binding */ track),
+/* harmony export */   trigger: () => (/* binding */ trigger),
+/* harmony export */   triggerRef: () => (/* binding */ triggerRef),
+/* harmony export */   unref: () => (/* binding */ unref)
 /* harmony export */ });
 /* harmony import */ var _vue_shared__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/shared */ "./node_modules/@vue/shared/dist/shared.esm-bundler.js");
 
@@ -5748,7 +5754,7 @@ function cleanupEffect(effect2) {
   }
 }
 function effect(fn, options) {
-  if (fn.effect) {
+  if (fn.effect instanceof ReactiveEffect) {
     fn = fn.effect.fn;
   }
   const _effect = new ReactiveEffect(fn);
@@ -5831,7 +5837,7 @@ function trigger(target, type, key, newValue, oldValue, oldTarget) {
   } else if (key === "length" && (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isArray)(target)) {
     const newLength = Number(newValue);
     depsMap.forEach((dep, key2) => {
-      if (key2 === "length" || key2 >= newLength) {
+      if (key2 === "length" || !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isSymbol)(key2) && key2 >= newLength) {
         deps.push(dep);
       }
     });
@@ -5918,10 +5924,6 @@ const isNonTrackableKeys = /* @__PURE__ */ (0,_vue_shared__WEBPACK_IMPORTED_MODU
 const builtInSymbols = new Set(
   /* @__PURE__ */ Object.getOwnPropertyNames(Symbol).filter((key) => key !== "arguments" && key !== "caller").map((key) => Symbol[key]).filter(_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isSymbol)
 );
-const get$1 = /* @__PURE__ */ createGetter();
-const shallowGet = /* @__PURE__ */ createGetter(false, true);
-const readonlyGet = /* @__PURE__ */ createGetter(true);
-const shallowReadonlyGet = /* @__PURE__ */ createGetter(true, true);
 const arrayInstrumentations = /* @__PURE__ */ createArrayInstrumentations();
 function createArrayInstrumentations() {
   const instrumentations = {};
@@ -5954,8 +5956,13 @@ function hasOwnProperty(key) {
   track(obj, "has", key);
   return obj.hasOwnProperty(key);
 }
-function createGetter(isReadonly2 = false, shallow = false) {
-  return function get2(target, key, receiver) {
+class BaseReactiveHandler {
+  constructor(_isReadonly = false, _shallow = false) {
+    this._isReadonly = _isReadonly;
+    this._shallow = _shallow;
+  }
+  get(target, key, receiver) {
+    const isReadonly2 = this._isReadonly, shallow = this._shallow;
     if (key === "__v_isReactive") {
       return !isReadonly2;
     } else if (key === "__v_isReadonly") {
@@ -5991,17 +5998,18 @@ function createGetter(isReadonly2 = false, shallow = false) {
       return isReadonly2 ? readonly(res) : reactive(res);
     }
     return res;
-  };
+  }
 }
-const set$1 = /* @__PURE__ */ createSetter();
-const shallowSet = /* @__PURE__ */ createSetter(true);
-function createSetter(shallow = false) {
-  return function set2(target, key, value, receiver) {
+class MutableReactiveHandler extends BaseReactiveHandler {
+  constructor(shallow = false) {
+    super(false, shallow);
+  }
+  set(target, key, value, receiver) {
     let oldValue = target[key];
     if (isReadonly(oldValue) && isRef(oldValue) && !isRef(value)) {
       return false;
     }
-    if (!shallow) {
+    if (!this._shallow) {
       if (!isShallow(value) && !isReadonly(value)) {
         oldValue = toRaw(oldValue);
         value = toRaw(value);
@@ -6021,37 +6029,36 @@ function createSetter(shallow = false) {
       }
     }
     return result;
-  };
-}
-function deleteProperty(target, key) {
-  const hadKey = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.hasOwn)(target, key);
-  const oldValue = target[key];
-  const result = Reflect.deleteProperty(target, key);
-  if (result && hadKey) {
-    trigger(target, "delete", key, void 0, oldValue);
   }
-  return result;
-}
-function has$1(target, key) {
-  const result = Reflect.has(target, key);
-  if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isSymbol)(key) || !builtInSymbols.has(key)) {
-    track(target, "has", key);
+  deleteProperty(target, key) {
+    const hadKey = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.hasOwn)(target, key);
+    const oldValue = target[key];
+    const result = Reflect.deleteProperty(target, key);
+    if (result && hadKey) {
+      trigger(target, "delete", key, void 0, oldValue);
+    }
+    return result;
   }
-  return result;
+  has(target, key) {
+    const result = Reflect.has(target, key);
+    if (!(0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isSymbol)(key) || !builtInSymbols.has(key)) {
+      track(target, "has", key);
+    }
+    return result;
+  }
+  ownKeys(target) {
+    track(
+      target,
+      "iterate",
+      (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isArray)(target) ? "length" : ITERATE_KEY
+    );
+    return Reflect.ownKeys(target);
+  }
 }
-function ownKeys(target) {
-  track(target, "iterate", (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.isArray)(target) ? "length" : ITERATE_KEY);
-  return Reflect.ownKeys(target);
-}
-const mutableHandlers = {
-  get: get$1,
-  set: set$1,
-  deleteProperty,
-  has: has$1,
-  ownKeys
-};
-const readonlyHandlers = {
-  get: readonlyGet,
+class ReadonlyReactiveHandler extends BaseReactiveHandler {
+  constructor(shallow = false) {
+    super(true, shallow);
+  }
   set(target, key) {
     if (true) {
       warn(
@@ -6060,7 +6067,7 @@ const readonlyHandlers = {
       );
     }
     return true;
-  },
+  }
   deleteProperty(target, key) {
     if (true) {
       warn(
@@ -6070,22 +6077,13 @@ const readonlyHandlers = {
     }
     return true;
   }
-};
-const shallowReactiveHandlers = /* @__PURE__ */ (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.extend)(
-  {},
-  mutableHandlers,
-  {
-    get: shallowGet,
-    set: shallowSet
-  }
+}
+const mutableHandlers = /* @__PURE__ */ new MutableReactiveHandler();
+const readonlyHandlers = /* @__PURE__ */ new ReadonlyReactiveHandler();
+const shallowReactiveHandlers = /* @__PURE__ */ new MutableReactiveHandler(
+  true
 );
-const shallowReadonlyHandlers = /* @__PURE__ */ (0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.extend)(
-  {},
-  readonlyHandlers,
-  {
-    get: shallowReadonlyGet
-  }
-);
+const shallowReadonlyHandlers = /* @__PURE__ */ new ReadonlyReactiveHandler(true);
 
 const toShallow = (value) => value;
 const getProto = (v) => Reflect.getPrototypeOf(v);
@@ -6094,7 +6092,7 @@ function get(target, key, isReadonly = false, isShallow = false) {
   const rawTarget = toRaw(target);
   const rawKey = toRaw(key);
   if (!isReadonly) {
-    if (key !== rawKey) {
+    if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.hasChanged)(key, rawKey)) {
       track(rawTarget, "get", key);
     }
     track(rawTarget, "get", rawKey);
@@ -6114,7 +6112,7 @@ function has(key, isReadonly = false) {
   const rawTarget = toRaw(target);
   const rawKey = toRaw(key);
   if (!isReadonly) {
-    if (key !== rawKey) {
+    if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_0__.hasChanged)(key, rawKey)) {
       track(rawTarget, "has", key);
     }
     track(rawTarget, "has", rawKey);
@@ -6644,11 +6642,7 @@ function toRef(source, key, defaultValue) {
 }
 function propertyToRef(source, key, defaultValue) {
   const val = source[key];
-  return isRef(val) ? val : new ObjectRefImpl(
-    source,
-    key,
-    defaultValue
-  );
+  return isRef(val) ? val : new ObjectRefImpl(source, key, defaultValue);
 }
 
 class ComputedRefImpl {
@@ -6787,139 +6781,139 @@ function deferredComputed(getter) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "EffectScope": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.EffectScope),
-/* harmony export */   "ReactiveEffect": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ReactiveEffect),
-/* harmony export */   "customRef": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.customRef),
-/* harmony export */   "effect": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.effect),
-/* harmony export */   "effectScope": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.effectScope),
-/* harmony export */   "getCurrentScope": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.getCurrentScope),
-/* harmony export */   "isProxy": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.isProxy),
-/* harmony export */   "isReactive": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.isReactive),
-/* harmony export */   "isReadonly": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.isReadonly),
-/* harmony export */   "isRef": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.isRef),
-/* harmony export */   "isShallow": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.isShallow),
-/* harmony export */   "markRaw": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.markRaw),
-/* harmony export */   "onScopeDispose": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.onScopeDispose),
-/* harmony export */   "proxyRefs": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.proxyRefs),
-/* harmony export */   "reactive": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.reactive),
-/* harmony export */   "readonly": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.readonly),
-/* harmony export */   "ref": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ref),
-/* harmony export */   "shallowReactive": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.shallowReactive),
-/* harmony export */   "shallowReadonly": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.shallowReadonly),
-/* harmony export */   "shallowRef": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.shallowRef),
-/* harmony export */   "stop": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.stop),
-/* harmony export */   "toRaw": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.toRaw),
-/* harmony export */   "toRef": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.toRef),
-/* harmony export */   "toRefs": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.toRefs),
-/* harmony export */   "toValue": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.toValue),
-/* harmony export */   "triggerRef": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.triggerRef),
-/* harmony export */   "unref": () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.unref),
-/* harmony export */   "camelize": () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize),
-/* harmony export */   "capitalize": () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.capitalize),
-/* harmony export */   "normalizeClass": () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.normalizeClass),
-/* harmony export */   "normalizeProps": () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.normalizeProps),
-/* harmony export */   "normalizeStyle": () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.normalizeStyle),
-/* harmony export */   "toDisplayString": () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.toDisplayString),
-/* harmony export */   "toHandlerKey": () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.toHandlerKey),
-/* harmony export */   "BaseTransition": () => (/* binding */ BaseTransition),
-/* harmony export */   "BaseTransitionPropsValidators": () => (/* binding */ BaseTransitionPropsValidators),
-/* harmony export */   "Comment": () => (/* binding */ Comment),
-/* harmony export */   "Fragment": () => (/* binding */ Fragment),
-/* harmony export */   "KeepAlive": () => (/* binding */ KeepAlive),
-/* harmony export */   "Static": () => (/* binding */ Static),
-/* harmony export */   "Suspense": () => (/* binding */ Suspense),
-/* harmony export */   "Teleport": () => (/* binding */ Teleport),
-/* harmony export */   "Text": () => (/* binding */ Text),
-/* harmony export */   "assertNumber": () => (/* binding */ assertNumber),
-/* harmony export */   "callWithAsyncErrorHandling": () => (/* binding */ callWithAsyncErrorHandling),
-/* harmony export */   "callWithErrorHandling": () => (/* binding */ callWithErrorHandling),
-/* harmony export */   "cloneVNode": () => (/* binding */ cloneVNode),
-/* harmony export */   "compatUtils": () => (/* binding */ compatUtils),
-/* harmony export */   "computed": () => (/* binding */ computed),
-/* harmony export */   "createBlock": () => (/* binding */ createBlock),
-/* harmony export */   "createCommentVNode": () => (/* binding */ createCommentVNode),
-/* harmony export */   "createElementBlock": () => (/* binding */ createElementBlock),
-/* harmony export */   "createElementVNode": () => (/* binding */ createBaseVNode),
-/* harmony export */   "createHydrationRenderer": () => (/* binding */ createHydrationRenderer),
-/* harmony export */   "createPropsRestProxy": () => (/* binding */ createPropsRestProxy),
-/* harmony export */   "createRenderer": () => (/* binding */ createRenderer),
-/* harmony export */   "createSlots": () => (/* binding */ createSlots),
-/* harmony export */   "createStaticVNode": () => (/* binding */ createStaticVNode),
-/* harmony export */   "createTextVNode": () => (/* binding */ createTextVNode),
-/* harmony export */   "createVNode": () => (/* binding */ createVNode),
-/* harmony export */   "defineAsyncComponent": () => (/* binding */ defineAsyncComponent),
-/* harmony export */   "defineComponent": () => (/* binding */ defineComponent),
-/* harmony export */   "defineEmits": () => (/* binding */ defineEmits),
-/* harmony export */   "defineExpose": () => (/* binding */ defineExpose),
-/* harmony export */   "defineModel": () => (/* binding */ defineModel),
-/* harmony export */   "defineOptions": () => (/* binding */ defineOptions),
-/* harmony export */   "defineProps": () => (/* binding */ defineProps),
-/* harmony export */   "defineSlots": () => (/* binding */ defineSlots),
-/* harmony export */   "devtools": () => (/* binding */ devtools),
-/* harmony export */   "getCurrentInstance": () => (/* binding */ getCurrentInstance),
-/* harmony export */   "getTransitionRawChildren": () => (/* binding */ getTransitionRawChildren),
-/* harmony export */   "guardReactiveProps": () => (/* binding */ guardReactiveProps),
-/* harmony export */   "h": () => (/* binding */ h),
-/* harmony export */   "handleError": () => (/* binding */ handleError),
-/* harmony export */   "hasInjectionContext": () => (/* binding */ hasInjectionContext),
-/* harmony export */   "initCustomFormatter": () => (/* binding */ initCustomFormatter),
-/* harmony export */   "inject": () => (/* binding */ inject),
-/* harmony export */   "isMemoSame": () => (/* binding */ isMemoSame),
-/* harmony export */   "isRuntimeOnly": () => (/* binding */ isRuntimeOnly),
-/* harmony export */   "isVNode": () => (/* binding */ isVNode),
-/* harmony export */   "mergeDefaults": () => (/* binding */ mergeDefaults),
-/* harmony export */   "mergeModels": () => (/* binding */ mergeModels),
-/* harmony export */   "mergeProps": () => (/* binding */ mergeProps),
-/* harmony export */   "nextTick": () => (/* binding */ nextTick),
-/* harmony export */   "onActivated": () => (/* binding */ onActivated),
-/* harmony export */   "onBeforeMount": () => (/* binding */ onBeforeMount),
-/* harmony export */   "onBeforeUnmount": () => (/* binding */ onBeforeUnmount),
-/* harmony export */   "onBeforeUpdate": () => (/* binding */ onBeforeUpdate),
-/* harmony export */   "onDeactivated": () => (/* binding */ onDeactivated),
-/* harmony export */   "onErrorCaptured": () => (/* binding */ onErrorCaptured),
-/* harmony export */   "onMounted": () => (/* binding */ onMounted),
-/* harmony export */   "onRenderTracked": () => (/* binding */ onRenderTracked),
-/* harmony export */   "onRenderTriggered": () => (/* binding */ onRenderTriggered),
-/* harmony export */   "onServerPrefetch": () => (/* binding */ onServerPrefetch),
-/* harmony export */   "onUnmounted": () => (/* binding */ onUnmounted),
-/* harmony export */   "onUpdated": () => (/* binding */ onUpdated),
-/* harmony export */   "openBlock": () => (/* binding */ openBlock),
-/* harmony export */   "popScopeId": () => (/* binding */ popScopeId),
-/* harmony export */   "provide": () => (/* binding */ provide),
-/* harmony export */   "pushScopeId": () => (/* binding */ pushScopeId),
-/* harmony export */   "queuePostFlushCb": () => (/* binding */ queuePostFlushCb),
-/* harmony export */   "registerRuntimeCompiler": () => (/* binding */ registerRuntimeCompiler),
-/* harmony export */   "renderList": () => (/* binding */ renderList),
-/* harmony export */   "renderSlot": () => (/* binding */ renderSlot),
-/* harmony export */   "resolveComponent": () => (/* binding */ resolveComponent),
-/* harmony export */   "resolveDirective": () => (/* binding */ resolveDirective),
-/* harmony export */   "resolveDynamicComponent": () => (/* binding */ resolveDynamicComponent),
-/* harmony export */   "resolveFilter": () => (/* binding */ resolveFilter),
-/* harmony export */   "resolveTransitionHooks": () => (/* binding */ resolveTransitionHooks),
-/* harmony export */   "setBlockTracking": () => (/* binding */ setBlockTracking),
-/* harmony export */   "setDevtoolsHook": () => (/* binding */ setDevtoolsHook),
-/* harmony export */   "setTransitionHooks": () => (/* binding */ setTransitionHooks),
-/* harmony export */   "ssrContextKey": () => (/* binding */ ssrContextKey),
-/* harmony export */   "ssrUtils": () => (/* binding */ ssrUtils),
-/* harmony export */   "toHandlers": () => (/* binding */ toHandlers),
-/* harmony export */   "transformVNodeArgs": () => (/* binding */ transformVNodeArgs),
-/* harmony export */   "useAttrs": () => (/* binding */ useAttrs),
-/* harmony export */   "useModel": () => (/* binding */ useModel),
-/* harmony export */   "useSSRContext": () => (/* binding */ useSSRContext),
-/* harmony export */   "useSlots": () => (/* binding */ useSlots),
-/* harmony export */   "useTransitionState": () => (/* binding */ useTransitionState),
-/* harmony export */   "version": () => (/* binding */ version),
-/* harmony export */   "warn": () => (/* binding */ warn),
-/* harmony export */   "watch": () => (/* binding */ watch),
-/* harmony export */   "watchEffect": () => (/* binding */ watchEffect),
-/* harmony export */   "watchPostEffect": () => (/* binding */ watchPostEffect),
-/* harmony export */   "watchSyncEffect": () => (/* binding */ watchSyncEffect),
-/* harmony export */   "withAsyncContext": () => (/* binding */ withAsyncContext),
-/* harmony export */   "withCtx": () => (/* binding */ withCtx),
-/* harmony export */   "withDefaults": () => (/* binding */ withDefaults),
-/* harmony export */   "withDirectives": () => (/* binding */ withDirectives),
-/* harmony export */   "withMemo": () => (/* binding */ withMemo),
-/* harmony export */   "withScopeId": () => (/* binding */ withScopeId)
+/* harmony export */   BaseTransition: () => (/* binding */ BaseTransition),
+/* harmony export */   BaseTransitionPropsValidators: () => (/* binding */ BaseTransitionPropsValidators),
+/* harmony export */   Comment: () => (/* binding */ Comment),
+/* harmony export */   EffectScope: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.EffectScope),
+/* harmony export */   Fragment: () => (/* binding */ Fragment),
+/* harmony export */   KeepAlive: () => (/* binding */ KeepAlive),
+/* harmony export */   ReactiveEffect: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ReactiveEffect),
+/* harmony export */   Static: () => (/* binding */ Static),
+/* harmony export */   Suspense: () => (/* binding */ Suspense),
+/* harmony export */   Teleport: () => (/* binding */ Teleport),
+/* harmony export */   Text: () => (/* binding */ Text),
+/* harmony export */   assertNumber: () => (/* binding */ assertNumber),
+/* harmony export */   callWithAsyncErrorHandling: () => (/* binding */ callWithAsyncErrorHandling),
+/* harmony export */   callWithErrorHandling: () => (/* binding */ callWithErrorHandling),
+/* harmony export */   camelize: () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize),
+/* harmony export */   capitalize: () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.capitalize),
+/* harmony export */   cloneVNode: () => (/* binding */ cloneVNode),
+/* harmony export */   compatUtils: () => (/* binding */ compatUtils),
+/* harmony export */   computed: () => (/* binding */ computed),
+/* harmony export */   createBlock: () => (/* binding */ createBlock),
+/* harmony export */   createCommentVNode: () => (/* binding */ createCommentVNode),
+/* harmony export */   createElementBlock: () => (/* binding */ createElementBlock),
+/* harmony export */   createElementVNode: () => (/* binding */ createBaseVNode),
+/* harmony export */   createHydrationRenderer: () => (/* binding */ createHydrationRenderer),
+/* harmony export */   createPropsRestProxy: () => (/* binding */ createPropsRestProxy),
+/* harmony export */   createRenderer: () => (/* binding */ createRenderer),
+/* harmony export */   createSlots: () => (/* binding */ createSlots),
+/* harmony export */   createStaticVNode: () => (/* binding */ createStaticVNode),
+/* harmony export */   createTextVNode: () => (/* binding */ createTextVNode),
+/* harmony export */   createVNode: () => (/* binding */ createVNode),
+/* harmony export */   customRef: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.customRef),
+/* harmony export */   defineAsyncComponent: () => (/* binding */ defineAsyncComponent),
+/* harmony export */   defineComponent: () => (/* binding */ defineComponent),
+/* harmony export */   defineEmits: () => (/* binding */ defineEmits),
+/* harmony export */   defineExpose: () => (/* binding */ defineExpose),
+/* harmony export */   defineModel: () => (/* binding */ defineModel),
+/* harmony export */   defineOptions: () => (/* binding */ defineOptions),
+/* harmony export */   defineProps: () => (/* binding */ defineProps),
+/* harmony export */   defineSlots: () => (/* binding */ defineSlots),
+/* harmony export */   devtools: () => (/* binding */ devtools),
+/* harmony export */   effect: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.effect),
+/* harmony export */   effectScope: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.effectScope),
+/* harmony export */   getCurrentInstance: () => (/* binding */ getCurrentInstance),
+/* harmony export */   getCurrentScope: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.getCurrentScope),
+/* harmony export */   getTransitionRawChildren: () => (/* binding */ getTransitionRawChildren),
+/* harmony export */   guardReactiveProps: () => (/* binding */ guardReactiveProps),
+/* harmony export */   h: () => (/* binding */ h),
+/* harmony export */   handleError: () => (/* binding */ handleError),
+/* harmony export */   hasInjectionContext: () => (/* binding */ hasInjectionContext),
+/* harmony export */   initCustomFormatter: () => (/* binding */ initCustomFormatter),
+/* harmony export */   inject: () => (/* binding */ inject),
+/* harmony export */   isMemoSame: () => (/* binding */ isMemoSame),
+/* harmony export */   isProxy: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.isProxy),
+/* harmony export */   isReactive: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.isReactive),
+/* harmony export */   isReadonly: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.isReadonly),
+/* harmony export */   isRef: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.isRef),
+/* harmony export */   isRuntimeOnly: () => (/* binding */ isRuntimeOnly),
+/* harmony export */   isShallow: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.isShallow),
+/* harmony export */   isVNode: () => (/* binding */ isVNode),
+/* harmony export */   markRaw: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.markRaw),
+/* harmony export */   mergeDefaults: () => (/* binding */ mergeDefaults),
+/* harmony export */   mergeModels: () => (/* binding */ mergeModels),
+/* harmony export */   mergeProps: () => (/* binding */ mergeProps),
+/* harmony export */   nextTick: () => (/* binding */ nextTick),
+/* harmony export */   normalizeClass: () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.normalizeClass),
+/* harmony export */   normalizeProps: () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.normalizeProps),
+/* harmony export */   normalizeStyle: () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.normalizeStyle),
+/* harmony export */   onActivated: () => (/* binding */ onActivated),
+/* harmony export */   onBeforeMount: () => (/* binding */ onBeforeMount),
+/* harmony export */   onBeforeUnmount: () => (/* binding */ onBeforeUnmount),
+/* harmony export */   onBeforeUpdate: () => (/* binding */ onBeforeUpdate),
+/* harmony export */   onDeactivated: () => (/* binding */ onDeactivated),
+/* harmony export */   onErrorCaptured: () => (/* binding */ onErrorCaptured),
+/* harmony export */   onMounted: () => (/* binding */ onMounted),
+/* harmony export */   onRenderTracked: () => (/* binding */ onRenderTracked),
+/* harmony export */   onRenderTriggered: () => (/* binding */ onRenderTriggered),
+/* harmony export */   onScopeDispose: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.onScopeDispose),
+/* harmony export */   onServerPrefetch: () => (/* binding */ onServerPrefetch),
+/* harmony export */   onUnmounted: () => (/* binding */ onUnmounted),
+/* harmony export */   onUpdated: () => (/* binding */ onUpdated),
+/* harmony export */   openBlock: () => (/* binding */ openBlock),
+/* harmony export */   popScopeId: () => (/* binding */ popScopeId),
+/* harmony export */   provide: () => (/* binding */ provide),
+/* harmony export */   proxyRefs: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.proxyRefs),
+/* harmony export */   pushScopeId: () => (/* binding */ pushScopeId),
+/* harmony export */   queuePostFlushCb: () => (/* binding */ queuePostFlushCb),
+/* harmony export */   reactive: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.reactive),
+/* harmony export */   readonly: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.readonly),
+/* harmony export */   ref: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.ref),
+/* harmony export */   registerRuntimeCompiler: () => (/* binding */ registerRuntimeCompiler),
+/* harmony export */   renderList: () => (/* binding */ renderList),
+/* harmony export */   renderSlot: () => (/* binding */ renderSlot),
+/* harmony export */   resolveComponent: () => (/* binding */ resolveComponent),
+/* harmony export */   resolveDirective: () => (/* binding */ resolveDirective),
+/* harmony export */   resolveDynamicComponent: () => (/* binding */ resolveDynamicComponent),
+/* harmony export */   resolveFilter: () => (/* binding */ resolveFilter),
+/* harmony export */   resolveTransitionHooks: () => (/* binding */ resolveTransitionHooks),
+/* harmony export */   setBlockTracking: () => (/* binding */ setBlockTracking),
+/* harmony export */   setDevtoolsHook: () => (/* binding */ setDevtoolsHook),
+/* harmony export */   setTransitionHooks: () => (/* binding */ setTransitionHooks),
+/* harmony export */   shallowReactive: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.shallowReactive),
+/* harmony export */   shallowReadonly: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.shallowReadonly),
+/* harmony export */   shallowRef: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.shallowRef),
+/* harmony export */   ssrContextKey: () => (/* binding */ ssrContextKey),
+/* harmony export */   ssrUtils: () => (/* binding */ ssrUtils),
+/* harmony export */   stop: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.stop),
+/* harmony export */   toDisplayString: () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.toDisplayString),
+/* harmony export */   toHandlerKey: () => (/* reexport safe */ _vue_shared__WEBPACK_IMPORTED_MODULE_1__.toHandlerKey),
+/* harmony export */   toHandlers: () => (/* binding */ toHandlers),
+/* harmony export */   toRaw: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.toRaw),
+/* harmony export */   toRef: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.toRef),
+/* harmony export */   toRefs: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.toRefs),
+/* harmony export */   toValue: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.toValue),
+/* harmony export */   transformVNodeArgs: () => (/* binding */ transformVNodeArgs),
+/* harmony export */   triggerRef: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.triggerRef),
+/* harmony export */   unref: () => (/* reexport safe */ _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.unref),
+/* harmony export */   useAttrs: () => (/* binding */ useAttrs),
+/* harmony export */   useModel: () => (/* binding */ useModel),
+/* harmony export */   useSSRContext: () => (/* binding */ useSSRContext),
+/* harmony export */   useSlots: () => (/* binding */ useSlots),
+/* harmony export */   useTransitionState: () => (/* binding */ useTransitionState),
+/* harmony export */   version: () => (/* binding */ version),
+/* harmony export */   warn: () => (/* binding */ warn),
+/* harmony export */   watch: () => (/* binding */ watch),
+/* harmony export */   watchEffect: () => (/* binding */ watchEffect),
+/* harmony export */   watchPostEffect: () => (/* binding */ watchPostEffect),
+/* harmony export */   watchSyncEffect: () => (/* binding */ watchSyncEffect),
+/* harmony export */   withAsyncContext: () => (/* binding */ withAsyncContext),
+/* harmony export */   withCtx: () => (/* binding */ withCtx),
+/* harmony export */   withDefaults: () => (/* binding */ withDefaults),
+/* harmony export */   withDirectives: () => (/* binding */ withDirectives),
+/* harmony export */   withMemo: () => (/* binding */ withMemo),
+/* harmony export */   withScopeId: () => (/* binding */ withScopeId)
 /* harmony export */ });
 /* harmony import */ var _vue_reactivity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/reactivity */ "./node_modules/@vue/reactivity/dist/reactivity.esm-bundler.js");
 /* harmony import */ var _vue_shared__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/shared */ "./node_modules/@vue/shared/dist/shared.esm-bundler.js");
@@ -7169,8 +7163,13 @@ function findInsertionIndex(id) {
   let end = queue.length;
   while (start < end) {
     const middle = start + end >>> 1;
-    const middleJobId = getId(queue[middle]);
-    middleJobId < id ? start = middle + 1 : end = middle;
+    const middleJob = queue[middle];
+    const middleJobId = getId(middleJob);
+    if (middleJobId < id || middleJobId === id && middleJob.pre) {
+      start = middle + 1;
+    } else {
+      end = middle;
+    }
   }
   return start;
 }
@@ -7972,6 +7971,61 @@ function updateHOCHostEl({ vnode, parent }, el) {
   }
 }
 
+const COMPONENTS = "components";
+const DIRECTIVES = "directives";
+function resolveComponent(name, maybeSelfReference) {
+  return resolveAsset(COMPONENTS, name, true, maybeSelfReference) || name;
+}
+const NULL_DYNAMIC_COMPONENT = Symbol.for("v-ndc");
+function resolveDynamicComponent(component) {
+  if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isString)(component)) {
+    return resolveAsset(COMPONENTS, component, false) || component;
+  } else {
+    return component || NULL_DYNAMIC_COMPONENT;
+  }
+}
+function resolveDirective(name) {
+  return resolveAsset(DIRECTIVES, name);
+}
+function resolveAsset(type, name, warnMissing = true, maybeSelfReference = false) {
+  const instance = currentRenderingInstance || currentInstance;
+  if (instance) {
+    const Component = instance.type;
+    if (type === COMPONENTS) {
+      const selfName = getComponentName(
+        Component,
+        false
+        /* do not include inferred name to avoid breaking existing code */
+      );
+      if (selfName && (selfName === name || selfName === (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)(name) || selfName === (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.capitalize)((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)(name)))) {
+        return Component;
+      }
+    }
+    const res = (
+      // local registration
+      // check instance[type] first which is resolved for options API
+      resolve(instance[type] || Component[type], name) || // global registration
+      resolve(instance.appContext[type], name)
+    );
+    if (!res && maybeSelfReference) {
+      return Component;
+    }
+    if ( true && warnMissing && !res) {
+      const extra = type === COMPONENTS ? `
+If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement.` : ``;
+      warn(`Failed to resolve ${type.slice(0, -1)}: ${name}${extra}`);
+    }
+    return res;
+  } else if (true) {
+    warn(
+      `resolve${(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.capitalize)(type.slice(0, -1))} can only be used in render() or setup().`
+    );
+  }
+}
+function resolve(registry, name) {
+  return registry && (registry[name] || registry[(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)(name)] || registry[(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.capitalize)((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)(name))]);
+}
+
 const isSuspense = (type) => type.__isSuspense;
 const SuspenseImpl = {
   name: "Suspense",
@@ -8285,14 +8339,16 @@ function createSuspenseBoundary(vnode, parentSuspense, parentComponent, containe
         parentComponent: parentComponent2,
         container: container2
       } = suspense;
+      let delayEnter = false;
       if (suspense.isHydrating) {
         suspense.isHydrating = false;
       } else if (!resume) {
-        const delayEnter = activeBranch && pendingBranch.transition && pendingBranch.transition.mode === "out-in";
+        delayEnter = activeBranch && pendingBranch.transition && pendingBranch.transition.mode === "out-in";
         if (delayEnter) {
           activeBranch.transition.afterLeave = () => {
             if (pendingId === suspense.pendingId) {
               move(pendingBranch, container2, anchor2, 0);
+              queuePostFlushCb(effects);
             }
           };
         }
@@ -8318,7 +8374,7 @@ function createSuspenseBoundary(vnode, parentSuspense, parentComponent, containe
         }
         parent = parent.parent;
       }
-      if (!hasUnresolvedAncestor) {
+      if (!hasUnresolvedAncestor && !delayEnter) {
         queuePostFlushCb(effects);
       }
       suspense.effects = [];
@@ -8504,7 +8560,7 @@ function normalizeSuspenseSlot(s) {
   }
   if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(s)) {
     const singleChild = filterSingleRoot(s);
-    if ( true && !singleChild) {
+    if ( true && !singleChild && s.filter((child) => child !== NULL_DYNAMIC_COMPONENT).length > 0) {
       warn(`<Suspense> slots expect a single root node.`);
     }
     s = singleChild;
@@ -8670,9 +8726,7 @@ function doWatch(source, cb, { immediate, deep, flush, onTrack, onTrigger } = _v
     }
     if (cb) {
       const newValue = effect.run();
-      if (deep || forceTrigger || (isMultiSource ? newValue.some(
-        (v, i) => (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasChanged)(v, oldValue[i])
-      ) : (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasChanged)(newValue, oldValue)) || false) {
+      if (deep || forceTrigger || (isMultiSource ? newValue.some((v, i) => (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasChanged)(v, oldValue[i])) : (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.hasChanged)(newValue, oldValue)) || false) {
         if (cleanup) {
           cleanup();
         }
@@ -8845,6 +8899,8 @@ function invokeDirectiveHook(vnode, prevVNode, instance, name) {
   }
 }
 
+const leaveCbKey = Symbol("_leaveCb");
+const enterCbKey = Symbol("_enterCb");
 function useTransitionState() {
   const state = {
     isMounted: false,
@@ -8967,9 +9023,9 @@ const BaseTransitionImpl = {
               oldInnerChild
             );
             leavingVNodesCache[String(oldInnerChild.key)] = oldInnerChild;
-            el._leaveCb = () => {
+            el[leaveCbKey] = () => {
               earlyRemove();
-              el._leaveCb = void 0;
+              el[leaveCbKey] = void 0;
               delete enterHooks.delayedLeave;
             };
             enterHooks.delayedLeave = delayedLeave;
@@ -9040,15 +9096,15 @@ function resolveTransitionHooks(vnode, props, state, instance) {
           return;
         }
       }
-      if (el._leaveCb) {
-        el._leaveCb(
+      if (el[leaveCbKey]) {
+        el[leaveCbKey](
           true
           /* cancelled */
         );
       }
       const leavingVNode = leavingVNodesCache[key];
-      if (leavingVNode && isSameVNodeType(vnode, leavingVNode) && leavingVNode.el._leaveCb) {
-        leavingVNode.el._leaveCb();
+      if (leavingVNode && isSameVNodeType(vnode, leavingVNode) && leavingVNode.el[leaveCbKey]) {
+        leavingVNode.el[leaveCbKey]();
       }
       callHook(hook, [el]);
     },
@@ -9066,7 +9122,7 @@ function resolveTransitionHooks(vnode, props, state, instance) {
         }
       }
       let called = false;
-      const done = el._enterCb = (cancelled) => {
+      const done = el[enterCbKey] = (cancelled) => {
         if (called)
           return;
         called = true;
@@ -9078,7 +9134,7 @@ function resolveTransitionHooks(vnode, props, state, instance) {
         if (hooks.delayedLeave) {
           hooks.delayedLeave();
         }
-        el._enterCb = void 0;
+        el[enterCbKey] = void 0;
       };
       if (hook) {
         callAsyncHook(hook, [el, done]);
@@ -9088,8 +9144,8 @@ function resolveTransitionHooks(vnode, props, state, instance) {
     },
     leave(el, remove) {
       const key2 = String(vnode.key);
-      if (el._enterCb) {
-        el._enterCb(
+      if (el[enterCbKey]) {
+        el[enterCbKey](
           true
           /* cancelled */
         );
@@ -9099,7 +9155,7 @@ function resolveTransitionHooks(vnode, props, state, instance) {
       }
       callHook(onBeforeLeave, [el]);
       let called = false;
-      const done = el._leaveCb = (cancelled) => {
+      const done = el[leaveCbKey] = (cancelled) => {
         if (called)
           return;
         called = true;
@@ -9109,7 +9165,7 @@ function resolveTransitionHooks(vnode, props, state, instance) {
         } else {
           callHook(onAfterLeave, [el]);
         }
-        el._leaveCb = void 0;
+        el[leaveCbKey] = void 0;
         if (leavingVNodesCache[key2] === vnode) {
           delete leavingVNodesCache[key2];
         }
@@ -9171,6 +9227,8 @@ function getTransitionRawChildren(children, keepComment = false, parentKey) {
   return ret;
 }
 
+/*! #__NO_SIDE_EFFECTS__ */
+// @__NO_SIDE_EFFECTS__
 function defineComponent(options, extraOptions) {
   return (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(options) ? (
     // #8326: extend call and options.name access are considered side-effects
@@ -9180,6 +9238,8 @@ function defineComponent(options, extraOptions) {
 }
 
 const isAsyncWrapper = (i) => !!i.type.__asyncLoader;
+/*! #__NO_SIDE_EFFECTS__ */
+// @__NO_SIDE_EFFECTS__
 function defineAsyncComponent(source) {
   if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isFunction)(source)) {
     source = { loader: source };
@@ -9614,61 +9674,6 @@ function onErrorCaptured(hook, target = currentInstance) {
   injectHook("ec", hook, target);
 }
 
-const COMPONENTS = "components";
-const DIRECTIVES = "directives";
-function resolveComponent(name, maybeSelfReference) {
-  return resolveAsset(COMPONENTS, name, true, maybeSelfReference) || name;
-}
-const NULL_DYNAMIC_COMPONENT = Symbol.for("v-ndc");
-function resolveDynamicComponent(component) {
-  if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isString)(component)) {
-    return resolveAsset(COMPONENTS, component, false) || component;
-  } else {
-    return component || NULL_DYNAMIC_COMPONENT;
-  }
-}
-function resolveDirective(name) {
-  return resolveAsset(DIRECTIVES, name);
-}
-function resolveAsset(type, name, warnMissing = true, maybeSelfReference = false) {
-  const instance = currentRenderingInstance || currentInstance;
-  if (instance) {
-    const Component = instance.type;
-    if (type === COMPONENTS) {
-      const selfName = getComponentName(
-        Component,
-        false
-        /* do not include inferred name to avoid breaking existing code */
-      );
-      if (selfName && (selfName === name || selfName === (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)(name) || selfName === (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.capitalize)((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)(name)))) {
-        return Component;
-      }
-    }
-    const res = (
-      // local registration
-      // check instance[type] first which is resolved for options API
-      resolve(instance[type] || Component[type], name) || // global registration
-      resolve(instance.appContext[type], name)
-    );
-    if (!res && maybeSelfReference) {
-      return Component;
-    }
-    if ( true && warnMissing && !res) {
-      const extra = type === COMPONENTS ? `
-If this is a native custom element, make sure to exclude it from component resolution via compilerOptions.isCustomElement.` : ``;
-      warn(`Failed to resolve ${type.slice(0, -1)}: ${name}${extra}`);
-    }
-    return res;
-  } else if (true) {
-    warn(
-      `resolve${(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.capitalize)(type.slice(0, -1))} can only be used in render() or setup().`
-    );
-  }
-}
-function resolve(registry, name) {
-  return registry && (registry[name] || registry[(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)(name)] || registry[(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.capitalize)((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.camelize)(name))]);
-}
-
 function renderList(source, renderItem, cache, index) {
   let ret;
   const cached = cache && cache[index];
@@ -9964,7 +9969,7 @@ const RuntimeCompiledPublicInstanceProxyHandlers = /* @__PURE__ */ (0,_vue_share
       return PublicInstanceProxyHandlers.get(target, key, target);
     },
     has(_, key) {
-      const has = key[0] !== "_" && !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isGloballyWhitelisted)(key);
+      const has = key[0] !== "_" && !(0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isGloballyAllowed)(key);
       if ( true && !has && PublicInstanceProxyHandlers.has(_, key)) {
         warn(
           `Property ${JSON.stringify(
@@ -10640,12 +10645,12 @@ function createAppAPI(render, hydrate) {
         },
         set() {
           warn(
-            `app.config.unwrapInjectedRef has been deprecated. 3.3 now alawys unwraps injected refs in Options API.`
+            `app.config.unwrapInjectedRef has been deprecated. 3.3 now always unwraps injected refs in Options API.`
           );
         }
       });
     }
-    const installedPlugins = /* @__PURE__ */ new Set();
+    const installedPlugins = /* @__PURE__ */ new WeakSet();
     let isMounted = false;
     const app = context.app = {
       _uid: uid$1++,
@@ -10727,10 +10732,7 @@ function createAppAPI(render, hydrate) {
  If you want to mount another app on the same host container, you need to unmount the previous app by calling \`app.unmount()\` first.`
             );
           }
-          const vnode = createVNode(
-            rootComponent,
-            rootProps
-          );
+          const vnode = createVNode(rootComponent, rootProps);
           vnode.appContext = context;
           if (true) {
             context.reload = () => {
@@ -11312,7 +11314,7 @@ const updateSlots = (instance, children, optimized) => {
   }
   if (needDeletionCheck) {
     for (const key in slots) {
-      if (!isInternalKey(key) && !(key in deletionComparisonTarget)) {
+      if (!isInternalKey(key) && deletionComparisonTarget[key] == null) {
         delete slots[key];
       }
     }
@@ -11476,8 +11478,10 @@ function createHydrationFunctions(rendererInternals) {
             hasMismatch = true;
              true && warn(
               `Hydration text mismatch:
-- Client: ${JSON.stringify(node.data)}
-- Server: ${JSON.stringify(vnode.children)}`
+- Server rendered: ${JSON.stringify(
+                node.data
+              )}
+- Client rendered: ${JSON.stringify(vnode.children)}`
             );
             node.data = vnode.children;
           }
@@ -11485,7 +11489,14 @@ function createHydrationFunctions(rendererInternals) {
         }
         break;
       case Comment:
-        if (domType !== 8 /* COMMENT */ || isFragmentStart) {
+        if (isTemplateNode(node)) {
+          nextNode = nextSibling(node);
+          replaceNode(
+            vnode.el = node.content.firstChild,
+            node,
+            parentComponent
+          );
+        } else if (domType !== 8 /* COMMENT */ || isFragmentStart) {
           nextNode = onMismatch();
         } else {
           nextNode = nextSibling(node);
@@ -11528,7 +11539,7 @@ function createHydrationFunctions(rendererInternals) {
         break;
       default:
         if (shapeFlag & 1) {
-          if (domType !== 1 /* ELEMENT */ || vnode.type.toLowerCase() !== node.tagName.toLowerCase()) {
+          if ((domType !== 1 /* ELEMENT */ || vnode.type.toLowerCase() !== node.tagName.toLowerCase()) && !isTemplateNode(node)) {
             nextNode = onMismatch();
           } else {
             nextNode = hydrateElement(
@@ -11543,6 +11554,13 @@ function createHydrationFunctions(rendererInternals) {
         } else if (shapeFlag & 6) {
           vnode.slotScopeIds = slotScopeIds;
           const container = parentNode(node);
+          if (isFragmentStart) {
+            nextNode = locateClosingAnchor(node);
+          } else if (isComment(node) && node.data === "teleport start") {
+            nextNode = locateClosingAnchor(node, node.data, "teleport end");
+          } else {
+            nextNode = nextSibling(node);
+          }
           mountComponent(
             vnode,
             container,
@@ -11552,10 +11570,6 @@ function createHydrationFunctions(rendererInternals) {
             isSVGContainer(container),
             optimized
           );
-          nextNode = isFragmentStart ? locateClosingAsyncAnchor(node) : nextSibling(node);
-          if (nextNode && isComment(nextNode) && nextNode.data === "teleport end") {
-            nextNode = nextSibling(nextNode);
-          }
           if (isAsyncWrapper(vnode)) {
             let subTree;
             if (isFragmentStart) {
@@ -11605,7 +11619,7 @@ function createHydrationFunctions(rendererInternals) {
   };
   const hydrateElement = (el, vnode, parentComponent, parentSuspense, slotScopeIds, optimized) => {
     optimized = optimized || !!vnode.dynamicChildren;
-    const { type, props, patchFlag, shapeFlag, dirs } = vnode;
+    const { type, props, patchFlag, shapeFlag, dirs, transition } = vnode;
     const forcePatchValue = type === "input" && dirs || type === "option";
     if (true) {
       if (dirs) {
@@ -11642,12 +11656,23 @@ function createHydrationFunctions(rendererInternals) {
       if (vnodeHooks = props && props.onVnodeBeforeMount) {
         invokeVNodeHook(vnodeHooks, parentComponent, vnode);
       }
+      let needCallTransitionHooks = false;
+      if (isTemplateNode(el)) {
+        needCallTransitionHooks = needTransition(parentSuspense, transition) && parentComponent && parentComponent.vnode.props && parentComponent.vnode.props.appear;
+        const content = el.content.firstChild;
+        if (needCallTransitionHooks) {
+          transition.beforeEnter(content);
+        }
+        replaceNode(content, el, parentComponent);
+        vnode.el = el = content;
+      }
       if (dirs) {
         invokeDirectiveHook(vnode, null, parentComponent, "beforeMount");
       }
-      if ((vnodeHooks = props && props.onVnodeMounted) || dirs) {
+      if ((vnodeHooks = props && props.onVnodeMounted) || dirs || needCallTransitionHooks) {
         queueEffectWithSuspense(() => {
           vnodeHooks && invokeVNodeHook(vnodeHooks, parentComponent, vnode);
+          needCallTransitionHooks && transition.enter(el);
           dirs && invokeDirectiveHook(vnode, null, parentComponent, "mounted");
         }, parentSuspense);
       }
@@ -11680,8 +11705,8 @@ function createHydrationFunctions(rendererInternals) {
           hasMismatch = true;
            true && warn(
             `Hydration text content mismatch in <${vnode.type}>:
-- Client: ${el.textContent}
-- Server: ${vnode.children}`
+- Server rendered: ${el.textContent}
+- Client rendered: ${vnode.children}`
           );
           el.textContent = vnode.children;
         }
@@ -11765,7 +11790,7 @@ function createHydrationFunctions(rendererInternals) {
     );
     vnode.el = null;
     if (isFragment) {
-      const end = locateClosingAsyncAnchor(node);
+      const end = locateClosingAnchor(node);
       while (true) {
         const next2 = nextSibling(node);
         if (next2 && next2 !== end) {
@@ -11790,14 +11815,14 @@ function createHydrationFunctions(rendererInternals) {
     );
     return next;
   };
-  const locateClosingAsyncAnchor = (node) => {
+  const locateClosingAnchor = (node, open = "[", close = "]") => {
     let match = 0;
     while (node) {
       node = nextSibling(node);
       if (node && isComment(node)) {
-        if (node.data === "[")
+        if (node.data === open)
           match++;
-        if (node.data === "]") {
+        if (node.data === close) {
           if (match === 0) {
             return nextSibling(node);
           } else {
@@ -11807,6 +11832,22 @@ function createHydrationFunctions(rendererInternals) {
       }
     }
     return node;
+  };
+  const replaceNode = (newNode, oldNode, parentComponent) => {
+    const parentNode2 = oldNode.parentNode;
+    if (parentNode2) {
+      parentNode2.replaceChild(newNode, oldNode);
+    }
+    let parent = parentComponent;
+    while (parent) {
+      if (parent.vnode.el === oldNode) {
+        parent.vnode.el = parent.subTree.el = newNode;
+      }
+      parent = parent.parent;
+    }
+  };
+  const isTemplateNode = (node) => {
+    return node.nodeType === 1 /* ELEMENT */ && node.tagName.toLowerCase() === "template";
   };
   return [hydrate, hydrateNode];
 }
@@ -12152,7 +12193,7 @@ function baseCreateRenderer(options, createHydrationFns) {
     if (dirs) {
       invokeDirectiveHook(vnode, null, parentComponent, "beforeMount");
     }
-    const needCallTransitionHooks = (!parentSuspense || parentSuspense && !parentSuspense.pendingBranch) && transition && !transition.persisted;
+    const needCallTransitionHooks = needTransition(parentSuspense, transition);
     if (needCallTransitionHooks) {
       transition.beforeEnter(el);
     }
@@ -13042,8 +13083,8 @@ function baseCreateRenderer(options, createHydrationFns) {
       moveStaticNode(vnode, container, anchor);
       return;
     }
-    const needTransition = moveType !== 2 && shapeFlag & 1 && transition;
-    if (needTransition) {
+    const needTransition2 = moveType !== 2 && shapeFlag & 1 && transition;
+    if (needTransition2) {
       if (moveType === 0) {
         transition.beforeEnter(el);
         hostInsert(el, container, anchor);
@@ -13263,6 +13304,9 @@ function baseCreateRenderer(options, createHydrationFns) {
 function toggleRecurse({ effect, update }, allowed) {
   effect.allowRecurse = update.allowRecurse = allowed;
 }
+function needTransition(parentSuspense, transition) {
+  return (!parentSuspense || parentSuspense && !parentSuspense.pendingBranch) && transition && !transition.persisted;
+}
 function traverseStaticChildren(n1, n2, shallow = false) {
   const ch1 = n1.children;
   const ch2 = n2.children;
@@ -13444,6 +13488,10 @@ const TeleportImpl = {
             internals,
             1
           );
+        } else {
+          if (n2.props && n1.props && n2.props.to !== n1.props.to) {
+            n2.props.to = n1.props.to;
+          }
         }
       } else {
         if ((n2.props && n2.props.to) !== (n1.props && n1.props.to)) {
@@ -13484,19 +13532,18 @@ const TeleportImpl = {
     if (target) {
       hostRemove(targetAnchor);
     }
-    if (doRemove || !isTeleportDisabled(props)) {
-      hostRemove(anchor);
-      if (shapeFlag & 16) {
-        for (let i = 0; i < children.length; i++) {
-          const child = children[i];
-          unmount(
-            child,
-            parentComponent,
-            parentSuspense,
-            true,
-            !!child.dynamicChildren
-          );
-        }
+    doRemove && hostRemove(anchor);
+    if (shapeFlag & 16) {
+      const shouldRemove = doRemove || !isTeleportDisabled(props);
+      for (let i = 0; i < children.length; i++) {
+        const child = children[i];
+        unmount(
+          child,
+          parentComponent,
+          parentSuspense,
+          shouldRemove,
+          !!child.dynamicChildren
+        );
       }
     }
   },
@@ -13580,7 +13627,7 @@ function updateCssVars(vnode) {
   const ctx = vnode.ctx;
   if (ctx && ctx.ut) {
     let node = vnode.children[0].el;
-    while (node !== vnode.targetAnchor) {
+    while (node && node !== vnode.targetAnchor) {
       if (node.nodeType === 1)
         node.setAttribute("data-v-owner", ctx.uid);
       node = node.nextSibling;
@@ -14236,9 +14283,12 @@ function finishComponentSetup(instance, isSSR, skipOptions) {
   if (true) {
     setCurrentInstance(instance);
     (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.pauseTracking)();
-    applyOptions(instance);
-    (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.resetTracking)();
-    unsetCurrentInstance();
+    try {
+      applyOptions(instance);
+    } finally {
+      (0,_vue_reactivity__WEBPACK_IMPORTED_MODULE_0__.resetTracking)();
+      unsetCurrentInstance();
+    }
   }
   if ( true && !Component.render && instance.render === _vue_shared__WEBPACK_IMPORTED_MODULE_1__.NOOP && !isSSR) {
     if (!compile && Component.template) {
@@ -14608,7 +14658,7 @@ function isMemoSame(cached, memo) {
   return true;
 }
 
-const version = "3.3.4";
+const version = "3.3.8";
 const _ssrUtils = {
   createComponentInstance,
   setupComponent,
@@ -14635,159 +14685,159 @@ const compatUtils = null;
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BaseTransition": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.BaseTransition),
-/* harmony export */   "BaseTransitionPropsValidators": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.BaseTransitionPropsValidators),
-/* harmony export */   "Comment": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.Comment),
-/* harmony export */   "EffectScope": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.EffectScope),
-/* harmony export */   "Fragment": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.Fragment),
-/* harmony export */   "KeepAlive": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.KeepAlive),
-/* harmony export */   "ReactiveEffect": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.ReactiveEffect),
-/* harmony export */   "Static": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.Static),
-/* harmony export */   "Suspense": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.Suspense),
-/* harmony export */   "Teleport": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.Teleport),
-/* harmony export */   "Text": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.Text),
-/* harmony export */   "assertNumber": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.assertNumber),
-/* harmony export */   "callWithAsyncErrorHandling": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.callWithAsyncErrorHandling),
-/* harmony export */   "callWithErrorHandling": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.callWithErrorHandling),
-/* harmony export */   "camelize": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.camelize),
-/* harmony export */   "capitalize": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.capitalize),
-/* harmony export */   "cloneVNode": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.cloneVNode),
-/* harmony export */   "compatUtils": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.compatUtils),
-/* harmony export */   "computed": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.computed),
-/* harmony export */   "createBlock": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createBlock),
-/* harmony export */   "createCommentVNode": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode),
-/* harmony export */   "createElementBlock": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createElementBlock),
-/* harmony export */   "createElementVNode": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createElementVNode),
-/* harmony export */   "createHydrationRenderer": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createHydrationRenderer),
-/* harmony export */   "createPropsRestProxy": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createPropsRestProxy),
-/* harmony export */   "createRenderer": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createRenderer),
-/* harmony export */   "createSlots": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createSlots),
-/* harmony export */   "createStaticVNode": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode),
-/* harmony export */   "createTextVNode": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createTextVNode),
-/* harmony export */   "createVNode": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createVNode),
-/* harmony export */   "customRef": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.customRef),
-/* harmony export */   "defineAsyncComponent": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineAsyncComponent),
-/* harmony export */   "defineComponent": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineComponent),
-/* harmony export */   "defineEmits": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineEmits),
-/* harmony export */   "defineExpose": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineExpose),
-/* harmony export */   "defineModel": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineModel),
-/* harmony export */   "defineOptions": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineOptions),
-/* harmony export */   "defineProps": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineProps),
-/* harmony export */   "defineSlots": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineSlots),
-/* harmony export */   "devtools": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.devtools),
-/* harmony export */   "effect": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.effect),
-/* harmony export */   "effectScope": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.effectScope),
-/* harmony export */   "getCurrentInstance": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.getCurrentInstance),
-/* harmony export */   "getCurrentScope": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.getCurrentScope),
-/* harmony export */   "getTransitionRawChildren": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.getTransitionRawChildren),
-/* harmony export */   "guardReactiveProps": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.guardReactiveProps),
-/* harmony export */   "h": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.h),
-/* harmony export */   "handleError": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.handleError),
-/* harmony export */   "hasInjectionContext": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.hasInjectionContext),
-/* harmony export */   "initCustomFormatter": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.initCustomFormatter),
-/* harmony export */   "inject": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.inject),
-/* harmony export */   "isMemoSame": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isMemoSame),
-/* harmony export */   "isProxy": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isProxy),
-/* harmony export */   "isReactive": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isReactive),
-/* harmony export */   "isReadonly": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isReadonly),
-/* harmony export */   "isRef": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isRef),
-/* harmony export */   "isRuntimeOnly": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isRuntimeOnly),
-/* harmony export */   "isShallow": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isShallow),
-/* harmony export */   "isVNode": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isVNode),
-/* harmony export */   "markRaw": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.markRaw),
-/* harmony export */   "mergeDefaults": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.mergeDefaults),
-/* harmony export */   "mergeModels": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.mergeModels),
-/* harmony export */   "mergeProps": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.mergeProps),
-/* harmony export */   "nextTick": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.nextTick),
-/* harmony export */   "normalizeClass": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.normalizeClass),
-/* harmony export */   "normalizeProps": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.normalizeProps),
-/* harmony export */   "normalizeStyle": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle),
-/* harmony export */   "onActivated": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onActivated),
-/* harmony export */   "onBeforeMount": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onBeforeMount),
-/* harmony export */   "onBeforeUnmount": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount),
-/* harmony export */   "onBeforeUpdate": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate),
-/* harmony export */   "onDeactivated": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onDeactivated),
-/* harmony export */   "onErrorCaptured": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onErrorCaptured),
-/* harmony export */   "onMounted": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onMounted),
-/* harmony export */   "onRenderTracked": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onRenderTracked),
-/* harmony export */   "onRenderTriggered": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onRenderTriggered),
-/* harmony export */   "onScopeDispose": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onScopeDispose),
-/* harmony export */   "onServerPrefetch": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onServerPrefetch),
-/* harmony export */   "onUnmounted": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onUnmounted),
-/* harmony export */   "onUpdated": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onUpdated),
-/* harmony export */   "openBlock": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.openBlock),
-/* harmony export */   "popScopeId": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.popScopeId),
-/* harmony export */   "provide": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.provide),
-/* harmony export */   "proxyRefs": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.proxyRefs),
-/* harmony export */   "pushScopeId": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.pushScopeId),
-/* harmony export */   "queuePostFlushCb": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.queuePostFlushCb),
-/* harmony export */   "reactive": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.reactive),
-/* harmony export */   "readonly": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.readonly),
-/* harmony export */   "ref": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.ref),
-/* harmony export */   "registerRuntimeCompiler": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.registerRuntimeCompiler),
-/* harmony export */   "renderList": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.renderList),
-/* harmony export */   "renderSlot": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.renderSlot),
-/* harmony export */   "resolveComponent": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.resolveComponent),
-/* harmony export */   "resolveDirective": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.resolveDirective),
-/* harmony export */   "resolveDynamicComponent": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent),
-/* harmony export */   "resolveFilter": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.resolveFilter),
-/* harmony export */   "resolveTransitionHooks": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.resolveTransitionHooks),
-/* harmony export */   "setBlockTracking": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.setBlockTracking),
-/* harmony export */   "setDevtoolsHook": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.setDevtoolsHook),
-/* harmony export */   "setTransitionHooks": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.setTransitionHooks),
-/* harmony export */   "shallowReactive": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.shallowReactive),
-/* harmony export */   "shallowReadonly": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.shallowReadonly),
-/* harmony export */   "shallowRef": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.shallowRef),
-/* harmony export */   "ssrContextKey": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.ssrContextKey),
-/* harmony export */   "ssrUtils": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.ssrUtils),
-/* harmony export */   "stop": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.stop),
-/* harmony export */   "toDisplayString": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toDisplayString),
-/* harmony export */   "toHandlerKey": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toHandlerKey),
-/* harmony export */   "toHandlers": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toHandlers),
-/* harmony export */   "toRaw": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toRaw),
-/* harmony export */   "toRef": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toRef),
-/* harmony export */   "toRefs": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toRefs),
-/* harmony export */   "toValue": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toValue),
-/* harmony export */   "transformVNodeArgs": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.transformVNodeArgs),
-/* harmony export */   "triggerRef": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.triggerRef),
-/* harmony export */   "unref": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.unref),
-/* harmony export */   "useAttrs": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.useAttrs),
-/* harmony export */   "useModel": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.useModel),
-/* harmony export */   "useSSRContext": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.useSSRContext),
-/* harmony export */   "useSlots": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.useSlots),
-/* harmony export */   "useTransitionState": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.useTransitionState),
-/* harmony export */   "version": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.version),
-/* harmony export */   "warn": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.warn),
-/* harmony export */   "watch": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.watch),
-/* harmony export */   "watchEffect": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.watchEffect),
-/* harmony export */   "watchPostEffect": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.watchPostEffect),
-/* harmony export */   "watchSyncEffect": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.watchSyncEffect),
-/* harmony export */   "withAsyncContext": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.withAsyncContext),
-/* harmony export */   "withCtx": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.withCtx),
-/* harmony export */   "withDefaults": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.withDefaults),
-/* harmony export */   "withDirectives": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.withDirectives),
-/* harmony export */   "withMemo": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.withMemo),
-/* harmony export */   "withScopeId": () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.withScopeId),
-/* harmony export */   "Transition": () => (/* binding */ Transition),
-/* harmony export */   "TransitionGroup": () => (/* binding */ TransitionGroup),
-/* harmony export */   "VueElement": () => (/* binding */ VueElement),
-/* harmony export */   "createApp": () => (/* binding */ createApp),
-/* harmony export */   "createSSRApp": () => (/* binding */ createSSRApp),
-/* harmony export */   "defineCustomElement": () => (/* binding */ defineCustomElement),
-/* harmony export */   "defineSSRCustomElement": () => (/* binding */ defineSSRCustomElement),
-/* harmony export */   "hydrate": () => (/* binding */ hydrate),
-/* harmony export */   "initDirectivesForSSR": () => (/* binding */ initDirectivesForSSR),
-/* harmony export */   "render": () => (/* binding */ render),
-/* harmony export */   "useCssModule": () => (/* binding */ useCssModule),
-/* harmony export */   "useCssVars": () => (/* binding */ useCssVars),
-/* harmony export */   "vModelCheckbox": () => (/* binding */ vModelCheckbox),
-/* harmony export */   "vModelDynamic": () => (/* binding */ vModelDynamic),
-/* harmony export */   "vModelRadio": () => (/* binding */ vModelRadio),
-/* harmony export */   "vModelSelect": () => (/* binding */ vModelSelect),
-/* harmony export */   "vModelText": () => (/* binding */ vModelText),
-/* harmony export */   "vShow": () => (/* binding */ vShow),
-/* harmony export */   "withKeys": () => (/* binding */ withKeys),
-/* harmony export */   "withModifiers": () => (/* binding */ withModifiers)
+/* harmony export */   BaseTransition: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.BaseTransition),
+/* harmony export */   BaseTransitionPropsValidators: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.BaseTransitionPropsValidators),
+/* harmony export */   Comment: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.Comment),
+/* harmony export */   EffectScope: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.EffectScope),
+/* harmony export */   Fragment: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.Fragment),
+/* harmony export */   KeepAlive: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.KeepAlive),
+/* harmony export */   ReactiveEffect: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.ReactiveEffect),
+/* harmony export */   Static: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.Static),
+/* harmony export */   Suspense: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.Suspense),
+/* harmony export */   Teleport: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.Teleport),
+/* harmony export */   Text: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.Text),
+/* harmony export */   Transition: () => (/* binding */ Transition),
+/* harmony export */   TransitionGroup: () => (/* binding */ TransitionGroup),
+/* harmony export */   VueElement: () => (/* binding */ VueElement),
+/* harmony export */   assertNumber: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.assertNumber),
+/* harmony export */   callWithAsyncErrorHandling: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.callWithAsyncErrorHandling),
+/* harmony export */   callWithErrorHandling: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.callWithErrorHandling),
+/* harmony export */   camelize: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.camelize),
+/* harmony export */   capitalize: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.capitalize),
+/* harmony export */   cloneVNode: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.cloneVNode),
+/* harmony export */   compatUtils: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.compatUtils),
+/* harmony export */   computed: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.computed),
+/* harmony export */   createApp: () => (/* binding */ createApp),
+/* harmony export */   createBlock: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createBlock),
+/* harmony export */   createCommentVNode: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode),
+/* harmony export */   createElementBlock: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createElementBlock),
+/* harmony export */   createElementVNode: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createElementVNode),
+/* harmony export */   createHydrationRenderer: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createHydrationRenderer),
+/* harmony export */   createPropsRestProxy: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createPropsRestProxy),
+/* harmony export */   createRenderer: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createRenderer),
+/* harmony export */   createSSRApp: () => (/* binding */ createSSRApp),
+/* harmony export */   createSlots: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createSlots),
+/* harmony export */   createStaticVNode: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode),
+/* harmony export */   createTextVNode: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createTextVNode),
+/* harmony export */   createVNode: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.createVNode),
+/* harmony export */   customRef: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.customRef),
+/* harmony export */   defineAsyncComponent: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineAsyncComponent),
+/* harmony export */   defineComponent: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineComponent),
+/* harmony export */   defineCustomElement: () => (/* binding */ defineCustomElement),
+/* harmony export */   defineEmits: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineEmits),
+/* harmony export */   defineExpose: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineExpose),
+/* harmony export */   defineModel: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineModel),
+/* harmony export */   defineOptions: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineOptions),
+/* harmony export */   defineProps: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineProps),
+/* harmony export */   defineSSRCustomElement: () => (/* binding */ defineSSRCustomElement),
+/* harmony export */   defineSlots: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineSlots),
+/* harmony export */   devtools: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.devtools),
+/* harmony export */   effect: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.effect),
+/* harmony export */   effectScope: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.effectScope),
+/* harmony export */   getCurrentInstance: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.getCurrentInstance),
+/* harmony export */   getCurrentScope: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.getCurrentScope),
+/* harmony export */   getTransitionRawChildren: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.getTransitionRawChildren),
+/* harmony export */   guardReactiveProps: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.guardReactiveProps),
+/* harmony export */   h: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.h),
+/* harmony export */   handleError: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.handleError),
+/* harmony export */   hasInjectionContext: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.hasInjectionContext),
+/* harmony export */   hydrate: () => (/* binding */ hydrate),
+/* harmony export */   initCustomFormatter: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.initCustomFormatter),
+/* harmony export */   initDirectivesForSSR: () => (/* binding */ initDirectivesForSSR),
+/* harmony export */   inject: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.inject),
+/* harmony export */   isMemoSame: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isMemoSame),
+/* harmony export */   isProxy: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isProxy),
+/* harmony export */   isReactive: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isReactive),
+/* harmony export */   isReadonly: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isReadonly),
+/* harmony export */   isRef: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isRef),
+/* harmony export */   isRuntimeOnly: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isRuntimeOnly),
+/* harmony export */   isShallow: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isShallow),
+/* harmony export */   isVNode: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.isVNode),
+/* harmony export */   markRaw: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.markRaw),
+/* harmony export */   mergeDefaults: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.mergeDefaults),
+/* harmony export */   mergeModels: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.mergeModels),
+/* harmony export */   mergeProps: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.mergeProps),
+/* harmony export */   nextTick: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.nextTick),
+/* harmony export */   normalizeClass: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.normalizeClass),
+/* harmony export */   normalizeProps: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.normalizeProps),
+/* harmony export */   normalizeStyle: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle),
+/* harmony export */   onActivated: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onActivated),
+/* harmony export */   onBeforeMount: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onBeforeMount),
+/* harmony export */   onBeforeUnmount: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount),
+/* harmony export */   onBeforeUpdate: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate),
+/* harmony export */   onDeactivated: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onDeactivated),
+/* harmony export */   onErrorCaptured: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onErrorCaptured),
+/* harmony export */   onMounted: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onMounted),
+/* harmony export */   onRenderTracked: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onRenderTracked),
+/* harmony export */   onRenderTriggered: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onRenderTriggered),
+/* harmony export */   onScopeDispose: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onScopeDispose),
+/* harmony export */   onServerPrefetch: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onServerPrefetch),
+/* harmony export */   onUnmounted: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onUnmounted),
+/* harmony export */   onUpdated: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.onUpdated),
+/* harmony export */   openBlock: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.openBlock),
+/* harmony export */   popScopeId: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.popScopeId),
+/* harmony export */   provide: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.provide),
+/* harmony export */   proxyRefs: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.proxyRefs),
+/* harmony export */   pushScopeId: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.pushScopeId),
+/* harmony export */   queuePostFlushCb: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.queuePostFlushCb),
+/* harmony export */   reactive: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.reactive),
+/* harmony export */   readonly: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.readonly),
+/* harmony export */   ref: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.ref),
+/* harmony export */   registerRuntimeCompiler: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.registerRuntimeCompiler),
+/* harmony export */   render: () => (/* binding */ render),
+/* harmony export */   renderList: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.renderList),
+/* harmony export */   renderSlot: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.renderSlot),
+/* harmony export */   resolveComponent: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.resolveComponent),
+/* harmony export */   resolveDirective: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.resolveDirective),
+/* harmony export */   resolveDynamicComponent: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent),
+/* harmony export */   resolveFilter: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.resolveFilter),
+/* harmony export */   resolveTransitionHooks: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.resolveTransitionHooks),
+/* harmony export */   setBlockTracking: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.setBlockTracking),
+/* harmony export */   setDevtoolsHook: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.setDevtoolsHook),
+/* harmony export */   setTransitionHooks: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.setTransitionHooks),
+/* harmony export */   shallowReactive: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.shallowReactive),
+/* harmony export */   shallowReadonly: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.shallowReadonly),
+/* harmony export */   shallowRef: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.shallowRef),
+/* harmony export */   ssrContextKey: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.ssrContextKey),
+/* harmony export */   ssrUtils: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.ssrUtils),
+/* harmony export */   stop: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.stop),
+/* harmony export */   toDisplayString: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toDisplayString),
+/* harmony export */   toHandlerKey: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toHandlerKey),
+/* harmony export */   toHandlers: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toHandlers),
+/* harmony export */   toRaw: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toRaw),
+/* harmony export */   toRef: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toRef),
+/* harmony export */   toRefs: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toRefs),
+/* harmony export */   toValue: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.toValue),
+/* harmony export */   transformVNodeArgs: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.transformVNodeArgs),
+/* harmony export */   triggerRef: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.triggerRef),
+/* harmony export */   unref: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.unref),
+/* harmony export */   useAttrs: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.useAttrs),
+/* harmony export */   useCssModule: () => (/* binding */ useCssModule),
+/* harmony export */   useCssVars: () => (/* binding */ useCssVars),
+/* harmony export */   useModel: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.useModel),
+/* harmony export */   useSSRContext: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.useSSRContext),
+/* harmony export */   useSlots: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.useSlots),
+/* harmony export */   useTransitionState: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.useTransitionState),
+/* harmony export */   vModelCheckbox: () => (/* binding */ vModelCheckbox),
+/* harmony export */   vModelDynamic: () => (/* binding */ vModelDynamic),
+/* harmony export */   vModelRadio: () => (/* binding */ vModelRadio),
+/* harmony export */   vModelSelect: () => (/* binding */ vModelSelect),
+/* harmony export */   vModelText: () => (/* binding */ vModelText),
+/* harmony export */   vShow: () => (/* binding */ vShow),
+/* harmony export */   version: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.version),
+/* harmony export */   warn: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.warn),
+/* harmony export */   watch: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.watch),
+/* harmony export */   watchEffect: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.watchEffect),
+/* harmony export */   watchPostEffect: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.watchPostEffect),
+/* harmony export */   watchSyncEffect: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.watchSyncEffect),
+/* harmony export */   withAsyncContext: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.withAsyncContext),
+/* harmony export */   withCtx: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.withCtx),
+/* harmony export */   withDefaults: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.withDefaults),
+/* harmony export */   withDirectives: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.withDirectives),
+/* harmony export */   withKeys: () => (/* binding */ withKeys),
+/* harmony export */   withMemo: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.withMemo),
+/* harmony export */   withModifiers: () => (/* binding */ withModifiers),
+/* harmony export */   withScopeId: () => (/* reexport safe */ _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.withScopeId)
 /* harmony export */ });
 /* harmony import */ var _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/runtime-core */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
 /* harmony import */ var _vue_shared__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/shared */ "./node_modules/@vue/shared/dist/shared.esm-bundler.js");
@@ -14863,8 +14913,277 @@ const nodeOps = {
   }
 };
 
+const TRANSITION = "transition";
+const ANIMATION = "animation";
+const vtcKey = Symbol("_vtc");
+const Transition = (props, { slots }) => (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.h)(_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.BaseTransition, resolveTransitionProps(props), slots);
+Transition.displayName = "Transition";
+const DOMTransitionPropsValidators = {
+  name: String,
+  type: String,
+  css: {
+    type: Boolean,
+    default: true
+  },
+  duration: [String, Number, Object],
+  enterFromClass: String,
+  enterActiveClass: String,
+  enterToClass: String,
+  appearFromClass: String,
+  appearActiveClass: String,
+  appearToClass: String,
+  leaveFromClass: String,
+  leaveActiveClass: String,
+  leaveToClass: String
+};
+const TransitionPropsValidators = Transition.props = /* @__PURE__ */ (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.extend)(
+  {},
+  _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.BaseTransitionPropsValidators,
+  DOMTransitionPropsValidators
+);
+const callHook = (hook, args = []) => {
+  if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(hook)) {
+    hook.forEach((h2) => h2(...args));
+  } else if (hook) {
+    hook(...args);
+  }
+};
+const hasExplicitCallback = (hook) => {
+  return hook ? (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(hook) ? hook.some((h2) => h2.length > 1) : hook.length > 1 : false;
+};
+function resolveTransitionProps(rawProps) {
+  const baseProps = {};
+  for (const key in rawProps) {
+    if (!(key in DOMTransitionPropsValidators)) {
+      baseProps[key] = rawProps[key];
+    }
+  }
+  if (rawProps.css === false) {
+    return baseProps;
+  }
+  const {
+    name = "v",
+    type,
+    duration,
+    enterFromClass = `${name}-enter-from`,
+    enterActiveClass = `${name}-enter-active`,
+    enterToClass = `${name}-enter-to`,
+    appearFromClass = enterFromClass,
+    appearActiveClass = enterActiveClass,
+    appearToClass = enterToClass,
+    leaveFromClass = `${name}-leave-from`,
+    leaveActiveClass = `${name}-leave-active`,
+    leaveToClass = `${name}-leave-to`
+  } = rawProps;
+  const durations = normalizeDuration(duration);
+  const enterDuration = durations && durations[0];
+  const leaveDuration = durations && durations[1];
+  const {
+    onBeforeEnter,
+    onEnter,
+    onEnterCancelled,
+    onLeave,
+    onLeaveCancelled,
+    onBeforeAppear = onBeforeEnter,
+    onAppear = onEnter,
+    onAppearCancelled = onEnterCancelled
+  } = baseProps;
+  const finishEnter = (el, isAppear, done) => {
+    removeTransitionClass(el, isAppear ? appearToClass : enterToClass);
+    removeTransitionClass(el, isAppear ? appearActiveClass : enterActiveClass);
+    done && done();
+  };
+  const finishLeave = (el, done) => {
+    el._isLeaving = false;
+    removeTransitionClass(el, leaveFromClass);
+    removeTransitionClass(el, leaveToClass);
+    removeTransitionClass(el, leaveActiveClass);
+    done && done();
+  };
+  const makeEnterHook = (isAppear) => {
+    return (el, done) => {
+      const hook = isAppear ? onAppear : onEnter;
+      const resolve = () => finishEnter(el, isAppear, done);
+      callHook(hook, [el, resolve]);
+      nextFrame(() => {
+        removeTransitionClass(el, isAppear ? appearFromClass : enterFromClass);
+        addTransitionClass(el, isAppear ? appearToClass : enterToClass);
+        if (!hasExplicitCallback(hook)) {
+          whenTransitionEnds(el, type, enterDuration, resolve);
+        }
+      });
+    };
+  };
+  return (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.extend)(baseProps, {
+    onBeforeEnter(el) {
+      callHook(onBeforeEnter, [el]);
+      addTransitionClass(el, enterFromClass);
+      addTransitionClass(el, enterActiveClass);
+    },
+    onBeforeAppear(el) {
+      callHook(onBeforeAppear, [el]);
+      addTransitionClass(el, appearFromClass);
+      addTransitionClass(el, appearActiveClass);
+    },
+    onEnter: makeEnterHook(false),
+    onAppear: makeEnterHook(true),
+    onLeave(el, done) {
+      el._isLeaving = true;
+      const resolve = () => finishLeave(el, done);
+      addTransitionClass(el, leaveFromClass);
+      forceReflow();
+      addTransitionClass(el, leaveActiveClass);
+      nextFrame(() => {
+        if (!el._isLeaving) {
+          return;
+        }
+        removeTransitionClass(el, leaveFromClass);
+        addTransitionClass(el, leaveToClass);
+        if (!hasExplicitCallback(onLeave)) {
+          whenTransitionEnds(el, type, leaveDuration, resolve);
+        }
+      });
+      callHook(onLeave, [el, resolve]);
+    },
+    onEnterCancelled(el) {
+      finishEnter(el, false);
+      callHook(onEnterCancelled, [el]);
+    },
+    onAppearCancelled(el) {
+      finishEnter(el, true);
+      callHook(onAppearCancelled, [el]);
+    },
+    onLeaveCancelled(el) {
+      finishLeave(el);
+      callHook(onLeaveCancelled, [el]);
+    }
+  });
+}
+function normalizeDuration(duration) {
+  if (duration == null) {
+    return null;
+  } else if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(duration)) {
+    return [NumberOf(duration.enter), NumberOf(duration.leave)];
+  } else {
+    const n = NumberOf(duration);
+    return [n, n];
+  }
+}
+function NumberOf(val) {
+  const res = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.toNumber)(val);
+  if (true) {
+    (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.assertNumber)(res, "<transition> explicit duration");
+  }
+  return res;
+}
+function addTransitionClass(el, cls) {
+  cls.split(/\s+/).forEach((c) => c && el.classList.add(c));
+  (el[vtcKey] || (el[vtcKey] = /* @__PURE__ */ new Set())).add(cls);
+}
+function removeTransitionClass(el, cls) {
+  cls.split(/\s+/).forEach((c) => c && el.classList.remove(c));
+  const _vtc = el[vtcKey];
+  if (_vtc) {
+    _vtc.delete(cls);
+    if (!_vtc.size) {
+      el[vtcKey] = void 0;
+    }
+  }
+}
+function nextFrame(cb) {
+  requestAnimationFrame(() => {
+    requestAnimationFrame(cb);
+  });
+}
+let endId = 0;
+function whenTransitionEnds(el, expectedType, explicitTimeout, resolve) {
+  const id = el._endId = ++endId;
+  const resolveIfNotStale = () => {
+    if (id === el._endId) {
+      resolve();
+    }
+  };
+  if (explicitTimeout) {
+    return setTimeout(resolveIfNotStale, explicitTimeout);
+  }
+  const { type, timeout, propCount } = getTransitionInfo(el, expectedType);
+  if (!type) {
+    return resolve();
+  }
+  const endEvent = type + "end";
+  let ended = 0;
+  const end = () => {
+    el.removeEventListener(endEvent, onEnd);
+    resolveIfNotStale();
+  };
+  const onEnd = (e) => {
+    if (e.target === el && ++ended >= propCount) {
+      end();
+    }
+  };
+  setTimeout(() => {
+    if (ended < propCount) {
+      end();
+    }
+  }, timeout + 1);
+  el.addEventListener(endEvent, onEnd);
+}
+function getTransitionInfo(el, expectedType) {
+  const styles = window.getComputedStyle(el);
+  const getStyleProperties = (key) => (styles[key] || "").split(", ");
+  const transitionDelays = getStyleProperties(`${TRANSITION}Delay`);
+  const transitionDurations = getStyleProperties(`${TRANSITION}Duration`);
+  const transitionTimeout = getTimeout(transitionDelays, transitionDurations);
+  const animationDelays = getStyleProperties(`${ANIMATION}Delay`);
+  const animationDurations = getStyleProperties(`${ANIMATION}Duration`);
+  const animationTimeout = getTimeout(animationDelays, animationDurations);
+  let type = null;
+  let timeout = 0;
+  let propCount = 0;
+  if (expectedType === TRANSITION) {
+    if (transitionTimeout > 0) {
+      type = TRANSITION;
+      timeout = transitionTimeout;
+      propCount = transitionDurations.length;
+    }
+  } else if (expectedType === ANIMATION) {
+    if (animationTimeout > 0) {
+      type = ANIMATION;
+      timeout = animationTimeout;
+      propCount = animationDurations.length;
+    }
+  } else {
+    timeout = Math.max(transitionTimeout, animationTimeout);
+    type = timeout > 0 ? transitionTimeout > animationTimeout ? TRANSITION : ANIMATION : null;
+    propCount = type ? type === TRANSITION ? transitionDurations.length : animationDurations.length : 0;
+  }
+  const hasTransform = type === TRANSITION && /\b(transform|all)(,|$)/.test(
+    getStyleProperties(`${TRANSITION}Property`).toString()
+  );
+  return {
+    type,
+    timeout,
+    propCount,
+    hasTransform
+  };
+}
+function getTimeout(delays, durations) {
+  while (delays.length < durations.length) {
+    delays = delays.concat(delays);
+  }
+  return Math.max(...durations.map((d, i) => toMs(d) + toMs(delays[i])));
+}
+function toMs(s) {
+  if (s === "auto")
+    return 0;
+  return Number(s.slice(0, -1).replace(",", ".")) * 1e3;
+}
+function forceReflow() {
+  return document.body.offsetHeight;
+}
+
 function patchClass(el, value, isSVG) {
-  const transitionClasses = el._vtc;
+  const transitionClasses = el[vtcKey];
   if (transitionClasses) {
     value = (value ? [value, ...transitionClasses] : [...transitionClasses]).join(" ");
   }
@@ -14875,6 +15194,53 @@ function patchClass(el, value, isSVG) {
   } else {
     el.className = value;
   }
+}
+
+const vShowOldKey = Symbol("_vod");
+const vShow = {
+  beforeMount(el, { value }, { transition }) {
+    el[vShowOldKey] = el.style.display === "none" ? "" : el.style.display;
+    if (transition && value) {
+      transition.beforeEnter(el);
+    } else {
+      setDisplay(el, value);
+    }
+  },
+  mounted(el, { value }, { transition }) {
+    if (transition && value) {
+      transition.enter(el);
+    }
+  },
+  updated(el, { value, oldValue }, { transition }) {
+    if (!value === !oldValue)
+      return;
+    if (transition) {
+      if (value) {
+        transition.beforeEnter(el);
+        setDisplay(el, true);
+        transition.enter(el);
+      } else {
+        transition.leave(el, () => {
+          setDisplay(el, false);
+        });
+      }
+    } else {
+      setDisplay(el, value);
+    }
+  },
+  beforeUnmount(el, { value }) {
+    setDisplay(el, value);
+  }
+};
+function setDisplay(el, value) {
+  el.style.display = value ? el[vShowOldKey] : "none";
+}
+function initVShowForSSR() {
+  vShow.getSSRProps = ({ value }) => {
+    if (!value) {
+      return { style: { display: "none" } };
+    }
+  };
 }
 
 function patchStyle(el, prev, next) {
@@ -14900,7 +15266,7 @@ function patchStyle(el, prev, next) {
     } else if (prev) {
       el.removeAttribute("style");
     }
-    if ("_vod" in el) {
+    if (vShowOldKey in el) {
       style.display = currentDisplay;
     }
   }
@@ -15029,8 +15395,9 @@ function addEventListener(el, event, handler, options) {
 function removeEventListener(el, event, handler, options) {
   el.removeEventListener(event, handler, options);
 }
+const veiKey = Symbol("_vei");
 function patchEvent(el, rawName, prevValue, nextValue, instance = null) {
-  const invokers = el._vei || (el._vei = {});
+  const invokers = el[veiKey] || (el[veiKey] = {});
   const existingInvoker = invokers[rawName];
   if (nextValue && existingInvoker) {
     existingInvoker.value = nextValue;
@@ -15150,6 +15517,8 @@ function shouldSetAsProp(el, key, value, isSVG) {
   return key in el;
 }
 
+/*! #__NO_SIDE_EFFECTS__ */
+// @__NO_SIDE_EFFECTS__
 function defineCustomElement(options, hydrate2) {
   const Comp = (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.defineComponent)(options);
   class VueCustomElement extends VueElement {
@@ -15160,8 +15529,9 @@ function defineCustomElement(options, hydrate2) {
   VueCustomElement.def = Comp;
   return VueCustomElement;
 }
-const defineSSRCustomElement = (options) => {
-  return defineCustomElement(options, hydrate);
+/*! #__NO_SIDE_EFFECTS__ */
+const defineSSRCustomElement = /* @__NO_SIDE_EFFECTS__ */ (options) => {
+  return /* @__PURE__ */ defineCustomElement(options, hydrate);
 };
 const BaseClass = typeof HTMLElement !== "undefined" ? HTMLElement : class {
 };
@@ -15177,6 +15547,7 @@ class VueElement extends BaseClass {
     this._connected = false;
     this._resolved = false;
     this._numberProps = null;
+    this._ob = null;
     if (this.shadowRoot && hydrate2) {
       hydrate2(this._createVNode(), this.shadowRoot);
     } else {
@@ -15203,6 +15574,10 @@ class VueElement extends BaseClass {
   }
   disconnectedCallback() {
     this._connected = false;
+    if (this._ob) {
+      this._ob.disconnect();
+      this._ob = null;
+    }
     (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.nextTick)(() => {
       if (!this._connected) {
         render(null, this.shadowRoot);
@@ -15218,11 +15593,12 @@ class VueElement extends BaseClass {
     for (let i = 0; i < this.attributes.length; i++) {
       this._setAttr(this.attributes[i].name);
     }
-    new MutationObserver((mutations) => {
+    this._ob = new MutationObserver((mutations) => {
       for (const m of mutations) {
         this._setAttr(m.attributeName);
       }
-    }).observe(this, { attributes: true });
+    });
+    this._ob.observe(this, { attributes: true });
     const resolve = (def, isAsync = false) => {
       const { props, styles } = def;
       let numberProps;
@@ -15443,274 +15819,10 @@ function setVarsOnNode(el, vars) {
   }
 }
 
-const TRANSITION = "transition";
-const ANIMATION = "animation";
-const Transition = (props, { slots }) => (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.h)(_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.BaseTransition, resolveTransitionProps(props), slots);
-Transition.displayName = "Transition";
-const DOMTransitionPropsValidators = {
-  name: String,
-  type: String,
-  css: {
-    type: Boolean,
-    default: true
-  },
-  duration: [String, Number, Object],
-  enterFromClass: String,
-  enterActiveClass: String,
-  enterToClass: String,
-  appearFromClass: String,
-  appearActiveClass: String,
-  appearToClass: String,
-  leaveFromClass: String,
-  leaveActiveClass: String,
-  leaveToClass: String
-};
-const TransitionPropsValidators = Transition.props = /* @__PURE__ */ (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.extend)(
-  {},
-  _vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.BaseTransitionPropsValidators,
-  DOMTransitionPropsValidators
-);
-const callHook = (hook, args = []) => {
-  if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(hook)) {
-    hook.forEach((h2) => h2(...args));
-  } else if (hook) {
-    hook(...args);
-  }
-};
-const hasExplicitCallback = (hook) => {
-  return hook ? (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(hook) ? hook.some((h2) => h2.length > 1) : hook.length > 1 : false;
-};
-function resolveTransitionProps(rawProps) {
-  const baseProps = {};
-  for (const key in rawProps) {
-    if (!(key in DOMTransitionPropsValidators)) {
-      baseProps[key] = rawProps[key];
-    }
-  }
-  if (rawProps.css === false) {
-    return baseProps;
-  }
-  const {
-    name = "v",
-    type,
-    duration,
-    enterFromClass = `${name}-enter-from`,
-    enterActiveClass = `${name}-enter-active`,
-    enterToClass = `${name}-enter-to`,
-    appearFromClass = enterFromClass,
-    appearActiveClass = enterActiveClass,
-    appearToClass = enterToClass,
-    leaveFromClass = `${name}-leave-from`,
-    leaveActiveClass = `${name}-leave-active`,
-    leaveToClass = `${name}-leave-to`
-  } = rawProps;
-  const durations = normalizeDuration(duration);
-  const enterDuration = durations && durations[0];
-  const leaveDuration = durations && durations[1];
-  const {
-    onBeforeEnter,
-    onEnter,
-    onEnterCancelled,
-    onLeave,
-    onLeaveCancelled,
-    onBeforeAppear = onBeforeEnter,
-    onAppear = onEnter,
-    onAppearCancelled = onEnterCancelled
-  } = baseProps;
-  const finishEnter = (el, isAppear, done) => {
-    removeTransitionClass(el, isAppear ? appearToClass : enterToClass);
-    removeTransitionClass(el, isAppear ? appearActiveClass : enterActiveClass);
-    done && done();
-  };
-  const finishLeave = (el, done) => {
-    el._isLeaving = false;
-    removeTransitionClass(el, leaveFromClass);
-    removeTransitionClass(el, leaveToClass);
-    removeTransitionClass(el, leaveActiveClass);
-    done && done();
-  };
-  const makeEnterHook = (isAppear) => {
-    return (el, done) => {
-      const hook = isAppear ? onAppear : onEnter;
-      const resolve = () => finishEnter(el, isAppear, done);
-      callHook(hook, [el, resolve]);
-      nextFrame(() => {
-        removeTransitionClass(el, isAppear ? appearFromClass : enterFromClass);
-        addTransitionClass(el, isAppear ? appearToClass : enterToClass);
-        if (!hasExplicitCallback(hook)) {
-          whenTransitionEnds(el, type, enterDuration, resolve);
-        }
-      });
-    };
-  };
-  return (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.extend)(baseProps, {
-    onBeforeEnter(el) {
-      callHook(onBeforeEnter, [el]);
-      addTransitionClass(el, enterFromClass);
-      addTransitionClass(el, enterActiveClass);
-    },
-    onBeforeAppear(el) {
-      callHook(onBeforeAppear, [el]);
-      addTransitionClass(el, appearFromClass);
-      addTransitionClass(el, appearActiveClass);
-    },
-    onEnter: makeEnterHook(false),
-    onAppear: makeEnterHook(true),
-    onLeave(el, done) {
-      el._isLeaving = true;
-      const resolve = () => finishLeave(el, done);
-      addTransitionClass(el, leaveFromClass);
-      forceReflow();
-      addTransitionClass(el, leaveActiveClass);
-      nextFrame(() => {
-        if (!el._isLeaving) {
-          return;
-        }
-        removeTransitionClass(el, leaveFromClass);
-        addTransitionClass(el, leaveToClass);
-        if (!hasExplicitCallback(onLeave)) {
-          whenTransitionEnds(el, type, leaveDuration, resolve);
-        }
-      });
-      callHook(onLeave, [el, resolve]);
-    },
-    onEnterCancelled(el) {
-      finishEnter(el, false);
-      callHook(onEnterCancelled, [el]);
-    },
-    onAppearCancelled(el) {
-      finishEnter(el, true);
-      callHook(onAppearCancelled, [el]);
-    },
-    onLeaveCancelled(el) {
-      finishLeave(el);
-      callHook(onLeaveCancelled, [el]);
-    }
-  });
-}
-function normalizeDuration(duration) {
-  if (duration == null) {
-    return null;
-  } else if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isObject)(duration)) {
-    return [NumberOf(duration.enter), NumberOf(duration.leave)];
-  } else {
-    const n = NumberOf(duration);
-    return [n, n];
-  }
-}
-function NumberOf(val) {
-  const res = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.toNumber)(val);
-  if (true) {
-    (0,_vue_runtime_core__WEBPACK_IMPORTED_MODULE_0__.assertNumber)(res, "<transition> explicit duration");
-  }
-  return res;
-}
-function addTransitionClass(el, cls) {
-  cls.split(/\s+/).forEach((c) => c && el.classList.add(c));
-  (el._vtc || (el._vtc = /* @__PURE__ */ new Set())).add(cls);
-}
-function removeTransitionClass(el, cls) {
-  cls.split(/\s+/).forEach((c) => c && el.classList.remove(c));
-  const { _vtc } = el;
-  if (_vtc) {
-    _vtc.delete(cls);
-    if (!_vtc.size) {
-      el._vtc = void 0;
-    }
-  }
-}
-function nextFrame(cb) {
-  requestAnimationFrame(() => {
-    requestAnimationFrame(cb);
-  });
-}
-let endId = 0;
-function whenTransitionEnds(el, expectedType, explicitTimeout, resolve) {
-  const id = el._endId = ++endId;
-  const resolveIfNotStale = () => {
-    if (id === el._endId) {
-      resolve();
-    }
-  };
-  if (explicitTimeout) {
-    return setTimeout(resolveIfNotStale, explicitTimeout);
-  }
-  const { type, timeout, propCount } = getTransitionInfo(el, expectedType);
-  if (!type) {
-    return resolve();
-  }
-  const endEvent = type + "end";
-  let ended = 0;
-  const end = () => {
-    el.removeEventListener(endEvent, onEnd);
-    resolveIfNotStale();
-  };
-  const onEnd = (e) => {
-    if (e.target === el && ++ended >= propCount) {
-      end();
-    }
-  };
-  setTimeout(() => {
-    if (ended < propCount) {
-      end();
-    }
-  }, timeout + 1);
-  el.addEventListener(endEvent, onEnd);
-}
-function getTransitionInfo(el, expectedType) {
-  const styles = window.getComputedStyle(el);
-  const getStyleProperties = (key) => (styles[key] || "").split(", ");
-  const transitionDelays = getStyleProperties(`${TRANSITION}Delay`);
-  const transitionDurations = getStyleProperties(`${TRANSITION}Duration`);
-  const transitionTimeout = getTimeout(transitionDelays, transitionDurations);
-  const animationDelays = getStyleProperties(`${ANIMATION}Delay`);
-  const animationDurations = getStyleProperties(`${ANIMATION}Duration`);
-  const animationTimeout = getTimeout(animationDelays, animationDurations);
-  let type = null;
-  let timeout = 0;
-  let propCount = 0;
-  if (expectedType === TRANSITION) {
-    if (transitionTimeout > 0) {
-      type = TRANSITION;
-      timeout = transitionTimeout;
-      propCount = transitionDurations.length;
-    }
-  } else if (expectedType === ANIMATION) {
-    if (animationTimeout > 0) {
-      type = ANIMATION;
-      timeout = animationTimeout;
-      propCount = animationDurations.length;
-    }
-  } else {
-    timeout = Math.max(transitionTimeout, animationTimeout);
-    type = timeout > 0 ? transitionTimeout > animationTimeout ? TRANSITION : ANIMATION : null;
-    propCount = type ? type === TRANSITION ? transitionDurations.length : animationDurations.length : 0;
-  }
-  const hasTransform = type === TRANSITION && /\b(transform|all)(,|$)/.test(
-    getStyleProperties(`${TRANSITION}Property`).toString()
-  );
-  return {
-    type,
-    timeout,
-    propCount,
-    hasTransform
-  };
-}
-function getTimeout(delays, durations) {
-  while (delays.length < durations.length) {
-    delays = delays.concat(delays);
-  }
-  return Math.max(...durations.map((d, i) => toMs(d) + toMs(delays[i])));
-}
-function toMs(s) {
-  return Number(s.slice(0, -1).replace(",", ".")) * 1e3;
-}
-function forceReflow() {
-  return document.body.offsetHeight;
-}
-
 const positionMap = /* @__PURE__ */ new WeakMap();
 const newPositionMap = /* @__PURE__ */ new WeakMap();
+const moveCbKey = Symbol("_moveCb");
+const enterCbKey = Symbol("_enterCb");
 const TransitionGroupImpl = {
   name: "TransitionGroup",
   props: /* @__PURE__ */ (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.extend)({}, TransitionPropsValidators, {
@@ -15743,13 +15855,13 @@ const TransitionGroupImpl = {
         const style = el.style;
         addTransitionClass(el, moveClass);
         style.transform = style.webkitTransform = style.transitionDuration = "";
-        const cb = el._moveCb = (e) => {
+        const cb = el[moveCbKey] = (e) => {
           if (e && e.target !== el) {
             return;
           }
           if (!e || /transform$/.test(e.propertyName)) {
             el.removeEventListener("transitionend", cb);
-            el._moveCb = null;
+            el[moveCbKey] = null;
             removeTransitionClass(el, moveClass);
           }
         };
@@ -15792,11 +15904,11 @@ const removeMode = (props) => delete props.mode;
 const TransitionGroup = TransitionGroupImpl;
 function callPendingCbs(c) {
   const el = c.el;
-  if (el._moveCb) {
-    el._moveCb();
+  if (el[moveCbKey]) {
+    el[moveCbKey]();
   }
-  if (el._enterCb) {
-    el._enterCb();
+  if (el[enterCbKey]) {
+    el[enterCbKey]();
   }
 }
 function recordPosition(c) {
@@ -15816,8 +15928,9 @@ function applyTranslation(c) {
 }
 function hasCSSTransform(el, root, moveClass) {
   const clone = el.cloneNode();
-  if (el._vtc) {
-    el._vtc.forEach((cls) => {
+  const _vtc = el[vtcKey];
+  if (_vtc) {
+    _vtc.forEach((cls) => {
       cls.split(/\s+/).forEach((c) => c && clone.classList.remove(c));
     });
   }
@@ -15844,9 +15957,10 @@ function onCompositionEnd(e) {
     target.dispatchEvent(new Event("input"));
   }
 }
+const assignKey = Symbol("_assign");
 const vModelText = {
   created(el, { modifiers: { lazy, trim, number } }, vnode) {
-    el._assign = getModelAssigner(vnode);
+    el[assignKey] = getModelAssigner(vnode);
     const castToNumber = number || vnode.props && vnode.props.type === "number";
     addEventListener(el, lazy ? "change" : "input", (e) => {
       if (e.target.composing)
@@ -15858,7 +15972,7 @@ const vModelText = {
       if (castToNumber) {
         domValue = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.looseToNumber)(domValue);
       }
-      el._assign(domValue);
+      el[assignKey](domValue);
     });
     if (trim) {
       addEventListener(el, "change", () => {
@@ -15876,7 +15990,7 @@ const vModelText = {
     el.value = value == null ? "" : value;
   },
   beforeUpdate(el, { value, modifiers: { lazy, trim, number } }, vnode) {
-    el._assign = getModelAssigner(vnode);
+    el[assignKey] = getModelAssigner(vnode);
     if (el.composing)
       return;
     if (document.activeElement === el && el.type !== "range") {
@@ -15900,12 +16014,12 @@ const vModelCheckbox = {
   // #4096 array checkboxes need to be deep traversed
   deep: true,
   created(el, _, vnode) {
-    el._assign = getModelAssigner(vnode);
+    el[assignKey] = getModelAssigner(vnode);
     addEventListener(el, "change", () => {
       const modelValue = el._modelValue;
       const elementValue = getValue(el);
       const checked = el.checked;
-      const assign = el._assign;
+      const assign = el[assignKey];
       if ((0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.isArray)(modelValue)) {
         const index = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.looseIndexOf)(modelValue, elementValue);
         const found = index !== -1;
@@ -15932,7 +16046,7 @@ const vModelCheckbox = {
   // set initial checked on mount to wait for true-value/false-value
   mounted: setChecked,
   beforeUpdate(el, binding, vnode) {
-    el._assign = getModelAssigner(vnode);
+    el[assignKey] = getModelAssigner(vnode);
     setChecked(el, binding, vnode);
   }
 };
@@ -15949,13 +16063,13 @@ function setChecked(el, { value, oldValue }, vnode) {
 const vModelRadio = {
   created(el, { value }, vnode) {
     el.checked = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.looseEqual)(value, vnode.props.value);
-    el._assign = getModelAssigner(vnode);
+    el[assignKey] = getModelAssigner(vnode);
     addEventListener(el, "change", () => {
-      el._assign(getValue(el));
+      el[assignKey](getValue(el));
     });
   },
   beforeUpdate(el, { value, oldValue }, vnode) {
-    el._assign = getModelAssigner(vnode);
+    el[assignKey] = getModelAssigner(vnode);
     if (value !== oldValue) {
       el.checked = (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.looseEqual)(value, vnode.props.value);
     }
@@ -15970,11 +16084,11 @@ const vModelSelect = {
       const selectedVal = Array.prototype.filter.call(el.options, (o) => o.selected).map(
         (o) => number ? (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.looseToNumber)(getValue(o)) : getValue(o)
       );
-      el._assign(
+      el[assignKey](
         el.multiple ? isSetModel ? new Set(selectedVal) : selectedVal : selectedVal[0]
       );
     });
-    el._assign = getModelAssigner(vnode);
+    el[assignKey] = getModelAssigner(vnode);
   },
   // set value in mounted & updated because <select> relies on its children
   // <option>s.
@@ -15982,7 +16096,7 @@ const vModelSelect = {
     setSelected(el, value);
   },
   beforeUpdate(el, _binding, vnode) {
-    el._assign = getModelAssigner(vnode);
+    el[assignKey] = getModelAssigner(vnode);
   },
   updated(el, { value }) {
     setSelected(el, value);
@@ -16143,52 +16257,6 @@ const withKeys = (fn, modifiers) => {
   };
 };
 
-const vShow = {
-  beforeMount(el, { value }, { transition }) {
-    el._vod = el.style.display === "none" ? "" : el.style.display;
-    if (transition && value) {
-      transition.beforeEnter(el);
-    } else {
-      setDisplay(el, value);
-    }
-  },
-  mounted(el, { value }, { transition }) {
-    if (transition && value) {
-      transition.enter(el);
-    }
-  },
-  updated(el, { value, oldValue }, { transition }) {
-    if (!value === !oldValue)
-      return;
-    if (transition) {
-      if (value) {
-        transition.beforeEnter(el);
-        setDisplay(el, true);
-        transition.enter(el);
-      } else {
-        transition.leave(el, () => {
-          setDisplay(el, false);
-        });
-      }
-    } else {
-      setDisplay(el, value);
-    }
-  },
-  beforeUnmount(el, { value }) {
-    setDisplay(el, value);
-  }
-};
-function setDisplay(el, value) {
-  el.style.display = value ? el._vod : "none";
-}
-function initVShowForSSR() {
-  vShow.getSSRProps = ({ value }) => {
-    if (!value) {
-      return { style: { display: "none" } };
-    }
-  };
-}
-
 const rendererOptions = /* @__PURE__ */ (0,_vue_shared__WEBPACK_IMPORTED_MODULE_1__.extend)({ patchProp }, nodeOps);
 let renderer;
 let enabledHydration = false;
@@ -16321,68 +16389,69 @@ const initDirectivesForSSR = () => {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "EMPTY_ARR": () => (/* binding */ EMPTY_ARR),
-/* harmony export */   "EMPTY_OBJ": () => (/* binding */ EMPTY_OBJ),
-/* harmony export */   "NO": () => (/* binding */ NO),
-/* harmony export */   "NOOP": () => (/* binding */ NOOP),
-/* harmony export */   "PatchFlagNames": () => (/* binding */ PatchFlagNames),
-/* harmony export */   "camelize": () => (/* binding */ camelize),
-/* harmony export */   "capitalize": () => (/* binding */ capitalize),
-/* harmony export */   "def": () => (/* binding */ def),
-/* harmony export */   "escapeHtml": () => (/* binding */ escapeHtml),
-/* harmony export */   "escapeHtmlComment": () => (/* binding */ escapeHtmlComment),
-/* harmony export */   "extend": () => (/* binding */ extend),
-/* harmony export */   "genPropsAccessExp": () => (/* binding */ genPropsAccessExp),
-/* harmony export */   "generateCodeFrame": () => (/* binding */ generateCodeFrame),
-/* harmony export */   "getGlobalThis": () => (/* binding */ getGlobalThis),
-/* harmony export */   "hasChanged": () => (/* binding */ hasChanged),
-/* harmony export */   "hasOwn": () => (/* binding */ hasOwn),
-/* harmony export */   "hyphenate": () => (/* binding */ hyphenate),
-/* harmony export */   "includeBooleanAttr": () => (/* binding */ includeBooleanAttr),
-/* harmony export */   "invokeArrayFns": () => (/* binding */ invokeArrayFns),
-/* harmony export */   "isArray": () => (/* binding */ isArray),
-/* harmony export */   "isBooleanAttr": () => (/* binding */ isBooleanAttr),
-/* harmony export */   "isBuiltInDirective": () => (/* binding */ isBuiltInDirective),
-/* harmony export */   "isDate": () => (/* binding */ isDate),
-/* harmony export */   "isFunction": () => (/* binding */ isFunction),
-/* harmony export */   "isGloballyWhitelisted": () => (/* binding */ isGloballyWhitelisted),
-/* harmony export */   "isHTMLTag": () => (/* binding */ isHTMLTag),
-/* harmony export */   "isIntegerKey": () => (/* binding */ isIntegerKey),
-/* harmony export */   "isKnownHtmlAttr": () => (/* binding */ isKnownHtmlAttr),
-/* harmony export */   "isKnownSvgAttr": () => (/* binding */ isKnownSvgAttr),
-/* harmony export */   "isMap": () => (/* binding */ isMap),
-/* harmony export */   "isModelListener": () => (/* binding */ isModelListener),
-/* harmony export */   "isObject": () => (/* binding */ isObject),
-/* harmony export */   "isOn": () => (/* binding */ isOn),
-/* harmony export */   "isPlainObject": () => (/* binding */ isPlainObject),
-/* harmony export */   "isPromise": () => (/* binding */ isPromise),
-/* harmony export */   "isRegExp": () => (/* binding */ isRegExp),
-/* harmony export */   "isReservedProp": () => (/* binding */ isReservedProp),
-/* harmony export */   "isSSRSafeAttrName": () => (/* binding */ isSSRSafeAttrName),
-/* harmony export */   "isSVGTag": () => (/* binding */ isSVGTag),
-/* harmony export */   "isSet": () => (/* binding */ isSet),
-/* harmony export */   "isSpecialBooleanAttr": () => (/* binding */ isSpecialBooleanAttr),
-/* harmony export */   "isString": () => (/* binding */ isString),
-/* harmony export */   "isSymbol": () => (/* binding */ isSymbol),
-/* harmony export */   "isVoidTag": () => (/* binding */ isVoidTag),
-/* harmony export */   "looseEqual": () => (/* binding */ looseEqual),
-/* harmony export */   "looseIndexOf": () => (/* binding */ looseIndexOf),
-/* harmony export */   "looseToNumber": () => (/* binding */ looseToNumber),
-/* harmony export */   "makeMap": () => (/* binding */ makeMap),
-/* harmony export */   "normalizeClass": () => (/* binding */ normalizeClass),
-/* harmony export */   "normalizeProps": () => (/* binding */ normalizeProps),
-/* harmony export */   "normalizeStyle": () => (/* binding */ normalizeStyle),
-/* harmony export */   "objectToString": () => (/* binding */ objectToString),
-/* harmony export */   "parseStringStyle": () => (/* binding */ parseStringStyle),
-/* harmony export */   "propsToAttrMap": () => (/* binding */ propsToAttrMap),
-/* harmony export */   "remove": () => (/* binding */ remove),
-/* harmony export */   "slotFlagsText": () => (/* binding */ slotFlagsText),
-/* harmony export */   "stringifyStyle": () => (/* binding */ stringifyStyle),
-/* harmony export */   "toDisplayString": () => (/* binding */ toDisplayString),
-/* harmony export */   "toHandlerKey": () => (/* binding */ toHandlerKey),
-/* harmony export */   "toNumber": () => (/* binding */ toNumber),
-/* harmony export */   "toRawType": () => (/* binding */ toRawType),
-/* harmony export */   "toTypeString": () => (/* binding */ toTypeString)
+/* harmony export */   EMPTY_ARR: () => (/* binding */ EMPTY_ARR),
+/* harmony export */   EMPTY_OBJ: () => (/* binding */ EMPTY_OBJ),
+/* harmony export */   NO: () => (/* binding */ NO),
+/* harmony export */   NOOP: () => (/* binding */ NOOP),
+/* harmony export */   PatchFlagNames: () => (/* binding */ PatchFlagNames),
+/* harmony export */   camelize: () => (/* binding */ camelize),
+/* harmony export */   capitalize: () => (/* binding */ capitalize),
+/* harmony export */   def: () => (/* binding */ def),
+/* harmony export */   escapeHtml: () => (/* binding */ escapeHtml),
+/* harmony export */   escapeHtmlComment: () => (/* binding */ escapeHtmlComment),
+/* harmony export */   extend: () => (/* binding */ extend),
+/* harmony export */   genPropsAccessExp: () => (/* binding */ genPropsAccessExp),
+/* harmony export */   generateCodeFrame: () => (/* binding */ generateCodeFrame),
+/* harmony export */   getGlobalThis: () => (/* binding */ getGlobalThis),
+/* harmony export */   hasChanged: () => (/* binding */ hasChanged),
+/* harmony export */   hasOwn: () => (/* binding */ hasOwn),
+/* harmony export */   hyphenate: () => (/* binding */ hyphenate),
+/* harmony export */   includeBooleanAttr: () => (/* binding */ includeBooleanAttr),
+/* harmony export */   invokeArrayFns: () => (/* binding */ invokeArrayFns),
+/* harmony export */   isArray: () => (/* binding */ isArray),
+/* harmony export */   isBooleanAttr: () => (/* binding */ isBooleanAttr),
+/* harmony export */   isBuiltInDirective: () => (/* binding */ isBuiltInDirective),
+/* harmony export */   isDate: () => (/* binding */ isDate),
+/* harmony export */   isFunction: () => (/* binding */ isFunction),
+/* harmony export */   isGloballyAllowed: () => (/* binding */ isGloballyAllowed),
+/* harmony export */   isGloballyWhitelisted: () => (/* binding */ isGloballyWhitelisted),
+/* harmony export */   isHTMLTag: () => (/* binding */ isHTMLTag),
+/* harmony export */   isIntegerKey: () => (/* binding */ isIntegerKey),
+/* harmony export */   isKnownHtmlAttr: () => (/* binding */ isKnownHtmlAttr),
+/* harmony export */   isKnownSvgAttr: () => (/* binding */ isKnownSvgAttr),
+/* harmony export */   isMap: () => (/* binding */ isMap),
+/* harmony export */   isModelListener: () => (/* binding */ isModelListener),
+/* harmony export */   isObject: () => (/* binding */ isObject),
+/* harmony export */   isOn: () => (/* binding */ isOn),
+/* harmony export */   isPlainObject: () => (/* binding */ isPlainObject),
+/* harmony export */   isPromise: () => (/* binding */ isPromise),
+/* harmony export */   isRegExp: () => (/* binding */ isRegExp),
+/* harmony export */   isReservedProp: () => (/* binding */ isReservedProp),
+/* harmony export */   isSSRSafeAttrName: () => (/* binding */ isSSRSafeAttrName),
+/* harmony export */   isSVGTag: () => (/* binding */ isSVGTag),
+/* harmony export */   isSet: () => (/* binding */ isSet),
+/* harmony export */   isSpecialBooleanAttr: () => (/* binding */ isSpecialBooleanAttr),
+/* harmony export */   isString: () => (/* binding */ isString),
+/* harmony export */   isSymbol: () => (/* binding */ isSymbol),
+/* harmony export */   isVoidTag: () => (/* binding */ isVoidTag),
+/* harmony export */   looseEqual: () => (/* binding */ looseEqual),
+/* harmony export */   looseIndexOf: () => (/* binding */ looseIndexOf),
+/* harmony export */   looseToNumber: () => (/* binding */ looseToNumber),
+/* harmony export */   makeMap: () => (/* binding */ makeMap),
+/* harmony export */   normalizeClass: () => (/* binding */ normalizeClass),
+/* harmony export */   normalizeProps: () => (/* binding */ normalizeProps),
+/* harmony export */   normalizeStyle: () => (/* binding */ normalizeStyle),
+/* harmony export */   objectToString: () => (/* binding */ objectToString),
+/* harmony export */   parseStringStyle: () => (/* binding */ parseStringStyle),
+/* harmony export */   propsToAttrMap: () => (/* binding */ propsToAttrMap),
+/* harmony export */   remove: () => (/* binding */ remove),
+/* harmony export */   slotFlagsText: () => (/* binding */ slotFlagsText),
+/* harmony export */   stringifyStyle: () => (/* binding */ stringifyStyle),
+/* harmony export */   toDisplayString: () => (/* binding */ toDisplayString),
+/* harmony export */   toHandlerKey: () => (/* binding */ toHandlerKey),
+/* harmony export */   toNumber: () => (/* binding */ toNumber),
+/* harmony export */   toRawType: () => (/* binding */ toRawType),
+/* harmony export */   toTypeString: () => (/* binding */ toTypeString)
 /* harmony export */ });
 function makeMap(str, expectsLowerCase) {
   const map = /* @__PURE__ */ Object.create(null);
@@ -16420,7 +16489,7 @@ const isString = (val) => typeof val === "string";
 const isSymbol = (val) => typeof val === "symbol";
 const isObject = (val) => val !== null && typeof val === "object";
 const isPromise = (val) => {
-  return isObject(val) && isFunction(val.then) && isFunction(val.catch);
+  return (isObject(val) || isFunction(val)) && isFunction(val.then) && isFunction(val.catch);
 };
 const objectToString = Object.prototype.toString;
 const toTypeString = (value) => objectToString.call(value);
@@ -16451,12 +16520,13 @@ const hyphenateRE = /\B([A-Z])/g;
 const hyphenate = cacheStringFunction(
   (str) => str.replace(hyphenateRE, "-$1").toLowerCase()
 );
-const capitalize = cacheStringFunction(
-  (str) => str.charAt(0).toUpperCase() + str.slice(1)
-);
-const toHandlerKey = cacheStringFunction(
-  (str) => str ? `on${capitalize(str)}` : ``
-);
+const capitalize = cacheStringFunction((str) => {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+});
+const toHandlerKey = cacheStringFunction((str) => {
+  const s = str ? `on${capitalize(str)}` : ``;
+  return s;
+});
 const hasChanged = (value, oldValue) => !Object.is(value, oldValue);
 const invokeArrayFns = (fns, arg) => {
   for (let i = 0; i < fns.length; i++) {
@@ -16510,8 +16580,9 @@ const slotFlagsText = {
   [3]: "FORWARDED"
 };
 
-const GLOBALS_WHITE_LISTED = "Infinity,undefined,NaN,isFinite,isNaN,parseFloat,parseInt,decodeURI,decodeURIComponent,encodeURI,encodeURIComponent,Math,Number,Date,Array,Object,Boolean,String,RegExp,Map,Set,JSON,Intl,BigInt,console";
-const isGloballyWhitelisted = /* @__PURE__ */ makeMap(GLOBALS_WHITE_LISTED);
+const GLOBALS_ALLOWED = "Infinity,undefined,NaN,isFinite,isNaN,parseFloat,parseInt,decodeURI,decodeURIComponent,encodeURI,encodeURIComponent,Math,Number,Date,Array,Object,Boolean,String,RegExp,Map,Set,JSON,Intl,BigInt,console";
+const isGloballyAllowed = /* @__PURE__ */ makeMap(GLOBALS_ALLOWED);
+const isGloballyWhitelisted = isGloballyAllowed;
 
 const range = 2;
 function generateCodeFrame(source, start = 0, end = source.length) {
@@ -16566,9 +16637,7 @@ function normalizeStyle(value) {
       }
     }
     return res;
-  } else if (isString(value)) {
-    return value;
-  } else if (isObject(value)) {
+  } else if (isString(value) || isObject(value)) {
     return value;
   }
 }
@@ -16820,14 +16889,12 @@ __webpack_require__.r(__webpack_exports__);
   computed: {
     extra_class: function extra_class() {
       var _this$css_class;
-
       return (_this$css_class = this.css_class) !== null && _this$css_class !== void 0 ? _this$css_class : "p-2";
     },
     loaderClass: function loaderClass() {
       if (this.color !== 'white') {
         return 'bg-' + this.color + "-500 w-2 h-2 rounded-full animate-bounce object-center";
       }
-
       return 'bg-' + this.color + " w-2 h-2 rounded-full animate-bounce object-center";
     }
   },
@@ -16871,7 +16938,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */   render: () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
@@ -16881,21 +16948,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($options.loaderClass),
     id: "loader-1"
-  }, null, 2
-  /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  }, null, 2 /* CLASS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($options.loaderClass),
     id: "loader-2"
-  }, null, 2
-  /* CLASS */
-  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  }, null, 2 /* CLASS */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)($options.loaderClass),
     id: "loader-3"
-  }, null, 2
-  /* CLASS */
-  )], 2
-  /* CLASS */
-  );
+  }, null, 2 /* CLASS */)], 2 /* CLASS */);
 }
 
 /***/ }),
@@ -16909,7 +16968,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */   render: () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
@@ -16918,9 +16977,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("button", {
     type: $props.type,
     "class": "inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition"
-  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")], 8
-  /* PROPS */
-  , _hoisted_1);
+  }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.renderSlot)(_ctx.$slots, "default")], 8 /* PROPS */, _hoisted_1);
 }
 
 /***/ }),
@@ -17395,7 +17452,7 @@ module.exports = function (list, options) {
 /***/ (function(module) {
 
 /*!
-* sweetalert2 v11.6.16
+* sweetalert2 v11.9.0
 * Released under the MIT License.
 */
 (function (global, factory) {
@@ -17403,56 +17460,179 @@ module.exports = function (list, options) {
   0;
 })(this, (function () { 'use strict';
 
-  /**
-   * This module contains `WeakMap`s for each effectively-"private  property" that a `Swal` has.
-   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
-   * This is the approach that Babel will probably take to implement private methods/fields
-   *   https://github.com/tc39/proposal-private-methods
-   *   https://github.com/babel/babel/pull/7555
-   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
-   *   then we can use that language feature.
-   */
+  function _classPrivateFieldGet(receiver, privateMap) {
+    var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "get");
+    return _classApplyDescriptorGet(receiver, descriptor);
+  }
+  function _classPrivateFieldSet(receiver, privateMap, value) {
+    var descriptor = _classExtractFieldDescriptor(receiver, privateMap, "set");
+    _classApplyDescriptorSet(receiver, descriptor, value);
+    return value;
+  }
+  function _classExtractFieldDescriptor(receiver, privateMap, action) {
+    if (!privateMap.has(receiver)) {
+      throw new TypeError("attempted to " + action + " private field on non-instance");
+    }
+    return privateMap.get(receiver);
+  }
+  function _classApplyDescriptorGet(receiver, descriptor) {
+    if (descriptor.get) {
+      return descriptor.get.call(receiver);
+    }
+    return descriptor.value;
+  }
+  function _classApplyDescriptorSet(receiver, descriptor, value) {
+    if (descriptor.set) {
+      descriptor.set.call(receiver, value);
+    } else {
+      if (!descriptor.writable) {
+        throw new TypeError("attempted to set read only private field");
+      }
+      descriptor.value = value;
+    }
+  }
+  function _checkPrivateRedeclaration(obj, privateCollection) {
+    if (privateCollection.has(obj)) {
+      throw new TypeError("Cannot initialize the same private elements twice on an object");
+    }
+  }
+  function _classPrivateFieldInitSpec(obj, privateMap, value) {
+    _checkPrivateRedeclaration(obj, privateMap);
+    privateMap.set(obj, value);
+  }
 
-  var privateProps = {
-    awaitingPromise: new WeakMap(),
-    promise: new WeakMap(),
-    innerParams: new WeakMap(),
-    domCache: new WeakMap()
+  const RESTORE_FOCUS_TIMEOUT = 100;
+
+  /** @type {GlobalState} */
+  const globalState = {};
+  const focusPreviousActiveElement = () => {
+    if (globalState.previousActiveElement instanceof HTMLElement) {
+      globalState.previousActiveElement.focus();
+      globalState.previousActiveElement = null;
+    } else if (document.body) {
+      document.body.focus();
+    }
+  };
+
+  /**
+   * Restore previous active (focused) element
+   *
+   * @param {boolean} returnFocus
+   * @returns {Promise<void>}
+   */
+  const restoreActiveElement = returnFocus => {
+    return new Promise(resolve => {
+      if (!returnFocus) {
+        return resolve();
+      }
+      const x = window.scrollX;
+      const y = window.scrollY;
+      globalState.restoreFocusTimeout = setTimeout(() => {
+        focusPreviousActiveElement();
+        resolve();
+      }, RESTORE_FOCUS_TIMEOUT); // issues/900
+
+      window.scrollTo(x, y);
+    });
   };
 
   const swalPrefix = 'swal2-';
 
   /**
-   * @param {string[]} items
-   * @returns {object}
+   * @typedef
+   * { | 'container'
+   *   | 'shown'
+   *   | 'height-auto'
+   *   | 'iosfix'
+   *   | 'popup'
+   *   | 'modal'
+   *   | 'no-backdrop'
+   *   | 'no-transition'
+   *   | 'toast'
+   *   | 'toast-shown'
+   *   | 'show'
+   *   | 'hide'
+   *   | 'close'
+   *   | 'title'
+   *   | 'html-container'
+   *   | 'actions'
+   *   | 'confirm'
+   *   | 'deny'
+   *   | 'cancel'
+   *   | 'default-outline'
+   *   | 'footer'
+   *   | 'icon'
+   *   | 'icon-content'
+   *   | 'image'
+   *   | 'input'
+   *   | 'file'
+   *   | 'range'
+   *   | 'select'
+   *   | 'radio'
+   *   | 'checkbox'
+   *   | 'label'
+   *   | 'textarea'
+   *   | 'inputerror'
+   *   | 'input-label'
+   *   | 'validation-message'
+   *   | 'progress-steps'
+   *   | 'active-progress-step'
+   *   | 'progress-step'
+   *   | 'progress-step-line'
+   *   | 'loader'
+   *   | 'loading'
+   *   | 'styled'
+   *   | 'top'
+   *   | 'top-start'
+   *   | 'top-end'
+   *   | 'top-left'
+   *   | 'top-right'
+   *   | 'center'
+   *   | 'center-start'
+   *   | 'center-end'
+   *   | 'center-left'
+   *   | 'center-right'
+   *   | 'bottom'
+   *   | 'bottom-start'
+   *   | 'bottom-end'
+   *   | 'bottom-left'
+   *   | 'bottom-right'
+   *   | 'grow-row'
+   *   | 'grow-column'
+   *   | 'grow-fullscreen'
+   *   | 'rtl'
+   *   | 'timer-progress-bar'
+   *   | 'timer-progress-bar-container'
+   *   | 'scrollbar-measure'
+   *   | 'icon-success'
+   *   | 'icon-warning'
+   *   | 'icon-info'
+   *   | 'icon-question'
+   *   | 'icon-error'
+   * } SwalClass
+   * @typedef {Record<SwalClass, string>} SwalClasses
    */
-  const prefix = items => {
-    const result = {};
-    for (const i in items) {
-      result[items[i]] = swalPrefix + items[i];
-    }
-    return result;
-  };
-  const swalClasses = prefix(['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'no-transition', 'toast', 'toast-shown', 'show', 'hide', 'close', 'title', 'html-container', 'actions', 'confirm', 'deny', 'cancel', 'default-outline', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'input-label', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loader', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'timer-progress-bar-container', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error']);
-  const iconTypes = prefix(['success', 'warning', 'info', 'question', 'error']);
-
-  const consolePrefix = 'SweetAlert2:';
 
   /**
-   * Filter the unique values into a new array
-   *
-   * @param {Array} arr
-   * @returns {Array}
+   * @typedef {'success' | 'warning' | 'info' | 'question' | 'error'} SwalIcon
+   * @typedef {Record<SwalIcon, string>} SwalIcons
    */
-  const uniqueArray = arr => {
-    const result = [];
-    for (let i = 0; i < arr.length; i++) {
-      if (result.indexOf(arr[i]) === -1) {
-        result.push(arr[i]);
-      }
-    }
-    return result;
-  };
+
+  /** @type {SwalClass[]} */
+  const classNames = ['container', 'shown', 'height-auto', 'iosfix', 'popup', 'modal', 'no-backdrop', 'no-transition', 'toast', 'toast-shown', 'show', 'hide', 'close', 'title', 'html-container', 'actions', 'confirm', 'deny', 'cancel', 'default-outline', 'footer', 'icon', 'icon-content', 'image', 'input', 'file', 'range', 'select', 'radio', 'checkbox', 'label', 'textarea', 'inputerror', 'input-label', 'validation-message', 'progress-steps', 'active-progress-step', 'progress-step', 'progress-step-line', 'loader', 'loading', 'styled', 'top', 'top-start', 'top-end', 'top-left', 'top-right', 'center', 'center-start', 'center-end', 'center-left', 'center-right', 'bottom', 'bottom-start', 'bottom-end', 'bottom-left', 'bottom-right', 'grow-row', 'grow-column', 'grow-fullscreen', 'rtl', 'timer-progress-bar', 'timer-progress-bar-container', 'scrollbar-measure', 'icon-success', 'icon-warning', 'icon-info', 'icon-question', 'icon-error'];
+  const swalClasses = classNames.reduce((acc, className) => {
+    acc[className] = swalPrefix + className;
+    return acc;
+  }, /** @type {SwalClasses} */{});
+
+  /** @type {SwalIcon[]} */
+  const icons = ['success', 'warning', 'info', 'question', 'error'];
+  const iconTypes = icons.reduce((acc, icon) => {
+    acc[icon] = swalPrefix + icon;
+    return acc;
+  }, /** @type {SwalIcons} */{});
+
+  const consolePrefix = 'SweetAlert2:';
 
   /**
    * Capitalize the first letter of a string
@@ -17465,10 +17645,10 @@ module.exports = function (list, options) {
   /**
    * Standardize console warnings
    *
-   * @param {string | Array} message
+   * @param {string | string[]} message
    */
   const warn = message => {
-    console.warn(`${consolePrefix} ${typeof message === 'object' ? message.join(' ') : message}`);
+    console.warn("".concat(consolePrefix, " ").concat(typeof message === 'object' ? message.join(' ') : message));
   };
 
   /**
@@ -17477,13 +17657,13 @@ module.exports = function (list, options) {
    * @param {string} message
    */
   const error = message => {
-    console.error(`${consolePrefix} ${message}`);
+    console.error("".concat(consolePrefix, " ").concat(message));
   };
 
   /**
    * Private global state for `warnOnce`
    *
-   * @type {Array}
+   * @type {string[]}
    * @private
    */
   const previousWarnOnceMessages = [];
@@ -17507,7 +17687,7 @@ module.exports = function (list, options) {
    * @param {string} useInstead
    */
   const warnAboutDeprecation = (deprecatedParam, useInstead) => {
-    warnOnce(`"${deprecatedParam}" is deprecated and will be removed in the next major release. Please use "${useInstead}" instead.`);
+    warnOnce("\"".concat(deprecatedParam, "\" is deprecated and will be removed in the next major release. Please use \"").concat(useInstead, "\" instead."));
   };
 
   /**
@@ -17527,7 +17707,7 @@ module.exports = function (list, options) {
 
   /**
    * @param {any} arg
-   * @returns {Promise}
+   * @returns {Promise<any>}
    */
   const asPromise = arg => hasToPromiseFn(arg) ? arg.toPromise() : Promise.resolve(arg);
 
@@ -17542,7 +17722,7 @@ module.exports = function (list, options) {
    *
    * @returns {HTMLElement | null}
    */
-  const getContainer = () => document.body.querySelector(`.${swalClasses.container}`);
+  const getContainer = () => document.body.querySelector(".".concat(swalClasses.container));
 
   /**
    * @param {string} selectorString
@@ -17558,7 +17738,7 @@ module.exports = function (list, options) {
    * @returns {HTMLElement | null}
    */
   const elementByClass = className => {
-    return elementBySelector(`.${className}`);
+    return elementBySelector(".".concat(className));
   };
 
   /**
@@ -17602,14 +17782,19 @@ module.exports = function (list, options) {
   const getValidationMessage = () => elementByClass(swalClasses['validation-message']);
 
   /**
-   * @returns {HTMLElement | null}
+   * @returns {HTMLButtonElement | null}
    */
-  const getConfirmButton = () => elementBySelector(`.${swalClasses.actions} .${swalClasses.confirm}`);
+  const getConfirmButton = () => /** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.confirm));
 
   /**
-   * @returns {HTMLElement | null}
+   * @returns {HTMLButtonElement | null}
    */
-  const getDenyButton = () => elementBySelector(`.${swalClasses.actions} .${swalClasses.deny}`);
+  const getCancelButton = () => /** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.cancel));
+
+  /**
+   * @returns {HTMLButtonElement | null}
+   */
+  const getDenyButton = () => /** @type {HTMLButtonElement} */elementBySelector(".".concat(swalClasses.actions, " .").concat(swalClasses.deny));
 
   /**
    * @returns {HTMLElement | null}
@@ -17619,12 +17804,7 @@ module.exports = function (list, options) {
   /**
    * @returns {HTMLElement | null}
    */
-  const getLoader = () => elementBySelector(`.${swalClasses.loader}`);
-
-  /**
-   * @returns {HTMLElement | null}
-   */
-  const getCancelButton = () => elementBySelector(`.${swalClasses.actions} .${swalClasses.cancel}`);
+  const getLoader = () => elementBySelector(".".concat(swalClasses.loader));
 
   /**
    * @returns {HTMLElement | null}
@@ -17647,31 +17827,22 @@ module.exports = function (list, options) {
   const getCloseButton = () => elementByClass(swalClasses.close);
 
   // https://github.com/jkup/focusable/blob/master/index.js
-  const focusable = `
-  a[href],
-  area[href],
-  input:not([disabled]),
-  select:not([disabled]),
-  textarea:not([disabled]),
-  button:not([disabled]),
-  iframe,
-  object,
-  embed,
-  [tabindex="0"],
-  [contenteditable],
-  audio[controls],
-  video[controls],
-  summary
-`;
+  const focusable = "\n  a[href],\n  area[href],\n  input:not([disabled]),\n  select:not([disabled]),\n  textarea:not([disabled]),\n  button:not([disabled]),\n  iframe,\n  object,\n  embed,\n  [tabindex=\"0\"],\n  [contenteditable],\n  audio[controls],\n  video[controls],\n  summary\n";
   /**
    * @returns {HTMLElement[]}
    */
   const getFocusableElements = () => {
-    const focusableElementsWithTabindex = Array.from(getPopup().querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])'))
+    const popup = getPopup();
+    if (!popup) {
+      return [];
+    }
+    /** @type {NodeListOf<HTMLElement>} */
+    const focusableElementsWithTabindex = popup.querySelectorAll('[tabindex]:not([tabindex="-1"]):not([tabindex="0"])');
+    const focusableElementsWithTabindexSorted = Array.from(focusableElementsWithTabindex)
     // sort according to tabindex
     .sort((a, b) => {
-      const tabindexA = parseInt(a.getAttribute('tabindex'));
-      const tabindexB = parseInt(b.getAttribute('tabindex'));
+      const tabindexA = parseInt(a.getAttribute('tabindex') || '0');
+      const tabindexB = parseInt(b.getAttribute('tabindex') || '0');
       if (tabindexA > tabindexB) {
         return 1;
       } else if (tabindexA < tabindexB) {
@@ -17679,8 +17850,11 @@ module.exports = function (list, options) {
       }
       return 0;
     });
-    const otherFocusableElements = Array.from(getPopup().querySelectorAll(focusable)).filter(el => el.getAttribute('tabindex') !== '-1');
-    return uniqueArray(focusableElementsWithTabindex.concat(otherFocusableElements)).filter(el => isVisible$1(el));
+
+    /** @type {NodeListOf<HTMLElement>} */
+    const otherFocusableElements = popup.querySelectorAll(focusable);
+    const otherFocusableElementsFiltered = Array.from(otherFocusableElements).filter(el => el.getAttribute('tabindex') !== '-1');
+    return [...new Set(focusableElementsWithTabindexSorted.concat(otherFocusableElementsFiltered))].filter(el => isVisible$1(el));
   };
 
   /**
@@ -17694,19 +17868,22 @@ module.exports = function (list, options) {
    * @returns {boolean}
    */
   const isToast = () => {
-    return getPopup() && hasClass(getPopup(), swalClasses.toast);
+    const popup = getPopup();
+    if (!popup) {
+      return false;
+    }
+    return hasClass(popup, swalClasses.toast);
   };
 
   /**
    * @returns {boolean}
    */
   const isLoading = () => {
-    return getPopup().hasAttribute('data-loading');
-  };
-
-  // Remember state in cases where opening and handling a modal will fiddle with it.
-  const states = {
-    previousBodyPadding: null
+    const popup = getPopup();
+    if (!popup) {
+      return false;
+    }
+    return popup.hasAttribute('data-loading');
   };
 
   /**
@@ -17720,11 +17897,13 @@ module.exports = function (list, options) {
     elem.textContent = '';
     if (html) {
       const parser = new DOMParser();
-      const parsed = parser.parseFromString(html, `text/html`);
-      Array.from(parsed.querySelector('head').childNodes).forEach(child => {
+      const parsed = parser.parseFromString(html, "text/html");
+      const head = parsed.querySelector('head');
+      head && Array.from(head.childNodes).forEach(child => {
         elem.appendChild(child);
       });
-      Array.from(parsed.querySelector('body').childNodes).forEach(child => {
+      const body = parsed.querySelector('body');
+      body && Array.from(body.childNodes).forEach(child => {
         if (child instanceof HTMLVideoElement || child instanceof HTMLAudioElement) {
           elem.appendChild(child.cloneNode(true)); // https://github.com/sweetalert2/sweetalert2/issues/2507
         } else {
@@ -17758,7 +17937,7 @@ module.exports = function (list, options) {
    */
   const removeCustomClasses = (elem, params) => {
     Array.from(elem.classList).forEach(className => {
-      if (!Object.values(swalClasses).includes(className) && !Object.values(iconTypes).includes(className) && !Object.values(params.showClass).includes(className)) {
+      if (!Object.values(swalClasses).includes(className) && !Object.values(iconTypes).includes(className) && !Object.values(params.showClass || {}).includes(className)) {
         elem.classList.remove(className);
       }
     });
@@ -17773,7 +17952,7 @@ module.exports = function (list, options) {
     removeCustomClasses(elem, params);
     if (params.customClass && params.customClass[className]) {
       if (typeof params.customClass[className] !== 'string' && !params.customClass[className].forEach) {
-        warn(`Invalid type of customClass.${className}! Expected string or iterable object, got "${typeof params.customClass[className]}"`);
+        warn("Invalid type of customClass.".concat(className, "! Expected string or iterable object, got \"").concat(typeof params.customClass[className], "\""));
         return;
       }
       addClass(elem, params.customClass[className]);
@@ -17782,7 +17961,7 @@ module.exports = function (list, options) {
 
   /**
    * @param {HTMLElement} popup
-   * @param {import('./renderers/renderInput').InputClass} inputClass
+   * @param {import('./renderers/renderInput').InputClass | SweetAlertInput} inputClass
    * @returns {HTMLInputElement | null}
    */
   const getInput$1 = (popup, inputClass) => {
@@ -17793,15 +17972,15 @@ module.exports = function (list, options) {
       case 'select':
       case 'textarea':
       case 'file':
-        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses[inputClass]}`);
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses[inputClass]));
       case 'checkbox':
-        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.checkbox} input`);
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.checkbox, " input"));
       case 'radio':
-        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.radio} input:checked`) || popup.querySelector(`.${swalClasses.popup} > .${swalClasses.radio} input:first-child`);
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.radio, " input:checked")) || popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.radio, " input:first-child"));
       case 'range':
-        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.range} input`);
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.range, " input"));
       default:
-        return popup.querySelector(`.${swalClasses.popup} > .${swalClasses.input}`);
+        return popup.querySelector(".".concat(swalClasses.popup, " > .").concat(swalClasses.input));
     }
   };
 
@@ -17822,7 +18001,7 @@ module.exports = function (list, options) {
 
   /**
    * @param {HTMLElement | HTMLElement[] | null} target
-   * @param {string | string[] | readonly string[]} classList
+   * @param {string | string[] | readonly string[] | undefined} classList
    * @param {boolean} condition
    */
   const toggleClass = (target, classList, condition) => {
@@ -17845,7 +18024,7 @@ module.exports = function (list, options) {
 
   /**
    * @param {HTMLElement | HTMLElement[] | null} target
-   * @param {string | string[] | readonly string[]} classList
+   * @param {string | string[] | readonly string[] | undefined} classList
    */
   const addClass = (target, classList) => {
     toggleClass(target, classList, true);
@@ -17853,7 +18032,7 @@ module.exports = function (list, options) {
 
   /**
    * @param {HTMLElement | HTMLElement[] | null} target
-   * @param {string | string[] | readonly string[]} classList
+   * @param {string | string[] | readonly string[] | undefined} classList
    */
   const removeClass = (target, classList) => {
     toggleClass(target, classList, false);
@@ -17882,30 +18061,47 @@ module.exports = function (list, options) {
    * @param {*} value
    */
   const applyNumericalStyle = (elem, property, value) => {
-    if (value === `${parseInt(value)}`) {
+    if (value === "".concat(parseInt(value))) {
       value = parseInt(value);
     }
     if (value || parseInt(value) === 0) {
-      elem.style[property] = typeof value === 'number' ? `${value}px` : value;
+      elem.style[property] = typeof value === 'number' ? "".concat(value, "px") : value;
     } else {
       elem.style.removeProperty(property);
     }
   };
 
   /**
-   * @param {HTMLElement} elem
+   * @param {HTMLElement | null} elem
    * @param {string} display
    */
   const show = function (elem) {
     let display = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'flex';
-    elem.style.display = display;
+    elem && (elem.style.display = display);
   };
 
   /**
-   * @param {HTMLElement} elem
+   * @param {HTMLElement | null} elem
    */
   const hide = elem => {
-    elem.style.display = 'none';
+    elem && (elem.style.display = 'none');
+  };
+
+  /**
+   * @param {HTMLElement | null} elem
+   * @param {string} display
+   */
+  const showWhenInnerHtmlPresent = function (elem) {
+    let display = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'block';
+    if (!elem) {
+      return;
+    }
+    new MutationObserver(() => {
+      toggle(elem, elem.innerHTML, display);
+    }).observe(elem, {
+      childList: true,
+      subtree: true
+    });
   };
 
   /**
@@ -17935,7 +18131,7 @@ module.exports = function (list, options) {
   /**
    * borrowed from jquery $(elem).is(':visible') implementation
    *
-   * @param {HTMLElement} elem
+   * @param {HTMLElement | null} elem
    * @returns {boolean}
    */
   const isVisible$1 = elem => !!(elem && (elem.offsetWidth || elem.offsetHeight || elem.getClientRects().length));
@@ -17971,61 +18167,31 @@ module.exports = function (list, options) {
   const animateTimerProgressBar = function (timer) {
     let reset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
     const timerProgressBar = getTimerProgressBar();
+    if (!timerProgressBar) {
+      return;
+    }
     if (isVisible$1(timerProgressBar)) {
       if (reset) {
         timerProgressBar.style.transition = 'none';
         timerProgressBar.style.width = '100%';
       }
       setTimeout(() => {
-        timerProgressBar.style.transition = `width ${timer / 1000}s linear`;
+        timerProgressBar.style.transition = "width ".concat(timer / 1000, "s linear");
         timerProgressBar.style.width = '0%';
       }, 10);
     }
   };
   const stopTimerProgressBar = () => {
     const timerProgressBar = getTimerProgressBar();
+    if (!timerProgressBar) {
+      return;
+    }
     const timerProgressBarWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
     timerProgressBar.style.removeProperty('transition');
     timerProgressBar.style.width = '100%';
     const timerProgressBarFullWidth = parseInt(window.getComputedStyle(timerProgressBar).width);
     const timerProgressBarPercent = timerProgressBarWidth / timerProgressBarFullWidth * 100;
-    timerProgressBar.style.removeProperty('transition');
-    timerProgressBar.style.width = `${timerProgressBarPercent}%`;
-  };
-
-  const RESTORE_FOCUS_TIMEOUT = 100;
-
-  /** @type {GlobalState} */
-  const globalState = {};
-  const focusPreviousActiveElement = () => {
-    if (globalState.previousActiveElement instanceof HTMLElement) {
-      globalState.previousActiveElement.focus();
-      globalState.previousActiveElement = null;
-    } else if (document.body) {
-      document.body.focus();
-    }
-  };
-
-  /**
-   * Restore previous active (focused) element
-   *
-   * @param {boolean} returnFocus
-   * @returns {Promise}
-   */
-  const restoreActiveElement = returnFocus => {
-    return new Promise(resolve => {
-      if (!returnFocus) {
-        return resolve();
-      }
-      const x = window.scrollX;
-      const y = window.scrollY;
-      globalState.restoreFocusTimeout = setTimeout(() => {
-        focusPreviousActiveElement();
-        resolve();
-      }, RESTORE_FOCUS_TIMEOUT); // issues/900
-
-      window.scrollTo(x, y);
-    });
+    timerProgressBar.style.width = "".concat(timerProgressBarPercent, "%");
   };
 
   /**
@@ -18035,40 +18201,7 @@ module.exports = function (list, options) {
    */
   const isNodeEnv = () => typeof window === 'undefined' || typeof document === 'undefined';
 
-  const sweetHTML = `
- <div aria-labelledby="${swalClasses.title}" aria-describedby="${swalClasses['html-container']}" class="${swalClasses.popup}" tabindex="-1">
-   <button type="button" class="${swalClasses.close}"></button>
-   <ul class="${swalClasses['progress-steps']}"></ul>
-   <div class="${swalClasses.icon}"></div>
-   <img class="${swalClasses.image}" />
-   <h2 class="${swalClasses.title}" id="${swalClasses.title}"></h2>
-   <div class="${swalClasses['html-container']}" id="${swalClasses['html-container']}"></div>
-   <input class="${swalClasses.input}" />
-   <input type="file" class="${swalClasses.file}" />
-   <div class="${swalClasses.range}">
-     <input type="range" />
-     <output></output>
-   </div>
-   <select class="${swalClasses.select}"></select>
-   <div class="${swalClasses.radio}"></div>
-   <label for="${swalClasses.checkbox}" class="${swalClasses.checkbox}">
-     <input type="checkbox" />
-     <span class="${swalClasses.label}"></span>
-   </label>
-   <textarea class="${swalClasses.textarea}"></textarea>
-   <div class="${swalClasses['validation-message']}" id="${swalClasses['validation-message']}"></div>
-   <div class="${swalClasses.actions}">
-     <div class="${swalClasses.loader}"></div>
-     <button type="button" class="${swalClasses.confirm}"></button>
-     <button type="button" class="${swalClasses.deny}"></button>
-     <button type="button" class="${swalClasses.cancel}"></button>
-   </div>
-   <div class="${swalClasses.footer}"></div>
-   <div class="${swalClasses['timer-progress-bar-container']}">
-     <div class="${swalClasses['timer-progress-bar']}"></div>
-   </div>
- </div>
-`.replace(/(^|\n)\s*/g, '');
+  const sweetHTML = "\n <div aria-labelledby=\"".concat(swalClasses.title, "\" aria-describedby=\"").concat(swalClasses['html-container'], "\" class=\"").concat(swalClasses.popup, "\" tabindex=\"-1\">\n   <button type=\"button\" class=\"").concat(swalClasses.close, "\"></button>\n   <ul class=\"").concat(swalClasses['progress-steps'], "\"></ul>\n   <div class=\"").concat(swalClasses.icon, "\"></div>\n   <img class=\"").concat(swalClasses.image, "\" />\n   <h2 class=\"").concat(swalClasses.title, "\" id=\"").concat(swalClasses.title, "\"></h2>\n   <div class=\"").concat(swalClasses['html-container'], "\" id=\"").concat(swalClasses['html-container'], "\"></div>\n   <input class=\"").concat(swalClasses.input, "\" id=\"").concat(swalClasses.input, "\" />\n   <input type=\"file\" class=\"").concat(swalClasses.file, "\" />\n   <div class=\"").concat(swalClasses.range, "\">\n     <input type=\"range\" />\n     <output></output>\n   </div>\n   <select class=\"").concat(swalClasses.select, "\" id=\"").concat(swalClasses.select, "\"></select>\n   <div class=\"").concat(swalClasses.radio, "\"></div>\n   <label class=\"").concat(swalClasses.checkbox, "\">\n     <input type=\"checkbox\" id=\"").concat(swalClasses.checkbox, "\" />\n     <span class=\"").concat(swalClasses.label, "\"></span>\n   </label>\n   <textarea class=\"").concat(swalClasses.textarea, "\" id=\"").concat(swalClasses.textarea, "\"></textarea>\n   <div class=\"").concat(swalClasses['validation-message'], "\" id=\"").concat(swalClasses['validation-message'], "\"></div>\n   <div class=\"").concat(swalClasses.actions, "\">\n     <div class=\"").concat(swalClasses.loader, "\"></div>\n     <button type=\"button\" class=\"").concat(swalClasses.confirm, "\"></button>\n     <button type=\"button\" class=\"").concat(swalClasses.deny, "\"></button>\n     <button type=\"button\" class=\"").concat(swalClasses.cancel, "\"></button>\n   </div>\n   <div class=\"").concat(swalClasses.footer, "\"></div>\n   <div class=\"").concat(swalClasses['timer-progress-bar-container'], "\">\n     <div class=\"").concat(swalClasses['timer-progress-bar'], "\"></div>\n   </div>\n </div>\n").replace(/(^|\n)\s*/g, '');
 
   /**
    * @returns {boolean}
@@ -18090,12 +18223,12 @@ module.exports = function (list, options) {
     const input = getDirectChildByClass(popup, swalClasses.input);
     const file = getDirectChildByClass(popup, swalClasses.file);
     /** @type {HTMLInputElement} */
-    const range = popup.querySelector(`.${swalClasses.range} input`);
+    const range = popup.querySelector(".".concat(swalClasses.range, " input"));
     /** @type {HTMLOutputElement} */
-    const rangeOutput = popup.querySelector(`.${swalClasses.range} output`);
+    const rangeOutput = popup.querySelector(".".concat(swalClasses.range, " output"));
     const select = getDirectChildByClass(popup, swalClasses.select);
     /** @type {HTMLInputElement} */
-    const checkbox = popup.querySelector(`.${swalClasses.checkbox} input`);
+    const checkbox = popup.querySelector(".".concat(swalClasses.checkbox, " input"));
     const textarea = getDirectChildByClass(popup, swalClasses.textarea);
     input.oninput = resetValidationMessage$1;
     file.onchange = resetValidationMessage$1;
@@ -18147,8 +18280,6 @@ module.exports = function (list, options) {
   const init = params => {
     // Clean up the old popup container if it exists
     const oldContainerExisted = resetOldContainer();
-
-    /* istanbul ignore if */
     if (isNodeEnv()) {
       error('SweetAlert2 requires document to initialize');
       return;
@@ -18188,7 +18319,7 @@ module.exports = function (list, options) {
   };
 
   /**
-   * @param {object} param
+   * @param {any} param
    * @param {HTMLElement} target
    */
   const handleObject = (param, target) => {
@@ -18205,7 +18336,7 @@ module.exports = function (list, options) {
 
   /**
    * @param {HTMLElement} target
-   * @param {HTMLElement} elem
+   * @param {any} elem
    */
   const handleJqueryElem = (target, elem) => {
     target.textContent = '';
@@ -18223,47 +18354,33 @@ module.exports = function (list, options) {
    */
   const animationEndEvent = (() => {
     // Prevent run in Node env
-    /* istanbul ignore if */
     if (isNodeEnv()) {
       return false;
     }
     const testEl = document.createElement('div');
-    const transEndEventNames = {
-      WebkitAnimation: 'webkitAnimationEnd',
-      // Chrome, Safari and Opera
-      animation: 'animationend' // Standard syntax
-    };
 
-    for (const i in transEndEventNames) {
-      if (Object.prototype.hasOwnProperty.call(transEndEventNames, i) && typeof testEl.style[i] !== 'undefined') {
-        return transEndEventNames[i];
-      }
+    // Chrome, Safari and Opera
+    if (typeof testEl.style.webkitAnimation !== 'undefined') {
+      return 'webkitAnimationEnd';
+    }
+
+    // Standard syntax
+    if (typeof testEl.style.animation !== 'undefined') {
+      return 'animationend';
     }
     return false;
   })();
 
   /**
-   * Measure scrollbar width for padding body during modal show/hide
-   * https://github.com/twbs/bootstrap/blob/master/js/src/modal.js
-   *
-   * @returns {number}
-   */
-  const measureScrollbar = () => {
-    const scrollDiv = document.createElement('div');
-    scrollDiv.className = swalClasses['scrollbar-measure'];
-    document.body.appendChild(scrollDiv);
-    const scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
-    document.body.removeChild(scrollDiv);
-    return scrollbarWidth;
-  };
-
-  /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @param {SweetAlertOptions} params
    */
   const renderActions = (instance, params) => {
     const actions = getActions();
     const loader = getLoader();
+    if (!actions || !loader) {
+      return;
+    }
 
     // Actions (buttons) wrapper
     if (!params.showConfirmButton && !params.showDenyButton && !params.showCancelButton) {
@@ -18279,7 +18396,7 @@ module.exports = function (list, options) {
     renderButtons(actions, loader, params);
 
     // Loader
-    setInnerHtml(loader, params.loaderHtml);
+    setInnerHtml(loader, params.loaderHtml || '');
     applyCustomClass(loader, params, 'loader');
   };
 
@@ -18292,6 +18409,9 @@ module.exports = function (list, options) {
     const confirmButton = getConfirmButton();
     const denyButton = getDenyButton();
     const cancelButton = getCancelButton();
+    if (!confirmButton || !denyButton || !cancelButton) {
+      return;
+    }
 
     // Render buttons
     renderButton(confirmButton, 'confirm', params);
@@ -18344,32 +18464,35 @@ module.exports = function (list, options) {
    * @param {SweetAlertOptions} params
    */
   function renderButton(button, buttonType, params) {
-    toggle(button, params[`show${capitalizeFirstLetter(buttonType)}Button`], 'inline-block');
-    setInnerHtml(button, params[`${buttonType}ButtonText`]); // Set caption text
-    button.setAttribute('aria-label', params[`${buttonType}ButtonAriaLabel`]); // ARIA label
+    const buttonName = /** @type {'Confirm' | 'Deny' | 'Cancel'} */capitalizeFirstLetter(buttonType);
+    toggle(button, params["show".concat(buttonName, "Button")], 'inline-block');
+    setInnerHtml(button, params["".concat(buttonType, "ButtonText")] || ''); // Set caption text
+    button.setAttribute('aria-label', params["".concat(buttonType, "ButtonAriaLabel")] || ''); // ARIA label
 
     // Add buttons custom classes
     button.className = swalClasses[buttonType];
-    applyCustomClass(button, params, `${buttonType}Button`);
-    addClass(button, params[`${buttonType}ButtonClass`]);
+    applyCustomClass(button, params, "".concat(buttonType, "Button"));
   }
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @param {SweetAlertOptions} params
    */
   const renderCloseButton = (instance, params) => {
     const closeButton = getCloseButton();
-    setInnerHtml(closeButton, params.closeButtonHtml);
+    if (!closeButton) {
+      return;
+    }
+    setInnerHtml(closeButton, params.closeButtonHtml || '');
 
     // Custom class
     applyCustomClass(closeButton, params, 'closeButton');
     toggle(closeButton, params.showCloseButton);
-    closeButton.setAttribute('aria-label', params.closeButtonAriaLabel);
+    closeButton.setAttribute('aria-label', params.closeButtonAriaLabel || '');
   };
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @param {SweetAlertOptions} params
    */
   const renderContainer = (instance, params) => {
@@ -18402,6 +18525,9 @@ module.exports = function (list, options) {
    * @param {SweetAlertOptions['position']} position
    */
   function handlePositionParam(container, position) {
+    if (!position) {
+      return;
+    }
     if (position in swalClasses) {
       addClass(container, swalClasses[position]);
     } else {
@@ -18415,29 +18541,49 @@ module.exports = function (list, options) {
    * @param {SweetAlertOptions['grow']} grow
    */
   function handleGrowParam(container, grow) {
-    if (grow && typeof grow === 'string') {
-      const growClass = `grow-${grow}`;
-      if (growClass in swalClasses) {
-        addClass(container, swalClasses[growClass]);
-      }
+    if (!grow) {
+      return;
     }
+    addClass(container, swalClasses["grow-".concat(grow)]);
   }
 
+  /**
+   * This module contains `WeakMap`s for each effectively-"private  property" that a `Swal` has.
+   * For example, to set the private property "foo" of `this` to "bar", you can `privateProps.foo.set(this, 'bar')`
+   * This is the approach that Babel will probably take to implement private methods/fields
+   *   https://github.com/tc39/proposal-private-methods
+   *   https://github.com/babel/babel/pull/7555
+   * Once we have the changes from that PR in Babel, and our core class fits reasonable in *one module*
+   *   then we can use that language feature.
+   */
+
+  var privateProps = {
+    innerParams: new WeakMap(),
+    domCache: new WeakMap()
+  };
+
   /// <reference path="../../../../sweetalert2.d.ts"/>
+
 
   /** @type {InputClass[]} */
   const inputClasses = ['input', 'file', 'range', 'select', 'radio', 'checkbox', 'textarea'];
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @param {SweetAlertOptions} params
    */
   const renderInput = (instance, params) => {
     const popup = getPopup();
+    if (!popup) {
+      return;
+    }
     const innerParams = privateProps.innerParams.get(instance);
     const rerender = !innerParams || params.input !== innerParams.input;
     inputClasses.forEach(inputClass => {
       const inputContainer = getDirectChildByClass(popup, swalClasses[inputClass]);
+      if (!inputContainer) {
+        return;
+      }
 
       // set attributes
       setAttributes(inputClass, params.inputAttributes);
@@ -18461,8 +18607,11 @@ module.exports = function (list, options) {
    * @param {SweetAlertOptions} params
    */
   const showInput = params => {
+    if (!params.input) {
+      return;
+    }
     if (!renderInputType[params.input]) {
-      error(`Unexpected type of input! Expected "text", "email", "password", "number", "tel", "select", "radio", "checkbox", "textarea", "file" or "url", got "${params.input}"`);
+      error("Unexpected type of input! Expected ".concat(Object.keys(renderInputType).join(' | '), ", got \"").concat(params.input, "\""));
       return;
     }
     const inputContainer = getInputContainer(params.input);
@@ -18470,9 +18619,11 @@ module.exports = function (list, options) {
     show(inputContainer);
 
     // input autofocus
-    setTimeout(() => {
-      focusInput(input);
-    });
+    if (params.inputAutoFocus) {
+      setTimeout(() => {
+        focusInput(input);
+      });
+    }
   };
 
   /**
@@ -18481,7 +18632,7 @@ module.exports = function (list, options) {
   const removeAttributes = input => {
     for (let i = 0; i < input.attributes.length; i++) {
       const attrName = input.attributes[i].name;
-      if (!['type', 'value', 'style'].includes(attrName)) {
+      if (!['id', 'type', 'value', 'style'].includes(attrName)) {
         input.removeAttribute(attrName);
       }
     }
@@ -18529,7 +18680,6 @@ module.exports = function (list, options) {
    */
   const setInputLabel = (input, prependTo, params) => {
     if (params.inputLabel) {
-      input.id = swalClasses.input;
       const label = document.createElement('label');
       const labelClass = swalClasses['input-label'];
       label.setAttribute('for', input.id);
@@ -18556,13 +18706,13 @@ module.exports = function (list, options) {
    */
   const checkAndSetInputValue = (input, inputValue) => {
     if (['string', 'number'].includes(typeof inputValue)) {
-      input.value = `${inputValue}`;
+      input.value = "".concat(inputValue);
     } else if (!isPromise(inputValue)) {
-      warn(`Unexpected type of inputValue! Expected "string", "number" or "Promise", got "${typeof inputValue}"`);
+      warn("Unexpected type of inputValue! Expected \"string\", \"number\" or \"Promise\", got \"".concat(typeof inputValue, "\""));
     }
   };
 
-  /** @type {Record<string, (input: Input | HTMLElement, params: SweetAlertOptions) => Input>} */
+  /** @type {Record<SweetAlertInput, (input: Input | HTMLElement, params: SweetAlertOptions) => Input>} */
   const renderInputType = {};
 
   /**
@@ -18570,7 +18720,7 @@ module.exports = function (list, options) {
    * @param {SweetAlertOptions} params
    * @returns {HTMLInputElement}
    */
-  renderInputType.text = renderInputType.email = renderInputType.password = renderInputType.number = renderInputType.tel = renderInputType.url = (input, params) => {
+  renderInputType.text = renderInputType.email = renderInputType.password = renderInputType.number = renderInputType.tel = renderInputType.url = renderInputType.search = renderInputType.date = renderInputType['datetime-local'] = renderInputType.time = renderInputType.week = renderInputType.month = (input, params) => {
     checkAndSetInputValue(input, params.inputValue);
     setInputLabel(input, input, params);
     setInputPlaceholder(input, params);
@@ -18640,7 +18790,6 @@ module.exports = function (list, options) {
   renderInputType.checkbox = (checkboxContainer, params) => {
     const checkbox = getInput$1(getPopup(), 'checkbox');
     checkbox.value = '1';
-    checkbox.id = swalClasses.checkbox;
     checkbox.checked = Boolean(params.inputValue);
     const label = checkboxContainer.querySelector('span');
     setInnerHtml(label, params.inputPlaceholder);
@@ -18669,11 +18818,15 @@ module.exports = function (list, options) {
       if ('MutationObserver' in window) {
         const initialPopupWidth = parseInt(window.getComputedStyle(getPopup()).width);
         const textareaResizeHandler = () => {
+          // check if texarea is still in document (i.e. popup wasn't closed in the meantime)
+          if (!document.body.contains(textarea)) {
+            return;
+          }
           const textareaWidth = textarea.offsetWidth + getMargin(textarea);
           if (textareaWidth > initialPopupWidth) {
-            getPopup().style.width = `${textareaWidth}px`;
+            getPopup().style.width = "".concat(textareaWidth, "px");
           } else {
-            getPopup().style.width = null;
+            applyNumericalStyle(getPopup(), 'width', params.width);
           }
         };
         new MutationObserver(textareaResizeHandler).observe(textarea, {
@@ -18686,11 +18839,15 @@ module.exports = function (list, options) {
   };
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @param {SweetAlertOptions} params
    */
   const renderContent = (instance, params) => {
     const htmlContainer = getHtmlContainer();
+    if (!htmlContainer) {
+      return;
+    }
+    showWhenInnerHtmlPresent(htmlContainer);
     applyCustomClass(htmlContainer, params, 'htmlContainer');
 
     // Content as HTML
@@ -18713,12 +18870,16 @@ module.exports = function (list, options) {
   };
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @param {SweetAlertOptions} params
    */
   const renderFooter = (instance, params) => {
     const footer = getFooter();
-    toggle(footer, params.footer);
+    if (!footer) {
+      return;
+    }
+    showWhenInnerHtmlPresent(footer);
+    toggle(footer, params.footer, 'block');
     if (params.footer) {
       parseHtmlToContainer(params.footer, footer);
     }
@@ -18728,12 +18889,15 @@ module.exports = function (list, options) {
   };
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @param {SweetAlertOptions} params
    */
   const renderIcon = (instance, params) => {
     const innerParams = privateProps.innerParams.get(instance);
     const icon = getIcon();
+    if (!icon) {
+      return;
+    }
 
     // if the given icon already rendered, apply the styling without re-rendering the icon
     if (innerParams && params.icon === innerParams.icon) {
@@ -18747,7 +18911,7 @@ module.exports = function (list, options) {
       return;
     }
     if (params.icon && Object.keys(iconTypes).indexOf(params.icon) === -1) {
-      error(`Unknown icon! Expected "success", "error", "warning", "info" or "question", got "${params.icon}"`);
+      error("Unknown icon! Expected \"success\", \"error\", \"warning\", \"info\" or \"question\", got \"".concat(params.icon, "\""));
       hide(icon);
       return;
     }
@@ -18758,7 +18922,7 @@ module.exports = function (list, options) {
     applyStyles(icon, params);
 
     // Animate icon
-    addClass(icon, params.showClass.icon);
+    addClass(icon, params.showClass && params.showClass.icon);
   };
 
   /**
@@ -18766,12 +18930,12 @@ module.exports = function (list, options) {
    * @param {SweetAlertOptions} params
    */
   const applyStyles = (icon, params) => {
-    for (const iconType in iconTypes) {
+    for (const [iconType, iconClassName] of Object.entries(iconTypes)) {
       if (params.icon !== iconType) {
-        removeClass(icon, iconTypes[iconType]);
+        removeClass(icon, iconClassName);
       }
     }
-    addClass(icon, iconTypes[params.icon]);
+    addClass(icon, params.icon && iconTypes[params.icon]);
 
     // Icon color
     setColor(icon, params);
@@ -18786,6 +18950,9 @@ module.exports = function (list, options) {
   // Adjust success icon background color to match the popup background color
   const adjustSuccessIconBackgroundColor = () => {
     const popup = getPopup();
+    if (!popup) {
+      return;
+    }
     const popupBackgroundColor = window.getComputedStyle(popup).getPropertyValue('background-color');
     /** @type {NodeListOf<HTMLElement>} */
     const successIconParts = popup.querySelectorAll('[class^=swal2-success-circular-line], .swal2-success-fix');
@@ -18793,26 +18960,19 @@ module.exports = function (list, options) {
       successIconParts[i].style.backgroundColor = popupBackgroundColor;
     }
   };
-  const successIconHtml = `
-  <div class="swal2-success-circular-line-left"></div>
-  <span class="swal2-success-line-tip"></span> <span class="swal2-success-line-long"></span>
-  <div class="swal2-success-ring"></div> <div class="swal2-success-fix"></div>
-  <div class="swal2-success-circular-line-right"></div>
-`;
-  const errorIconHtml = `
-  <span class="swal2-x-mark">
-    <span class="swal2-x-mark-line-left"></span>
-    <span class="swal2-x-mark-line-right"></span>
-  </span>
-`;
+  const successIconHtml = "\n  <div class=\"swal2-success-circular-line-left\"></div>\n  <span class=\"swal2-success-line-tip\"></span> <span class=\"swal2-success-line-long\"></span>\n  <div class=\"swal2-success-ring\"></div> <div class=\"swal2-success-fix\"></div>\n  <div class=\"swal2-success-circular-line-right\"></div>\n";
+  const errorIconHtml = "\n  <span class=\"swal2-x-mark\">\n    <span class=\"swal2-x-mark-line-left\"></span>\n    <span class=\"swal2-x-mark-line-right\"></span>\n  </span>\n";
 
   /**
    * @param {HTMLElement} icon
    * @param {SweetAlertOptions} params
    */
   const setContent = (icon, params) => {
+    if (!params.icon && !params.iconHtml) {
+      return;
+    }
     let oldContent = icon.innerHTML;
-    let newContent;
+    let newContent = '';
     if (params.iconHtml) {
       newContent = iconContent(params.iconHtml);
     } else if (params.icon === 'success') {
@@ -18820,7 +18980,7 @@ module.exports = function (list, options) {
       oldContent = oldContent.replace(/ style=".*?"/g, ''); // undo adjustSuccessIconBackgroundColor()
     } else if (params.icon === 'error') {
       newContent = errorIconHtml;
-    } else {
+    } else if (params.icon) {
       const defaultIconHtml = {
         question: '?',
         warning: '!',
@@ -18853,14 +19013,17 @@ module.exports = function (list, options) {
    * @param {string} content
    * @returns {string}
    */
-  const iconContent = content => `<div class="${swalClasses['icon-content']}">${content}</div>`;
+  const iconContent = content => "<div class=\"".concat(swalClasses['icon-content'], "\">").concat(content, "</div>");
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @param {SweetAlertOptions} params
    */
   const renderImage = (instance, params) => {
     const image = getImage();
+    if (!image) {
+      return;
+    }
     if (!params.imageUrl) {
       hide(image);
       return;
@@ -18869,7 +19032,7 @@ module.exports = function (list, options) {
 
     // Src, alt
     image.setAttribute('src', params.imageUrl);
-    image.setAttribute('alt', params.imageAlt);
+    image.setAttribute('alt', params.imageAlt || '');
 
     // Width, height
     applyNumericalStyle(image, 'width', params.imageWidth);
@@ -18881,19 +19044,23 @@ module.exports = function (list, options) {
   };
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @param {SweetAlertOptions} params
    */
   const renderPopup = (instance, params) => {
     const container = getContainer();
     const popup = getPopup();
+    if (!container || !popup) {
+      return;
+    }
 
     // Width
     // https://github.com/sweetalert2/sweetalert2/issues/2170
     if (params.toast) {
       applyNumericalStyle(container, 'width', params.width);
       popup.style.width = '100%';
-      popup.insertBefore(getLoader(), getIcon());
+      const loader = getLoader();
+      loader && popup.insertBefore(loader, getIcon());
     } else {
       applyNumericalStyle(popup, 'width', params.width);
     }
@@ -18921,8 +19088,9 @@ module.exports = function (list, options) {
    * @param {SweetAlertOptions} params
    */
   const addClasses$1 = (popup, params) => {
+    const showClass = params.showClass || {};
     // Default Class + showClass when updating Swal.update({})
-    popup.className = `${swalClasses.popup} ${isVisible$1(popup) ? params.showClass.popup : ''}`;
+    popup.className = "".concat(swalClasses.popup, " ").concat(isVisible$1(popup) ? showClass.popup : '');
     if (params.toast) {
       addClass([document.documentElement, document.body], swalClasses['toast-shown']);
       addClass(popup, swalClasses.toast);
@@ -18938,32 +19106,39 @@ module.exports = function (list, options) {
 
     // Icon class (#1842)
     if (params.icon) {
-      addClass(popup, swalClasses[`icon-${params.icon}`]);
+      addClass(popup, swalClasses["icon-".concat(params.icon)]);
     }
   };
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @param {SweetAlertOptions} params
    */
   const renderProgressSteps = (instance, params) => {
     const progressStepsContainer = getProgressSteps();
-    if (!params.progressSteps || params.progressSteps.length === 0) {
+    if (!progressStepsContainer) {
+      return;
+    }
+    const {
+      progressSteps,
+      currentProgressStep
+    } = params;
+    if (!progressSteps || progressSteps.length === 0 || currentProgressStep === undefined) {
       hide(progressStepsContainer);
       return;
     }
     show(progressStepsContainer);
     progressStepsContainer.textContent = '';
-    if (params.currentProgressStep >= params.progressSteps.length) {
+    if (currentProgressStep >= progressSteps.length) {
       warn('Invalid currentProgressStep parameter, it should be less than progressSteps.length ' + '(currentProgressStep like JS arrays starts from 0)');
     }
-    params.progressSteps.forEach((step, index) => {
+    progressSteps.forEach((step, index) => {
       const stepEl = createStepElement(step);
       progressStepsContainer.appendChild(stepEl);
-      if (index === params.currentProgressStep) {
+      if (index === currentProgressStep) {
         addClass(stepEl, swalClasses['active-progress-step']);
       }
-      if (index !== params.progressSteps.length - 1) {
+      if (index !== progressSteps.length - 1) {
         const lineEl = createLineElement(params);
         progressStepsContainer.appendChild(lineEl);
       }
@@ -18995,11 +19170,15 @@ module.exports = function (list, options) {
   };
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @param {SweetAlertOptions} params
    */
   const renderTitle = (instance, params) => {
     const title = getTitle();
+    if (!title) {
+      return;
+    }
+    showWhenInnerHtmlPresent(title);
     toggle(title, params.title || params.titleText, 'block');
     if (params.title) {
       parseHtmlToContainer(params.title, title);
@@ -19013,7 +19192,7 @@ module.exports = function (list, options) {
   };
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @param {SweetAlertOptions} params
    */
   const render = (instance, params) => {
@@ -19027,59 +19206,11 @@ module.exports = function (list, options) {
     renderContent(instance, params);
     renderActions(instance, params);
     renderFooter(instance, params);
-    if (typeof params.didRender === 'function') {
-      params.didRender(getPopup());
+    const popup = getPopup();
+    if (typeof params.didRender === 'function' && popup) {
+      params.didRender(popup);
     }
   };
-
-  /**
-   * Hides loader and shows back the button which was hidden by .showLoading()
-   */
-  function hideLoading() {
-    // do nothing if popup is closed
-    const innerParams = privateProps.innerParams.get(this);
-    if (!innerParams) {
-      return;
-    }
-    const domCache = privateProps.domCache.get(this);
-    hide(domCache.loader);
-    if (isToast()) {
-      if (innerParams.icon) {
-        show(getIcon());
-      }
-    } else {
-      showRelatedButton(domCache);
-    }
-    removeClass([domCache.popup, domCache.actions], swalClasses.loading);
-    domCache.popup.removeAttribute('aria-busy');
-    domCache.popup.removeAttribute('data-loading');
-    domCache.confirmButton.disabled = false;
-    domCache.denyButton.disabled = false;
-    domCache.cancelButton.disabled = false;
-  }
-  const showRelatedButton = domCache => {
-    const buttonToReplace = domCache.popup.getElementsByClassName(domCache.loader.getAttribute('data-button-to-replace'));
-    if (buttonToReplace.length) {
-      show(buttonToReplace[0], 'inline-block');
-    } else if (allButtonsAreHidden()) {
-      hide(domCache.actions);
-    }
-  };
-
-  /**
-   * Gets the input DOM node, this method works with input parameter.
-   *
-   * @param {SweetAlert2} instance
-   * @returns {HTMLElement | null}
-   */
-  function getInput(instance) {
-    const innerParams = privateProps.innerParams.get(instance || this);
-    const domCache = privateProps.domCache.get(instance || this);
-    if (!domCache) {
-      return null;
-    }
-    return getInput$1(domCache.popup, innerParams.input);
-  }
 
   /*
    * Global function to determine if SweetAlert2 popup is shown
@@ -19091,18 +19222,30 @@ module.exports = function (list, options) {
   /*
    * Global function to click 'Confirm' button
    */
-  const clickConfirm = () => getConfirmButton() && getConfirmButton().click();
+  const clickConfirm = () => {
+    var _dom$getConfirmButton;
+    return (_dom$getConfirmButton = getConfirmButton()) === null || _dom$getConfirmButton === void 0 ? void 0 : _dom$getConfirmButton.click();
+  };
 
   /*
    * Global function to click 'Deny' button
    */
-  const clickDeny = () => getDenyButton() && getDenyButton().click();
+  const clickDeny = () => {
+    var _dom$getDenyButton;
+    return (_dom$getDenyButton = getDenyButton()) === null || _dom$getDenyButton === void 0 ? void 0 : _dom$getDenyButton.click();
+  };
 
   /*
    * Global function to click 'Cancel' button
    */
-  const clickCancel = () => getCancelButton() && getCancelButton().click();
+  const clickCancel = () => {
+    var _dom$getCancelButton;
+    return (_dom$getCancelButton = getCancelButton()) === null || _dom$getCancelButton === void 0 ? void 0 : _dom$getCancelButton.click();
+  };
 
+  /** @typedef {'cancel' | 'backdrop' | 'close' | 'esc' | 'timer'} DismissReason */
+
+  /** @type {Record<DismissReason, DismissReason>} */
   const DismissReason = Object.freeze({
     cancel: 'cancel',
     backdrop: 'backdrop',
@@ -19124,15 +19267,14 @@ module.exports = function (list, options) {
   };
 
   /**
-   * @param {SweetAlert2} instance
    * @param {GlobalState} globalState
    * @param {SweetAlertOptions} innerParams
    * @param {*} dismissWith
    */
-  const addKeydownHandler = (instance, globalState, innerParams, dismissWith) => {
+  const addKeydownHandler = (globalState, innerParams, dismissWith) => {
     removeKeydownHandler(globalState);
     if (!innerParams.toast) {
-      globalState.keydownHandler = e => keydownHandler(instance, e, dismissWith);
+      globalState.keydownHandler = e => keydownHandler(innerParams, e, dismissWith);
       globalState.keydownTarget = innerParams.keydownListenerCapture ? window : getPopup();
       globalState.keydownListenerCapture = innerParams.keydownListenerCapture;
       globalState.keydownTarget.addEventListener('keydown', globalState.keydownHandler, {
@@ -19147,6 +19289,7 @@ module.exports = function (list, options) {
    * @param {number} increment
    */
   const setFocus = (index, increment) => {
+    var _dom$getPopup;
     const focusableElements = getFocusableElements();
     // search for visible elements and select the next possible match
     if (focusableElements.length) {
@@ -19164,18 +19307,17 @@ module.exports = function (list, options) {
       return;
     }
     // no visible focusable elements, focus the popup
-    getPopup().focus();
+    (_dom$getPopup = getPopup()) === null || _dom$getPopup === void 0 || _dom$getPopup.focus();
   };
   const arrowKeysNextButton = ['ArrowRight', 'ArrowDown'];
   const arrowKeysPreviousButton = ['ArrowLeft', 'ArrowUp'];
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlertOptions} innerParams
    * @param {KeyboardEvent} event
    * @param {Function} dismissWith
    */
-  const keydownHandler = (instance, event, dismissWith) => {
-    const innerParams = privateProps.innerParams.get(instance);
+  const keydownHandler = (innerParams, event, dismissWith) => {
     if (!innerParams) {
       return; // This instance has already been destroyed
     }
@@ -19193,7 +19335,7 @@ module.exports = function (list, options) {
 
     // ENTER
     if (event.key === 'Enter') {
-      handleEnter(instance, event, innerParams);
+      handleEnter(event, innerParams);
     }
 
     // TAB
@@ -19213,16 +19355,16 @@ module.exports = function (list, options) {
   };
 
   /**
-   * @param {SweetAlert2} instance
    * @param {KeyboardEvent} event
    * @param {SweetAlertOptions} innerParams
    */
-  const handleEnter = (instance, event, innerParams) => {
+  const handleEnter = (event, innerParams) => {
     // https://github.com/sweetalert2/sweetalert2/issues/2386
     if (!callIfFunction(innerParams.allowEnterKey)) {
       return;
     }
-    if (event.target && instance.getInput() && event.target instanceof HTMLElement && event.target.outerHTML === instance.getInput().outerHTML) {
+    const input = getInput$1(getPopup(), innerParams.input);
+    if (event.target && input && event.target instanceof HTMLElement && event.target.outerHTML === input.outerHTML) {
       if (['textarea', 'file'].includes(innerParams.input)) {
         return; // do not submit
       }
@@ -19263,15 +19405,24 @@ module.exports = function (list, options) {
    * @param {string} key
    */
   const handleArrows = key => {
+    const actions = getActions();
     const confirmButton = getConfirmButton();
     const denyButton = getDenyButton();
     const cancelButton = getCancelButton();
-    if (document.activeElement instanceof HTMLElement && ![confirmButton, denyButton, cancelButton].includes(document.activeElement)) {
+    if (!actions || !confirmButton || !denyButton || !cancelButton) {
+      return;
+    }
+    /** @type HTMLElement[] */
+    const buttons = [confirmButton, denyButton, cancelButton];
+    if (document.activeElement instanceof HTMLElement && !buttons.includes(document.activeElement)) {
       return;
     }
     const sibling = arrowKeysNextButton.includes(key) ? 'nextElementSibling' : 'previousElementSibling';
     let buttonToFocus = document.activeElement;
-    for (let i = 0; i < getActions().children.length; i++) {
+    if (!buttonToFocus) {
+      return;
+    }
+    for (let i = 0; i < actions.children.length; i++) {
       buttonToFocus = buttonToFocus[sibling];
       if (!buttonToFocus) {
         return;
@@ -19324,7 +19475,7 @@ module.exports = function (list, options) {
         return;
       }
       if (el.hasAttribute('aria-hidden')) {
-        el.setAttribute('data-previous-aria-hidden', el.getAttribute('aria-hidden'));
+        el.setAttribute('data-previous-aria-hidden', el.getAttribute('aria-hidden') || '');
       }
       el.setAttribute('aria-hidden', 'true');
     });
@@ -19333,7 +19484,7 @@ module.exports = function (list, options) {
     const bodyChildren = Array.from(document.body.children);
     bodyChildren.forEach(el => {
       if (el.hasAttribute('data-previous-aria-hidden')) {
-        el.setAttribute('aria-hidden', el.getAttribute('data-previous-aria-hidden'));
+        el.setAttribute('aria-hidden', el.getAttribute('data-previous-aria-hidden') || '');
         el.removeAttribute('data-previous-aria-hidden');
       } else {
         el.removeAttribute('aria-hidden');
@@ -19341,36 +19492,19 @@ module.exports = function (list, options) {
     });
   };
 
-  /* istanbul ignore file */
-
-  // Fix iOS scrolling http://stackoverflow.com/q/39626302
-
-  const iOSfix = () => {
-    const iOS =
-    // @ts-ignore
-    /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream || navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1;
-    if (iOS && !hasClass(document.body, swalClasses.iosfix)) {
-      const offset = document.body.scrollTop;
-      document.body.style.top = `${offset * -1}px`;
-      addClass(document.body, swalClasses.iosfix);
-      lockBodyScroll();
-      addBottomPaddingForTallPopups();
-    }
-  };
+  // @ts-ignore
+  const isSafariOrIOS = typeof window !== 'undefined' && !!window.GestureEvent; // true for Safari desktop + all iOS browsers https://stackoverflow.com/a/70585394
 
   /**
-   * https://github.com/sweetalert2/sweetalert2/issues/1948
+   * Fix iOS scrolling
+   * http://stackoverflow.com/q/39626302
    */
-  const addBottomPaddingForTallPopups = () => {
-    const ua = navigator.userAgent;
-    const iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
-    const webkit = !!ua.match(/WebKit/i);
-    const iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
-    if (iOSSafari) {
-      const bottomPanelHeight = 44;
-      if (getPopup().scrollHeight > window.innerHeight - bottomPanelHeight) {
-        getContainer().style.paddingBottom = `${bottomPanelHeight}px`;
-      }
+  const iOSfix = () => {
+    if (isSafariOrIOS && !hasClass(document.body, swalClasses.iosfix)) {
+      const offset = document.body.scrollTop;
+      document.body.style.top = "".concat(offset * -1, "px");
+      addClass(document.body, swalClasses.iosfix);
+      lockBodyScroll();
     }
   };
 
@@ -19379,6 +19513,10 @@ module.exports = function (list, options) {
    */
   const lockBodyScroll = () => {
     const container = getContainer();
+    if (!container) {
+      return;
+    }
+    /** @type {boolean} */
     let preventTouchMove;
     /**
      * @param {TouchEvent} event
@@ -19404,6 +19542,10 @@ module.exports = function (list, options) {
   const shouldPreventTouchMove = event => {
     const target = event.target;
     const container = getContainer();
+    const htmlContainer = getHtmlContainer();
+    if (!container || !htmlContainer) {
+      return false;
+    }
     if (isStylus(event) || isZoom(event)) {
       return false;
     }
@@ -19414,9 +19556,9 @@ module.exports = function (list, options) {
     // #1603
     target.tagName !== 'TEXTAREA' &&
     // #2266
-    !(isScrollable(getHtmlContainer()) &&
+    !(isScrollable(htmlContainer) &&
     // #1944
-    getHtmlContainer().contains(target))) {
+    htmlContainer.contains(target))) {
       return true;
     }
     return false;
@@ -19450,29 +19592,56 @@ module.exports = function (list, options) {
     }
   };
 
-  const fixScrollbar = () => {
+  /**
+   * Measure scrollbar width for padding body during modal show/hide
+   * https://github.com/twbs/bootstrap/blob/master/js/src/modal.js
+   *
+   * @returns {number}
+   */
+  const measureScrollbar = () => {
+    const scrollDiv = document.createElement('div');
+    scrollDiv.className = swalClasses['scrollbar-measure'];
+    document.body.appendChild(scrollDiv);
+    const scrollbarWidth = scrollDiv.getBoundingClientRect().width - scrollDiv.clientWidth;
+    document.body.removeChild(scrollDiv);
+    return scrollbarWidth;
+  };
+
+  /**
+   * Remember state in cases where opening and handling a modal will fiddle with it.
+   * @type {number | null}
+   */
+  let previousBodyPadding = null;
+
+  /**
+   * @param {string} initialBodyOverflow
+   */
+  const replaceScrollbarWithPadding = initialBodyOverflow => {
     // for queues, do not do this more than once
-    if (states.previousBodyPadding !== null) {
+    if (previousBodyPadding !== null) {
       return;
     }
     // if the body has overflow
-    if (document.body.scrollHeight > window.innerHeight) {
+    if (document.body.scrollHeight > window.innerHeight || initialBodyOverflow === 'scroll' // https://github.com/sweetalert2/sweetalert2/issues/2663
+    ) {
       // add padding so the content doesn't shift after removal of scrollbar
-      states.previousBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right'));
-      document.body.style.paddingRight = `${states.previousBodyPadding + measureScrollbar()}px`;
+      previousBodyPadding = parseInt(window.getComputedStyle(document.body).getPropertyValue('padding-right'));
+      document.body.style.paddingRight = "".concat(previousBodyPadding + measureScrollbar(), "px");
     }
   };
-  const undoScrollbar = () => {
-    if (states.previousBodyPadding !== null) {
-      document.body.style.paddingRight = `${states.previousBodyPadding}px`;
-      states.previousBodyPadding = null;
+  const undoReplaceScrollbarWithPadding = () => {
+    if (previousBodyPadding !== null) {
+      document.body.style.paddingRight = "".concat(previousBodyPadding, "px");
+      previousBodyPadding = null;
     }
   };
 
-  /*
-   * Instance method to close sweetAlert
+  /**
+   * @param {SweetAlert} instance
+   * @param {HTMLElement} container
+   * @param {boolean} returnFocus
+   * @param {Function} didClose
    */
-
   function removePopupAndResetState(instance, container, returnFocus, didClose) {
     if (isToast()) {
       triggerDidCloseAndDispose(instance, didClose);
@@ -19480,10 +19649,10 @@ module.exports = function (list, options) {
       restoreActiveElement(returnFocus).then(() => triggerDidCloseAndDispose(instance, didClose));
       removeKeydownHandler(globalState);
     }
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
-    // workaround for #2088
+
+    // workaround for https://github.com/sweetalert2/sweetalert2/issues/2088
     // for some reason removing the container in Safari will scroll the document to bottom
-    if (isSafari) {
+    if (isSafariOrIOS) {
       container.setAttribute('style', 'display:none !important');
       container.removeAttribute('class');
       container.innerHTML = '';
@@ -19491,20 +19660,30 @@ module.exports = function (list, options) {
       container.remove();
     }
     if (isModal()) {
-      undoScrollbar();
+      undoReplaceScrollbarWithPadding();
       undoIOSfix();
       unsetAriaHidden();
     }
     removeBodyClasses();
   }
+
+  /**
+   * Remove SweetAlert2 classes from body
+   */
   function removeBodyClasses() {
     removeClass([document.documentElement, document.body], [swalClasses.shown, swalClasses['height-auto'], swalClasses['no-backdrop'], swalClasses['toast-shown']]);
   }
+
+  /**
+   * Instance method to close sweetAlert
+   *
+   * @param {any} resolveValue
+   */
   function close(resolveValue) {
     resolveValue = prepareResolveValue(resolveValue);
     const swalPromiseResolve = privateMethods.swalPromiseResolve.get(this);
     const didClose = triggerClosePopup(this);
-    if (this.isAwaitingPromise()) {
+    if (this.isAwaitingPromise) {
       // A swal awaiting for a promise (after a click on Confirm or Deny) cannot be dismissed anymore #2335
       if (!resolveValue.isDismissed) {
         handleAwaitingPromise(this);
@@ -19514,9 +19693,6 @@ module.exports = function (list, options) {
       // Resolve Swal promise
       swalPromiseResolve(resolveValue);
     }
-  }
-  function isAwaitingPromise() {
-    return !!privateProps.awaitingPromise.get(this);
   }
   const triggerClosePopup = instance => {
     const popup = getPopup();
@@ -19535,6 +19711,10 @@ module.exports = function (list, options) {
     handlePopupAnimation(instance, popup, innerParams);
     return true;
   };
+
+  /**
+   * @param {any} error
+   */
   function rejectPromise(error) {
     const rejectPromise = privateMethods.swalPromiseReject.get(this);
     handleAwaitingPromise(this);
@@ -19543,15 +19723,24 @@ module.exports = function (list, options) {
       rejectPromise(error);
     }
   }
+
+  /**
+   * @param {SweetAlert} instance
+   */
   const handleAwaitingPromise = instance => {
-    if (instance.isAwaitingPromise()) {
-      privateProps.awaitingPromise.delete(instance);
+    if (instance.isAwaitingPromise) {
+      delete instance.isAwaitingPromise;
       // The instance might have been previously partly destroyed, we must resume the destroy process in this case #2335
       if (!privateProps.innerParams.get(instance)) {
         instance._destroy();
       }
     }
   };
+
+  /**
+   * @param {any} resolveValue
+   * @returns {SweetAlertResult}
+   */
   const prepareResolveValue = resolveValue => {
     // When user calls Swal.close()
     if (typeof resolveValue === 'undefined') {
@@ -19567,6 +19756,12 @@ module.exports = function (list, options) {
       isDismissed: false
     }, resolveValue);
   };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {HTMLElement} popup
+   * @param {SweetAlertOptions} innerParams
+   */
   const handlePopupAnimation = (instance, popup, innerParams) => {
     const container = getContainer();
     // If animation is supported, animate
@@ -19581,7 +19776,18 @@ module.exports = function (list, options) {
       removePopupAndResetState(instance, container, innerParams.returnFocus, innerParams.didClose);
     }
   };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {HTMLElement} popup
+   * @param {HTMLElement} container
+   * @param {boolean} returnFocus
+   * @param {Function} didClose
+   */
   const animatePopup = (instance, popup, container, returnFocus, didClose) => {
+    if (!animationEndEvent) {
+      return;
+    }
     globalState.swalCloseEventFinishedCallback = removePopupAndResetState.bind(null, instance, container, returnFocus, didClose);
     popup.addEventListener(animationEndEvent, function (e) {
       if (e.target === popup) {
@@ -19590,17 +19796,510 @@ module.exports = function (list, options) {
       }
     });
   };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {Function} didClose
+   */
   const triggerDidCloseAndDispose = (instance, didClose) => {
     setTimeout(() => {
       if (typeof didClose === 'function') {
         didClose.bind(instance.params)();
       }
-      instance._destroy();
+      // instance might have been destroyed already
+      if (instance._destroy) {
+        instance._destroy();
+      }
     });
   };
 
   /**
-   * @param {SweetAlert2} instance
+   * Shows loader (spinner), this is useful with AJAX requests.
+   * By default the loader be shown instead of the "Confirm" button.
+   *
+   * @param {HTMLButtonElement | null} [buttonToReplace]
+   */
+  const showLoading = buttonToReplace => {
+    let popup = getPopup();
+    if (!popup) {
+      new Swal(); // eslint-disable-line no-new
+    }
+
+    popup = getPopup();
+    if (!popup) {
+      return;
+    }
+    const loader = getLoader();
+    if (isToast()) {
+      hide(getIcon());
+    } else {
+      replaceButton(popup, buttonToReplace);
+    }
+    show(loader);
+    popup.setAttribute('data-loading', 'true');
+    popup.setAttribute('aria-busy', 'true');
+    popup.focus();
+  };
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {HTMLButtonElement | null} [buttonToReplace]
+   */
+  const replaceButton = (popup, buttonToReplace) => {
+    const actions = getActions();
+    const loader = getLoader();
+    if (!actions || !loader) {
+      return;
+    }
+    if (!buttonToReplace && isVisible$1(getConfirmButton())) {
+      buttonToReplace = getConfirmButton();
+    }
+    show(actions);
+    if (buttonToReplace) {
+      hide(buttonToReplace);
+      loader.setAttribute('data-button-to-replace', buttonToReplace.className);
+      actions.insertBefore(loader, buttonToReplace);
+    }
+    addClass([popup, actions], swalClasses.loading);
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  const handleInputOptionsAndValue = (instance, params) => {
+    if (params.input === 'select' || params.input === 'radio') {
+      handleInputOptions(instance, params);
+    } else if (['text', 'email', 'number', 'tel', 'textarea'].some(i => i === params.input) && (hasToPromiseFn(params.inputValue) || isPromise(params.inputValue))) {
+      showLoading(getConfirmButton());
+      handleInputValue(instance, params);
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} innerParams
+   * @returns {SweetAlertInputValue}
+   */
+  const getInputValue = (instance, innerParams) => {
+    const input = instance.getInput();
+    if (!input) {
+      return null;
+    }
+    switch (innerParams.input) {
+      case 'checkbox':
+        return getCheckboxValue(input);
+      case 'radio':
+        return getRadioValue(input);
+      case 'file':
+        return getFileValue(input);
+      default:
+        return innerParams.inputAutoTrim ? input.value.trim() : input.value;
+    }
+  };
+
+  /**
+   * @param {HTMLInputElement} input
+   * @returns {number}
+   */
+  const getCheckboxValue = input => input.checked ? 1 : 0;
+
+  /**
+   * @param {HTMLInputElement} input
+   * @returns {string | null}
+   */
+  const getRadioValue = input => input.checked ? input.value : null;
+
+  /**
+   * @param {HTMLInputElement} input
+   * @returns {FileList | File | null}
+   */
+  const getFileValue = input => input.files && input.files.length ? input.getAttribute('multiple') !== null ? input.files : input.files[0] : null;
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  const handleInputOptions = (instance, params) => {
+    const popup = getPopup();
+    if (!popup) {
+      return;
+    }
+    /**
+     * @param {Record<string, any>} inputOptions
+     */
+    const processInputOptions = inputOptions => {
+      if (params.input === 'select') {
+        populateSelectOptions(popup, formatInputOptions(inputOptions), params);
+      } else if (params.input === 'radio') {
+        populateRadioOptions(popup, formatInputOptions(inputOptions), params);
+      }
+    };
+    if (hasToPromiseFn(params.inputOptions) || isPromise(params.inputOptions)) {
+      showLoading(getConfirmButton());
+      asPromise(params.inputOptions).then(inputOptions => {
+        instance.hideLoading();
+        processInputOptions(inputOptions);
+      });
+    } else if (typeof params.inputOptions === 'object') {
+      processInputOptions(params.inputOptions);
+    } else {
+      error("Unexpected type of inputOptions! Expected object, Map or Promise, got ".concat(typeof params.inputOptions));
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertOptions} params
+   */
+  const handleInputValue = (instance, params) => {
+    const input = instance.getInput();
+    if (!input) {
+      return;
+    }
+    hide(input);
+    asPromise(params.inputValue).then(inputValue => {
+      input.value = params.input === 'number' ? "".concat(parseFloat(inputValue) || 0) : "".concat(inputValue);
+      show(input);
+      input.focus();
+      instance.hideLoading();
+    }).catch(err => {
+      error("Error in inputValue promise: ".concat(err));
+      input.value = '';
+      show(input);
+      input.focus();
+      instance.hideLoading();
+    });
+  };
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {InputOptionFlattened[]} inputOptions
+   * @param {SweetAlertOptions} params
+   */
+  function populateSelectOptions(popup, inputOptions, params) {
+    const select = getDirectChildByClass(popup, swalClasses.select);
+    if (!select) {
+      return;
+    }
+    /**
+     * @param {HTMLElement} parent
+     * @param {string} optionLabel
+     * @param {string} optionValue
+     */
+    const renderOption = (parent, optionLabel, optionValue) => {
+      const option = document.createElement('option');
+      option.value = optionValue;
+      setInnerHtml(option, optionLabel);
+      option.selected = isSelected(optionValue, params.inputValue);
+      parent.appendChild(option);
+    };
+    inputOptions.forEach(inputOption => {
+      const optionValue = inputOption[0];
+      const optionLabel = inputOption[1];
+      // <optgroup> spec:
+      // https://www.w3.org/TR/html401/interact/forms.html#h-17.6
+      // "...all OPTGROUP elements must be specified directly within a SELECT element (i.e., groups may not be nested)..."
+      // check whether this is a <optgroup>
+      if (Array.isArray(optionLabel)) {
+        // if it is an array, then it is an <optgroup>
+        const optgroup = document.createElement('optgroup');
+        optgroup.label = optionValue;
+        optgroup.disabled = false; // not configurable for now
+        select.appendChild(optgroup);
+        optionLabel.forEach(o => renderOption(optgroup, o[1], o[0]));
+      } else {
+        // case of <option>
+        renderOption(select, optionLabel, optionValue);
+      }
+    });
+    select.focus();
+  }
+
+  /**
+   * @param {HTMLElement} popup
+   * @param {InputOptionFlattened[]} inputOptions
+   * @param {SweetAlertOptions} params
+   */
+  function populateRadioOptions(popup, inputOptions, params) {
+    const radio = getDirectChildByClass(popup, swalClasses.radio);
+    if (!radio) {
+      return;
+    }
+    inputOptions.forEach(inputOption => {
+      const radioValue = inputOption[0];
+      const radioLabel = inputOption[1];
+      const radioInput = document.createElement('input');
+      const radioLabelElement = document.createElement('label');
+      radioInput.type = 'radio';
+      radioInput.name = swalClasses.radio;
+      radioInput.value = radioValue;
+      if (isSelected(radioValue, params.inputValue)) {
+        radioInput.checked = true;
+      }
+      const label = document.createElement('span');
+      setInnerHtml(label, radioLabel);
+      label.className = swalClasses.label;
+      radioLabelElement.appendChild(radioInput);
+      radioLabelElement.appendChild(label);
+      radio.appendChild(radioLabelElement);
+    });
+    const radios = radio.querySelectorAll('input');
+    if (radios.length) {
+      radios[0].focus();
+    }
+  }
+
+  /**
+   * Converts `inputOptions` into an array of `[value, label]`s
+   *
+   * @param {Record<string, any>} inputOptions
+   * @typedef {string[]} InputOptionFlattened
+   * @returns {InputOptionFlattened[]}
+   */
+  const formatInputOptions = inputOptions => {
+    /** @type {InputOptionFlattened[]} */
+    const result = [];
+    if (inputOptions instanceof Map) {
+      inputOptions.forEach((value, key) => {
+        let valueFormatted = value;
+        if (typeof valueFormatted === 'object') {
+          // case of <optgroup>
+          valueFormatted = formatInputOptions(valueFormatted);
+        }
+        result.push([key, valueFormatted]);
+      });
+    } else {
+      Object.keys(inputOptions).forEach(key => {
+        let valueFormatted = inputOptions[key];
+        if (typeof valueFormatted === 'object') {
+          // case of <optgroup>
+          valueFormatted = formatInputOptions(valueFormatted);
+        }
+        result.push([key, valueFormatted]);
+      });
+    }
+    return result;
+  };
+
+  /**
+   * @param {string} optionValue
+   * @param {SweetAlertInputValue} inputValue
+   * @returns {boolean}
+   */
+  const isSelected = (optionValue, inputValue) => {
+    return !!inputValue && inputValue.toString() === optionValue.toString();
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   */
+  const handleConfirmButtonClick = instance => {
+    const innerParams = privateProps.innerParams.get(instance);
+    instance.disableButtons();
+    if (innerParams.input) {
+      handleConfirmOrDenyWithInput(instance, 'confirm');
+    } else {
+      confirm(instance, true);
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   */
+  const handleDenyButtonClick = instance => {
+    const innerParams = privateProps.innerParams.get(instance);
+    instance.disableButtons();
+    if (innerParams.returnInputValueOnDeny) {
+      handleConfirmOrDenyWithInput(instance, 'deny');
+    } else {
+      deny(instance, false);
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {Function} dismissWith
+   */
+  const handleCancelButtonClick = (instance, dismissWith) => {
+    instance.disableButtons();
+    dismissWith(DismissReason.cancel);
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {'confirm' | 'deny'} type
+   */
+  const handleConfirmOrDenyWithInput = (instance, type) => {
+    const innerParams = privateProps.innerParams.get(instance);
+    if (!innerParams.input) {
+      error("The \"input\" parameter is needed to be set when using returnInputValueOn".concat(capitalizeFirstLetter(type)));
+      return;
+    }
+    const input = instance.getInput();
+    const inputValue = getInputValue(instance, innerParams);
+    if (innerParams.inputValidator) {
+      handleInputValidator(instance, inputValue, type);
+    } else if (input && !input.checkValidity()) {
+      instance.enableButtons();
+      instance.showValidationMessage(innerParams.validationMessage);
+    } else if (type === 'deny') {
+      deny(instance, inputValue);
+    } else {
+      confirm(instance, inputValue);
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {SweetAlertInputValue} inputValue
+   * @param {'confirm' | 'deny'} type
+   */
+  const handleInputValidator = (instance, inputValue, type) => {
+    const innerParams = privateProps.innerParams.get(instance);
+    instance.disableInput();
+    const validationPromise = Promise.resolve().then(() => asPromise(innerParams.inputValidator(inputValue, innerParams.validationMessage)));
+    validationPromise.then(validationMessage => {
+      instance.enableButtons();
+      instance.enableInput();
+      if (validationMessage) {
+        instance.showValidationMessage(validationMessage);
+      } else if (type === 'deny') {
+        deny(instance, inputValue);
+      } else {
+        confirm(instance, inputValue);
+      }
+    });
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {any} value
+   */
+  const deny = (instance, value) => {
+    const innerParams = privateProps.innerParams.get(instance || undefined);
+    if (innerParams.showLoaderOnDeny) {
+      showLoading(getDenyButton());
+    }
+    if (innerParams.preDeny) {
+      instance.isAwaitingPromise = true; // Flagging the instance as awaiting a promise so it's own promise's reject/resolve methods doesn't get destroyed until the result from this preDeny's promise is received
+      const preDenyPromise = Promise.resolve().then(() => asPromise(innerParams.preDeny(value, innerParams.validationMessage)));
+      preDenyPromise.then(preDenyValue => {
+        if (preDenyValue === false) {
+          instance.hideLoading();
+          handleAwaitingPromise(instance);
+        } else {
+          instance.close({
+            isDenied: true,
+            value: typeof preDenyValue === 'undefined' ? value : preDenyValue
+          });
+        }
+      }).catch(error => rejectWith(instance || undefined, error));
+    } else {
+      instance.close({
+        isDenied: true,
+        value
+      });
+    }
+  };
+
+  /**
+   * @param {SweetAlert} instance
+   * @param {any} value
+   */
+  const succeedWith = (instance, value) => {
+    instance.close({
+      isConfirmed: true,
+      value
+    });
+  };
+
+  /**
+   *
+   * @param {SweetAlert} instance
+   * @param {string} error
+   */
+  const rejectWith = (instance, error) => {
+    instance.rejectPromise(error);
+  };
+
+  /**
+   *
+   * @param {SweetAlert} instance
+   * @param {any} value
+   */
+  const confirm = (instance, value) => {
+    const innerParams = privateProps.innerParams.get(instance || undefined);
+    if (innerParams.showLoaderOnConfirm) {
+      showLoading();
+    }
+    if (innerParams.preConfirm) {
+      instance.resetValidationMessage();
+      instance.isAwaitingPromise = true; // Flagging the instance as awaiting a promise so it's own promise's reject/resolve methods doesn't get destroyed until the result from this preConfirm's promise is received
+      const preConfirmPromise = Promise.resolve().then(() => asPromise(innerParams.preConfirm(value, innerParams.validationMessage)));
+      preConfirmPromise.then(preConfirmValue => {
+        if (isVisible$1(getValidationMessage()) || preConfirmValue === false) {
+          instance.hideLoading();
+          handleAwaitingPromise(instance);
+        } else {
+          succeedWith(instance, typeof preConfirmValue === 'undefined' ? value : preConfirmValue);
+        }
+      }).catch(error => rejectWith(instance || undefined, error));
+    } else {
+      succeedWith(instance, value);
+    }
+  };
+
+  /**
+   * Hides loader and shows back the button which was hidden by .showLoading()
+   */
+  function hideLoading() {
+    // do nothing if popup is closed
+    const innerParams = privateProps.innerParams.get(this);
+    if (!innerParams) {
+      return;
+    }
+    const domCache = privateProps.domCache.get(this);
+    hide(domCache.loader);
+    if (isToast()) {
+      if (innerParams.icon) {
+        show(getIcon());
+      }
+    } else {
+      showRelatedButton(domCache);
+    }
+    removeClass([domCache.popup, domCache.actions], swalClasses.loading);
+    domCache.popup.removeAttribute('aria-busy');
+    domCache.popup.removeAttribute('data-loading');
+    domCache.confirmButton.disabled = false;
+    domCache.denyButton.disabled = false;
+    domCache.cancelButton.disabled = false;
+  }
+  const showRelatedButton = domCache => {
+    const buttonToReplace = domCache.popup.getElementsByClassName(domCache.loader.getAttribute('data-button-to-replace'));
+    if (buttonToReplace.length) {
+      show(buttonToReplace[0], 'inline-block');
+    } else if (allButtonsAreHidden()) {
+      hide(domCache.actions);
+    }
+  };
+
+  /**
+   * Gets the input DOM node, this method works with input parameter.
+   *
+   * @returns {HTMLInputElement | null}
+   */
+  function getInput() {
+    const innerParams = privateProps.innerParams.get(this);
+    const domCache = privateProps.domCache.get(this);
+    if (!domCache) {
+      return null;
+    }
+    return getInput$1(domCache.popup, innerParams.input);
+  }
+
+  /**
+   * @param {SweetAlert} instance
    * @param {string[]} buttons
    * @param {boolean} disabled
    */
@@ -19612,16 +20311,17 @@ module.exports = function (list, options) {
   }
 
   /**
-   * @param {HTMLInputElement} input
+   * @param {HTMLInputElement | null} input
    * @param {boolean} disabled
    */
   function setInputDisabled(input, disabled) {
-    if (!input) {
+    const popup = getPopup();
+    if (!popup || !input) {
       return;
     }
     if (input.type === 'radio') {
-      const radiosContainer = input.parentNode.parentNode;
-      const radios = radiosContainer.querySelectorAll('input');
+      /** @type {NodeListOf<HTMLInputElement>} */
+      const radios = popup.querySelectorAll("[name=\"".concat(swalClasses.radio, "\"]"));
       for (let i = 0; i < radios.length; i++) {
         radios[i].disabled = disabled;
       }
@@ -19629,15 +20329,35 @@ module.exports = function (list, options) {
       input.disabled = disabled;
     }
   }
+
+  /**
+   * Enable all the buttons
+   * @this {SweetAlert}
+   */
   function enableButtons() {
     setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], false);
   }
+
+  /**
+   * Disable all the buttons
+   * @this {SweetAlert}
+   */
   function disableButtons() {
     setButtonsDisabled(this, ['confirmButton', 'denyButton', 'cancelButton'], true);
   }
+
+  /**
+   * Enable the input field
+   * @this {SweetAlert}
+   */
   function enableInput() {
     setInputDisabled(this.getInput(), false);
   }
+
+  /**
+   * Disable the input field
+   * @this {SweetAlert}
+   */
   function disableInput() {
     setInputDisabled(this.getInput(), true);
   }
@@ -19646,6 +20366,7 @@ module.exports = function (list, options) {
    * Show block with validation message
    *
    * @param {string} error
+   * @this {SweetAlert}
    */
   function showValidationMessage(error) {
     const domCache = privateProps.domCache.get(this);
@@ -19658,7 +20379,7 @@ module.exports = function (list, options) {
     show(domCache.validationMessage);
     const input = this.getInput();
     if (input) {
-      input.setAttribute('aria-invalid', true);
+      input.setAttribute('aria-invalid', 'true');
       input.setAttribute('aria-describedby', swalClasses['validation-message']);
       focusInput(input);
       addClass(input, swalClasses.inputerror);
@@ -19667,6 +20388,8 @@ module.exports = function (list, options) {
 
   /**
    * Hide block with validation message
+   *
+   * @this {SweetAlert}
    */
   function resetValidationMessage() {
     const domCache = privateProps.domCache.get(this);
@@ -19752,6 +20475,7 @@ module.exports = function (list, options) {
     inputLabel: '',
     inputValue: '',
     inputOptions: {},
+    inputAutoFocus: true,
     inputAutoTrim: true,
     inputAttributes: {},
     inputValidator: undefined,
@@ -19771,6 +20495,8 @@ module.exports = function (list, options) {
     scrollbarPadding: true
   };
   const updatableParams = ['allowEscapeKey', 'allowOutsideClick', 'background', 'buttonsStyling', 'cancelButtonAriaLabel', 'cancelButtonColor', 'cancelButtonText', 'closeButtonAriaLabel', 'closeButtonHtml', 'color', 'confirmButtonAriaLabel', 'confirmButtonColor', 'confirmButtonText', 'currentProgressStep', 'customClass', 'denyButtonAriaLabel', 'denyButtonColor', 'denyButtonText', 'didClose', 'didDestroy', 'footer', 'hideClass', 'html', 'icon', 'iconColor', 'iconHtml', 'imageAlt', 'imageHeight', 'imageUrl', 'imageWidth', 'preConfirm', 'preDeny', 'progressSteps', 'returnFocus', 'reverseButtons', 'showCancelButton', 'showCloseButton', 'showConfirmButton', 'showDenyButton', 'text', 'title', 'titleText', 'willClose'];
+
+  /** @type {Record<string, string>} */
   const deprecatedParams = {};
   const toastIncompatibleParams = ['allowOutsideClick', 'allowEnterKey', 'backdrop', 'focusConfirm', 'focusDeny', 'focusCancel', 'returnFocus', 'heightAuto', 'keydownListenerCapture'];
 
@@ -19809,7 +20535,7 @@ module.exports = function (list, options) {
    */
   const checkIfParamIsValid = param => {
     if (!isValidParameter(param)) {
-      warn(`Unknown parameter "${param}"`);
+      warn("Unknown parameter \"".concat(param, "\""));
     }
   };
 
@@ -19818,7 +20544,7 @@ module.exports = function (list, options) {
    */
   const checkIfToastParamIsValid = param => {
     if (toastIncompatibleParams.includes(param)) {
-      warn(`The parameter "${param}" is incompatible with toasts`);
+      warn("The parameter \"".concat(param, "\" is incompatible with toasts"));
     }
   };
 
@@ -19826,8 +20552,9 @@ module.exports = function (list, options) {
    * @param {string} param
    */
   const checkIfParamIsDeprecated = param => {
-    if (isDeprecatedParameter(param)) {
-      warnAboutDeprecation(param, isDeprecatedParameter(param));
+    const isDeprecated = isDeprecatedParameter(param);
+    if (isDeprecated) {
+      warnAboutDeprecation(param, isDeprecated);
     }
   };
 
@@ -19858,7 +20585,7 @@ module.exports = function (list, options) {
     const popup = getPopup();
     const innerParams = privateProps.innerParams.get(this);
     if (!popup || hasClass(popup, innerParams.hideClass.popup)) {
-      warn(`You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.`);
+      warn("You're trying to update the closed or closing popup, that won't work. Use the update() method in preConfirm parameter or show a new popup.");
       return;
     }
     const validUpdatableParams = filterValidParams(params);
@@ -19884,7 +20611,7 @@ module.exports = function (list, options) {
       if (isUpdatableParameter(param)) {
         validUpdatableParams[param] = params[param];
       } else {
-        warn(`Invalid parameter to update: ${param}`);
+        warn("Invalid parameter to update: ".concat(param));
       }
     });
     return validUpdatableParams;
@@ -19913,12 +20640,11 @@ module.exports = function (list, options) {
   }
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    */
   const disposeSwal = instance => {
     disposeWeakMaps(instance);
     // Unset this.params so GC will dispose it (#1569)
-    // @ts-ignore
     delete instance.params;
     // Unset globalState props so GC will dispose globalState (#1569)
     delete globalState.keydownHandler;
@@ -19928,23 +20654,40 @@ module.exports = function (list, options) {
   };
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    */
   const disposeWeakMaps = instance => {
     // If the current instance is awaiting a promise result, we keep the privateMethods to call them once the promise result is retrieved #2335
-    // @ts-ignore
-    if (instance.isAwaitingPromise()) {
+    if (instance.isAwaitingPromise) {
       unsetWeakMaps(privateProps, instance);
-      privateProps.awaitingPromise.set(instance, true);
+      instance.isAwaitingPromise = true;
     } else {
       unsetWeakMaps(privateMethods, instance);
       unsetWeakMaps(privateProps, instance);
+      delete instance.isAwaitingPromise;
+      // Unset instance methods
+      delete instance.disableButtons;
+      delete instance.enableButtons;
+      delete instance.getInput;
+      delete instance.disableInput;
+      delete instance.enableInput;
+      delete instance.hideLoading;
+      delete instance.disableLoading;
+      delete instance.showValidationMessage;
+      delete instance.resetValidationMessage;
+      delete instance.close;
+      delete instance.closePopup;
+      delete instance.closeModal;
+      delete instance.closeToast;
+      delete instance.rejectPromise;
+      delete instance.update;
+      delete instance._destroy;
     }
   };
 
   /**
    * @param {object} obj
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    */
   const unsetWeakMaps = (obj, instance) => {
     for (const i in obj) {
@@ -19954,440 +20697,33 @@ module.exports = function (list, options) {
 
   var instanceMethods = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    hideLoading: hideLoading,
-    disableLoading: hideLoading,
-    getInput: getInput,
+    _destroy: _destroy,
     close: close,
-    isAwaitingPromise: isAwaitingPromise,
-    rejectPromise: rejectPromise,
-    handleAwaitingPromise: handleAwaitingPromise,
-    closePopup: close,
     closeModal: close,
+    closePopup: close,
     closeToast: close,
-    enableButtons: enableButtons,
     disableButtons: disableButtons,
-    enableInput: enableInput,
     disableInput: disableInput,
-    showValidationMessage: showValidationMessage,
+    disableLoading: hideLoading,
+    enableButtons: enableButtons,
+    enableInput: enableInput,
+    getInput: getInput,
+    handleAwaitingPromise: handleAwaitingPromise,
+    hideLoading: hideLoading,
+    rejectPromise: rejectPromise,
     resetValidationMessage: resetValidationMessage,
-    update: update,
-    _destroy: _destroy
+    showValidationMessage: showValidationMessage,
+    update: update
   });
 
   /**
-   * Shows loader (spinner), this is useful with AJAX requests.
-   * By default the loader be shown instead of the "Confirm" button.
-   */
-  const showLoading = buttonToReplace => {
-    let popup = getPopup();
-    if (!popup) {
-      new Swal(); // eslint-disable-line no-new
-    }
-
-    popup = getPopup();
-    const loader = getLoader();
-    if (isToast()) {
-      hide(getIcon());
-    } else {
-      replaceButton(popup, buttonToReplace);
-    }
-    show(loader);
-    popup.setAttribute('data-loading', 'true');
-    popup.setAttribute('aria-busy', 'true');
-    popup.focus();
-  };
-  const replaceButton = (popup, buttonToReplace) => {
-    const actions = getActions();
-    const loader = getLoader();
-    if (!buttonToReplace && isVisible$1(getConfirmButton())) {
-      buttonToReplace = getConfirmButton();
-    }
-    show(actions);
-    if (buttonToReplace) {
-      hide(buttonToReplace);
-      loader.setAttribute('data-button-to-replace', buttonToReplace.className);
-    }
-    loader.parentNode.insertBefore(loader, buttonToReplace);
-    addClass([popup, actions], swalClasses.loading);
-  };
-
-  /**
-   * @typedef { string | number | boolean } InputValue
-   */
-
-  /**
-   * @param {SweetAlert2} instance
-   * @param {SweetAlertOptions} params
-   */
-  const handleInputOptionsAndValue = (instance, params) => {
-    if (params.input === 'select' || params.input === 'radio') {
-      handleInputOptions(instance, params);
-    } else if (['text', 'email', 'number', 'tel', 'textarea'].includes(params.input) && (hasToPromiseFn(params.inputValue) || isPromise(params.inputValue))) {
-      showLoading(getConfirmButton());
-      handleInputValue(instance, params);
-    }
-  };
-
-  /**
-   * @param {SweetAlert2} instance
    * @param {SweetAlertOptions} innerParams
-   * @returns {string | number | File | FileList | null}
-   */
-  const getInputValue = (instance, innerParams) => {
-    const input = instance.getInput();
-    if (!input) {
-      return null;
-    }
-    switch (innerParams.input) {
-      case 'checkbox':
-        return getCheckboxValue(input);
-      case 'radio':
-        return getRadioValue(input);
-      case 'file':
-        return getFileValue(input);
-      default:
-        return innerParams.inputAutoTrim ? input.value.trim() : input.value;
-    }
-  };
-
-  /**
-   * @param {HTMLInputElement} input
-   * @returns {number}
-   */
-  const getCheckboxValue = input => input.checked ? 1 : 0;
-
-  /**
-   * @param {HTMLInputElement} input
-   * @returns {string | null}
-   */
-  const getRadioValue = input => input.checked ? input.value : null;
-
-  /**
-   * @param {HTMLInputElement} input
-   * @returns {FileList | File | null}
-   */
-  const getFileValue = input => input.files.length ? input.getAttribute('multiple') !== null ? input.files : input.files[0] : null;
-
-  /**
-   * @param {SweetAlert2} instance
-   * @param {SweetAlertOptions} params
-   */
-  const handleInputOptions = (instance, params) => {
-    const popup = getPopup();
-    /**
-     * @param {Record<string, any>} inputOptions
-     */
-    const processInputOptions = inputOptions => {
-      populateInputOptions[params.input](popup, formatInputOptions(inputOptions), params);
-    };
-    if (hasToPromiseFn(params.inputOptions) || isPromise(params.inputOptions)) {
-      showLoading(getConfirmButton());
-      asPromise(params.inputOptions).then(inputOptions => {
-        instance.hideLoading();
-        processInputOptions(inputOptions);
-      });
-    } else if (typeof params.inputOptions === 'object') {
-      processInputOptions(params.inputOptions);
-    } else {
-      error(`Unexpected type of inputOptions! Expected object, Map or Promise, got ${typeof params.inputOptions}`);
-    }
-  };
-
-  /**
-   * @param {SweetAlert2} instance
-   * @param {SweetAlertOptions} params
-   */
-  const handleInputValue = (instance, params) => {
-    const input = instance.getInput();
-    hide(input);
-    asPromise(params.inputValue).then(inputValue => {
-      input.value = params.input === 'number' ? `${parseFloat(inputValue) || 0}` : `${inputValue}`;
-      show(input);
-      input.focus();
-      instance.hideLoading();
-    }).catch(err => {
-      error(`Error in inputValue promise: ${err}`);
-      input.value = '';
-      show(input);
-      input.focus();
-      instance.hideLoading();
-    });
-  };
-  const populateInputOptions = {
-    /**
-     * @param {HTMLElement} popup
-     * @param {Record<string, any>} inputOptions
-     * @param {SweetAlertOptions} params
-     */
-    select: (popup, inputOptions, params) => {
-      const select = getDirectChildByClass(popup, swalClasses.select);
-      /**
-       * @param {HTMLElement} parent
-       * @param {string} optionLabel
-       * @param {string} optionValue
-       */
-      const renderOption = (parent, optionLabel, optionValue) => {
-        const option = document.createElement('option');
-        option.value = optionValue;
-        setInnerHtml(option, optionLabel);
-        option.selected = isSelected(optionValue, params.inputValue);
-        parent.appendChild(option);
-      };
-      inputOptions.forEach(inputOption => {
-        const optionValue = inputOption[0];
-        const optionLabel = inputOption[1];
-        // <optgroup> spec:
-        // https://www.w3.org/TR/html401/interact/forms.html#h-17.6
-        // "...all OPTGROUP elements must be specified directly within a SELECT element (i.e., groups may not be nested)..."
-        // check whether this is a <optgroup>
-        if (Array.isArray(optionLabel)) {
-          // if it is an array, then it is an <optgroup>
-          const optgroup = document.createElement('optgroup');
-          optgroup.label = optionValue;
-          optgroup.disabled = false; // not configurable for now
-          select.appendChild(optgroup);
-          optionLabel.forEach(o => renderOption(optgroup, o[1], o[0]));
-        } else {
-          // case of <option>
-          renderOption(select, optionLabel, optionValue);
-        }
-      });
-      select.focus();
-    },
-    /**
-     * @param {HTMLElement} popup
-     * @param {Record<string, any>} inputOptions
-     * @param {SweetAlertOptions} params
-     */
-    radio: (popup, inputOptions, params) => {
-      const radio = getDirectChildByClass(popup, swalClasses.radio);
-      inputOptions.forEach(inputOption => {
-        const radioValue = inputOption[0];
-        const radioLabel = inputOption[1];
-        const radioInput = document.createElement('input');
-        const radioLabelElement = document.createElement('label');
-        radioInput.type = 'radio';
-        radioInput.name = swalClasses.radio;
-        radioInput.value = radioValue;
-        if (isSelected(radioValue, params.inputValue)) {
-          radioInput.checked = true;
-        }
-        const label = document.createElement('span');
-        setInnerHtml(label, radioLabel);
-        label.className = swalClasses.label;
-        radioLabelElement.appendChild(radioInput);
-        radioLabelElement.appendChild(label);
-        radio.appendChild(radioLabelElement);
-      });
-      const radios = radio.querySelectorAll('input');
-      if (radios.length) {
-        radios[0].focus();
-      }
-    }
-  };
-
-  /**
-   * Converts `inputOptions` into an array of `[value, label]`s
-   *
-   * @param {Record<string, any>} inputOptions
-   * @returns {Array<Array<string>>}
-   */
-  const formatInputOptions = inputOptions => {
-    const result = [];
-    if (typeof Map !== 'undefined' && inputOptions instanceof Map) {
-      inputOptions.forEach((value, key) => {
-        let valueFormatted = value;
-        if (typeof valueFormatted === 'object') {
-          // case of <optgroup>
-          valueFormatted = formatInputOptions(valueFormatted);
-        }
-        result.push([key, valueFormatted]);
-      });
-    } else {
-      Object.keys(inputOptions).forEach(key => {
-        let valueFormatted = inputOptions[key];
-        if (typeof valueFormatted === 'object') {
-          // case of <optgroup>
-          valueFormatted = formatInputOptions(valueFormatted);
-        }
-        result.push([key, valueFormatted]);
-      });
-    }
-    return result;
-  };
-
-  /**
-   * @param {string} optionValue
-   * @param {InputValue | Promise<InputValue> | { toPromise: () => InputValue }} inputValue
-   * @returns {boolean}
-   */
-  const isSelected = (optionValue, inputValue) => {
-    return inputValue && inputValue.toString() === optionValue.toString();
-  };
-
-  /**
-   * @param {SweetAlert2} instance
-   */
-  const handleConfirmButtonClick = instance => {
-    const innerParams = privateProps.innerParams.get(instance);
-    instance.disableButtons();
-    if (innerParams.input) {
-      handleConfirmOrDenyWithInput(instance, 'confirm');
-    } else {
-      confirm(instance, true);
-    }
-  };
-
-  /**
-   * @param {SweetAlert2} instance
-   */
-  const handleDenyButtonClick = instance => {
-    const innerParams = privateProps.innerParams.get(instance);
-    instance.disableButtons();
-    if (innerParams.returnInputValueOnDeny) {
-      handleConfirmOrDenyWithInput(instance, 'deny');
-    } else {
-      deny(instance, false);
-    }
-  };
-
-  /**
-   * @param {SweetAlert2} instance
+   * @param {DomCache} domCache
    * @param {Function} dismissWith
    */
-  const handleCancelButtonClick = (instance, dismissWith) => {
-    instance.disableButtons();
-    dismissWith(DismissReason.cancel);
-  };
-
-  /**
-   * @param {SweetAlert2} instance
-   * @param {'confirm' | 'deny'} type
-   */
-  const handleConfirmOrDenyWithInput = (instance, type) => {
-    const innerParams = privateProps.innerParams.get(instance);
-    if (!innerParams.input) {
-      error(`The "input" parameter is needed to be set when using returnInputValueOn${capitalizeFirstLetter(type)}`);
-      return;
-    }
-    const inputValue = getInputValue(instance, innerParams);
-    if (innerParams.inputValidator) {
-      handleInputValidator(instance, inputValue, type);
-    } else if (!instance.getInput().checkValidity()) {
-      instance.enableButtons();
-      instance.showValidationMessage(innerParams.validationMessage);
-    } else if (type === 'deny') {
-      deny(instance, inputValue);
-    } else {
-      confirm(instance, inputValue);
-    }
-  };
-
-  /**
-   * @param {SweetAlert2} instance
-   * @param {string | number | File | FileList | null} inputValue
-   * @param {'confirm' | 'deny'} type
-   */
-  const handleInputValidator = (instance, inputValue, type) => {
-    const innerParams = privateProps.innerParams.get(instance);
-    instance.disableInput();
-    const validationPromise = Promise.resolve().then(() => asPromise(innerParams.inputValidator(inputValue, innerParams.validationMessage)));
-    validationPromise.then(validationMessage => {
-      instance.enableButtons();
-      instance.enableInput();
-      if (validationMessage) {
-        instance.showValidationMessage(validationMessage);
-      } else if (type === 'deny') {
-        deny(instance, inputValue);
-      } else {
-        confirm(instance, inputValue);
-      }
-    });
-  };
-
-  /**
-   * @param {SweetAlert2} instance
-   * @param {any} value
-   */
-  const deny = (instance, value) => {
-    const innerParams = privateProps.innerParams.get(instance || undefined);
-    if (innerParams.showLoaderOnDeny) {
-      showLoading(getDenyButton());
-    }
-    if (innerParams.preDeny) {
-      privateProps.awaitingPromise.set(instance || undefined, true); // Flagging the instance as awaiting a promise so it's own promise's reject/resolve methods doesn't get destroyed until the result from this preDeny's promise is received
-      const preDenyPromise = Promise.resolve().then(() => asPromise(innerParams.preDeny(value, innerParams.validationMessage)));
-      preDenyPromise.then(preDenyValue => {
-        if (preDenyValue === false) {
-          instance.hideLoading();
-          handleAwaitingPromise(instance);
-        } else {
-          instance.close({
-            isDenied: true,
-            value: typeof preDenyValue === 'undefined' ? value : preDenyValue
-          });
-        }
-      }).catch(error => rejectWith(instance || undefined, error));
-    } else {
-      instance.close({
-        isDenied: true,
-        value
-      });
-    }
-  };
-
-  /**
-   * @param {SweetAlert2} instance
-   * @param {any} value
-   */
-  const succeedWith = (instance, value) => {
-    instance.close({
-      isConfirmed: true,
-      value
-    });
-  };
-
-  /**
-   *
-   * @param {SweetAlert2} instance
-   * @param {string} error
-   */
-  const rejectWith = (instance, error) => {
-    // @ts-ignore
-    instance.rejectPromise(error);
-  };
-
-  /**
-   *
-   * @param {SweetAlert2} instance
-   * @param {any} value
-   */
-  const confirm = (instance, value) => {
-    const innerParams = privateProps.innerParams.get(instance || undefined);
-    if (innerParams.showLoaderOnConfirm) {
-      showLoading();
-    }
-    if (innerParams.preConfirm) {
-      instance.resetValidationMessage();
-      privateProps.awaitingPromise.set(instance || undefined, true); // Flagging the instance as awaiting a promise so it's own promise's reject/resolve methods doesn't get destroyed until the result from this preConfirm's promise is received
-      const preConfirmPromise = Promise.resolve().then(() => asPromise(innerParams.preConfirm(value, innerParams.validationMessage)));
-      preConfirmPromise.then(preConfirmValue => {
-        if (isVisible$1(getValidationMessage()) || preConfirmValue === false) {
-          instance.hideLoading();
-          handleAwaitingPromise(instance);
-        } else {
-          succeedWith(instance, typeof preConfirmValue === 'undefined' ? value : preConfirmValue);
-        }
-      }).catch(error => rejectWith(instance || undefined, error));
-    } else {
-      succeedWith(instance, value);
-    }
-  };
-
-  const handlePopupClick = (instance, domCache, dismissWith) => {
-    const innerParams = privateProps.innerParams.get(instance);
+  const handlePopupClick = (innerParams, domCache, dismissWith) => {
     if (innerParams.toast) {
-      handleToastClick(instance, domCache, dismissWith);
+      handleToastClick(innerParams, domCache, dismissWith);
     } else {
       // Ignore click events that had mousedown on the popup but mouseup on the container
       // This can happen when the user drags a slider
@@ -20395,13 +20731,18 @@ module.exports = function (list, options) {
 
       // Ignore click events that had mousedown on the container but mouseup on the popup
       handleContainerMousedown(domCache);
-      handleModalClick(instance, domCache, dismissWith);
+      handleModalClick(innerParams, domCache, dismissWith);
     }
   };
-  const handleToastClick = (instance, domCache, dismissWith) => {
+
+  /**
+   * @param {SweetAlertOptions} innerParams
+   * @param {DomCache} domCache
+   * @param {Function} dismissWith
+   */
+  const handleToastClick = (innerParams, domCache, dismissWith) => {
     // Closing toast by internal click
     domCache.popup.onclick = () => {
-      const innerParams = privateProps.innerParams.get(instance);
       if (innerParams && (isAnyButtonShown(innerParams) || innerParams.timer || innerParams.input)) {
         return;
       }
@@ -20410,17 +20751,21 @@ module.exports = function (list, options) {
   };
 
   /**
-   * @param {*} innerParams
+   * @param {SweetAlertOptions} innerParams
    * @returns {boolean}
    */
   const isAnyButtonShown = innerParams => {
-    return innerParams.showConfirmButton || innerParams.showDenyButton || innerParams.showCancelButton || innerParams.showCloseButton;
+    return !!(innerParams.showConfirmButton || innerParams.showDenyButton || innerParams.showCancelButton || innerParams.showCloseButton);
   };
   let ignoreOutsideClick = false;
+
+  /**
+   * @param {DomCache} domCache
+   */
   const handleModalMousedown = domCache => {
     domCache.popup.onmousedown = () => {
       domCache.container.onmouseup = function (e) {
-        domCache.container.onmouseup = undefined;
+        domCache.container.onmouseup = () => {};
         // We only check if the mouseup target is the container because usually it doesn't
         // have any other direct children aside of the popup
         if (e.target === domCache.container) {
@@ -20429,20 +20774,29 @@ module.exports = function (list, options) {
       };
     };
   };
+
+  /**
+   * @param {DomCache} domCache
+   */
   const handleContainerMousedown = domCache => {
     domCache.container.onmousedown = () => {
       domCache.popup.onmouseup = function (e) {
-        domCache.popup.onmouseup = undefined;
+        domCache.popup.onmouseup = () => {};
         // We also need to check if the mouseup target is a child of the popup
-        if (e.target === domCache.popup || domCache.popup.contains(e.target)) {
+        if (e.target === domCache.popup || e.target instanceof HTMLElement && domCache.popup.contains(e.target)) {
           ignoreOutsideClick = true;
         }
       };
     };
   };
-  const handleModalClick = (instance, domCache, dismissWith) => {
+
+  /**
+   * @param {SweetAlertOptions} innerParams
+   * @param {DomCache} domCache
+   * @param {Function} dismissWith
+   */
+  const handleModalClick = (innerParams, domCache, dismissWith) => {
     domCache.container.onclick = e => {
-      const innerParams = privateProps.innerParams.get(instance);
       if (ignoreOutsideClick) {
         ignoreOutsideClick = false;
         return;
@@ -20465,13 +20819,19 @@ module.exports = function (list, options) {
         if (typeof arg === 'string' || isElement(arg)) {
           params[name] = arg;
         } else if (arg !== undefined) {
-          error(`Unexpected type of ${name}! Expected "string" or "Element", got ${typeof arg}`);
+          error("Unexpected type of ".concat(name, "! Expected \"string\" or \"Element\", got ").concat(typeof arg));
         }
       });
     }
     return params;
   };
 
+  /**
+   * Main method to create a new SweetAlert2 popup
+   *
+   * @param  {...SweetAlertOptions} args
+   * @returns {Promise<SweetAlertResult>}
+   */
   function fire() {
     const Swal = this; // eslint-disable-line @typescript-eslint/no-this-alias
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
@@ -20496,7 +20856,8 @@ module.exports = function (list, options) {
    * const {value: firstName} = await TextPrompt('What is your first name?')
    * const {value: lastName} = await TextPrompt('What is your last name?')
    *
-   * @param mixinParams
+   * @param {SweetAlertOptions} mixinParams
+   * @returns {SweetAlert}
    */
   function mixin(mixinParams) {
     class MixinSwal extends this {
@@ -20504,6 +20865,7 @@ module.exports = function (list, options) {
         return super._main(params, Object.assign({}, mixinParams, priorityMixinParams));
       }
     }
+    // @ts-ignore
     return MixinSwal;
   }
 
@@ -20559,12 +20921,12 @@ module.exports = function (list, options) {
    * Increase timer. Returns number of milliseconds of an updated timer.
    * If `timer` parameter isn't set, returns undefined.
    *
-   * @param {number} n
+   * @param {number} ms
    * @returns {number | undefined}
    */
-  const increaseTimer = n => {
+  const increaseTimer = ms => {
     if (globalState.timeout) {
-      const remaining = globalState.timeout.increase(n);
+      const remaining = globalState.timeout.increase(ms);
       animateTimerProgressBar(remaining, true);
       return remaining;
     }
@@ -20578,7 +20940,7 @@ module.exports = function (list, options) {
    * @returns {boolean}
    */
   const isTimerRunning = () => {
-    return globalState.timeout && globalState.timeout.isRunning();
+    return !!(globalState.timeout && globalState.timeout.isRunning());
   };
 
   let bodyClickListenerAdded = false;
@@ -20611,45 +20973,45 @@ module.exports = function (list, options) {
 
   var staticMethods = /*#__PURE__*/Object.freeze({
     __proto__: null,
-    isValidParameter: isValidParameter,
-    isUpdatableParameter: isUpdatableParameter,
-    isDeprecatedParameter: isDeprecatedParameter,
     argsToParams: argsToParams,
-    getContainer: getContainer,
-    getPopup: getPopup,
-    getTitle: getTitle,
-    getHtmlContainer: getHtmlContainer,
-    getImage: getImage,
-    getIcon: getIcon,
-    getIconContent: getIconContent,
-    getInputLabel: getInputLabel,
-    getCloseButton: getCloseButton,
-    getActions: getActions,
-    getConfirmButton: getConfirmButton,
-    getDenyButton: getDenyButton,
-    getCancelButton: getCancelButton,
-    getLoader: getLoader,
-    getFooter: getFooter,
-    getTimerProgressBar: getTimerProgressBar,
-    getFocusableElements: getFocusableElements,
-    getValidationMessage: getValidationMessage,
-    getProgressSteps: getProgressSteps,
-    isLoading: isLoading,
-    isVisible: isVisible,
+    bindClickHandler: bindClickHandler,
+    clickCancel: clickCancel,
     clickConfirm: clickConfirm,
     clickDeny: clickDeny,
-    clickCancel: clickCancel,
-    fire: fire,
-    mixin: mixin,
-    showLoading: showLoading,
     enableLoading: showLoading,
+    fire: fire,
+    getActions: getActions,
+    getCancelButton: getCancelButton,
+    getCloseButton: getCloseButton,
+    getConfirmButton: getConfirmButton,
+    getContainer: getContainer,
+    getDenyButton: getDenyButton,
+    getFocusableElements: getFocusableElements,
+    getFooter: getFooter,
+    getHtmlContainer: getHtmlContainer,
+    getIcon: getIcon,
+    getIconContent: getIconContent,
+    getImage: getImage,
+    getInputLabel: getInputLabel,
+    getLoader: getLoader,
+    getPopup: getPopup,
+    getProgressSteps: getProgressSteps,
     getTimerLeft: getTimerLeft,
-    stopTimer: stopTimer,
-    resumeTimer: resumeTimer,
-    toggleTimer: toggleTimer,
+    getTimerProgressBar: getTimerProgressBar,
+    getTitle: getTitle,
+    getValidationMessage: getValidationMessage,
     increaseTimer: increaseTimer,
+    isDeprecatedParameter: isDeprecatedParameter,
+    isLoading: isLoading,
     isTimerRunning: isTimerRunning,
-    bindClickHandler: bindClickHandler
+    isUpdatableParameter: isUpdatableParameter,
+    isValidParameter: isValidParameter,
+    isVisible: isVisible,
+    mixin: mixin,
+    resumeTimer: resumeTimer,
+    showLoading: showLoading,
+    stopTimer: stopTimer,
+    toggleTimer: toggleTimer
   });
 
   class Timer {
@@ -20663,6 +21025,10 @@ module.exports = function (list, options) {
       this.running = false;
       this.start();
     }
+
+    /**
+     * @returns {number}
+     */
     start() {
       if (!this.running) {
         this.running = true;
@@ -20671,14 +21037,23 @@ module.exports = function (list, options) {
       }
       return this.remaining;
     }
+
+    /**
+     * @returns {number}
+     */
     stop() {
-      if (this.running) {
+      if (this.started && this.running) {
         this.running = false;
         clearTimeout(this.id);
         this.remaining -= new Date().getTime() - this.started.getTime();
       }
       return this.remaining;
     }
+
+    /**
+     * @param {number} n
+     * @returns {number}
+     */
     increase(n) {
       const running = this.running;
       if (running) {
@@ -20690,6 +21065,10 @@ module.exports = function (list, options) {
       }
       return this.remaining;
     }
+
+    /**
+     * @returns {number}
+     */
     getTimerLeft() {
       if (this.running) {
         this.stop();
@@ -20697,6 +21076,10 @@ module.exports = function (list, options) {
       }
       return this.remaining;
     }
+
+    /**
+     * @returns {boolean}
+     */
     isRunning() {
       return this.running;
     }
@@ -20755,7 +21138,7 @@ module.exports = function (list, options) {
     swalFunctions.forEach(param => {
       const paramName = param.getAttribute('name');
       const value = param.getAttribute('value');
-      result[paramName] = new Function(`return ${value}`)();
+      result[paramName] = new Function("return ".concat(value))();
     });
     return result;
   };
@@ -20771,13 +21154,13 @@ module.exports = function (list, options) {
     swalButtons.forEach(button => {
       showWarningsForAttributes(button, ['type', 'color', 'aria-label']);
       const type = button.getAttribute('type');
-      result[`${type}ButtonText`] = button.innerHTML;
-      result[`show${capitalizeFirstLetter(type)}Button`] = true;
+      result["".concat(type, "ButtonText")] = button.innerHTML;
+      result["show".concat(capitalizeFirstLetter(type), "Button")] = true;
       if (button.hasAttribute('color')) {
-        result[`${type}ButtonColor`] = button.getAttribute('color');
+        result["".concat(type, "ButtonColor")] = button.getAttribute('color');
       }
       if (button.hasAttribute('aria-label')) {
-        result[`${type}ButtonAriaLabel`] = button.getAttribute('aria-label');
+        result["".concat(type, "ButtonAriaLabel")] = button.getAttribute('aria-label');
       }
     });
     return result;
@@ -20896,7 +21279,7 @@ module.exports = function (list, options) {
     Array.from(templateContent.children).forEach(el => {
       const tagName = el.tagName.toLowerCase();
       if (!allowedElements.includes(tagName)) {
-        warn(`Unrecognized element <${tagName}>`);
+        warn("Unrecognized element <".concat(tagName, ">"));
       }
     });
   };
@@ -20908,7 +21291,7 @@ module.exports = function (list, options) {
   const showWarningsForAttributes = (el, allowedAttributes) => {
     Array.from(el.attributes).forEach(attribute => {
       if (allowedAttributes.indexOf(attribute.name) === -1) {
-        warn([`Unrecognized attribute "${attribute.name}" on <${el.tagName.toLowerCase()}>.`, `${allowedAttributes.length ? `Allowed attributes are: ${allowedAttributes.join(', ')}` : 'To set the value, use HTML within the element.'}`]);
+        warn(["Unrecognized attribute \"".concat(attribute.name, "\" on <").concat(el.tagName.toLowerCase(), ">."), "".concat(allowedAttributes.length ? "Allowed attributes are: ".concat(allowedAttributes.join(', ')) : 'To set the value, use HTML within the element.')]);
       }
     });
   };
@@ -20952,7 +21335,7 @@ module.exports = function (list, options) {
    */
   const swalOpenAnimationFinished = event => {
     const popup = getPopup();
-    if (event.target !== popup) {
+    if (event.target !== popup || !animationEndEvent) {
       return;
     }
     const container = getContainer();
@@ -20981,7 +21364,7 @@ module.exports = function (list, options) {
   const fixScrollContainer = (container, scrollbarPadding, initialBodyOverflow) => {
     iOSfix();
     if (scrollbarPadding && initialBodyOverflow !== 'hidden') {
-      fixScrollbar();
+      replaceScrollbarWithPadding(initialBodyOverflow);
     }
 
     // sweetalert2/issues/1247
@@ -21016,16 +21399,16 @@ module.exports = function (list, options) {
   var defaultInputValidators = {
     /**
      * @param {string} string
-     * @param {string} validationMessage
-     * @returns {Promise<void | string>}
+     * @param {string} [validationMessage]
+     * @returns {Promise<string | void>}
      */
     email: (string, validationMessage) => {
       return /^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9.-]+\.[a-zA-Z0-9-]{2,24}$/.test(string) ? Promise.resolve() : Promise.resolve(validationMessage || 'Invalid email address');
     },
     /**
      * @param {string} string
-     * @param {string} validationMessage
-     * @returns {Promise<void | string>}
+     * @param {string} [validationMessage]
+     * @returns {Promise<string | void>}
      */
     url: (string, validationMessage) => {
       // taken from https://stackoverflow.com/a/3809435 with a small change from #1306 and #2013
@@ -21038,12 +21421,14 @@ module.exports = function (list, options) {
    */
   function setDefaultInputValidators(params) {
     // Use default `inputValidator` for supported input types if not provided
-    if (!params.inputValidator) {
-      Object.keys(defaultInputValidators).forEach(key => {
-        if (params.input === key) {
-          params.inputValidator = defaultInputValidators[key];
-        }
-      });
+    if (params.inputValidator) {
+      return;
+    }
+    if (params.input === 'email') {
+      params.inputValidator = defaultInputValidators['email'];
+    }
+    if (params.input === 'url') {
+      params.inputValidator = defaultInputValidators['url'];
     }
   }
 
@@ -21079,9 +21464,22 @@ module.exports = function (list, options) {
     init(params);
   }
 
+  /** @type {SweetAlert} */
   let currentInstance;
+  var _promise = /*#__PURE__*/new WeakMap();
   class SweetAlert {
+    /**
+     * @param {...any} args
+     * @this {SweetAlert}
+     */
     constructor() {
+      /**
+       * @type {Promise<SweetAlertResult>}
+       */
+      _classPrivateFieldInitSpec(this, _promise, {
+        writable: true,
+        value: void 0
+      });
       // Prevent run in Node env
       if (typeof window === 'undefined') {
         return;
@@ -21093,24 +21491,18 @@ module.exports = function (list, options) {
         args[_key] = arguments[_key];
       }
       const outerParams = Object.freeze(this.constructor.argsToParams(args));
-      Object.defineProperties(this, {
-        params: {
-          value: outerParams,
-          writable: false,
-          enumerable: true,
-          configurable: true
-        }
-      });
 
-      // @ts-ignore
-      const promise = currentInstance._main(currentInstance.params);
-      privateProps.promise.set(this, promise);
+      /** @type {Readonly<SweetAlertOptions>} */
+      this.params = outerParams;
+
+      /** @type {boolean} */
+      this.isAwaitingPromise = false;
+      _classPrivateFieldSet(this, _promise, this._main(currentInstance.params));
     }
     _main(userParams) {
       let mixinParams = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       showWarningsForParams(Object.assign({}, mixinParams, userParams));
       if (globalState.currentInstance) {
-        // @ts-ignore
         globalState.currentInstance._destroy();
         if (isModal()) {
           unsetAriaHidden();
@@ -21137,17 +21529,15 @@ module.exports = function (list, options) {
 
     // `catch` cannot be the name of a module export, so we define our thenable methods here instead
     then(onFulfilled) {
-      const promise = privateProps.promise.get(this);
-      return promise.then(onFulfilled);
+      return _classPrivateFieldGet(this, _promise).then(onFulfilled);
     }
     finally(onFinally) {
-      const promise = privateProps.promise.get(this);
-      return promise.finally(onFinally);
+      return _classPrivateFieldGet(this, _promise).finally(onFinally);
     }
   }
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @param {DomCache} domCache
    * @param {SweetAlertOptions} innerParams
    * @returns {Promise}
@@ -21159,7 +21549,6 @@ module.exports = function (list, options) {
        * @param {DismissReason} dismiss
        */
       const dismissWith = dismiss => {
-        // @ts-ignore
         instance.close({
           isDismissed: true,
           dismiss
@@ -21177,11 +21566,10 @@ module.exports = function (list, options) {
         handleCancelButtonClick(instance, dismissWith);
       };
       domCache.closeButton.onclick = () => {
-        // @ts-ignore
         dismissWith(DismissReason.close);
       };
-      handlePopupClick(instance, domCache, dismissWith);
-      addKeydownHandler(instance, globalState, innerParams, dismissWith);
+      handlePopupClick(innerParams, domCache, dismissWith);
+      addKeydownHandler(globalState, innerParams, dismissWith);
       handleInputOptionsAndValue(instance, innerParams);
       openPopup(innerParams);
       setupTimer(globalState, innerParams, dismissWith);
@@ -21208,7 +21596,7 @@ module.exports = function (list, options) {
   };
 
   /**
-   * @param {SweetAlert2} instance
+   * @param {SweetAlert} instance
    * @returns {DomCache}
    */
   const populateDomCache = instance => {
@@ -21298,11 +21686,11 @@ module.exports = function (list, options) {
   };
 
   // Dear russian users visiting russian sites. Let's have fun.
-  if (typeof window !== 'undefined' && /^ru\b/.test(navigator.language) && location.host.match(/\.(ru|su|xn--p1ai)$/)) {
+  if (typeof window !== 'undefined' && /^ru\b/.test(navigator.language) && location.host.match(/\.(ru|su|by|xn--p1ai)$/)) {
     const now = new Date();
     const initiationDate = localStorage.getItem('swal-initiation');
     if (!initiationDate) {
-      localStorage.setItem('swal-initiation', `${now}`);
+      localStorage.setItem('swal-initiation', "".concat(now));
     } else if ((now.getTime() - Date.parse(initiationDate)) / (1000 * 60 * 60 * 24) > 3) {
       setTimeout(() => {
         document.body.style.pointerEvents = 'none';
@@ -21320,7 +21708,22 @@ module.exports = function (list, options) {
   }
 
   // Assign instance methods from src/instanceMethods/*.js to prototype
-  Object.assign(SweetAlert.prototype, instanceMethods);
+  SweetAlert.prototype.disableButtons = disableButtons;
+  SweetAlert.prototype.enableButtons = enableButtons;
+  SweetAlert.prototype.getInput = getInput;
+  SweetAlert.prototype.disableInput = disableInput;
+  SweetAlert.prototype.enableInput = enableInput;
+  SweetAlert.prototype.hideLoading = hideLoading;
+  SweetAlert.prototype.disableLoading = hideLoading;
+  SweetAlert.prototype.showValidationMessage = showValidationMessage;
+  SweetAlert.prototype.resetValidationMessage = resetValidationMessage;
+  SweetAlert.prototype.close = close;
+  SweetAlert.prototype.closePopup = close;
+  SweetAlert.prototype.closeModal = close;
+  SweetAlert.prototype.closeToast = close;
+  SweetAlert.prototype.rejectPromise = rejectPromise;
+  SweetAlert.prototype.update = update;
+  SweetAlert.prototype._destroy = _destroy;
 
   // Assign static methods from src/staticMethods/*.js to constructor
   Object.assign(SweetAlert, staticMethods);
@@ -21332,13 +21735,14 @@ module.exports = function (list, options) {
      * @returns {any | undefined}
      */
     SweetAlert[key] = function () {
-      if (currentInstance) {
+      if (currentInstance && currentInstance[key]) {
         return currentInstance[key](...arguments);
       }
+      return null;
     };
   });
   SweetAlert.DismissReason = DismissReason;
-  SweetAlert.version = '11.6.16';
+  SweetAlert.version = '11.9.0';
 
   const Swal = SweetAlert;
   // @ts-ignore
@@ -21348,7 +21752,29 @@ module.exports = function (list, options) {
 
 }));
 if (typeof this !== 'undefined' && this.Sweetalert2){this.swal = this.sweetAlert = this.Swal = this.SweetAlert = this.Sweetalert2}
-"undefined"!=typeof document&&function(e,t){var n=e.createElement("style");if(e.getElementsByTagName("head")[0].appendChild(n),n.styleSheet)n.styleSheet.disabled||(n.styleSheet.cssText=t);else try{n.innerHTML=t}catch(e){n.innerText=t}}(document,".swal2-popup.swal2-toast{box-sizing:border-box;grid-column:1/4 !important;grid-row:1/4 !important;grid-template-columns:min-content auto min-content;padding:1em;overflow-y:hidden;background:#fff;box-shadow:0 0 1px rgba(0,0,0,.075),0 1px 2px rgba(0,0,0,.075),1px 2px 4px rgba(0,0,0,.075),1px 3px 8px rgba(0,0,0,.075),2px 4px 16px rgba(0,0,0,.075);pointer-events:all}.swal2-popup.swal2-toast>*{grid-column:2}.swal2-popup.swal2-toast .swal2-title{margin:.5em 1em;padding:0;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-loading{justify-content:center}.swal2-popup.swal2-toast .swal2-input{height:2em;margin:.5em;font-size:1em}.swal2-popup.swal2-toast .swal2-validation-message{font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{grid-column:3/3;grid-row:1/99;align-self:center;width:.8em;height:.8em;margin:0;font-size:2em}.swal2-popup.swal2-toast .swal2-html-container{margin:.5em 1em;padding:0;overflow:initial;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-html-container:empty{padding:0}.swal2-popup.swal2-toast .swal2-loader{grid-column:1;grid-row:1/99;align-self:center;width:2em;height:2em;margin:.25em}.swal2-popup.swal2-toast .swal2-icon{grid-column:1;grid-row:1/99;align-self:center;width:2em;min-width:2em;height:2em;margin:0 .5em 0 0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:bold}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{justify-content:flex-start;height:auto;margin:0;margin-top:.5em;padding:0 .5em}.swal2-popup.swal2-toast .swal2-styled{margin:.25em .5em;padding:.4em .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-0.8em;left:-0.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-0.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{animation:swal2-toast-hide .1s forwards}.swal2-container{display:grid;position:fixed;z-index:1060;top:0;right:0;bottom:0;left:0;box-sizing:border-box;grid-template-areas:\"top-start     top            top-end\" \"center-start  center         center-end\" \"bottom-start  bottom-center  bottom-end\";grid-template-rows:minmax(min-content, auto) minmax(min-content, auto) minmax(min-content, auto);height:100%;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}.swal2-container.swal2-backdrop-show,.swal2-container.swal2-noanimation{background:rgba(0,0,0,.4)}.swal2-container.swal2-backdrop-hide{background:rgba(0,0,0,0) !important}.swal2-container.swal2-top-start,.swal2-container.swal2-center-start,.swal2-container.swal2-bottom-start{grid-template-columns:minmax(0, 1fr) auto auto}.swal2-container.swal2-top,.swal2-container.swal2-center,.swal2-container.swal2-bottom{grid-template-columns:auto minmax(0, 1fr) auto}.swal2-container.swal2-top-end,.swal2-container.swal2-center-end,.swal2-container.swal2-bottom-end{grid-template-columns:auto auto minmax(0, 1fr)}.swal2-container.swal2-top-start>.swal2-popup{align-self:start}.swal2-container.swal2-top>.swal2-popup{grid-column:2;align-self:start;justify-self:center}.swal2-container.swal2-top-end>.swal2-popup,.swal2-container.swal2-top-right>.swal2-popup{grid-column:3;align-self:start;justify-self:end}.swal2-container.swal2-center-start>.swal2-popup,.swal2-container.swal2-center-left>.swal2-popup{grid-row:2;align-self:center}.swal2-container.swal2-center>.swal2-popup{grid-column:2;grid-row:2;align-self:center;justify-self:center}.swal2-container.swal2-center-end>.swal2-popup,.swal2-container.swal2-center-right>.swal2-popup{grid-column:3;grid-row:2;align-self:center;justify-self:end}.swal2-container.swal2-bottom-start>.swal2-popup,.swal2-container.swal2-bottom-left>.swal2-popup{grid-column:1;grid-row:3;align-self:end}.swal2-container.swal2-bottom>.swal2-popup{grid-column:2;grid-row:3;justify-self:center;align-self:end}.swal2-container.swal2-bottom-end>.swal2-popup,.swal2-container.swal2-bottom-right>.swal2-popup{grid-column:3;grid-row:3;align-self:end;justify-self:end}.swal2-container.swal2-grow-row>.swal2-popup,.swal2-container.swal2-grow-fullscreen>.swal2-popup{grid-column:1/4;width:100%}.swal2-container.swal2-grow-column>.swal2-popup,.swal2-container.swal2-grow-fullscreen>.swal2-popup{grid-row:1/4;align-self:stretch}.swal2-container.swal2-no-transition{transition:none !important}.swal2-popup{display:none;position:relative;box-sizing:border-box;grid-template-columns:minmax(0, 100%);width:32em;max-width:100%;padding:0 0 1.25em;border:none;border-radius:5px;background:#fff;color:#545454;font-family:inherit;font-size:1rem}.swal2-popup:focus{outline:none}.swal2-popup.swal2-loading{overflow-y:hidden}.swal2-title{position:relative;max-width:100%;margin:0;padding:.8em 1em 0;color:inherit;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}.swal2-actions{display:flex;z-index:1;box-sizing:border-box;flex-wrap:wrap;align-items:center;justify-content:center;width:auto;margin:1.25em auto 0;padding:0}.swal2-actions:not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}.swal2-actions:not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1))}.swal2-actions:not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))}.swal2-loader{display:none;align-items:center;justify-content:center;width:2.2em;height:2.2em;margin:0 1.875em;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border-width:.25em;border-style:solid;border-radius:100%;border-color:#2778c4 rgba(0,0,0,0) #2778c4 rgba(0,0,0,0)}.swal2-styled{margin:.3125em;padding:.625em 1.1em;transition:box-shadow .1s;box-shadow:0 0 0 3px rgba(0,0,0,0);font-weight:500}.swal2-styled:not([disabled]){cursor:pointer}.swal2-styled.swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#7066e0;color:#fff;font-size:1em}.swal2-styled.swal2-confirm:focus{box-shadow:0 0 0 3px rgba(112,102,224,.5)}.swal2-styled.swal2-deny{border:0;border-radius:.25em;background:initial;background-color:#dc3741;color:#fff;font-size:1em}.swal2-styled.swal2-deny:focus{box-shadow:0 0 0 3px rgba(220,55,65,.5)}.swal2-styled.swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#6e7881;color:#fff;font-size:1em}.swal2-styled.swal2-cancel:focus{box-shadow:0 0 0 3px rgba(110,120,129,.5)}.swal2-styled.swal2-default-outline:focus{box-shadow:0 0 0 3px rgba(100,150,200,.5)}.swal2-styled:focus{outline:none}.swal2-styled::-moz-focus-inner{border:0}.swal2-footer{justify-content:center;margin:1em 0 0;padding:1em 1em 0;border-top:1px solid #eee;color:inherit;font-size:1em}.swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;grid-column:auto !important;overflow:hidden;border-bottom-right-radius:5px;border-bottom-left-radius:5px}.swal2-timer-progress-bar{width:100%;height:.25em;background:rgba(0,0,0,.2)}.swal2-image{max-width:100%;margin:2em auto 1em}.swal2-close{z-index:2;align-items:center;justify-content:center;width:1.2em;height:1.2em;margin-top:0;margin-right:0;margin-bottom:-1.2em;padding:0;overflow:hidden;transition:color .1s,box-shadow .1s;border:none;border-radius:5px;background:rgba(0,0,0,0);color:#ccc;font-family:serif;font-family:monospace;font-size:2.5em;cursor:pointer;justify-self:end}.swal2-close:hover{transform:none;background:rgba(0,0,0,0);color:#f27474}.swal2-close:focus{outline:none;box-shadow:inset 0 0 0 3px rgba(100,150,200,.5)}.swal2-close::-moz-focus-inner{border:0}.swal2-html-container{z-index:1;justify-content:center;margin:1em 1.6em .3em;padding:0;overflow:auto;color:inherit;font-size:1.125em;font-weight:normal;line-height:normal;text-align:center;word-wrap:break-word;word-break:break-word}.swal2-input,.swal2-file,.swal2-textarea,.swal2-select,.swal2-radio,.swal2-checkbox{margin:1em 2em 3px}.swal2-input,.swal2-file,.swal2-textarea{box-sizing:border-box;width:auto;transition:border-color .1s,box-shadow .1s;border:1px solid #d9d9d9;border-radius:.1875em;background:rgba(0,0,0,0);box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px rgba(0,0,0,0);color:inherit;font-size:1.125em}.swal2-input.swal2-inputerror,.swal2-file.swal2-inputerror,.swal2-textarea.swal2-inputerror{border-color:#f27474 !important;box-shadow:0 0 2px #f27474 !important}.swal2-input:focus,.swal2-file:focus,.swal2-textarea:focus{border:1px solid #b4dbed;outline:none;box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px rgba(100,150,200,.5)}.swal2-input::placeholder,.swal2-file::placeholder,.swal2-textarea::placeholder{color:#ccc}.swal2-range{margin:1em 2em 3px;background:#fff}.swal2-range input{width:80%}.swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}.swal2-range input,.swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}.swal2-input{height:2.625em;padding:0 .75em}.swal2-file{width:75%;margin-right:auto;margin-left:auto;background:rgba(0,0,0,0);font-size:1.125em}.swal2-textarea{height:6.75em;padding:.75em}.swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:rgba(0,0,0,0);color:inherit;font-size:1.125em}.swal2-radio,.swal2-checkbox{align-items:center;justify-content:center;background:#fff;color:inherit}.swal2-radio label,.swal2-checkbox label{margin:0 .6em;font-size:1.125em}.swal2-radio input,.swal2-checkbox input{flex-shrink:0;margin:0 .4em}.swal2-input-label{display:flex;justify-content:center;margin:1em auto 0}.swal2-validation-message{align-items:center;justify-content:center;margin:1em 0 0;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}.swal2-validation-message::before{content:\"!\";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}.swal2-icon{position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:2.5em auto .6em;border:0.25em solid rgba(0,0,0,0);border-radius:50%;border-color:#000;font-family:inherit;line-height:5em;cursor:default;user-select:none}.swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}.swal2-icon.swal2-error{border-color:#f27474;color:#f27474}.swal2-icon.swal2-error .swal2-x-mark{position:relative;flex-grow:1}.swal2-icon.swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}.swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}.swal2-icon.swal2-error.swal2-icon-show{animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-error.swal2-icon-show .swal2-x-mark{animation:swal2-animate-error-x-mark .5s}.swal2-icon.swal2-warning{border-color:#facea8;color:#f8bb86}.swal2-icon.swal2-warning.swal2-icon-show{animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-warning.swal2-icon-show .swal2-icon-content{animation:swal2-animate-i-mark .5s}.swal2-icon.swal2-info{border-color:#9de0f6;color:#3fc3ee}.swal2-icon.swal2-info.swal2-icon-show{animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-info.swal2-icon-show .swal2-icon-content{animation:swal2-animate-i-mark .8s}.swal2-icon.swal2-question{border-color:#c9dae1;color:#87adbd}.swal2-icon.swal2-question.swal2-icon-show{animation:swal2-animate-error-icon .5s}.swal2-icon.swal2-question.swal2-icon-show .swal2-icon-content{animation:swal2-animate-question-mark .8s}.swal2-icon.swal2-success{border-color:#a5dc86;color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=left]{top:-0.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}.swal2-icon.swal2-success [class^=swal2-success-circular-line][class$=right]{top:-0.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}.swal2-icon.swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-0.25em;left:-0.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}.swal2-icon.swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}.swal2-icon.swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}.swal2-icon.swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}.swal2-icon.swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-animate-success-line-tip .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-line-long{animation:swal2-animate-success-line-long .75s}.swal2-icon.swal2-success.swal2-icon-show .swal2-success-circular-line-right{animation:swal2-rotate-success-circular-line 4.25s ease-in}.swal2-progress-steps{flex-wrap:wrap;align-items:center;max-width:100%;margin:1.25em auto;padding:0;background:rgba(0,0,0,0);font-weight:600}.swal2-progress-steps li{display:inline-block;position:relative}.swal2-progress-steps .swal2-progress-step{z-index:20;flex-shrink:0;width:2em;height:2em;border-radius:2em;background:#2778c4;color:#fff;line-height:2em;text-align:center}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#2778c4}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}.swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}.swal2-progress-steps .swal2-progress-step-line{z-index:10;flex-shrink:0;width:2.5em;height:.4em;margin:0 -1px;background:#2778c4}[class^=swal2]{-webkit-tap-highlight-color:rgba(0,0,0,0)}.swal2-show{animation:swal2-show .3s}.swal2-hide{animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{margin-right:initial;margin-left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@keyframes swal2-toast-show{0%{transform:translateY(-0.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(0.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0deg)}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-0.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-show{0%{transform:scale(0.7)}45%{transform:scale(1.05)}80%{transform:scale(0.95)}100%{transform:scale(1)}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(0.5);opacity:0}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-0.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(0.4);opacity:0}50%{margin-top:1.625em;transform:scale(0.4);opacity:0}80%{margin-top:-0.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0deg);opacity:1}}@keyframes swal2-rotate-loading{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}@keyframes swal2-animate-question-mark{0%{transform:rotateY(-360deg)}100%{transform:rotateY(0)}}@keyframes swal2-animate-i-mark{0%{transform:rotateZ(45deg);opacity:0}25%{transform:rotateZ(-25deg);opacity:.4}50%{transform:rotateZ(15deg);opacity:.8}75%{transform:rotateZ(-5deg);opacity:1}100%{transform:rotateX(0);opacity:1}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto !important}body.swal2-no-backdrop .swal2-container{background-color:rgba(0,0,0,0) !important;pointer-events:none}body.swal2-no-backdrop .swal2-container .swal2-popup{pointer-events:all}body.swal2-no-backdrop .swal2-container .swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll !important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static !important}}body.swal2-toast-shown .swal2-container{box-sizing:border-box;width:360px;max-width:100%;background-color:rgba(0,0,0,0);pointer-events:none}body.swal2-toast-shown .swal2-container.swal2-top{top:0;right:auto;bottom:auto;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{top:0;right:0;bottom:auto;left:auto}body.swal2-toast-shown .swal2-container.swal2-top-start,body.swal2-toast-shown .swal2-container.swal2-top-left{top:0;right:auto;bottom:auto;left:0}body.swal2-toast-shown .swal2-container.swal2-center-start,body.swal2-toast-shown .swal2-container.swal2-center-left{top:50%;right:auto;bottom:auto;left:0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{top:50%;right:auto;bottom:auto;left:50%;transform:translate(-50%, -50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{top:50%;right:0;bottom:auto;left:auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-start,body.swal2-toast-shown .swal2-container.swal2-bottom-left{top:auto;right:auto;bottom:0;left:0}body.swal2-toast-shown .swal2-container.swal2-bottom{top:auto;right:auto;bottom:0;left:50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{top:auto;right:0;bottom:0;left:auto}");
+"undefined"!=typeof document&&function(e,t){var n=e.createElement("style");if(e.getElementsByTagName("head")[0].appendChild(n),n.styleSheet)n.styleSheet.disabled||(n.styleSheet.cssText=t);else try{n.innerHTML=t}catch(e){n.innerText=t}}(document,".swal2-popup.swal2-toast{box-sizing:border-box;grid-column:1/4 !important;grid-row:1/4 !important;grid-template-columns:min-content auto min-content;padding:1em;overflow-y:hidden;background:#fff;box-shadow:0 0 1px rgba(0,0,0,.075),0 1px 2px rgba(0,0,0,.075),1px 2px 4px rgba(0,0,0,.075),1px 3px 8px rgba(0,0,0,.075),2px 4px 16px rgba(0,0,0,.075);pointer-events:all}.swal2-popup.swal2-toast>*{grid-column:2}.swal2-popup.swal2-toast .swal2-title{margin:.5em 1em;padding:0;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-loading{justify-content:center}.swal2-popup.swal2-toast .swal2-input{height:2em;margin:.5em;font-size:1em}.swal2-popup.swal2-toast .swal2-validation-message{font-size:1em}.swal2-popup.swal2-toast .swal2-footer{margin:.5em 0 0;padding:.5em 0 0;font-size:.8em}.swal2-popup.swal2-toast .swal2-close{grid-column:3/3;grid-row:1/99;align-self:center;width:.8em;height:.8em;margin:0;font-size:2em}.swal2-popup.swal2-toast .swal2-html-container{margin:.5em 1em;padding:0;overflow:initial;font-size:1em;text-align:initial}.swal2-popup.swal2-toast .swal2-html-container:empty{padding:0}.swal2-popup.swal2-toast .swal2-loader{grid-column:1;grid-row:1/99;align-self:center;width:2em;height:2em;margin:.25em}.swal2-popup.swal2-toast .swal2-icon{grid-column:1;grid-row:1/99;align-self:center;width:2em;min-width:2em;height:2em;margin:0 .5em 0 0}.swal2-popup.swal2-toast .swal2-icon .swal2-icon-content{display:flex;align-items:center;font-size:1.8em;font-weight:bold}.swal2-popup.swal2-toast .swal2-icon.swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line]{top:.875em;width:1.375em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=left]{left:.3125em}.swal2-popup.swal2-toast .swal2-icon.swal2-error [class^=swal2-x-mark-line][class$=right]{right:.3125em}.swal2-popup.swal2-toast .swal2-actions{justify-content:flex-start;height:auto;margin:0;margin-top:.5em;padding:0 .5em}.swal2-popup.swal2-toast .swal2-styled{margin:.25em .5em;padding:.4em .6em;font-size:1em}.swal2-popup.swal2-toast .swal2-success{border-color:#a5dc86}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line]{position:absolute;width:1.6em;height:3em;transform:rotate(45deg);border-radius:50%}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=left]{top:-0.8em;left:-0.5em;transform:rotate(-45deg);transform-origin:2em 2em;border-radius:4em 0 0 4em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-circular-line][class$=right]{top:-0.25em;left:.9375em;transform-origin:0 1.5em;border-radius:0 4em 4em 0}.swal2-popup.swal2-toast .swal2-success .swal2-success-ring{width:2em;height:2em}.swal2-popup.swal2-toast .swal2-success .swal2-success-fix{top:0;left:.4375em;width:.4375em;height:2.6875em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line]{height:.3125em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=tip]{top:1.125em;left:.1875em;width:.75em}.swal2-popup.swal2-toast .swal2-success [class^=swal2-success-line][class$=long]{top:.9375em;right:.1875em;width:1.375em}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-toast-animate-success-line-tip .75s}.swal2-popup.swal2-toast .swal2-success.swal2-icon-show .swal2-success-line-long{animation:swal2-toast-animate-success-line-long .75s}.swal2-popup.swal2-toast.swal2-show{animation:swal2-toast-show .5s}.swal2-popup.swal2-toast.swal2-hide{animation:swal2-toast-hide .1s forwards}div:where(.swal2-container){display:grid;position:fixed;z-index:1060;inset:0;box-sizing:border-box;grid-template-areas:\"top-start     top            top-end\" \"center-start  center         center-end\" \"bottom-start  bottom-center  bottom-end\";grid-template-rows:minmax(min-content, auto) minmax(min-content, auto) minmax(min-content, auto);height:100%;padding:.625em;overflow-x:hidden;transition:background-color .1s;-webkit-overflow-scrolling:touch}div:where(.swal2-container).swal2-backdrop-show,div:where(.swal2-container).swal2-noanimation{background:rgba(0,0,0,.4)}div:where(.swal2-container).swal2-backdrop-hide{background:rgba(0,0,0,0) !important}div:where(.swal2-container).swal2-top-start,div:where(.swal2-container).swal2-center-start,div:where(.swal2-container).swal2-bottom-start{grid-template-columns:minmax(0, 1fr) auto auto}div:where(.swal2-container).swal2-top,div:where(.swal2-container).swal2-center,div:where(.swal2-container).swal2-bottom{grid-template-columns:auto minmax(0, 1fr) auto}div:where(.swal2-container).swal2-top-end,div:where(.swal2-container).swal2-center-end,div:where(.swal2-container).swal2-bottom-end{grid-template-columns:auto auto minmax(0, 1fr)}div:where(.swal2-container).swal2-top-start>.swal2-popup{align-self:start}div:where(.swal2-container).swal2-top>.swal2-popup{grid-column:2;align-self:start;justify-self:center}div:where(.swal2-container).swal2-top-end>.swal2-popup,div:where(.swal2-container).swal2-top-right>.swal2-popup{grid-column:3;align-self:start;justify-self:end}div:where(.swal2-container).swal2-center-start>.swal2-popup,div:where(.swal2-container).swal2-center-left>.swal2-popup{grid-row:2;align-self:center}div:where(.swal2-container).swal2-center>.swal2-popup{grid-column:2;grid-row:2;align-self:center;justify-self:center}div:where(.swal2-container).swal2-center-end>.swal2-popup,div:where(.swal2-container).swal2-center-right>.swal2-popup{grid-column:3;grid-row:2;align-self:center;justify-self:end}div:where(.swal2-container).swal2-bottom-start>.swal2-popup,div:where(.swal2-container).swal2-bottom-left>.swal2-popup{grid-column:1;grid-row:3;align-self:end}div:where(.swal2-container).swal2-bottom>.swal2-popup{grid-column:2;grid-row:3;justify-self:center;align-self:end}div:where(.swal2-container).swal2-bottom-end>.swal2-popup,div:where(.swal2-container).swal2-bottom-right>.swal2-popup{grid-column:3;grid-row:3;align-self:end;justify-self:end}div:where(.swal2-container).swal2-grow-row>.swal2-popup,div:where(.swal2-container).swal2-grow-fullscreen>.swal2-popup{grid-column:1/4;width:100%}div:where(.swal2-container).swal2-grow-column>.swal2-popup,div:where(.swal2-container).swal2-grow-fullscreen>.swal2-popup{grid-row:1/4;align-self:stretch}div:where(.swal2-container).swal2-no-transition{transition:none !important}div:where(.swal2-container) div:where(.swal2-popup){display:none;position:relative;box-sizing:border-box;grid-template-columns:minmax(0, 100%);width:32em;max-width:100%;padding:0 0 1.25em;border:none;border-radius:5px;background:#fff;color:#545454;font-family:inherit;font-size:1rem}div:where(.swal2-container) div:where(.swal2-popup):focus{outline:none}div:where(.swal2-container) div:where(.swal2-popup).swal2-loading{overflow-y:hidden}div:where(.swal2-container) h2:where(.swal2-title){position:relative;max-width:100%;margin:0;padding:.8em 1em 0;color:inherit;font-size:1.875em;font-weight:600;text-align:center;text-transform:none;word-wrap:break-word}div:where(.swal2-container) div:where(.swal2-actions){display:flex;z-index:1;box-sizing:border-box;flex-wrap:wrap;align-items:center;justify-content:center;width:auto;margin:1.25em auto 0;padding:0}div:where(.swal2-container) div:where(.swal2-actions):not(.swal2-loading) .swal2-styled[disabled]{opacity:.4}div:where(.swal2-container) div:where(.swal2-actions):not(.swal2-loading) .swal2-styled:hover{background-image:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1))}div:where(.swal2-container) div:where(.swal2-actions):not(.swal2-loading) .swal2-styled:active{background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2))}div:where(.swal2-container) div:where(.swal2-loader){display:none;align-items:center;justify-content:center;width:2.2em;height:2.2em;margin:0 1.875em;animation:swal2-rotate-loading 1.5s linear 0s infinite normal;border-width:.25em;border-style:solid;border-radius:100%;border-color:#2778c4 rgba(0,0,0,0) #2778c4 rgba(0,0,0,0)}div:where(.swal2-container) button:where(.swal2-styled){margin:.3125em;padding:.625em 1.1em;transition:box-shadow .1s;box-shadow:0 0 0 3px rgba(0,0,0,0);font-weight:500}div:where(.swal2-container) button:where(.swal2-styled):not([disabled]){cursor:pointer}div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm{border:0;border-radius:.25em;background:initial;background-color:#7066e0;color:#fff;font-size:1em}div:where(.swal2-container) button:where(.swal2-styled).swal2-confirm:focus{box-shadow:0 0 0 3px rgba(112,102,224,.5)}div:where(.swal2-container) button:where(.swal2-styled).swal2-deny{border:0;border-radius:.25em;background:initial;background-color:#dc3741;color:#fff;font-size:1em}div:where(.swal2-container) button:where(.swal2-styled).swal2-deny:focus{box-shadow:0 0 0 3px rgba(220,55,65,.5)}div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel{border:0;border-radius:.25em;background:initial;background-color:#6e7881;color:#fff;font-size:1em}div:where(.swal2-container) button:where(.swal2-styled).swal2-cancel:focus{box-shadow:0 0 0 3px rgba(110,120,129,.5)}div:where(.swal2-container) button:where(.swal2-styled).swal2-default-outline:focus{box-shadow:0 0 0 3px rgba(100,150,200,.5)}div:where(.swal2-container) button:where(.swal2-styled):focus{outline:none}div:where(.swal2-container) button:where(.swal2-styled)::-moz-focus-inner{border:0}div:where(.swal2-container) div:where(.swal2-footer){margin:1em 0 0;padding:1em 1em 0;border-top:1px solid #eee;color:inherit;font-size:1em;text-align:center}div:where(.swal2-container) .swal2-timer-progress-bar-container{position:absolute;right:0;bottom:0;left:0;grid-column:auto !important;overflow:hidden;border-bottom-right-radius:5px;border-bottom-left-radius:5px}div:where(.swal2-container) div:where(.swal2-timer-progress-bar){width:100%;height:.25em;background:rgba(0,0,0,.2)}div:where(.swal2-container) img:where(.swal2-image){max-width:100%;margin:2em auto 1em}div:where(.swal2-container) button:where(.swal2-close){z-index:2;align-items:center;justify-content:center;width:1.2em;height:1.2em;margin-top:0;margin-right:0;margin-bottom:-1.2em;padding:0;overflow:hidden;transition:color .1s,box-shadow .1s;border:none;border-radius:5px;background:rgba(0,0,0,0);color:#ccc;font-family:monospace;font-size:2.5em;cursor:pointer;justify-self:end}div:where(.swal2-container) button:where(.swal2-close):hover{transform:none;background:rgba(0,0,0,0);color:#f27474}div:where(.swal2-container) button:where(.swal2-close):focus{outline:none;box-shadow:inset 0 0 0 3px rgba(100,150,200,.5)}div:where(.swal2-container) button:where(.swal2-close)::-moz-focus-inner{border:0}div:where(.swal2-container) .swal2-html-container{z-index:1;justify-content:center;margin:1em 1.6em .3em;padding:0;overflow:auto;color:inherit;font-size:1.125em;font-weight:normal;line-height:normal;text-align:center;word-wrap:break-word;word-break:break-word}div:where(.swal2-container) input:where(.swal2-input),div:where(.swal2-container) input:where(.swal2-file),div:where(.swal2-container) textarea:where(.swal2-textarea),div:where(.swal2-container) select:where(.swal2-select),div:where(.swal2-container) div:where(.swal2-radio),div:where(.swal2-container) label:where(.swal2-checkbox){margin:1em 2em 3px}div:where(.swal2-container) input:where(.swal2-input),div:where(.swal2-container) input:where(.swal2-file),div:where(.swal2-container) textarea:where(.swal2-textarea){box-sizing:border-box;width:auto;transition:border-color .1s,box-shadow .1s;border:1px solid #d9d9d9;border-radius:.1875em;background:rgba(0,0,0,0);box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px rgba(0,0,0,0);color:inherit;font-size:1.125em}div:where(.swal2-container) input:where(.swal2-input).swal2-inputerror,div:where(.swal2-container) input:where(.swal2-file).swal2-inputerror,div:where(.swal2-container) textarea:where(.swal2-textarea).swal2-inputerror{border-color:#f27474 !important;box-shadow:0 0 2px #f27474 !important}div:where(.swal2-container) input:where(.swal2-input):focus,div:where(.swal2-container) input:where(.swal2-file):focus,div:where(.swal2-container) textarea:where(.swal2-textarea):focus{border:1px solid #b4dbed;outline:none;box-shadow:inset 0 1px 1px rgba(0,0,0,.06),0 0 0 3px rgba(100,150,200,.5)}div:where(.swal2-container) input:where(.swal2-input)::placeholder,div:where(.swal2-container) input:where(.swal2-file)::placeholder,div:where(.swal2-container) textarea:where(.swal2-textarea)::placeholder{color:#ccc}div:where(.swal2-container) .swal2-range{margin:1em 2em 3px;background:#fff}div:where(.swal2-container) .swal2-range input{width:80%}div:where(.swal2-container) .swal2-range output{width:20%;color:inherit;font-weight:600;text-align:center}div:where(.swal2-container) .swal2-range input,div:where(.swal2-container) .swal2-range output{height:2.625em;padding:0;font-size:1.125em;line-height:2.625em}div:where(.swal2-container) .swal2-input{height:2.625em;padding:0 .75em}div:where(.swal2-container) .swal2-file{width:75%;margin-right:auto;margin-left:auto;background:rgba(0,0,0,0);font-size:1.125em}div:where(.swal2-container) .swal2-textarea{height:6.75em;padding:.75em}div:where(.swal2-container) .swal2-select{min-width:50%;max-width:100%;padding:.375em .625em;background:rgba(0,0,0,0);color:inherit;font-size:1.125em}div:where(.swal2-container) .swal2-radio,div:where(.swal2-container) .swal2-checkbox{align-items:center;justify-content:center;background:#fff;color:inherit}div:where(.swal2-container) .swal2-radio label,div:where(.swal2-container) .swal2-checkbox label{margin:0 .6em;font-size:1.125em}div:where(.swal2-container) .swal2-radio input,div:where(.swal2-container) .swal2-checkbox input{flex-shrink:0;margin:0 .4em}div:where(.swal2-container) label:where(.swal2-input-label){display:flex;justify-content:center;margin:1em auto 0}div:where(.swal2-container) div:where(.swal2-validation-message){align-items:center;justify-content:center;margin:1em 0 0;padding:.625em;overflow:hidden;background:#f0f0f0;color:#666;font-size:1em;font-weight:300}div:where(.swal2-container) div:where(.swal2-validation-message)::before{content:\"!\";display:inline-block;width:1.5em;min-width:1.5em;height:1.5em;margin:0 .625em;border-radius:50%;background-color:#f27474;color:#fff;font-weight:600;line-height:1.5em;text-align:center}div:where(.swal2-container) .swal2-progress-steps{flex-wrap:wrap;align-items:center;max-width:100%;margin:1.25em auto;padding:0;background:rgba(0,0,0,0);font-weight:600}div:where(.swal2-container) .swal2-progress-steps li{display:inline-block;position:relative}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step{z-index:20;flex-shrink:0;width:2em;height:2em;border-radius:2em;background:#2778c4;color:#fff;line-height:2em;text-align:center}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step{background:#2778c4}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step{background:#add8e6;color:#fff}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step.swal2-active-progress-step~.swal2-progress-step-line{background:#add8e6}div:where(.swal2-container) .swal2-progress-steps .swal2-progress-step-line{z-index:10;flex-shrink:0;width:2.5em;height:.4em;margin:0 -1px;background:#2778c4}div:where(.swal2-icon){position:relative;box-sizing:content-box;justify-content:center;width:5em;height:5em;margin:2.5em auto .6em;border:0.25em solid rgba(0,0,0,0);border-radius:50%;border-color:#000;font-family:inherit;line-height:5em;cursor:default;user-select:none}div:where(.swal2-icon) .swal2-icon-content{display:flex;align-items:center;font-size:3.75em}div:where(.swal2-icon).swal2-error{border-color:#f27474;color:#f27474}div:where(.swal2-icon).swal2-error .swal2-x-mark{position:relative;flex-grow:1}div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line]{display:block;position:absolute;top:2.3125em;width:2.9375em;height:.3125em;border-radius:.125em;background-color:#f27474}div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line][class$=left]{left:1.0625em;transform:rotate(45deg)}div:where(.swal2-icon).swal2-error [class^=swal2-x-mark-line][class$=right]{right:1em;transform:rotate(-45deg)}div:where(.swal2-icon).swal2-error.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-error.swal2-icon-show .swal2-x-mark{animation:swal2-animate-error-x-mark .5s}div:where(.swal2-icon).swal2-warning{border-color:#facea8;color:#f8bb86}div:where(.swal2-icon).swal2-warning.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-warning.swal2-icon-show .swal2-icon-content{animation:swal2-animate-i-mark .5s}div:where(.swal2-icon).swal2-info{border-color:#9de0f6;color:#3fc3ee}div:where(.swal2-icon).swal2-info.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-info.swal2-icon-show .swal2-icon-content{animation:swal2-animate-i-mark .8s}div:where(.swal2-icon).swal2-question{border-color:#c9dae1;color:#87adbd}div:where(.swal2-icon).swal2-question.swal2-icon-show{animation:swal2-animate-error-icon .5s}div:where(.swal2-icon).swal2-question.swal2-icon-show .swal2-icon-content{animation:swal2-animate-question-mark .8s}div:where(.swal2-icon).swal2-success{border-color:#a5dc86;color:#a5dc86}div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line]{position:absolute;width:3.75em;height:7.5em;transform:rotate(45deg);border-radius:50%}div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line][class$=left]{top:-0.4375em;left:-2.0635em;transform:rotate(-45deg);transform-origin:3.75em 3.75em;border-radius:7.5em 0 0 7.5em}div:where(.swal2-icon).swal2-success [class^=swal2-success-circular-line][class$=right]{top:-0.6875em;left:1.875em;transform:rotate(-45deg);transform-origin:0 3.75em;border-radius:0 7.5em 7.5em 0}div:where(.swal2-icon).swal2-success .swal2-success-ring{position:absolute;z-index:2;top:-0.25em;left:-0.25em;box-sizing:content-box;width:100%;height:100%;border:.25em solid rgba(165,220,134,.3);border-radius:50%}div:where(.swal2-icon).swal2-success .swal2-success-fix{position:absolute;z-index:1;top:.5em;left:1.625em;width:.4375em;height:5.625em;transform:rotate(-45deg)}div:where(.swal2-icon).swal2-success [class^=swal2-success-line]{display:block;position:absolute;z-index:2;height:.3125em;border-radius:.125em;background-color:#a5dc86}div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=tip]{top:2.875em;left:.8125em;width:1.5625em;transform:rotate(45deg)}div:where(.swal2-icon).swal2-success [class^=swal2-success-line][class$=long]{top:2.375em;right:.5em;width:2.9375em;transform:rotate(-45deg)}div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-line-tip{animation:swal2-animate-success-line-tip .75s}div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-line-long{animation:swal2-animate-success-line-long .75s}div:where(.swal2-icon).swal2-success.swal2-icon-show .swal2-success-circular-line-right{animation:swal2-rotate-success-circular-line 4.25s ease-in}[class^=swal2]{-webkit-tap-highlight-color:rgba(0,0,0,0)}.swal2-show{animation:swal2-show .3s}.swal2-hide{animation:swal2-hide .15s forwards}.swal2-noanimation{transition:none}.swal2-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.swal2-rtl .swal2-close{margin-right:initial;margin-left:0}.swal2-rtl .swal2-timer-progress-bar{right:0;left:auto}@keyframes swal2-toast-show{0%{transform:translateY(-0.625em) rotateZ(2deg)}33%{transform:translateY(0) rotateZ(-2deg)}66%{transform:translateY(0.3125em) rotateZ(2deg)}100%{transform:translateY(0) rotateZ(0deg)}}@keyframes swal2-toast-hide{100%{transform:rotateZ(1deg);opacity:0}}@keyframes swal2-toast-animate-success-line-tip{0%{top:.5625em;left:.0625em;width:0}54%{top:.125em;left:.125em;width:0}70%{top:.625em;left:-0.25em;width:1.625em}84%{top:1.0625em;left:.75em;width:.5em}100%{top:1.125em;left:.1875em;width:.75em}}@keyframes swal2-toast-animate-success-line-long{0%{top:1.625em;right:1.375em;width:0}65%{top:1.25em;right:.9375em;width:0}84%{top:.9375em;right:0;width:1.125em}100%{top:.9375em;right:.1875em;width:1.375em}}@keyframes swal2-show{0%{transform:scale(0.7)}45%{transform:scale(1.05)}80%{transform:scale(0.95)}100%{transform:scale(1)}}@keyframes swal2-hide{0%{transform:scale(1);opacity:1}100%{transform:scale(0.5);opacity:0}}@keyframes swal2-animate-success-line-tip{0%{top:1.1875em;left:.0625em;width:0}54%{top:1.0625em;left:.125em;width:0}70%{top:2.1875em;left:-0.375em;width:3.125em}84%{top:3em;left:1.3125em;width:1.0625em}100%{top:2.8125em;left:.8125em;width:1.5625em}}@keyframes swal2-animate-success-line-long{0%{top:3.375em;right:2.875em;width:0}65%{top:3.375em;right:2.875em;width:0}84%{top:2.1875em;right:0;width:3.4375em}100%{top:2.375em;right:.5em;width:2.9375em}}@keyframes swal2-rotate-success-circular-line{0%{transform:rotate(-45deg)}5%{transform:rotate(-45deg)}12%{transform:rotate(-405deg)}100%{transform:rotate(-405deg)}}@keyframes swal2-animate-error-x-mark{0%{margin-top:1.625em;transform:scale(0.4);opacity:0}50%{margin-top:1.625em;transform:scale(0.4);opacity:0}80%{margin-top:-0.375em;transform:scale(1.15)}100%{margin-top:0;transform:scale(1);opacity:1}}@keyframes swal2-animate-error-icon{0%{transform:rotateX(100deg);opacity:0}100%{transform:rotateX(0deg);opacity:1}}@keyframes swal2-rotate-loading{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}@keyframes swal2-animate-question-mark{0%{transform:rotateY(-360deg)}100%{transform:rotateY(0)}}@keyframes swal2-animate-i-mark{0%{transform:rotateZ(45deg);opacity:0}25%{transform:rotateZ(-25deg);opacity:.4}50%{transform:rotateZ(15deg);opacity:.8}75%{transform:rotateZ(-5deg);opacity:1}100%{transform:rotateX(0);opacity:1}}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow:hidden}body.swal2-height-auto{height:auto !important}body.swal2-no-backdrop .swal2-container{background-color:rgba(0,0,0,0) !important;pointer-events:none}body.swal2-no-backdrop .swal2-container .swal2-popup{pointer-events:all}body.swal2-no-backdrop .swal2-container .swal2-modal{box-shadow:0 0 10px rgba(0,0,0,.4)}@media print{body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown){overflow-y:scroll !important}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown)>[aria-hidden=true]{display:none}body.swal2-shown:not(.swal2-no-backdrop):not(.swal2-toast-shown) .swal2-container{position:static !important}}body.swal2-toast-shown .swal2-container{box-sizing:border-box;width:360px;max-width:100%;background-color:rgba(0,0,0,0);pointer-events:none}body.swal2-toast-shown .swal2-container.swal2-top{inset:0 auto auto 50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-top-end,body.swal2-toast-shown .swal2-container.swal2-top-right{inset:0 0 auto auto}body.swal2-toast-shown .swal2-container.swal2-top-start,body.swal2-toast-shown .swal2-container.swal2-top-left{inset:0 auto auto 0}body.swal2-toast-shown .swal2-container.swal2-center-start,body.swal2-toast-shown .swal2-container.swal2-center-left{inset:50% auto auto 0;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-center{inset:50% auto auto 50%;transform:translate(-50%, -50%)}body.swal2-toast-shown .swal2-container.swal2-center-end,body.swal2-toast-shown .swal2-container.swal2-center-right{inset:50% 0 auto auto;transform:translateY(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-start,body.swal2-toast-shown .swal2-container.swal2-bottom-left{inset:auto auto 0 0}body.swal2-toast-shown .swal2-container.swal2-bottom{inset:auto auto 0 50%;transform:translateX(-50%)}body.swal2-toast-shown .swal2-container.swal2-bottom-end,body.swal2-toast-shown .swal2-container.swal2-bottom-right{inset:auto 0 0 auto}");
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/dist/exportHelper.js":
+/*!******************************************************!*\
+  !*** ./node_modules/vue-loader/dist/exportHelper.js ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+// runtime helper for setting properties on components
+// in a tree-shakable way
+exports["default"] = (sfc, props) => {
+    const target = sfc.__vccOpts || sfc;
+    for (const [key, val] of props) {
+        target[key] = val;
+    }
+    return target;
+};
+
 
 /***/ }),
 
@@ -21366,19 +21792,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Loader_vue_vue_type_template_id_7e971a63_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Loader.vue?vue&type=template&id=7e971a63&scoped=true */ "./resources/js/Custom/Loader.vue?vue&type=template&id=7e971a63&scoped=true");
 /* harmony import */ var _Loader_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Loader.vue?vue&type=script&lang=js */ "./resources/js/Custom/Loader.vue?vue&type=script&lang=js");
 /* harmony import */ var _Loader_vue_vue_type_style_index_0_id_7e971a63_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Loader.vue?vue&type=style&index=0&id=7e971a63&scoped=true&lang=css */ "./resources/js/Custom/Loader.vue?vue&type=style&index=0&id=7e971a63&scoped=true&lang=css");
+/* harmony import */ var _var_www_html_ajiriwa_spa_inertia_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-_Loader_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"].render = _Loader_vue_vue_type_template_id_7e971a63_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render
-_Loader_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"].__scopeId = "data-v-7e971a63"
+
+
+const __exports__ = /*#__PURE__*/(0,_var_www_html_ajiriwa_spa_inertia_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Loader_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Loader_vue_vue_type_template_id_7e971a63_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-7e971a63"],['__file',"resources/js/Custom/Loader.vue"]])
 /* hot reload */
 if (false) {}
 
-_Loader_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"].__file = "resources/js/Custom/Loader.vue"
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_Loader_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
 
 /***/ }),
 
@@ -21395,16 +21822,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Button_vue_vue_type_template_id_afb94134__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Button.vue?vue&type=template&id=afb94134 */ "./resources/js/Jetstream/Button.vue?vue&type=template&id=afb94134");
 /* harmony import */ var _Button_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Button.vue?vue&type=script&lang=js */ "./resources/js/Jetstream/Button.vue?vue&type=script&lang=js");
+/* harmony import */ var _var_www_html_ajiriwa_spa_inertia_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
-_Button_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"].render = _Button_vue_vue_type_template_id_afb94134__WEBPACK_IMPORTED_MODULE_0__.render
+
+;
+const __exports__ = /*#__PURE__*/(0,_var_www_html_ajiriwa_spa_inertia_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_Button_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Button_vue_vue_type_template_id_afb94134__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Jetstream/Button.vue"]])
 /* hot reload */
 if (false) {}
 
-_Button_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"].__file = "resources/js/Jetstream/Button.vue"
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_Button_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"]);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
 
 /***/ }),
 
@@ -21449,7 +21878,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Loader_vue_vue_type_template_id_7e971a63_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Loader_vue_vue_type_template_id_7e971a63_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Loader_vue_vue_type_template_id_7e971a63_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Loader.vue?vue&type=template&id=7e971a63&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Custom/Loader.vue?vue&type=template&id=7e971a63&scoped=true");
 
@@ -21465,7 +21894,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Button_vue_vue_type_template_id_afb94134__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   render: () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Button_vue_vue_type_template_id_afb94134__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Button_vue_vue_type_template_id_afb94134__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Button.vue?vue&type=template&id=afb94134 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Jetstream/Button.vue?vue&type=template&id=afb94134");
 
@@ -21494,160 +21923,160 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "BaseTransition": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.BaseTransition),
-/* harmony export */   "BaseTransitionPropsValidators": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.BaseTransitionPropsValidators),
-/* harmony export */   "Comment": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Comment),
-/* harmony export */   "EffectScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.EffectScope),
-/* harmony export */   "Fragment": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Fragment),
-/* harmony export */   "KeepAlive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.KeepAlive),
-/* harmony export */   "ReactiveEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ReactiveEffect),
-/* harmony export */   "Static": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Static),
-/* harmony export */   "Suspense": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Suspense),
-/* harmony export */   "Teleport": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Teleport),
-/* harmony export */   "Text": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Text),
-/* harmony export */   "Transition": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Transition),
-/* harmony export */   "TransitionGroup": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup),
-/* harmony export */   "VueElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.VueElement),
-/* harmony export */   "assertNumber": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.assertNumber),
-/* harmony export */   "callWithAsyncErrorHandling": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.callWithAsyncErrorHandling),
-/* harmony export */   "callWithErrorHandling": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.callWithErrorHandling),
-/* harmony export */   "camelize": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.camelize),
-/* harmony export */   "capitalize": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.capitalize),
-/* harmony export */   "cloneVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.cloneVNode),
-/* harmony export */   "compatUtils": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.compatUtils),
-/* harmony export */   "computed": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.computed),
-/* harmony export */   "createApp": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createApp),
-/* harmony export */   "createBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createBlock),
-/* harmony export */   "createCommentVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode),
-/* harmony export */   "createElementBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createElementBlock),
-/* harmony export */   "createElementVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createElementVNode),
-/* harmony export */   "createHydrationRenderer": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createHydrationRenderer),
-/* harmony export */   "createPropsRestProxy": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createPropsRestProxy),
-/* harmony export */   "createRenderer": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createRenderer),
-/* harmony export */   "createSSRApp": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createSSRApp),
-/* harmony export */   "createSlots": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createSlots),
-/* harmony export */   "createStaticVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode),
-/* harmony export */   "createTextVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createTextVNode),
-/* harmony export */   "createVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createVNode),
-/* harmony export */   "customRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.customRef),
-/* harmony export */   "defineAsyncComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineAsyncComponent),
-/* harmony export */   "defineComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineComponent),
-/* harmony export */   "defineCustomElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineCustomElement),
-/* harmony export */   "defineEmits": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineEmits),
-/* harmony export */   "defineExpose": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineExpose),
-/* harmony export */   "defineModel": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineModel),
-/* harmony export */   "defineOptions": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineOptions),
-/* harmony export */   "defineProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineProps),
-/* harmony export */   "defineSSRCustomElement": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineSSRCustomElement),
-/* harmony export */   "defineSlots": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineSlots),
-/* harmony export */   "devtools": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.devtools),
-/* harmony export */   "effect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.effect),
-/* harmony export */   "effectScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.effectScope),
-/* harmony export */   "getCurrentInstance": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getCurrentInstance),
-/* harmony export */   "getCurrentScope": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getCurrentScope),
-/* harmony export */   "getTransitionRawChildren": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getTransitionRawChildren),
-/* harmony export */   "guardReactiveProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.guardReactiveProps),
-/* harmony export */   "h": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.h),
-/* harmony export */   "handleError": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.handleError),
-/* harmony export */   "hasInjectionContext": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.hasInjectionContext),
-/* harmony export */   "hydrate": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.hydrate),
-/* harmony export */   "initCustomFormatter": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.initCustomFormatter),
-/* harmony export */   "initDirectivesForSSR": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.initDirectivesForSSR),
-/* harmony export */   "inject": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.inject),
-/* harmony export */   "isMemoSame": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isMemoSame),
-/* harmony export */   "isProxy": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isProxy),
-/* harmony export */   "isReactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isReactive),
-/* harmony export */   "isReadonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isReadonly),
-/* harmony export */   "isRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isRef),
-/* harmony export */   "isRuntimeOnly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isRuntimeOnly),
-/* harmony export */   "isShallow": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isShallow),
-/* harmony export */   "isVNode": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isVNode),
-/* harmony export */   "markRaw": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.markRaw),
-/* harmony export */   "mergeDefaults": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeDefaults),
-/* harmony export */   "mergeModels": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeModels),
-/* harmony export */   "mergeProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeProps),
-/* harmony export */   "nextTick": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.nextTick),
-/* harmony export */   "normalizeClass": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeClass),
-/* harmony export */   "normalizeProps": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeProps),
-/* harmony export */   "normalizeStyle": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle),
-/* harmony export */   "onActivated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onActivated),
-/* harmony export */   "onBeforeMount": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeMount),
-/* harmony export */   "onBeforeUnmount": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount),
-/* harmony export */   "onBeforeUpdate": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate),
-/* harmony export */   "onDeactivated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onDeactivated),
-/* harmony export */   "onErrorCaptured": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onErrorCaptured),
-/* harmony export */   "onMounted": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onMounted),
-/* harmony export */   "onRenderTracked": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onRenderTracked),
-/* harmony export */   "onRenderTriggered": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onRenderTriggered),
-/* harmony export */   "onScopeDispose": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onScopeDispose),
-/* harmony export */   "onServerPrefetch": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onServerPrefetch),
-/* harmony export */   "onUnmounted": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onUnmounted),
-/* harmony export */   "onUpdated": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onUpdated),
-/* harmony export */   "openBlock": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.openBlock),
-/* harmony export */   "popScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.popScopeId),
-/* harmony export */   "provide": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.provide),
-/* harmony export */   "proxyRefs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.proxyRefs),
-/* harmony export */   "pushScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.pushScopeId),
-/* harmony export */   "queuePostFlushCb": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.queuePostFlushCb),
-/* harmony export */   "reactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.reactive),
-/* harmony export */   "readonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.readonly),
-/* harmony export */   "ref": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ref),
-/* harmony export */   "registerRuntimeCompiler": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.registerRuntimeCompiler),
-/* harmony export */   "render": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.render),
-/* harmony export */   "renderList": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.renderList),
-/* harmony export */   "renderSlot": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.renderSlot),
-/* harmony export */   "resolveComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveComponent),
-/* harmony export */   "resolveDirective": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveDirective),
-/* harmony export */   "resolveDynamicComponent": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent),
-/* harmony export */   "resolveFilter": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveFilter),
-/* harmony export */   "resolveTransitionHooks": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveTransitionHooks),
-/* harmony export */   "setBlockTracking": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setBlockTracking),
-/* harmony export */   "setDevtoolsHook": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setDevtoolsHook),
-/* harmony export */   "setTransitionHooks": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setTransitionHooks),
-/* harmony export */   "shallowReactive": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowReactive),
-/* harmony export */   "shallowReadonly": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowReadonly),
-/* harmony export */   "shallowRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowRef),
-/* harmony export */   "ssrContextKey": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ssrContextKey),
-/* harmony export */   "ssrUtils": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ssrUtils),
-/* harmony export */   "stop": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.stop),
-/* harmony export */   "toDisplayString": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toDisplayString),
-/* harmony export */   "toHandlerKey": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toHandlerKey),
-/* harmony export */   "toHandlers": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toHandlers),
-/* harmony export */   "toRaw": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRaw),
-/* harmony export */   "toRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRef),
-/* harmony export */   "toRefs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRefs),
-/* harmony export */   "toValue": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toValue),
-/* harmony export */   "transformVNodeArgs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.transformVNodeArgs),
-/* harmony export */   "triggerRef": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.triggerRef),
-/* harmony export */   "unref": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.unref),
-/* harmony export */   "useAttrs": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useAttrs),
-/* harmony export */   "useCssModule": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useCssModule),
-/* harmony export */   "useCssVars": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useCssVars),
-/* harmony export */   "useModel": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useModel),
-/* harmony export */   "useSSRContext": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useSSRContext),
-/* harmony export */   "useSlots": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useSlots),
-/* harmony export */   "useTransitionState": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useTransitionState),
-/* harmony export */   "vModelCheckbox": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox),
-/* harmony export */   "vModelDynamic": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelDynamic),
-/* harmony export */   "vModelRadio": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelRadio),
-/* harmony export */   "vModelSelect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelSelect),
-/* harmony export */   "vModelText": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelText),
-/* harmony export */   "vShow": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vShow),
-/* harmony export */   "version": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.version),
-/* harmony export */   "warn": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.warn),
-/* harmony export */   "watch": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watch),
-/* harmony export */   "watchEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchEffect),
-/* harmony export */   "watchPostEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchPostEffect),
-/* harmony export */   "watchSyncEffect": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchSyncEffect),
-/* harmony export */   "withAsyncContext": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withAsyncContext),
-/* harmony export */   "withCtx": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withCtx),
-/* harmony export */   "withDefaults": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withDefaults),
-/* harmony export */   "withDirectives": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withDirectives),
-/* harmony export */   "withKeys": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withKeys),
-/* harmony export */   "withMemo": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withMemo),
-/* harmony export */   "withModifiers": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withModifiers),
-/* harmony export */   "withScopeId": () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withScopeId),
-/* harmony export */   "compile": () => (/* binding */ compileToFunction)
+/* harmony export */   BaseTransition: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.BaseTransition),
+/* harmony export */   BaseTransitionPropsValidators: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.BaseTransitionPropsValidators),
+/* harmony export */   Comment: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Comment),
+/* harmony export */   EffectScope: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.EffectScope),
+/* harmony export */   Fragment: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Fragment),
+/* harmony export */   KeepAlive: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.KeepAlive),
+/* harmony export */   ReactiveEffect: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ReactiveEffect),
+/* harmony export */   Static: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Static),
+/* harmony export */   Suspense: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Suspense),
+/* harmony export */   Teleport: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Teleport),
+/* harmony export */   Text: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Text),
+/* harmony export */   Transition: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.Transition),
+/* harmony export */   TransitionGroup: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup),
+/* harmony export */   VueElement: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.VueElement),
+/* harmony export */   assertNumber: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.assertNumber),
+/* harmony export */   callWithAsyncErrorHandling: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.callWithAsyncErrorHandling),
+/* harmony export */   callWithErrorHandling: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.callWithErrorHandling),
+/* harmony export */   camelize: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.camelize),
+/* harmony export */   capitalize: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.capitalize),
+/* harmony export */   cloneVNode: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.cloneVNode),
+/* harmony export */   compatUtils: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.compatUtils),
+/* harmony export */   compile: () => (/* binding */ compileToFunction),
+/* harmony export */   computed: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.computed),
+/* harmony export */   createApp: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createApp),
+/* harmony export */   createBlock: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createBlock),
+/* harmony export */   createCommentVNode: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode),
+/* harmony export */   createElementBlock: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createElementBlock),
+/* harmony export */   createElementVNode: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createElementVNode),
+/* harmony export */   createHydrationRenderer: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createHydrationRenderer),
+/* harmony export */   createPropsRestProxy: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createPropsRestProxy),
+/* harmony export */   createRenderer: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createRenderer),
+/* harmony export */   createSSRApp: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createSSRApp),
+/* harmony export */   createSlots: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createSlots),
+/* harmony export */   createStaticVNode: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode),
+/* harmony export */   createTextVNode: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createTextVNode),
+/* harmony export */   createVNode: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.createVNode),
+/* harmony export */   customRef: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.customRef),
+/* harmony export */   defineAsyncComponent: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineAsyncComponent),
+/* harmony export */   defineComponent: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineComponent),
+/* harmony export */   defineCustomElement: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineCustomElement),
+/* harmony export */   defineEmits: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineEmits),
+/* harmony export */   defineExpose: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineExpose),
+/* harmony export */   defineModel: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineModel),
+/* harmony export */   defineOptions: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineOptions),
+/* harmony export */   defineProps: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineProps),
+/* harmony export */   defineSSRCustomElement: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineSSRCustomElement),
+/* harmony export */   defineSlots: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.defineSlots),
+/* harmony export */   devtools: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.devtools),
+/* harmony export */   effect: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.effect),
+/* harmony export */   effectScope: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.effectScope),
+/* harmony export */   getCurrentInstance: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getCurrentInstance),
+/* harmony export */   getCurrentScope: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getCurrentScope),
+/* harmony export */   getTransitionRawChildren: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.getTransitionRawChildren),
+/* harmony export */   guardReactiveProps: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.guardReactiveProps),
+/* harmony export */   h: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.h),
+/* harmony export */   handleError: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.handleError),
+/* harmony export */   hasInjectionContext: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.hasInjectionContext),
+/* harmony export */   hydrate: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.hydrate),
+/* harmony export */   initCustomFormatter: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.initCustomFormatter),
+/* harmony export */   initDirectivesForSSR: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.initDirectivesForSSR),
+/* harmony export */   inject: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.inject),
+/* harmony export */   isMemoSame: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isMemoSame),
+/* harmony export */   isProxy: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isProxy),
+/* harmony export */   isReactive: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isReactive),
+/* harmony export */   isReadonly: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isReadonly),
+/* harmony export */   isRef: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isRef),
+/* harmony export */   isRuntimeOnly: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isRuntimeOnly),
+/* harmony export */   isShallow: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isShallow),
+/* harmony export */   isVNode: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.isVNode),
+/* harmony export */   markRaw: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.markRaw),
+/* harmony export */   mergeDefaults: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeDefaults),
+/* harmony export */   mergeModels: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeModels),
+/* harmony export */   mergeProps: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.mergeProps),
+/* harmony export */   nextTick: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.nextTick),
+/* harmony export */   normalizeClass: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeClass),
+/* harmony export */   normalizeProps: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeProps),
+/* harmony export */   normalizeStyle: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.normalizeStyle),
+/* harmony export */   onActivated: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onActivated),
+/* harmony export */   onBeforeMount: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeMount),
+/* harmony export */   onBeforeUnmount: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeUnmount),
+/* harmony export */   onBeforeUpdate: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onBeforeUpdate),
+/* harmony export */   onDeactivated: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onDeactivated),
+/* harmony export */   onErrorCaptured: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onErrorCaptured),
+/* harmony export */   onMounted: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onMounted),
+/* harmony export */   onRenderTracked: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onRenderTracked),
+/* harmony export */   onRenderTriggered: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onRenderTriggered),
+/* harmony export */   onScopeDispose: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onScopeDispose),
+/* harmony export */   onServerPrefetch: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onServerPrefetch),
+/* harmony export */   onUnmounted: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onUnmounted),
+/* harmony export */   onUpdated: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.onUpdated),
+/* harmony export */   openBlock: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.openBlock),
+/* harmony export */   popScopeId: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.popScopeId),
+/* harmony export */   provide: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.provide),
+/* harmony export */   proxyRefs: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.proxyRefs),
+/* harmony export */   pushScopeId: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.pushScopeId),
+/* harmony export */   queuePostFlushCb: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.queuePostFlushCb),
+/* harmony export */   reactive: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.reactive),
+/* harmony export */   readonly: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.readonly),
+/* harmony export */   ref: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ref),
+/* harmony export */   registerRuntimeCompiler: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.registerRuntimeCompiler),
+/* harmony export */   render: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   renderList: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.renderList),
+/* harmony export */   renderSlot: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.renderSlot),
+/* harmony export */   resolveComponent: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveComponent),
+/* harmony export */   resolveDirective: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveDirective),
+/* harmony export */   resolveDynamicComponent: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveDynamicComponent),
+/* harmony export */   resolveFilter: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveFilter),
+/* harmony export */   resolveTransitionHooks: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.resolveTransitionHooks),
+/* harmony export */   setBlockTracking: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setBlockTracking),
+/* harmony export */   setDevtoolsHook: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setDevtoolsHook),
+/* harmony export */   setTransitionHooks: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.setTransitionHooks),
+/* harmony export */   shallowReactive: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowReactive),
+/* harmony export */   shallowReadonly: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowReadonly),
+/* harmony export */   shallowRef: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.shallowRef),
+/* harmony export */   ssrContextKey: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ssrContextKey),
+/* harmony export */   ssrUtils: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.ssrUtils),
+/* harmony export */   stop: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.stop),
+/* harmony export */   toDisplayString: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toDisplayString),
+/* harmony export */   toHandlerKey: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toHandlerKey),
+/* harmony export */   toHandlers: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toHandlers),
+/* harmony export */   toRaw: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRaw),
+/* harmony export */   toRef: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRef),
+/* harmony export */   toRefs: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toRefs),
+/* harmony export */   toValue: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.toValue),
+/* harmony export */   transformVNodeArgs: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.transformVNodeArgs),
+/* harmony export */   triggerRef: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.triggerRef),
+/* harmony export */   unref: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.unref),
+/* harmony export */   useAttrs: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useAttrs),
+/* harmony export */   useCssModule: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useCssModule),
+/* harmony export */   useCssVars: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useCssVars),
+/* harmony export */   useModel: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useModel),
+/* harmony export */   useSSRContext: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useSSRContext),
+/* harmony export */   useSlots: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useSlots),
+/* harmony export */   useTransitionState: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.useTransitionState),
+/* harmony export */   vModelCheckbox: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelCheckbox),
+/* harmony export */   vModelDynamic: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelDynamic),
+/* harmony export */   vModelRadio: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelRadio),
+/* harmony export */   vModelSelect: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelSelect),
+/* harmony export */   vModelText: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vModelText),
+/* harmony export */   vShow: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.vShow),
+/* harmony export */   version: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.version),
+/* harmony export */   warn: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.warn),
+/* harmony export */   watch: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watch),
+/* harmony export */   watchEffect: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchEffect),
+/* harmony export */   watchPostEffect: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchPostEffect),
+/* harmony export */   watchSyncEffect: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.watchSyncEffect),
+/* harmony export */   withAsyncContext: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withAsyncContext),
+/* harmony export */   withCtx: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withCtx),
+/* harmony export */   withDefaults: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withDefaults),
+/* harmony export */   withDirectives: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withDirectives),
+/* harmony export */   withKeys: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withKeys),
+/* harmony export */   withMemo: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withMemo),
+/* harmony export */   withModifiers: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withModifiers),
+/* harmony export */   withScopeId: () => (/* reexport safe */ _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__.withScopeId)
 /* harmony export */ });
 /* harmony import */ var _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-dom/dist/runtime-dom.esm-bundler.js");
 /* harmony import */ var _vue_runtime_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @vue/runtime-dom */ "./node_modules/@vue/runtime-core/dist/runtime-core.esm-bundler.js");
@@ -21802,6 +22231,11 @@ ${codeFrame}` : message);
 /******/ 		};
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/nonce */
+/******/ 	(() => {
+/******/ 		__webpack_require__.nc = undefined;
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
@@ -21832,13 +22266,11 @@ __webpack_require__.r(__webpack_exports__);
     console.log(this.company);
     /*let image = new Image();
     image.src = this.company.logo_url;*/
-
     /*for(let x = 0; x < 100; x++){
         setTimeout(() => {
             this.logo_upload_progress += 1
         }, 2000)
     }*/
-
     /*image.onload = () => {
         this.logo.height = image.height;
         this.logo.width = image.width;
@@ -21875,9 +22307,9 @@ __webpack_require__.r(__webpack_exports__);
         content: "Click here to add your company logo!",
         params: {
           placement: 'top' // Any valid Popper.js placement. See https://popper.js.org/popper-documentation.html#Popper.placements
-
         }
       }],
+
       steps: [{
         target: '#v-step-0',
         // We're using document.querySelector() under the hood
@@ -21893,18 +22325,19 @@ __webpack_require__.r(__webpack_exports__);
         content: 'Try it, you\'ll love it!<br>You can put HTML in the steps and completely customize the DOM to suit your needs.',
         params: {
           placement: 'top' // Any valid Popper.js placement. See https://popper.js.org/popper-documentation.html#Popper.placements
-
         }
       }]
     };
   },
+
   methods: {
     greet: function greet(_ref) {
       var coordinates = _ref.coordinates,
-          canvas = _ref.canvas;
+        canvas = _ref.canvas;
       console.log('Coordinates was changed', coordinates, canvas);
       console.log("The canvas width is " + canvas.width);
-      var imageWidth = //this.logo_dimensions.width = canvas.width;
+      var imageWidth =
+      //this.logo_dimensions.width = canvas.width;
       //this.logo_dimensions.height = canvas.height;
       this.logo_dimensions.left = coordinates.left;
       this.logo_dimensions.top = coordinates.top;
@@ -21912,10 +22345,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     uploadImage: function uploadImage(event) {
       var _this = this;
-
       var type = event.target.name;
       var file = event.target.files || event.dataTransfer.files;
-
       if (file.length) {
         //this.company.logo_url =  URL.createObjectURL(event.target.files[0]);
         var formData = new FormData();
@@ -21947,12 +22378,10 @@ __webpack_require__.r(__webpack_exports__);
           _this.saving.logo = false;
         });
       }
-
       return console.log(file);
     },
     saveDescription: function saveDescription() {
       var _this2 = this;
-
       this.saving.description = true;
       axios.post(route('company.description.save'), {
         company_id: this.company.id,
@@ -21961,7 +22390,6 @@ __webpack_require__.r(__webpack_exports__);
         if (response.data) {
           _this2.company.description = response.data;
         }
-
         _this2.entering.description = false;
         _this2.saving.description = false;
       })["catch"](function (error) {
@@ -21980,7 +22408,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     cancelCompanyDescription: function cancelCompanyDescription() {
       var _this3 = this;
-
       if (this.new_description !== this.company.description) {
         sweetalert2__WEBPACK_IMPORTED_MODULE_1___default().fire({
           title: "Warning",
@@ -21991,12 +22418,11 @@ __webpack_require__.r(__webpack_exports__);
           showCancelButton: true
         }).then(function (result) {
           if (result.isConfirmed) {
-            _this3.entering.description = false; //this.description = this.$page.props.company.description;
-          }
-          /*else if(result.isDismissed){
-               alert('you gonna keep writing')
-           }*/
-
+            _this3.entering.description = false;
+            //this.description = this.$page.props.company.description;
+          } /*else if(result.isDismissed){
+                 alert('you gonna keep writing')
+             }*/
         });
       } else {
         this.entering.description = false;
@@ -22004,8 +22430,8 @@ __webpack_require__.r(__webpack_exports__);
     },
     getSectionDetails: function getSectionDetails(section) {
       this.current_section = section;
-
-      if (section === 'about') {} else {// get information from database
+      if (section === 'about') {} else {
+        // get information from database
       }
     }
   },
@@ -22031,7 +22457,6 @@ __webpack_require__.r(__webpack_exports__);
     },
     sectionClass: function sectionClass() {
       var _this4 = this;
-
       return function (section) {
         return section === _this4.current_section ? "text-gray-400 hover:text-green-400 cursor-pointer active border-b" : "text-gray-400 hover:text-green-400 cursor-pointer";
       };

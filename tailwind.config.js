@@ -27,7 +27,7 @@ module.exports = {
     /* corePlugins: {
         gray: colors.neutral,
     }, */
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'), require('flowbite/plugin'), require('tw-elements/dist/plugin')],
+    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography'), require('flowbite/plugin'), require('tw-elements/dist/plugin'), require("daisyui")],
     content: [
         "./node_modules/flowbite/**/*.js", './node_modules/tw-elements/dist/js/**/*.js',
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',

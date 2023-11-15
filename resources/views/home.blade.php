@@ -90,7 +90,7 @@
                     {!! $category->icon !!}
                 </section>
             @endforeach
-            <section class="py-4 border border-green-400 px-4 cols-5 flex flex-col cursor-pointer hover:bg-green-300 hover:text-white text-green-400">
+            <!-- <section class="py-4 border border-green-400 px-4 cols-5 flex flex-col cursor-pointer hover:bg-green-300 hover:text-white text-green-400">
                 <span class="font-bold">Transport & Logistics</span>
                 <span class="mt-4 text-gray-500 font-bold">1500 Jobs</span>
             </section>
@@ -136,7 +136,7 @@
                   
                   
                   
-            </section>
+            </section> -->
         
         </div>
 

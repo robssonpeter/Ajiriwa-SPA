@@ -32,6 +32,10 @@
         <link rel="amphtml" href="{{ session()->get('amp-page') }}">
         @endif
 
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2822549997571103"
+     crossorigin="anonymous"></script>
+     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104559642-1"></script>
+
         <!-- Scripts -->
         {{-- <script src="{{ asset('js/essential.js') }}" defer></script> --}}
         @if(in_array(\Route::current()->getName(), $livewire_routes))
