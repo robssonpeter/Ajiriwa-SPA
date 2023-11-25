@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Custom\Promoter;
 use App\Models\AssignedJobCategory;
+use App\Models\CategorizedJob;
 use App\Models\Company;
 use App\Models\Job;
 use App\Models\JobCategory;
@@ -24,6 +25,7 @@ class JobSearch extends Component
 
     public function render()
     {
+        //dd($this->job_category);
         $self = $this;
         //dd($this->search);
         // check if there is a preset variable
@@ -94,7 +96,7 @@ class JobSearch extends Component
             $joinedstring = implode("OR", $joined);
             return $q->whereRaw($joinedstring);
         })->when($this->job_category, function($q) use($self){
-            $assigned = AssignedJobCategory::where('category_id', $self->job_category)->pluck('job_id');
+            $assigned = CategorizedJob::where('category_id', $self->job_category)->pluck('job_id');
             $q->whereIn("id", $assigned);
         })->when($this->remote, function($q) use($self){
             $q->where('is_remote', true);
