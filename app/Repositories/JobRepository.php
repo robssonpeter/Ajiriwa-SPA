@@ -3,6 +3,7 @@
 
 namespace App\Repositories;
 
+use App\Models\CategorizedJob;
 /**
  * Class for job related operations mostly session based
  */
@@ -36,5 +37,33 @@ class JobRepository
         {
             session()->put('viewed-jobs', [$jobid]);
         }
+    }
+
+
+    public static function syncJobCategories($jobId, $categoryIds)
+    {
+        // Get the existing category IDs associated with the job
+        $existingCategoryIds = CategorizedJob::where('job_id', $jobId)
+                                                ->pluck('category_id')
+                                                ->toArray();
+
+        // Find categories to be added
+        $categoriesToAdd = array_diff($categoryIds, $existingCategoryIds);
+
+        // Find categories to be removed
+        $categoriesToRemove = array_diff($existingCategoryIds, $categoryIds);
+
+        // Add new categories
+        foreach ($categoriesToAdd as $categoryId) {
+            CategorizedJob::create([
+                'job_id' => $jobId,
+                'category_id' => $categoryId,
+            ]);
+        }
+
+        // Remove categories
+        CategorizedJob::where('job_id', $jobId)
+            ->whereIn('category_id', $categoriesToRemove)
+            ->delete();
     }
 }

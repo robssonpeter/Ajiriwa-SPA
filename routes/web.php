@@ -1,5 +1,6 @@
 <?php
 
+use App\Custom\DataTransfer;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CompanyController;
@@ -375,3 +376,27 @@ Route::get('/ads-trck.php', [PromotionController::class, 'adTrack'])->name('prom
 Route::post('/promotion/change-status', [PromotionController::class, 'changeStatus'])->name('promotion.change.status');
 Route::post('/promotion/change-budget', [PromotionController::class, 'changeBudget'])->name('promotion.change.budget');
 Route::get('/redirects.php', [JobController::class, 'externalRedirect'])->name('redirect');
+
+/**
+ * ----------------------------------------------------------------------------------------------------------
+ *          Transfer Routes
+ * ----------------------------------------------------------------------------------------------------------
+ */
+Route::get('/transfer-companies', function() {
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
+    error_reporting(E_ALL);
+    return DataTransfer::transferCompanies();
+})->name('companies.transfer');
+Route::get('/transfer-candidates', function() {
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
+    error_reporting(E_ALL);
+    return DataTransfer::transferCandidates();
+})->name('candidates.transfer');
+Route::get('/transfer-jobs', function() {
+    ini_set('display_errors', '1');
+    ini_set('display_startup_errors', '1');
+    error_reporting(E_ALL);
+    return DataTransfer::transferJobs();
+})->name('candidates.jobs');

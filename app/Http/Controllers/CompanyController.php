@@ -143,7 +143,14 @@ class CompanyController extends Controller
     }
 
     public function editJob($slug){
-        $job = Job::where('slug', $slug)->first();
+        $job = Job::where('slug', $slug)->with('categories')->first();
+        $assigned_categories = $job->categories->toArray();
+        $categorized = [];
+        if (count($assigned_categories)){
+            $categorized = array_map(function($row) {
+                return $row['id'];
+            }, $assigned_categories);
+        }
         $status = Job::STATUS;
         $categories = JobCategory::orderBy('name', 'DESC')->get();
         $jobTypes = JobType::all();
@@ -155,11 +162,13 @@ class CompanyController extends Controller
         $company = Company::where('original_user', \Auth::user()->id)->first();
         return Inertia::render('Company/Jobs/Post', [
             'categories' => $categories,
+            'job_categorized' => $categorized,
             'jobTypes' => $jobTypes,
             'company' => $companies??$company,
             'job' => $job,
             'status' => $status,
             'is_admin' => $is_admin,
+
         ]);
     }
 

@@ -20,21 +20,25 @@ use Illuminate\Support\Facades\Hash;
 use Spatie\MediaLibrary\Models\Media;
 
 class DataTransfer {
-    const ORIGINAL_PATH = '/var/www/html/';
+    const ORIGINAL_PATH = '/var/www/ajiriwa/html/';
+
+    public static function testTransfer(){
+        return "you are trying to make a transfer here";
+    }
 
     public static function transferCompanies(){
         // get the signeup users
         $existing_companies = Company::pluck('name')->toArray();
     
-        $data = DB::connection('old_db')->table('jobs')/* ->whereNotIn('Company_name', $existing_companies) */->get();
+        $data = DB::connection('old_db')->table('jobs')->pluck('ID');
         $original_project_path = self::ORIGINAL_PATH;
         $new_companies = [];
-
-        //return $data->count();
+        //dd($existing_companies);
 
         $iteration = 0;
     
         foreach($data as $company){
+            $company = DB::connection('old_db')->table('jobs')->where('ID', $company)->first();
             if(in_array($company->Company_name, $existing_companies)){
                 continue;
             }
@@ -45,6 +49,7 @@ class DataTransfer {
                 $logo_file = $logo_array[count($logo_array)-1];
 
                 // copy the logo from previous location to the new one
+                //dd($original_project_path.$logo);
                 if(file_exists($original_project_path.$logo))
                     copy($original_project_path.$logo, public_path('temporary-files/'.$logo));    
             }
@@ -80,12 +85,12 @@ class DataTransfer {
     }
 
     public static function transferJobs(){
-        $existing_jobs = Job::whereNotNull('old_id')->pluck('old_id');
-
-        $new_jobs = $data = DB::connection('old_db')->table('jobs')->whereNotIn('ID', $existing_jobs)->get();
+        $biggest_saved = Job::whereNotNull('old_id')->orderBy('old_id', 'desc')->first()->old_id;
+        $new_jobs = DB::connection('old_db')->table('jobs')->where('ID', '>', $biggest_saved)->pluck('ID');
         $created_jobs = [];
         // loop through the jobs
         foreach($new_jobs as $new_job){
+            $new_job = DB::connection('old_db')->table('jobs')->where('ID', $new_job)->first();
             // find the company responsible for the job
             $company = Company::where('name', $new_job->Company_name)->first();
             

@@ -358,6 +358,8 @@ class   JobController extends Controller
             $data['keywords'] = $keywords;
             // make the update
             Job::where('id', request()->job_id)->update($data);
+            // assign job categories
+            JobRepository::syncJobCategories(request()->job_id, request()->category);
             return Job::find(request()->job_id);
         }
 
@@ -369,7 +371,8 @@ class   JobController extends Controller
         $saved = Job::create($data);
 
         // assign job categories
-        AssignedJobCategory::create(['category_id' => request()->category, 'job_id' => $saved->id]);
+        JobRepository::syncJobCategories($saved->id, request()->category);
+        //AssignedJobCategory::create(['category_id' => request()->category, 'job_id' => $saved->id]);
         return $saved;
     }
 

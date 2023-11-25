@@ -47,7 +47,7 @@ class Job extends Model
     ];
 
     protected $appends = [
-        'applied', 'current_status', 'time_ago', 'promotion_details'
+        'applied', 'current_status', 'time_ago', 'promotion_details', 'categorized_jobs'
     ];
 
     protected $withCount = [
@@ -60,6 +60,13 @@ class Job extends Model
 
     public function clicks(){
         return $this->hasMany(LinkClick::class, 'job_id', 'id');
+    }
+
+    public function getCategorizedJobsAttribute(){
+        /* if($this->categories){
+            return $this->categoris->pluck('category_id');
+        } */
+        return null;
     }
 
     public function getPromotionDetailsAttribute(){
@@ -113,5 +120,17 @@ class Job extends Model
 
     public function promotion(){
         return $this->hasOne(JobPromotion::class, 'Job_ID', 'id');
+    }
+
+    public function categories()
+    {
+        return $this->hasManyThrough(
+            JobCategory::class,
+            CategorizedJob::class,
+            'job_id', // Foreign key on CategorizedJob table
+            'id',      // Local key on Category table
+            'id',      // Local key on Job table
+            'category_id' // Foreign key on CategorizedJob table
+        );
     }
 }

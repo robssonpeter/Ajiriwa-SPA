@@ -84,12 +84,9 @@
                             </div>
                             <div class="input flex flex-col">
                                 <label for="job-category" class="font-bold">Job Category</label>
-                                <select name="category" v-model="category" id="job-category"
-                                    class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300">
-                                    <option value="">Job Category</option>
-                                    <option :value="category.id" v-for="category in $page.props.categories">{{ category.name
-                                    }}</option>
-                                </select>
+                                <v-select name="category" v-model="category" id="job-category"
+                                    :options="$page.props.categories" multiple label="name" :reduce="option => option.id"
+                                    class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300"></v-select>
                             </div>
                             <div class="input flex flex-col">
                                 <label for="cover-letter" class="font-bold">Require CoverLetter</label>
@@ -114,8 +111,8 @@
                                     ],
                                     toolbar:
                                         'undo redo | formatselect | bold italic | \
-                                                                alignleft aligncenter alignright alignjustify | \
-                                                                bullist numlist | help'
+                                                                                                alignleft aligncenter alignright alignjustify | \
+                                                                                                bullist numlist | help'
                                 }" />
                             <!--<text-editor @change="editorChanged" :text="$page.props.job?$page.props.job.description:''" v-model:content="description"></text-editor>-->
                         </section>
@@ -126,7 +123,8 @@
                         <div class="grid grid-cols-3 gap-3">
                             <section class="py-2 flex flex-col col-span-1">
                                 <label for="apply_method" class="font-bold">Applications Method</label>
-                                <select @change="controlScreening" name="apply_method" v-model="apply_method" id="apply_method"
+                                <select @change="controlScreening" name="apply_method" v-model="apply_method"
+                                    id="apply_method"
                                     class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300">
                                     <option value="ajiriwa">Through Ajiriwa.net (Recommended)</option>
                                     <option value="url">My company's website</option>
@@ -170,7 +168,8 @@
                                     <span class="font-bold">Application Email CC</span>
                                     <section class="grid grid-cols-2 gap-2">
                                         <input type="email" @keyup="controlCC(index)" v-model="application_email_cc[index]"
-                                            :placeholder="'CC ' + Number(index + 1)" v-for="(cc, index) in application_email_cc"
+                                            :placeholder="'CC ' + Number(index + 1)"
+                                            v-for="(cc, index) in application_email_cc"
                                             class="w-full focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300">
                                         <span class="cursor-pointer mt-2 text-green-400 font-bold" v-if="allowCC"
                                             @click="addCC">Add CC</span>
@@ -193,8 +192,8 @@
                                 </select>
                             </section>
                             <section class="py-2 flex col-span-3">
-                                <input type="checkbox" @change="controlScreening" ref="add_assessments" class="self-center mr-2 accent-pink-500"
-                                    name="add-assessments" id="">
+                                <input type="checkbox" @change="controlScreening" ref="add_assessments"
+                                    class="self-center mr-2 accent-pink-500" name="add-assessments" id="">
                                 <span class="self-center">Add screening questions</span>
                             </section>
 
@@ -258,7 +257,7 @@ export default {
             location: this.$page.props.job ? this.$page.props.job.location : '',
             reports_to: this.$page.props.job ? this.$page.props.job.reports_to : '',
             job_type: this.$page.props.job ? this.$page.props.job.job_type : '',
-            category: '',
+            category: this.$page.props.job ? this.$page.props.job_categorized : [],
             description: this.$page.props.job ? this.$page.props.job.description : 'Your job description here',
             deadline: this.$page.props.job ? this.$page.props.job.deadline : '',
             cover_letter: this.$page.props.job ? this.$page.props.job.cover_letter : '',
