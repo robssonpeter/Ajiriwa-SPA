@@ -14,9 +14,12 @@ class RegisterView
      *
      * @return void
      */
-    public function __construct()
+    public $job_id;
+    public $uniqid;
+    public function __construct($job_id, $uniqid)
     {
-        //
+        $this->job_id = $job_id;
+        $this->uniqid = $uniqid;
     }
 
     /**

@@ -17,6 +17,7 @@ class JobCategory extends Model
 
 
     public function active_jobs(){
-        return $this->hasManyThrough(Job::class, AssignedJobCategory::class, 'category_id', 'id', 'id', 'job_id')->where('deadline', '>=', date('Y-m-d'));
+        return $this->hasManyThrough(Job::class, CategorizedJob::class, 'category_id', 'id', 'id', 'job_id')
+                    ->where('deadline', '>=', date('Y-m-d'))->where('status', 1);
     }
 }

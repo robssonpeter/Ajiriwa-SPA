@@ -3,7 +3,10 @@
 
 namespace App\Repositories;
 
+use App\Events\JobViewed;
 use App\Models\CategorizedJob;
+use App\Models\JobView;
+
 /**
  * Class for job related operations mostly session based
  */
@@ -30,12 +33,16 @@ class JobRepository
             $session = session()->get('viewed-jobs');
             if(!in_array($jobid, $session)){
                 array_push($session, $jobid);
+                // create an entry to the database
+                //event(new JobViewed($jobid, session()->get('uniqid')));
+                JobView::create(['job_id' => $jobid, 'user_id' => $session, 'is_logged' => \Auth::check()]);
             }
             session()->put('viewed-jobs', $session);
         }
         else
         {
             session()->put('viewed-jobs', [$jobid]);
+            JobView::create(['job_id' => $jobid, 'user_id' => session()->get('uniqid'), 'is_logged' => \Auth::check()]);
         }
     }
 

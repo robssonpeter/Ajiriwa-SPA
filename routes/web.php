@@ -4,6 +4,7 @@ use App\Custom\DataTransfer;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CandidateController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\CvController;
 use App\Http\Controllers\SubscriptionController;
 use App\Http\Controllers\FaqsController;
 use App\Http\Controllers\FileController;
@@ -62,7 +63,7 @@ Route::get('/', function () {
     OpenGraph::setSiteName("Ajiriwa");
     OpenGraph::setType('website');
 
-    $job_categories = JobCategory::withCount('active_jobs')->orderBy('active_jobs_count', 'desc')->limit(8)->get();
+    $job_categories = JobCategory::withCount('active_jobs')->orderBy('active_jobs_count', 'desc')->limit(15)->get();
     //dd($latest_jobs->count());
 
     return view('home', compact('blog_posts', 'latest_jobs', 'job_categories'));
@@ -400,3 +401,11 @@ Route::get('/transfer-jobs', function() {
     error_reporting(E_ALL);
     return DataTransfer::transferJobs();
 })->name('candidates.jobs');
+
+/**
+ * ----------------------------------------------------------------------------------------------------------
+ *          CV Faces Routes
+ * ----------------------------------------------------------------------------------------------------------
+ */
+Route::get('/cv-faces/Material/bootstraped.php', [CvController::class, 'materialBootstrap'])->name('material.bootstraped');
+Route::get('/apis/candidates/', [CvController::class, 'candidateSearch'])->name('candidate.search.remote');

@@ -40,6 +40,8 @@ class JobSearch extends Component
         $search = request()->search??(request()->keyword?request()->keyword." ".request()->comp:$this->search);
         //dd($search);
         $slug = makeSlug(urldecode(request()->search));
+
+
         
         $keyword = \DB::table('keywords')->where('keyword', urldecode($search))/* ->orWhere('keyword', 'LIKE', '%'.$search.'%') */->orWhere(function($q) use ($slug){
             return $q->whereNotNull('slug')->where('slug', $slug);
@@ -67,14 +69,16 @@ class JobSearch extends Component
             $search = $self->search;
         }  
         $companies = [];
-        if(request()->comp){
-            $companies = Company::where('name', 'LIKE', '%'.request()->comp.'%')->pluck('id');
+        if(request()->comp || request()->search){
+            $comp_like = request()->comp??$search;
+            $companies = Company::where('name', 'LIKE', '%'.$comp_like.'%')->pluck('id');
         }
         
-        //dd($search);
         $active_index = array_search('Active', Job::STATUS);
         $date = date('Y-m-d');
-        $jobs =  Job::orderBy('id', 'DESC')->where('deadline', '>=', $date)->where('status', $active_index)/* ->when($companies, function($q) use ($companies){
+        $jobs =  Job::orderBy('id', 'DESC')->when(!$keyword, function($q) use($date){
+            $q->where('deadline', '>=', $date);
+        })->where('status', $active_index)/* ->when($companies, function($q) use ($companies){
             $q->whereIn('company_id', $companies);
         }) */->when($search, function($q) use ($search, $self){
             $all = explode(" ", $search);
@@ -98,18 +102,21 @@ class JobSearch extends Component
         })->when($this->job_category, function($q) use($self){
             $assigned = CategorizedJob::where('category_id', $self->job_category)->pluck('job_id');
             $q->whereIn("id", $assigned);
-        })->when($this->remote, function($q) use($self){
+        }) ->when($this->remote, function($q) use($self){
             $q->where('is_remote', true);
-        })->when($this->selected_industries, function($q) use($self){
-            $companies = Company::whereIn('industry_id', $self->selected_industries)->pluck('id');
+        })->when($this->selected_industries, function($q) use($self, $companies){
+            $comp_by_industry = Company::whereIn('industry_id', $self->selected_industries)->pluck('id')->toArray();
+            $companies = array_merge($companies, $comp_by_industry);
             $q->whereIn('company_id', $companies);
-        })->when(request()->comp, function($q) use($companies){
+        })->when(request()->comp || count($companies), function($q) use($companies){
             $q->whereIn('company_id', $companies);
         })->when($this->selected_employment_types, function($q) use($self){
             $q->whereIn('job_type', $self->selected_employment_types);
         })->when(request()->location, function($q){
             $q->where('location', 'LIKE', "%".request()->location."%");
         })->paginate(10);
+        //dd($companies);
+        //dd($companies);
         //dd($jobs->lastPage());
         $promo = new Promoter();
         $rand = $promo->randomProm();

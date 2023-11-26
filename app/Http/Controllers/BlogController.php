@@ -6,6 +6,7 @@ use App\Models\BlogPost;
 use Artesaos\SEOTools\Facades\SEOMeta;
 use FontLib\Table\Type\post;
 use Illuminate\Http\Request;
+use Artesaos\SEOTools\Facades\OpenGraph;
 
 class BlogController extends Controller
 {
@@ -25,6 +26,13 @@ class BlogController extends Controller
 
     public function viewPost($slug){
         $post = BlogPost::where('slug', $slug)->first();
+        SEOMeta::addMeta('theme-color', '#6ad3ac');
+        SEOMeta::setTitle($post->Title);
+        SEOMeta::addMeta('description', $post->Summary);
+        SEOMeta::addMeta('language', 'English');
+        SEOMeta::addMeta('revist-after', '1 days');
+        OpenGraph::setTitle($post->Title);
+        OpenGraph::addImage(asset($post->cover_photo));
         //dd($post);
         return view('Blog.view-post', compact('post'));
     }

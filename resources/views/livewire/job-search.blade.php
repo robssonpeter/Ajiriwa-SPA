@@ -144,16 +144,16 @@
         <div class="rounded-lg shadow-lg bg-white sticky top-20 self-start hidden md:block">
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2822549997571103"
                 crossorigin="anonymous"></script>
-                <!-- Side Ad Vert -->
-                <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="ca-pub-2822549997571103"
-                    data-ad-slot="6027627770"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
-                <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
+            <!-- Side Ad Vert -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-2822549997571103"
+                data-ad-slot="6027627770"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     </div>
 </div>

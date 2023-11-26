@@ -13,10 +13,10 @@
         <div class="col-span-4 mr-8 md:mr-0">
             @foreach($posts as $post)
             <div class="bg-white shadow-lg  ml-8 p-4 mb-2">
-                <img src="https://www.ajiriwa.net/uploads/blog/hr-management-system-comp.jpg" class="max-h-80 w-100" alt="hr-management-system">
+                <img src="{{ asset($post->cover_photo) }}" class="max-h-80 w-100" alt="{{$post->title}}">
                 <section class="py-2">
                     <small class="text-gray-500">{{ Carbon\Carbon::parse($post->created_at)->format('M d, Y') }}</small> <span class="text-sm text-gray-500">|</span>
-                    <span class="text-sm text-green-500">Peter Robert Mgembe</span>
+                    <!-- <span class="text-sm text-green-500">Peter Robert Mgembe</span> -->
                 </section>
                 <a href="{{ route('blog.post.view', $post->slug) }}" class="font-bold text-gray-500 text-lg">{{ $post->Title }}</a>
                 <div>
@@ -26,12 +26,24 @@
             @endforeach
         </div>
         <div class="bg-white w-80 ml-8 col-span-2 mr-24 px-4 self-start py-4 shadow-lg hidden md:block sticky top-16">
-            <section class="flex flex-row border-b pb-2 flex flex-col">
+            <!-- <section class="flex flex-row border-b pb-2 flex flex-col">
                 <img src="https://blogs.microsoft.com/wp-content/uploads/prod/2022/09/MS-WTViva_Banner_1900x1000-v2-960x540.png" alt="">
             </section>
             <section>
                 <a href="" class="text-gray-500 font-bold">How to beat lazyness</a>
-            </section>
+            </section> -->
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2822549997571103"
+                crossorigin="anonymous"></script>
+            <!-- Side Ad Vert -->
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-client="ca-pub-2822549997571103"
+                data-ad-slot="6027627770"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
     </div>
 @endsection

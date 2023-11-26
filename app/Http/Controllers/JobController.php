@@ -109,6 +109,7 @@ class   JobController extends Controller
 
     public function search($keyword = null)
     {
+
         $search = $keyword ? str_replace('-', ' ', $keyword) : request()->search;
         $location = request()->location;
         $slug = makeSlug($search);
@@ -140,7 +141,6 @@ class   JobController extends Controller
             $order[] = "WHEN job_title LIKE '%$one%' THEN '$x' WHEN company_name LIKE '%$one%' THEN '$casextra'";
             $x += 2;
         }
-        //dd($search);
 
         $joinedstring = implode("OR", $joined);
         //dd($jobs_by_category);
@@ -153,16 +153,16 @@ class   JobController extends Controller
                     $q->whereIn('id', $jobs_by_category);
                 });
             });
-        })->when(!$keyword, function ($q) {
+        })/* ->when(!$keyword, function ($q) {
             return $q->where('deadline', '>=', date('Y-m-d'));
-        })->orWhere(function ($q) use ($keyword, $joinedstring) {
+        }) */->orWhere(function ($q) use ($keyword, $joinedstring) {
             $q->when($keyword && !strlen($keyword->main_words), function ($q) {
                 return $q->where('title', 'like', '%%');
             })->when($keyword && strlen($keyword->main_words), function ($q) use ($joinedstring) {
                 //dd($joinedstring);
             });
         })->orderBy('id', 'DESC')->paginate(15);
-
+        //dd($jobs->toSql());
         //dd(request()->method());
         //dd($jobs);
         if (request()->ajax && request()->method() == "POST") {
@@ -305,6 +305,7 @@ class   JobController extends Controller
         }*/
         $applied = [12];
 
+        //dd($job->id);
         JobRepository::addToViewedJobs($job->id);
         $apply_url = '';
         if ($job->apply_method == 'ajiriwa' || $job->apply_method == 'email') {
@@ -345,6 +346,7 @@ class   JobController extends Controller
             return view('jobs.view-amp', compact('job', 'allow_apply', 'applied', 'prom', 'apply_url'));
         }
         session()->flash('amp-page', route('job.amp', $job->slug));
+        //event(new JobViewed($job->job_id, session()->get('uniqid')));
         return view('jobs.view', compact('job', 'allow_apply', 'applied', 'prom', 'apply_url'));
     }
 

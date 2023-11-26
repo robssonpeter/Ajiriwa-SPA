@@ -84,9 +84,9 @@ class Candidate extends Model implements HasMedia
         return $this->hasOne(Gender::class, 'id', 'gender');
     }
 
-    /*public function user(){
+    public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');
-    }*/
+    }
 
     public function getAppliedJobsAttribute(){
         return JobApplication::where('candidate_id', $this->id)->pluck('job_id');

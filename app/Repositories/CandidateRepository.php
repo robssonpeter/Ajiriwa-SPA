@@ -97,7 +97,7 @@ class CandidateRepository
         return $completion;
     }
 
-    public static function searchCandidate($search){
+    public static function searchCandidate($search, $pluck=null){
         $search_term =  explode(" ", $search);
         
         $experiences = CandidateExperience::where(function($q) use($search){
@@ -111,7 +111,10 @@ class CandidateRepository
         })->pluck('candidate_id')->toArray();
 
         $exeptions = array("and", "in", "on", "at", "with", "if", "be", "is", "by", "of", "for", "to", "up", "like", "as", "from", " ");
-        $candidates = Candidate::where(function($q) use($search, $search_term, $exeptions){
+        $with = [
+            'experiences', 'education', 'languages', 'referees'
+        ];
+        $candidates = Candidate::with('experiences')->where(function($q) use($search, $search_term, $exeptions){
             $q = $q ->where('first_name', "LIKE", "%".$search."%")
                     ->orWhere('middle_name', "LIKE", "%".$search."%")
                     ->orWhere('last_name', "LIKE", "%".$search."%");
@@ -127,7 +130,11 @@ class CandidateRepository
         })->orWhere(function($q) use($experiences, $education, $certificate){
             $candidate_ids = array_merge($experiences, $education, $certificate);
             return $q->whereIn('id', $candidate_ids);
-        })->orWhere('professional_title', "LIKE", "%".$search."%")->paginate(12);
+        })->orWhere('professional_title', "LIKE", "%".$search."%");
+        if(!$pluck)
+            $candidates = $candidates->paginate(12);
+        else
+            $candidates = $candidates->pluck($pluck);
         return $candidates;        
     }
 }
