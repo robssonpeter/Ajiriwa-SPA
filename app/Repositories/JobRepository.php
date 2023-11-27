@@ -35,7 +35,7 @@ class JobRepository
                 array_push($session, $jobid);
                 // create an entry to the database
                 //event(new JobViewed($jobid, session()->get('uniqid')));
-                JobView::create(['job_id' => $jobid, 'user_id' => $session, 'is_logged' => \Auth::check()]);
+                JobView::create(['job_id' => $jobid, 'user_id' => session()->get('uniqid'), 'is_logged' => \Auth::check()]);
             }
             session()->put('viewed-jobs', $session);
         }

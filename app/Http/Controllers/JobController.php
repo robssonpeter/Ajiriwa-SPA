@@ -238,7 +238,7 @@ class   JobController extends Controller
             ->first();
 
 
-        //dd($job);
+        $views = JobView::where('job_id', $job->id)->count();
         $image = Image::load(\Spatie\MediaLibrary\Models\Media::first()->getUrl())->height(200)->width(200);
         $media = $job->logo ? Media::where('id', $job->logo)->first() : null;
         //dd($media->getUrl);
@@ -347,7 +347,7 @@ class   JobController extends Controller
         }
         session()->flash('amp-page', route('job.amp', $job->slug));
         //event(new JobViewed($job->job_id, session()->get('uniqid')));
-        return view('jobs.view', compact('job', 'allow_apply', 'applied', 'prom', 'apply_url'));
+        return view('jobs.view', compact('job', 'allow_apply', 'applied', 'prom', 'apply_url','views'));
     }
 
     public function saveJob(Request $request)

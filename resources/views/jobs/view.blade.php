@@ -157,7 +157,7 @@
 
 
                 </section>
-                <div class="bg-gray-200 w-full p-4 mt-2 md:grid md:grid-cols-4 rounded-md">
+                <div class="bg-gray-200 w-full p-4 mt-2 md:grid md:grid-cols-3 rounded-md">
                     <section class="md:flex md:flex-col flex-row">
                         <span class="font-bold hidden md:block">Job Type:</span>
                         <div class="items-center md:hidden block px-2 flex">
@@ -184,7 +184,7 @@
                         <span
                             class="pl-4 md:pl-0 hidden md:block self-start">{{ Carbon\Carbon::parse($job->deadline)->format('jS F Y') }}</span>
                     </section>
-                    <section class="md:flex md:flex-col flex-row">
+                    <!-- <section class="md:flex md:flex-col flex-row">
                         <span class="font-bold hidden md:block">Location:</span>
                         <div class="items-center md:hidden block px-2 flex">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -197,7 +197,7 @@
                             <span class="pl-4 md:pl-0 self-center md:self-start">{{ $job->location }}</span>
                         </div>
                         <span class="pl-4 md:pl-0 hidden md:block self-start">{{ $job->location }}</span>
-                    </section>
+                    </section> -->
                     <section class="md:flex md:flex-col flex-row">
                         <span class="font-bold hidden md:block">Views:</span>
                         <div class="items-center md:hidden block px-2 flex">
@@ -208,9 +208,9 @@
                                 <path stroke-linecap="round" stroke-linejoin="round"
                                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
-                            <span class="pl-4 md:pl-0 self-center md:self-start">{{ $job->count_views }}</span>
+                            <span class="pl-4 md:pl-0 self-center md:self-start">{{ $job->counted_views + $views }}</span>
                         </div>
-                        <span class="pl-4 md:pl-0 hidden md:block self-start">{{ $job->count_views }}</span>
+                        <span class="pl-4 md:pl-0 hidden md:block self-start">{{ $job->counted_views + $views }}</span>
                     </section>
                     <div class="flex flex-row py-2 md:hidden">
                         <button class="bg-green-500 rounded-md w-full text-white p-2 self-center"
