@@ -43382,8 +43382,19 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     console.log(this.job);
+    if (this.expired(this.job.deadline) && this.job.apply_method !== 'url') {
+      this.application_means.show_modal = true;
+    }
   },
   methods: {
+    expired: function expired(inputDate) {
+      // Get the current date
+      var currentDate = new Date();
+      inputDate = new Date(inputDate);
+
+      // Compare the input date with the current date
+      return inputDate < currentDate;
+    },
     apply: function apply() {
       if (this.job.apply_method === 'url') {
         // redirect to application url

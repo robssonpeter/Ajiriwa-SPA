@@ -255,7 +255,8 @@ class   JobController extends Controller
         // jsonld
         JsonLd::setTitle($job->title);
         JsonLd::setType('JobPosting');
-        JsonLd::setDescription('');
+        JsonLd::setDescription($job->description);
+        JsonLd::addValue('title', $job->title);
         JsonLd::addValue('datePosted', $job->created_at);
         JsonLd::addValue('validThrough', $job->deadline);
         JsonLd::addValue('employmentType', $job->type_of_job);
@@ -268,7 +269,7 @@ class   JobController extends Controller
         JsonLd::addValue('jobLocation', [
             '@type' => 'Place',
             'address' => [
-                'addressLocality' => "",
+                'addressLocality' => $job->location,
                 'addressRegion' => $job->location,
                 'addressCountry' => "Tanzania"
             ],
@@ -346,8 +347,9 @@ class   JobController extends Controller
             return view('jobs.view-amp', compact('job', 'allow_apply', 'applied', 'prom', 'apply_url'));
         }
         session()->flash('amp-page', route('job.amp', $job->slug));
+        $suggestions = JobRepository::jobSuggestByTitle($job->title);
         //event(new JobViewed($job->job_id, session()->get('uniqid')));
-        return view('jobs.view', compact('job', 'allow_apply', 'applied', 'prom', 'apply_url','views'));
+        return view('jobs.view', compact('job', 'allow_apply', 'applied', 'prom', 'apply_url','views', 'suggestions'));
     }
 
     public function saveJob(Request $request)

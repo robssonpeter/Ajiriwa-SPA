@@ -4,22 +4,25 @@
             <div class="grid grid-cols-3 gap-3">
                 <div class="z-40 px-4 min-h-screen col-span-2 bg-gray-50 my-4 p-4 shadow-md">
                     <form :action="route('job.save')" @submit.prevent="submitJob" method="post" class="text-gray-500">
-                        <div class="input flex flex-col mb-4" v-if="$page.props.is_admin">
-                            <label for="job_title" class="font-bold">Company</label>
-                            <span v-if="$page.props.job">{{ $page.props.job.company.name }}</span>
-                            <v-select v-if="!$page.props.job" required @change="company_selected" v-model="selected_company"
-                                :options="company_options" @search="fetchCompanies">
-                                <template slot="no-options">
-                                    type to search companies..
-                                </template>
-                                <!-- <template slot="option" slot-scope="option">
+                        <section class="flex flex-row">
+                            <div class="input flex flex-col mb-4 flex-grow" v-if="$page.props.is_admin">
+                                <label for="job_title" class="font-bold">Company</label>
+                                <span v-if="$page.props.job">{{ $page.props.job.company.name }}</span>
+                                <v-select v-if="!$page.props.job" required @change="company_selected"
+                                    v-model="selected_company" :options="company_options" @search="fetchCompanies">
+                                    <template slot="no-options">
+                                        type to search companies..
+                                    </template>
+                                    <!-- <template slot="option" slot-scope="option">
                             <div class="d-center">
                                 <img :src='option.logo_url'/> 
                                 {{ option.name }}
                                 </div>
                             </template> -->
-                            </v-select>
-                        </div>
+                                </v-select>
+                            </div>
+                            <img v-if="selected_company" class="self-center" style="height: 80px" :src="this.selected_company.logo_url">
+                        </section>
                         <section class="md:grid md:grid-cols-3 gap-4 gap-y-4 pb-4"
                             v-if="$page.props.is_admin && !selected_company && !$page.props.job">
                             <div class="input flex flex-col">
@@ -111,8 +114,8 @@
                                     ],
                                     toolbar:
                                         'undo redo | formatselect | bold italic | \
-                                                                                                alignleft aligncenter alignright alignjustify | \
-                                                                                                bullist numlist | help'
+                                                                                                                                                        alignleft aligncenter alignright alignjustify | \
+                                                                                                                                                        bullist numlist | help'
                                 }" />
                             <!--<text-editor @change="editorChanged" :text="$page.props.job?$page.props.job.description:''" v-model:content="description"></text-editor>-->
                         </section>
@@ -172,7 +175,8 @@
                                             v-for="(cc, index) in application_email_cc"
                                             class="w-full focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300">
                                         <span class="cursor-pointer mt-2 text-green-400 font-bold" v-if="allowCC"
-                                            @click="addCC">Add CC</span>
+                                            @click="addCC">Add
+                                            CC</span>
                                     </section>
                                 </div>
 
@@ -260,7 +264,7 @@ export default {
             category: this.$page.props.job ? this.$page.props.job_categorized : [],
             description: this.$page.props.job ? this.$page.props.job.description : 'Your job description here',
             deadline: this.$page.props.job ? this.$page.props.job.deadline : '',
-            cover_letter: this.$page.props.job ? this.$page.props.job.cover_letter : '',
+            cover_letter: this.$page.props.job ? this.$page.props.job.cover_letter : 1,
             saving: false,
             keywords: [],
             company_id: this.$page.props.job ? this.$page.props.job.company_id : this.$page.props.company.id,
@@ -319,6 +323,7 @@ export default {
                 this.company_id = this.selected_company.code;
                 this.company_logo = this.selected_company.logo;
                 this.company_options = [];
+                console.log(this.selected_company)
                 //alert('you are here');
             }
 

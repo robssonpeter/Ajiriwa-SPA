@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 use App\Events\JobViewed;
 use App\Models\CategorizedJob;
+use App\Models\Job;
 use App\Models\JobView;
 
 /**
@@ -72,5 +73,21 @@ class JobRepository
         CategorizedJob::where('job_id', $jobId)
             ->whereIn('category_id', $categoriesToRemove)
             ->delete();
+    }
+
+    public static function jobSuggestByTitle($job_title, $max_results = 3){
+        $names = explode(" ", $job_title);
+        $date = date('Y-m-d');
+        $jobnameSuggest = [];
+        foreach($names as $name){
+            $prepositions = array("and", "or", "in", "at", "of");
+            if(!is_numeric(array_search($name, $prepositions))){
+                $jobnameSuggest[] = "title like '%$name%'";
+            }
+        }
+        $jobnameSuggest = implode(' OR ', $jobnameSuggest);
+        return Job::where(function($q) use ($jobnameSuggest){
+            $q->whereRaw($jobnameSuggest);
+        })->whereDate('deadline', '>=', $date)->limit($max_results)->get();
     }
 }

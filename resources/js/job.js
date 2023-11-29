@@ -38,8 +38,19 @@ createApp({
     },
     mounted(){
         console.log(this.job);
+        if(this.expired(this.job.deadline) && this.job.apply_method !== 'url'){
+            this.application_means.show_modal = true;
+        }
     },
     methods: {
+        expired(inputDate) {
+            // Get the current date
+            const currentDate = new Date();
+            inputDate = new Date(inputDate);
+        
+            // Compare the input date with the current date
+            return inputDate < currentDate;
+        },
         apply(){
             if(this.job.apply_method === 'url'){
                 // redirect to application url
