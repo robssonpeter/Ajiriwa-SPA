@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Candidate;
 use App\Repositories\CandidateRepository;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class CvController extends Controller
 {
@@ -40,5 +41,9 @@ class CvController extends Controller
             ];
         }, $candidates);
         return response()->json($optimized_candidates);
+    }
+
+    public function cvMaker(){
+        return Inertia::render('Apps/CvMaker/Start');
     }
 }
