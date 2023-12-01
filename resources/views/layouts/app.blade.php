@@ -40,6 +40,15 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104559642-1"></script>
     @endif
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V0L92N1SB1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'TAG_ID');
+    </script>
+
     <!-- Scripts -->
     {{-- <script src="{{ asset('js/essential.js') }}" defer></script> --}}
     @if(in_array(\Route::current()->getName(), $livewire_routes))

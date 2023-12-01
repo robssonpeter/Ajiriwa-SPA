@@ -21,6 +21,7 @@ const firebaseConfig = {
     measurementId: "G-JW3B32E4S6"
 };
 
+
 const pinia = createPinia();
 
 // Initialize Firebase

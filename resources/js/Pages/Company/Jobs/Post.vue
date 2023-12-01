@@ -201,6 +201,12 @@
                                 <span class="self-center">Add screening questions</span>
                             </section>
 
+                            <section class="py-2 flex col-span-3">
+                                <input type="checkbox" @checked="stay_on_page" @change="controlStayOnPage" ref="stay_on_page"
+                                    class="self-center mr-2 accent-pink-500" name="stay_on_page" >
+                                <span class="self-center">Stay on this page after saving</span>
+                            </section>
+
                             <button :disabled="saving"
                                 class="bg-green-400 hover:bg-green-500 text-white p-2 text-center self-end mb-2 justify-center">
                                 <span v-if="!saving">Save</span>
@@ -233,6 +239,8 @@ import vSelect from "vue-select";
 import 'vue-select/dist/vue-select.css';
 import Editor from '@tinymce/tinymce-vue'
 import axios from "axios";
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.css";
 export default {
     name: "Post",
     props: {
@@ -274,6 +282,7 @@ export default {
             company_options: [],
             selected_company: null,
             company_logo: null,
+            stay_on_page: false,
             new_company: {
                 name: '',
                 website: '',
@@ -332,6 +341,14 @@ export default {
             console.log(event);
             this.keywords = event;
         },
+        controlStayOnPage() {
+            if(this.$refs.stay_on_page.checked){
+                this.stay_on_page = true
+                return;
+            }
+           this.stay_on_page = false;
+           return;
+        },
         controlScreening() {
             if (this.apply_method !== 'ajiriwa' && this.$refs.add_assessments.checked) {
                 Swal.fire('Error', 'Screening questions can only be added when the application method is ajiriwa.', 'error');
@@ -371,11 +388,15 @@ export default {
                 console.log(response.data);
                 if (response.data && response.data.id) {
                     // click the button to redirect
-                    if (this.$refs.add_assessments.checked) {
-                        this.$inertia.visit(route('job.assessment', response.data.slug));
-                    } else {
-                        this.$inertia.visit(route('company.job.view', response.data.slug));
+                    if(!this.stay_on_page){
+                        if (this.$refs.add_assessments.checked) {
+                            this.$inertia.visit(route('job.assessment', response.data.slug));
+                        } else {
+                            this.$inertia.visit(route('company.job.view', response.data.slug));
+                        }
                     }
+                    this.saving = false;
+                    iziToast.success({title: "Done", message: "Job posted succesfully"});
                 }
             }).catch((error) => {
                 console.log(error.response.data);
