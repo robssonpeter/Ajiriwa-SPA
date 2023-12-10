@@ -8,6 +8,9 @@ export default defineConfig({
             input: 'resources/js/app.js',
             refresh: true,
         }),
+        /* laravel([
+            'resources/js/app.js',
+        ]), */
         vue({
             template: {
                 transformAssetUrls: {
@@ -17,7 +20,7 @@ export default defineConfig({
             },
         }),
     ],
-    build: {
+    /* build: {
         outDir: 'public/js',
         rollupOptions: {
             main: 'resources/js/app.js',
@@ -26,5 +29,5 @@ export default defineConfig({
             extraFile3: 'resources/js/homepage.js',
             extraFile4: 'resources/js/job.js',
         }
-    }
+    } */
 });

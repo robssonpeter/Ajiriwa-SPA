@@ -70,8 +70,9 @@ class JobSearch extends Component
         }  
         $companies = [];
         if(request()->comp || request()->search){
-            $comp_like = request()->comp??$search;
+            $comp_like = request()->comp??request()->company??$search;
             $companies = Company::where('name', 'LIKE', '%'.$comp_like.'%')->pluck('id');
+            //dd($companies);
         }
         
         $active_index = array_search('Active', Job::STATUS);

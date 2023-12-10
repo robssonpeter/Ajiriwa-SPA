@@ -83,9 +83,29 @@ class   JobController extends Controller
         /* $jobs = Job::orderBy('id', 'DESC')->when($companies, function($q) use ($companies){
             $q->whereIn('company_id', $companies);
         })->limit()->get(); */
+        $currentRouteName = \Illuminate\Support\Facades\Route::currentRouteName();
+        $canonical_url = route($currentRouteName);
+
+        $parameters =  request()->all();
+        $index = 0;
+        foreach(array_keys($parameters) as $key){
+            if (($key == 'location' || $key == 'search') && $parameters[$key]){
+                $canonical_url .= $index == 0 ? '?' : '&'; 
+                $canonical_url .= $key.'='.$parameters[$key];
+                $index++;
+            }
+            /* if($key == 'currentpage'){
+                $canonical_url .= 'page='.$parameters[$key];
+
+            }else{
+                $canonical_url .= $key.'='.$parameters[$key];
+            }
+            $index++; */
+        }
         SEOMeta::setTitle($title);
         SEOMeta::setDescription($description);
         SEOMeta::setKeywords($keywords);
+        SEOMeta::setCanonical($canonical_url);
         SEOMeta::addMeta('theme-color', '#6ad3ac');
 
         OpenGraph::setTitle($title);
@@ -109,7 +129,9 @@ class   JobController extends Controller
 
     public function search($keyword = null)
     {
-
+        /* if($keyword){
+            dd('keywoded');
+        } */
         $search = $keyword ? str_replace('-', ' ', $keyword) : request()->search;
         $location = request()->location;
         $slug = makeSlug($search);
@@ -122,13 +144,14 @@ class   JobController extends Controller
         $industries = Industry::orderBy('name', 'ASC')->get();
         $job_types = JobType::all();
         //dd($search);
-        $url = $keyword ? route('jobs.search.friendly', $slug) : route('jobs.browse');
+        $url = $keyword ? route('jobs.search.friendly', $slug)/* route('jobs.search')."?search=".urlencode($keyword->keyword) */ : route('jobs.browse');
         $companies = Company::where('name', 'like', '%' . $search . '%')->orWhere('website', 'like', '%' . $search . '%')->pluck('id');
         $categories = JobCategory::where('name', 'like', '%' . $search . '%')->pluck('id');
         $jobs_by_category = AssignedJobCategory::whereIn('category_id', $categories)->pluck('job_id');
         $joined = [];
         $all = explode(" ", $search);
         $x = 3;
+        //dd($keyword);
         foreach ($all as $one) {
             if ($location) {
                 $joined[] = " ((title like '%$one%' OR keywords like '%$search%' OR application_url like '%$search%' OR location like '%$search%') AND (location like '%$location%')) ";
@@ -153,18 +176,14 @@ class   JobController extends Controller
                     $q->whereIn('id', $jobs_by_category);
                 });
             });
-        })/* ->when(!$keyword, function ($q) {
-            return $q->where('deadline', '>=', date('Y-m-d'));
-        }) */->orWhere(function ($q) use ($keyword, $joinedstring) {
+        })->orWhere(function ($q) use ($keyword, $joinedstring) {
             $q->when($keyword && !strlen($keyword->main_words), function ($q) {
                 return $q->where('title', 'like', '%%');
             })->when($keyword && strlen($keyword->main_words), function ($q) use ($joinedstring) {
                 //dd($joinedstring);
             });
         })->orderBy('id', 'DESC')->paginate(15);
-        //dd($jobs->toSql());
-        //dd(request()->method());
-        //dd($jobs);
+        
         if (request()->ajax && request()->method() == "POST") {
             return response()->json($jobs);
         }
@@ -178,6 +197,11 @@ class   JobController extends Controller
         OpenGraph::setTitle($title);
         OpenGraph::setDescription($meta_description);
         OpenGraph::setUrl($url);
+
+        if($keyword){
+            request()->merge(['search' => $keyword->keyword]);
+        }
+        //dd($search);
         return view('jobs.browse', compact('jobs', 'industries', 'job_types'));
     }
 

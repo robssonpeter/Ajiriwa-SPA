@@ -6,7 +6,7 @@
     $livewire_routes = ["jobs.by-category", "jobs.search", "jobs.browse.ext"];
     @endphp
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="cewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {!! SEOMeta::generate() !!}

@@ -409,3 +409,10 @@ Route::get('/transfer-jobs', function() {
  */
 Route::get('/cv-faces/Material/bootstraped.php', [CvController::class, 'materialBootstrap'])->name('material.bootstraped');
 Route::get('/apis/candidates/', [CvController::class, 'candidateSearch'])->name('candidate.search.remote');
+
+/**
+ * ----------------------------------------------------------------------------------------------------------
+ *          CV Maker Routes
+ * ----------------------------------------------------------------------------------------------------------
+ */
+Route::get('/app/cv-maker/', [CvController::class, 'cvMaker'])->name('app.cv-maker');
