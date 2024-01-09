@@ -1,6 +1,6 @@
 <!-- Education.vue -->
 <template>
-    <div class="mb-4">
+    <div class="mb-4 p-4">
       <h2 class="text-lg font-semibold mb-2">Education</h2>
       <div v-for="(edu, index) in educations" :key="index" class="mb-4">
         <h3 class="text-md font-semibold mb-2">Education {{ index + 1 }}</h3>

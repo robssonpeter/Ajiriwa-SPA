@@ -21,8 +21,8 @@ class Promoter
 
 	function __construct()
 	{
-		$this->costperimpression = 50;
-		$this->costperclick = 150;
+		$this->costperimpression = 1;
+		$this->costperclick = 170;
 		$this->costperapplication = 200;
 	}
 
@@ -123,6 +123,7 @@ class Promoter
 			return $this->randomProm();
 		}
 	}
+	
 	function loggedTargetedProm()
 	{
 		//session_start();
@@ -200,10 +201,10 @@ class Promoter
 
 	function promotionFetch($promID)
 	{
+		//dd(session()->all());
+		$session = session()->get('prom-impressions', []);
 
-		if (!session()->has("prom-impressions")) { // this will hold the ids of all promotions that have been served to the user to avoid double charging
-			session()->put('prom-impressions', array());
-		}
+		//dd($session);
 
 		$this->promID = $promID;
 		$sql = "SELECT jobs.ID, jobs.Job_title, jobs.Company_name, jobs.Job_summary, jobs.Company_name, jobs.Location, job_promotions.PromotionID 
@@ -227,7 +228,6 @@ class Promoter
 			->join('companies', 'companies.id', 'jobs.company_id')
 			->select($selection)
 			->first();
-		$session = session()->get('prom-impressions');
 		// get the logo of the company
 		//dd($res->logo);
 		if (strlen($res->logo)) {
@@ -239,17 +239,23 @@ class Promoter
 			//	$link = $GLOBALS['resolver']."job-page.php?data=".$promo['ID']."&prom=".$promo['PromotionID'];
 			$link = env('APP_URL') . "/ads-trck.php?data=" . urlencode(base64_encode($promo->id)) . "&promotion=" . urlencode(base64_encode($promo->PromotionID));
 			$details = array("Job_ID" => $promo->id, "Job_Title" => $promo->title, "Company" => $promo->company_name, "PromotionID" => $promo->PromotionID, "Location" => $promo->location, "Link" => $link, "Summary" => $promo->description);
+			//$session['current'] = $promID;
+			//dd($session);
 			if (!is_numeric(array_search($promID, $session))) {
 				// if the promotion id is not found in the impressions sessions variable then charging can be done since it will be the first time
 				$charge = DB::table('job_promotions')
 					->where('PromotionID', $promID)
 					->decrement('Available_balance', $this->costperimpression);
-
+				//dd('you are now charging this '.$promID);
+				//dd($charge);
 				if ($charge) {
 					// if the charge has successfuly been done then execute the logging function to record the transaction
 					// we'll then add the promotion id into prom-impressions session variable so that the next time in this session the same promotion is served the advertiser wont be charged
-					array_push($session, $promID);
-					session()->put('prom-impressions', $session);
+					//array_push($session, $promID);
+					session()->push('prom-impressions', $promID);
+					//dd('charging for '.$promID);
+					//dd(session()->get('prom-impressions'));
+					//session()->put('prom-impressions', $session);
 					$this->promotionLogging($promID, "Impression");
 				}
 			}
@@ -300,13 +306,10 @@ class Promoter
 
 	function viewsCounter($promID)
 	{
-
-		if (!session()->has('viewed-promotions')) { // if the session variable for viewed promotion is not set then set it here
-			session()->put('viewed-promotions', array());
-		} else if (!is_numeric(array_search($promID, session()->get('viewed-promotions')))) {
+		$session = session()->get('viewed-promotions', []);
+		if (!is_numeric(array_search($promID, $session))) {
 			// if the viewed promotion session variable is set but the promotion is not in the array then add the promotion into the array
 			// we are also going to charge the promoter the amount as per cost per click and log the information into the database
-			$session = session()->get('viewed-promotions');
 			array_push($session, $promID);
 
 			$charge = DB::table('job_promotions')
@@ -315,6 +318,7 @@ class Promoter
 			if ($charge) {
 				// if the charge has successfuly been done then execute the logging function to record the transaction
 				$this->promotionLogging($promID, "View");
+				session()->push('viewed-promotions', $promID);
 			} else {
 				return  $GLOBALS['conn']->error;
 			}

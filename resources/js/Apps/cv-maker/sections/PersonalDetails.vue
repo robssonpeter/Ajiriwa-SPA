@@ -1,40 +1,55 @@
 <!-- PersonalDetails.vue -->
 <template>
     <div class="mb-4 p-4 bg-white">
-      <h2 class="text-lg font-semibold mb-2">Personal Details</h2>
-  
-      <!-- Use flex and flex-wrap classes for responsive layout -->
-      <div class="flex flex-wrap">
-        <div class="w-full md:w-1/2 lg:w-1/2 mb-4 md:pr-2 lg:pr-2">
-          <input v-model="details.desiredJobTitle" placeholder="Desired Job Title" class="input" />
-        </div>
-        <div class="w-full md:w-1/2 lg:w-1/2 mb-4 md:pl-2 lg:pl-2">
-          <input v-model="details.firstName" placeholder="First Name" class="input" />
-        </div>
-        <div class="w-full md:w-1/2 lg:w-1/2 mb-4 md:pr-2 lg:pr-2">
-          <input v-model="details.middleName" placeholder="Middle Name" class="input" />
-        </div>
-        <div class="w-full md:w-1/2 lg:w-1/2 mb-4 md:pl-2 lg:pl-2">
-          <input v-model="details.lastName" placeholder="Last Name" class="input" />
-        </div>
-        <div class="w-full md:w-1/2 lg:w-1/2 mb-4 md:pr-2 lg:pr-2">
-          <input v-model="details.email" placeholder="Email" class="input" />
-        </div>
-        <div class="w-full md:w-1/2 lg:w-1/2 mb-4 md:pl-2 lg:pl-2">
-          <input v-model="details.nationality" placeholder="Nationality" class="input" />
-        </div>
-        <div class="w-full md:w-1/2 lg:w-1/2 mb-4 md:pr-2 lg:pr-2">
-          <input v-model="details.phone" placeholder="Phone" class="input" />
-        </div>
-        <div class="w-full md:w-1/2 lg:w-1/2 mb-4 md:pl-2 lg:pl-2">
-          <input v-model="details.address" placeholder="Address" class="input" />
-        </div>
+    <h2 class="text-lg font-semibold mb-2">Personal Details</h2>
+
+    <!-- Use grid classes to create a two-column layout -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+      <div class="mb-4">
+        <label class="block text-sm text-gray-600">Desired Job Title</label>
+        <input v-model="details.desiredJobTitle" placeholder="e.g Accountant" :class="`${input}`" />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-600">First Name</label>
+        <input v-model="details.firstName" placeholder="" :class="input" />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-600">Middle Name</label>
+        <input v-model="details.middleName" placeholder="" :class="input" />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-600">Last Name</label>
+        <input v-model="details.lastName" placeholder="" :class="input" />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-600">Email</label>
+        <input v-model="details.email" placeholder="" :class="input" />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-600">Nationality</label>
+        <input v-model="details.nationality" placeholder="" :class="input" />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-600">Phone</label>
+        <input v-model="details.phone" placeholder="" :class="input" />
+      </div>
+
+      <div class="mb-4">
+        <label class="block text-sm font-medium text-gray-600">Address</label>
+        <input v-model="details.address" placeholder="" :class="input" />
       </div>
     </div>
+  </div>
   </template>
   
   <script>
-  import { computed } from 'vue';
+  import { computed, ref } from 'vue';
   import { useResumeStore } from '../stores/ResumeStore.js';
   
   export default {
@@ -47,8 +62,10 @@
           resumeStore.updateCvData({ ...resumeStore.cvData, personalDetails: newValue });
         },
       });
+
+      const input = ref('border-none bg-gray-200 rounded-md')
   
-      return { details };
+      return { details, input };
     },
   };
   </script>

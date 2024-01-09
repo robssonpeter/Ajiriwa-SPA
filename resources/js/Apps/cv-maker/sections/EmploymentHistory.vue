@@ -1,17 +1,17 @@
 <!-- EmploymentHistory.vue -->
 <template>
-    <div class="mb-4">
+    <div class="mb-4 p-4">
       <h2 class="text-lg font-semibold mb-2">Employment History</h2>
       <div v-for="(experience, index) in employmentHistory" :key="index" class="mb-4">
         <h3 class="text-md font-semibold mb-2">Experience {{ index + 1 }}</h3>
-        <input v-model="experience.jobTitle" placeholder="Job Title" class="input" />
-        <input v-model="experience.employerName" placeholder="Employer Name" class="input" />
+        <input v-model="experience.jobTitle" placeholder="Job Title" :class="`${input} w-full mb-2`" />
+        <input v-model="experience.employerName" placeholder="Employer Name" :class="`${input} w-full mb-2`" />
         <div class="flex">
-          <input v-model="experience.startDate" placeholder="Start Date (MM/YYYY)" class="input flex-1 mr-2" />
-          <input v-model="experience.endDate" placeholder="End Date (MM/YYYY)" class="input flex-1 ml-2" />
+          <input v-model="experience.startDate" placeholder="Start Date (MM/YYYY)" :class="`${input} mb-2 flex-1 mr-2`" />
+          <input v-model="experience.endDate" placeholder="End Date (MM/YYYY)" :class="`${input} mb-2 flex-1 ml-2`" />
         </div>
-        <input v-model="experience.city" placeholder="City" class="input" />
-        <textarea v-model="experience.description" placeholder="Description" class="textarea"></textarea>
+        <input v-model="experience.city" placeholder="City" :class="`${input} w-full mb-2`" />
+        <textarea v-model="experience.description" placeholder="Description" :class="`${input} textarea`"></textarea>
       </div>
       <button @click="addExperience" class="btn">Add Experience</button>
     </div>
@@ -26,6 +26,8 @@
       const resumeStore = useResumeStore();
   
       const employmentHistory = ref(resumeStore.cvData.employmentHistory);
+
+      const input = ref(resumeStore.input);
   
       const addExperience = () => {
         employmentHistory.value.push({
@@ -40,7 +42,7 @@
         resumeStore.updateCvData({ ...resumeStore.cvData, employmentHistory: employmentHistory.value });
       };
   
-      return { employmentHistory, addExperience };
+      return { employmentHistory, addExperience, input };
     },
   };
   </script>

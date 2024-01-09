@@ -396,7 +396,7 @@ export default {
                         }
                     }
                     this.saving = false;
-                    iziToast.success({title: "Done", message: "Job posted succesfully"});
+                    iziToast.success({title: "Done", message: "Job posted successfully"});
                 }
             }).catch((error) => {
                 console.log(error.response.data);

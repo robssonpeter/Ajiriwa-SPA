@@ -1,10 +1,11 @@
 <template>
-    <div class="flex h-screen bg-gray-100">
+    <div class="grid grid-cols-2 h-screen bg-gray-100">
       <FillingSection />
       <PreviewSection />
     </div>
   </template>
   
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.9/tailwind.min.css" integrity="sha512-SvJR34InARUfJb279ipE/gjQqX11MDKaly9MNb0vevuWQJmZ23UH7F/65ScEsvLI+myKGbdfA1En82wVSCHQ8A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script>
   import { ref, onMounted } from 'vue';
   import { useResumeStore } from './stores/ResumeStore.js';

@@ -50,6 +50,7 @@ class   JobController extends Controller
     public function browseGuest()
     {
         //dd(request()->keyword);
+        //dd(session()->get('prom-impressions'));
         $current_route = Route::current()->getName();
         /* dd(request()->all()); */
         /* if(request()->currentpage){
@@ -384,6 +385,7 @@ class   JobController extends Controller
         if (request()->job_id) {
             $data = request()->only((new Job)->getFillable());
             $data['keywords'] = $keywords;
+            $data['email_subject'] = $request->subject_line;
             // make the update
             Job::where('id', request()->job_id)->update($data);
             // assign job categories
@@ -396,7 +398,9 @@ class   JobController extends Controller
         $data['application_email_cc'] = $email_cc;
         $data['keywords'] = $keywords;
         $data['slug'] = makeSlug($data['title']) . '-' . uniqid();
+        $data['email_subject'] = $request->subject_line;
         $saved = Job::create($data);
+        
 
         // assign job categories
         JobRepository::syncJobCategories($saved->id, request()->category);

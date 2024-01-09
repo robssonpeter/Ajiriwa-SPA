@@ -1,6 +1,6 @@
 <!-- ProfessionalSummary.vue -->
 <template>
-    <div class="mb-4">
+    <div class="mb-4 p-4">
       <h2 class="text-lg font-semibold mb-2">Professional Summary</h2>
       <div ref="quillEditor"></div>
     </div>

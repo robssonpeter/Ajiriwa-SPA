@@ -1,6 +1,6 @@
 <!-- FillingSection.vue -->
 <template>
-    <div class="flex-1 p-4">
+    <div class="col-span-1 p-4 bg-white">
       <PersonalDetails />
       <ProfessionalSummary />
       <EmploymentHistory />

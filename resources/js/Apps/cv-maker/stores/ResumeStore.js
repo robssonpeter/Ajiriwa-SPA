@@ -13,6 +13,7 @@ export const useResumeStore = defineStore({
       languages: [],
       customSections: [],
     },
+    input: 'border-none bg-gray-200 rounded-md',
   }),
   actions: {
     updateCvData(newData) {

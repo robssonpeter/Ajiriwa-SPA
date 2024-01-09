@@ -8,6 +8,7 @@ use App\Models\CategorizedJob;
 use App\Models\Company;
 use App\Models\Job;
 use App\Models\JobCategory;
+use Jaybizzle\CrawlerDetect\CrawlerDetect;
 use Livewire\Component;
 
 class JobSearch extends Component
@@ -41,27 +42,22 @@ class JobSearch extends Component
         //dd($search);
         $slug = makeSlug(urldecode(request()->search));
 
+        if (request()->search){
+            $searched_by_comp = Company::where('name', 'LIKE', '%'.request()->search.'%')->pluck('id');
+        }
+        
+
 
         
         $keyword = \DB::table('keywords')->where('keyword', urldecode($search))/* ->orWhere('keyword', 'LIKE', '%'.$search.'%') */->orWhere(function($q) use ($slug){
             return $q->whereNotNull('slug')->where('slug', $slug);
         })->first();
         
-        /* if(request()->search){
-            // check if there is any category matching
-            $categories = JobCategory::where('name', 'LIKE', request()->search)->orWhere(function($q){
-                $splitted = explode(" ", request()->search);
-                foreach($splitted as $split){
-                    $q = $q->orWhere('name', 'LIKE', '%'.$split.'%');
-                }
-            })->pluck('id');
-
-            $assigned_jobs = AssignedJobCategory::whereIn()
-        } */
         
         if($keyword){
             $this->search = $search;
             $search = strlen($keyword->main_words)?$keyword->main_words:$this->search;
+            //dd($search);
         }else{
             if(request()->search){
                 $self->search =  request()->search;
@@ -72,12 +68,17 @@ class JobSearch extends Component
         if(request()->comp || request()->search){
             $comp_like = request()->comp??request()->company??$search;
             $companies = Company::where('name', 'LIKE', '%'.$comp_like.'%')->pluck('id');
+            if (request()->comp){
+                //dd($companies);
+                //dd($keyword);
+            }
             //dd($companies);
         }
+        //dd($comp_like);
         
         $active_index = array_search('Active', Job::STATUS);
         $date = date('Y-m-d');
-        $jobs =  Job::orderBy('id', 'DESC')->when(!$keyword, function($q) use($date){
+        $jobs =  Job::orderBy('id', 'DESC')->when(!$keyword && !request()->keyword, function($q) use($date){
             $q->where('deadline', '>=', $date);
         })->where('status', $active_index)/* ->when($companies, function($q) use ($companies){
             $q->whereIn('company_id', $companies);
@@ -110,22 +111,35 @@ class JobSearch extends Component
             $companies = array_merge($companies, $comp_by_industry);
             $q->whereIn('company_id', $companies);
         })->when(request()->comp || count($companies), function($q) use($companies){
-            $q->whereIn('company_id', $companies);
+            //dd($companies);
+            $q->orWhereIn('company_id', $companies);
         })->when($this->selected_employment_types, function($q) use($self){
             $q->whereIn('job_type', $self->selected_employment_types);
         })->when(request()->location, function($q){
             $q->where('location', 'LIKE', "%".request()->location."%");
         })->paginate(10);
-        //dd($companies);
-        //dd($companies);
-        //dd($jobs->lastPage());
+
+        //dd($jobs);
+        $crawler = new CrawlerDetect;
         $promo = new Promoter();
-        $rand = $promo->randomProm();
-        if($rand)
-            $promotion = $promo->promotionFetch($rand->PromotionID);
+        
+        if (!$crawler->isCrawler()){
+            $rand = $promo->randomProm();
+            if($rand){
+                $session = session()->get('prom-impressions', []);
+                $promotion = $promo->promotionFetch($rand->PromotionID);
+                session()->put('prom-impressions', $session);
+            }
+            else
+            {
+                $promotion = null;
+            }
+        }
         else
+        {
             $promotion = null;
-        //dd($promotion);
+        }
+            
         return view('livewire.job-search', compact('jobs', 'promotion'));
     }
 }

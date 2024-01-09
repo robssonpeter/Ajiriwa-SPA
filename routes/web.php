@@ -87,7 +87,7 @@ Route::get('/blog-single-post.php', function(){
     }
     return redirect()->route('blog.post.view', $blog->slug, 301);
 })->name('old.post.view');
-Route::get('/employers', [BlogController::class, 'employers'])->name('employers');
+Route::get('/employer', [BlogController::class, 'employers'])->name('employers');
 Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs.index');
 Route::get('/contact', [FaqsController::class, 'contact'])->name('contact');
 Route::get('/privacy-policy', [FaqsController::class, 'privacyPolicy'])->name('privacy.policy');
