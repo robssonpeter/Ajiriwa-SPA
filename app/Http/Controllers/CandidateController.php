@@ -165,104 +165,107 @@ class CandidateController extends Controller
     public function myResumeEdit($section = null)
     {
         $candidate = Candidate::where('user_id', Auth::user()->id)->first();
-        $candidate->gender = $candidate->gender ?? '';
-        $countries = countries();
-        $industries = Industry::select('name', 'id')->get();
-        $data = [
-            'candidate_id' => $candidate->id,
-            'profile_completion' => $candidate->profile_completion
-        ];
-        $sections = [
-            'personal', 'career', 'experience', 'education', 'language', 'skills', 'awards', 'reference'
-        ];
-        //dd($countries);
-        switch ($section) {
-            case 'experience':
-                $sectionIndex = array_search($section, $sections);
-                $data['experience'] = CandidateExperience::where('candidate_id', $candidate->id)->get();
-                if (isset($sections[$sectionIndex + 1])) {
-                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
-                }
-                if (isset($sections[$sectionIndex - 1])) {
-                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
-                }
-                break;
-            case 'education':
-                $sectionIndex = array_search($section, $sections);
-                $data['education'] = CandidateEducation::where('candidate_id', $candidate->id)->get();
-                $data['education_levels'] = EducationLevel::all();
-                if (isset($sections[$sectionIndex + 1])) {
-                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
-                }
-                if (isset($sections[$sectionIndex - 1])) {
-                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
-                }
-                break;
-            case 'language':
-                $sectionIndex = array_search($section, $sections);
-                $data['languages'] = CandidateLanguage::where('candidate_id', $candidate->id)->get();
-                $data['language_levels'] = CandidateLanguage::Levels;
-                if (isset($sections[$sectionIndex + 1])) {
-                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
-                }
-                if (isset($sections[$sectionIndex - 1])) {
-                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
-                }
-                break;
-            case 'skills':
-                $sectionIndex = array_search($section, $sections);
-                $data['skills'] = CandidateSkill::where('candidate_id', $candidate->id)->get();
-                $data['skill_levels'] = CandidateSkill::Levels;
-                if (isset($sections[$sectionIndex + 1])) {
-                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
-                }
-                if (isset($sections[$sectionIndex - 1])) {
-                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
-                }
-                break;
-            case 'reference':
-                $sectionIndex = array_search($section, $sections);
-                $data['referees'] = CandidateReferee::where('candidate_id', $candidate->id)->get();
-                if (isset($sections[$sectionIndex + 1])) {
-                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
-                }
-                if (isset($sections[$sectionIndex - 1])) {
-                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
-                }
-                break;
-            case 'awards':
-                $sectionIndex = array_search($section, $sections);
-                $data['certificates'] = CandidateCertificate::where('candidate_id', $candidate->id)->get();
-                $data['categories'] = CertificateCategory::all();
-                if (isset($sections[$sectionIndex + 1])) {
-                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
-                }
-                if (isset($sections[$sectionIndex - 1])) {
-                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
-                }
-                break;
-            default:
-                $section = $section ?? 'personal';
-                $sectionIndex = array_search($section, $sections);
-                $data['genders'] = Gender::all();
-                $data['personal'] = $candidate;
-                $data['old'] = $candidate;
-                if (isset($sections[$sectionIndex + 1])) {
-                    $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
-                }
-                if (isset($sections[$sectionIndex - 1])) {
-                    $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
-                }
-                break;
-        }
+        if ($candidate){
+            $candidate->gender = $candidate->gender ?? '';
+            $countries = countries();
+            $industries = Industry::select('name', 'id')->get();
+            $data = [
+                'candidate_id' => $candidate->id,
+                'profile_completion' => $candidate->profile_completion
+            ];
+            $sections = [
+                'personal', 'career', 'experience', 'education', 'language', 'skills', 'awards', 'reference'
+            ];
+            //dd($countries);
+            switch ($section) {
+                case 'experience':
+                    $sectionIndex = array_search($section, $sections);
+                    $data['experience'] = CandidateExperience::where('candidate_id', $candidate->id)->get();
+                    if (isset($sections[$sectionIndex + 1])) {
+                        $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
+                    }
+                    if (isset($sections[$sectionIndex - 1])) {
+                        $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
+                    }
+                    break;
+                case 'education':
+                    $sectionIndex = array_search($section, $sections);
+                    $data['education'] = CandidateEducation::where('candidate_id', $candidate->id)->get();
+                    $data['education_levels'] = EducationLevel::all();
+                    if (isset($sections[$sectionIndex + 1])) {
+                        $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
+                    }
+                    if (isset($sections[$sectionIndex - 1])) {
+                        $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
+                    }
+                    break;
+                case 'language':
+                    $sectionIndex = array_search($section, $sections);
+                    $data['languages'] = CandidateLanguage::where('candidate_id', $candidate->id)->get();
+                    $data['language_levels'] = CandidateLanguage::Levels;
+                    if (isset($sections[$sectionIndex + 1])) {
+                        $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
+                    }
+                    if (isset($sections[$sectionIndex - 1])) {
+                        $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
+                    }
+                    break;
+                case 'skills':
+                    $sectionIndex = array_search($section, $sections);
+                    $data['skills'] = CandidateSkill::where('candidate_id', $candidate->id)->get();
+                    $data['skill_levels'] = CandidateSkill::Levels;
+                    if (isset($sections[$sectionIndex + 1])) {
+                        $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
+                    }
+                    if (isset($sections[$sectionIndex - 1])) {
+                        $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
+                    }
+                    break;
+                case 'reference':
+                    $sectionIndex = array_search($section, $sections);
+                    $data['referees'] = CandidateReferee::where('candidate_id', $candidate->id)->get();
+                    if (isset($sections[$sectionIndex + 1])) {
+                        $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
+                    }
+                    if (isset($sections[$sectionIndex - 1])) {
+                        $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
+                    }
+                    break;
+                case 'awards':
+                    $sectionIndex = array_search($section, $sections);
+                    $data['certificates'] = CandidateCertificate::where('candidate_id', $candidate->id)->get();
+                    $data['categories'] = CertificateCategory::all();
+                    if (isset($sections[$sectionIndex + 1])) {
+                        $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
+                    }
+                    if (isset($sections[$sectionIndex - 1])) {
+                        $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
+                    }
+                    break;
+                default:
+                    $section = $section ?? 'personal';
+                    $sectionIndex = array_search($section, $sections);
+                    $data['genders'] = Gender::all();
+                    $data['personal'] = $candidate;
+                    $data['old'] = $candidate;
+                    if (isset($sections[$sectionIndex + 1])) {
+                        $data['next'] = route('my-resume.edit.sectional', $sections[$sectionIndex + 1]);
+                    }
+                    if (isset($sections[$sectionIndex - 1])) {
+                        $data['previous'] = route('my-resume.edit.sectional', $sections[$sectionIndex - 1]);
+                    }
+                    break;
+            }
 
-        return Inertia::render('MyResumeEdit', [
-            'section' => $section,
-            'countries' => $countries,
-            'industries' => $industries,
-            'data' => $data,
-            'return_to_link' => session()->get('return_to_link')
-        ]);
+            return Inertia::render('MyResumeEdit', [
+                'section' => $section,
+                'countries' => $countries,
+                'industries' => $industries,
+                'data' => $data,
+                'return_to_link' => session()->get('return_to_link')
+            ]);
+        }
+        abort(401);
     }
 
     public function saveData($type)

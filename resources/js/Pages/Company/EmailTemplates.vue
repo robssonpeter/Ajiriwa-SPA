@@ -185,11 +185,11 @@
                         <tr v-for="(job, index) in emails" :key="job.id">
                             <td class="border flex px-8 py-2 text-green-500 hover:text-green-400 font-bold"
                                 @click="viewTemplate(job)">
-                                <span class="cursor-pointer">{{ job.name }}</span>
+                                <span class="cursor-pointer">{{ job.name }} <small v-if="defaultSetting(job.type) === job.id" class="rounded-md p-1 text-xs bg-green-400 text-white">Default</small></span>
                                 <loader v-if="loading.indexOf(job.id) >= 0" color="green"></loader>
                             </td>
                             <td class="border px-8 py-2 text-center cursor-pointer">
-                                <span>{{ job.type }}</span>
+                                <span>{{ job.type }} {{ defaultSetting(job.type) }}</span>
                             </td>
                             <td class="border px-8 py-2 text-center">
                                 <div class="flex flex-row" title="Edit">
@@ -209,6 +209,13 @@
                                             viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                                                 d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                        </svg>
+                                    </span>
+                                    <span v-if="defaultSetting(job.type) !== job.id" @click="setDefaultTemplate(job.id)" title="Set as default">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-blue-500">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" />
                                         </svg>
                                     </span>
                                 </div>
@@ -279,6 +286,7 @@ export default {
         return {
             template_modal: false,
             view_type: "",
+            settings: this.$page.props.settings,
             current_template: {
 
             },
@@ -305,6 +313,25 @@ export default {
         }
     },
     methods: {
+        setDefaultTemplate(template_id){
+            let template = this.emails.find(temp => temp.id === template_id);
+            let keys = Object.keys(this.settings);
+            let values = Object.values(this.settings);
+            // send a request to the server
+            axios.post(route('email.template.set-default'), {
+                template_id: template_id,
+                keys: keys
+            }).then((response) => {
+                if (response.data){
+                    // update the default template in the ux
+                    console.log(response);
+                    this.settings = response.data;
+                }
+            }).catch(error => {
+                console.log(error.response.data);
+            })
+
+        },
         viewTemplate(template) {
             this.viewModalVisible = true;
             this.viewedTemplate = template;
@@ -375,6 +402,9 @@ export default {
         updateEditorContent(placeholder) {
             // Get the current content of the text editor
             let currentContent = this.new_template.content;
+
+            console.log(currentContent);
+            alert('you are here');
 
             // Get the Quill editor instance
             let quillEditor = this.$refs.quillEditor;
@@ -485,6 +515,24 @@ export default {
         },
     },
     computed: {
+        defaultSetting(){
+            let keys = Object.keys(this.settings);
+            let values = Object.values(this.settings);
+            return key => {
+                let index = keys.indexOf(`default_${key}_template`);
+                let setting = `default_${key}_template`;
+                if (index < 0) {
+                    // simply use the default
+                    // find the first occurance in the template and user it
+                    let default_temp = this.emails.find(template => template.type == key);
+                    console.log(default_temp);
+                    if(default_temp){
+                        return default_temp.id;
+                    }
+                }
+                return Number(values[index]);
+            }
+        },
         currentTemplateContent() {
             return this.emails[this.editingTemplateIndex]?.content ?? 'No content';
         },
@@ -502,7 +550,20 @@ export default {
                 return [];
             }
         }
+    },
+    watch: {
+    settings: {
+        deep: true, // This option enables deep watching of the object properties
+        handler(newSettings, oldSettings) {
+        // Perform actions when the 'settings' property changes
+        console.log('Settings changed:', newSettings);
+        
+        // You can add your logic here to update any UI elements based on the new settings
+        // For example, if you want to update the default template display, you can do it here
+        }
     }
+},
+
 
 }
 </script>

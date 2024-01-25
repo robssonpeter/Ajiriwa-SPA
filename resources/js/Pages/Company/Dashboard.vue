@@ -135,6 +135,7 @@
                 <h2 class="flex-grow self-center text-xl text-gray-500 mt-4">Recent Applicants</h2>
                 <div class="flex flex-wrap -mx-4 mt-4">
                     <div class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 px-4 mb-4"
+                        :key="`application-${application.id}`"
                         v-for="application in $page.props.recent_applications">
                         <candidate-card :candidate="application.candidate" :application="application"></candidate-card>
                         <!-- <div class="bg-white border border-gray-100 rounded-lg shadow-lg p-6">
@@ -276,8 +277,8 @@
 import AppLayout from "@/Layouts/AppLayout";
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import Button from "@/Jetstream/Button";
-import CandidateCard from "@/Custom/CandidateCard.vue";
-import AjiriwaBalance from "@/Custom/AjiriwaBalance.vue";
+import CandidateCard from "../../Custom/CandidateCard.vue";
+import AjiriwaBalance from "../../Custom/AjiriwaBalance.vue";
 export default {
     name: "Customize",
     components: {

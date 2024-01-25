@@ -17,7 +17,7 @@
             </template>
 
             <template #content v-if="options && application.current_status !== 'Rejected'">
-                <dropdown-link as="button" v-if="status !== 'Drafted'" v-for="(status, index) in options" @click="changed(status, index)">
+                <dropdown-link :key="`${application.id}-status-${index}`" as="button"  v-for="(status, index) in options" @click="changed(status, index)">
                     {{ status }}
                 </dropdown-link>
             </template>
@@ -149,12 +149,12 @@ export default {
             status_label: 'Selected',
             status_code: '',
             status_classes: {
-                Selected: 'border border-green-500 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-green-500 hover:text-gray-700 focus:outline-none transition',
-                Shortlisted: 'border border-blue-500 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-blue-500 hover:text-gray-700 focus:outline-none transition',
-                Rejected: 'border border-red-500 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-red-500 hover:text-gray-700 focus:outline-none transition',
-                Applied: 'border border-gray-500 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 hover:text-gray-700 focus:outline-none transition',
-                Interviewed: 'border border-yellow-500 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-yellow-500 hover:text-gray-700 focus:outline-none transition',
-                ToBeInterviewed: 'border border-yellow-500 inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-yellow-500 hover:text-gray-700 focus:outline-none transition',
+                Selected: 'border border-green-500 inline-flex items-center px-3 py-2 self-center text-sm leading-4 font-medium rounded-md text-green-500 hover:text-gray-700 focus:outline-none transition',
+                Shortlisted: 'border border-blue-500 inline-flex items-center px-3 py-2 self-center text-sm leading-4 font-medium rounded-md text-blue-500 hover:text-gray-700 focus:outline-none transition',
+                Rejected: 'border border-red-500 inline-flex items-center px-3 py-2 self-center text-sm leading-4 font-medium rounded-md text-red-500 hover:text-gray-700 focus:outline-none transition',
+                Applied: 'border border-gray-500 inline-flex items-center px-3 py-2 self-center text-sm leading-4 font-medium rounded-md text-gray-500 hover:text-gray-700 focus:outline-none transition',
+                Interviewed: 'border border-yellow-500 inline-flex items-center px-3 py-2 self-center text-sm leading-4 font-medium rounded-md text-yellow-500 hover:text-gray-700 focus:outline-none transition',
+                ToBeInterviewed: 'border border-yellow-500 inline-flex items-center px-3 py-2 self-center text-sm leading-4 font-medium rounded-md text-yellow-500 hover:text-gray-700 focus:outline-none transition',
             },
             status_colors: {
                 Drafted: 'black',

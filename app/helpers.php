@@ -1,5 +1,6 @@
 <?php
 
+use App\Custom\User as CustomUser;
 use App\Models\AjiriwaBalanceLog;
 use App\Models\User;
 use App\Models\Job;
@@ -131,4 +132,22 @@ function chargeAjiriwaBalance($amount, $change_type, $user_id, $description=""){
         AjiriwaBalanceLog::create($entry);
     }
     return $charged;
+}
+
+
+/**
+ * This function pulls required settings for a page from the config file ```pagesetting.php```
+ */
+function requiredSettings($route_name){
+    // convert the dots to underscore
+    $route_name = str_replace('.', '_', $route_name);
+    return config('pagesetting.'.$route_name);
+}
+
+function getUserSettings($user_id, $keys = []){
+    return CustomUser::getSettings($user_id, $keys);
+}
+
+function currentRouteName(){
+    return request()->route()->getName();
 }

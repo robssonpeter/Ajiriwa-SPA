@@ -17,6 +17,8 @@ use App\Http\Controllers\ResumeController;
 use App\Http\Controllers\SEOController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\AdminOnly;
+use App\Http\Middleware\CorsMiddleware;
 use App\Models\BlogPost;
 use App\Models\Company;
 use App\Models\Job;
@@ -88,7 +90,6 @@ Route::get('/blog-single-post.php', function(){
     return redirect()->route('blog.post.view', $blog->slug, 301);
 })->name('old.post.view');
 Route::get('/employer', [BlogController::class, 'employers'])->name('employers');
-Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs.index');
 Route::get('/contact', [FaqsController::class, 'contact'])->name('contact');
 Route::get('/privacy-policy', [FaqsController::class, 'privacyPolicy'])->name('privacy.policy');
 Route::get('/showcv.php', [ResumeController::class, 'oldCv'])->name('guest.cv');
@@ -97,7 +98,7 @@ Route::get('/resume/{slug}', [ResumeController::class, 'exportCv'])->name('resum
 
 
 
-Route::get('/browse-jobs.php', [JobController::class, 'browseGuest'])->name('jobs.browse.ext');
+Route::get('/browse-jobs.php', [JobController::class, 'browseGuest'])->middleware(CorsMiddleware::class)->name('jobs.browse.ext');
 Route::get('/jobs.php', [JobController::class, 'browseGuest'])->name('jobs.browse.alt');
 
 Route::match(['GET', 'POST'], '/search.php', [JobController::class, 'search'])->name('jobs.search');
@@ -188,6 +189,7 @@ Route::group(['middleware' => ['auth', 'role:employer|admin']], function(){
     Route::get('/company/job/applications/{slug}/{application_id}', [CompanyController::class, 'jobApplication'])->name('company.job.application');
     Route::post('company/applications/filter', [CompanyController::class, 'FilterApplications'])->name('job.applications.filter')->middleware(['auth']);
     Route::get('/company/jobs', [CompanyController::class, 'showJobs'])->name('company.jobs.index')->middleware('verifier');
+    Route::post('/company/jobs/search', [CompanyController::class, 'searchJobs'])->name('company.jobs.search')->middleware('verifier');
     Route::get('/company/browse-candidates', [CompanyController::class, 'browseCandidates'])->name('company.candidates.browse')->middleware('verifier');
     Route::post('/company/search-candidates', [CompanyController::class, 'searchCandidates'])->name('company.candidates.search');
     Route::post('/company/recommend-candidates', [CompanyController::class, 'showRecommendedCandidates'])->name('company.candidates.recommend');
@@ -314,6 +316,7 @@ Route::get('company/available-templates/{type}', [CompanyController::class, 'ava
 Route::post('company/template/store', [CompanyController::class, 'saveNewTemplate'])->name('template.store')->middleware(['auth','role:employer']);
 Route::post('company/template/update', [CompanyController::class, 'updateTemplate'])->name('template.update')->middleware(['auth','role:employer']);
 Route::post('company/template/delete', [CompanyController::class, 'deleteTemplate'])->name('template.delete')->middleware(['auth','role:employer']);
+Route::post('company/template/set-default', [CompanyController::class, 'setDefaultTemplate'])->name('email.template.set-default')->middleware(['auth','role:employer']);
 
 
 /*
@@ -416,3 +419,17 @@ Route::get('/apis/candidates/', [CvController::class, 'candidateSearch'])->name(
  * ----------------------------------------------------------------------------------------------------------
  */
 Route::get('/app/cv-maker/', [CvController::class, 'cvMaker'])->name('app.cv-maker');
+
+/**
+ * ------------------------------------------------------------------------------------------
+ *          Faqs Related Routes
+ * ------------------------------------------------------------------------------------------
+ */
+Route::get('/faqs', [FaqsController::class, 'index'])->name('faqs.index');
+Route::group(['prefix' => 'admin', 'middleware' => AdminOnly::class], function(){
+    Route::get('/faqs', [FaqsController::class, 'manage'])->name('faqs.manage');
+    Route::post('/faqs/store', [FaqsController::class, 'store'])->name('faq.store');
+    Route::put('/faqs/{id}', [FaqsController::class, 'update'])->name('faq.update');
+});
+Route::post('/faq/register-view', [FaqsController::class, 'registerView'])->name('faqs.register-view');
+Route::post('/faq/search', [FaqsController::class, 'search'])->name('faq.search');

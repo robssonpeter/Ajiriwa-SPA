@@ -10,6 +10,6 @@ class FrequentlyAskedQuestion extends Model
     use HasFactory;
 
     protected $fillable = [
-        'question', 'answer', 'category_id'
+        'question', 'answer', 'category_id', 'views', 'slug'
     ];
 }

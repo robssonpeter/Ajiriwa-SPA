@@ -16,7 +16,7 @@ createApp({
         }
     },
     mounted(){
-
+        alert('you are here');
     },
     components: {
         Link
@@ -28,4 +28,4 @@ createApp({
             this.dropdowns[type].is_open = !is_open
         }
     }
-}).mount('#app')
+}).mount('#faq-page')

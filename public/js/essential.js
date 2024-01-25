@@ -42979,7 +42979,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
       }
     };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    alert('you are here');
+  },
   components: {
     Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Link
   },
@@ -42990,7 +42992,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
       this.dropdowns[type].is_open = !is_open;
     }
   }
-}).mount('#app');
+}).mount('#faq-page');
 })();
 
 /******/ })()

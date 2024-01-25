@@ -3,18 +3,11 @@
         <div class="grid grid-cols-3 gap-3">
 
             <div class="z-40 min-h-screen col-span-3 my-4 shadow-md ">
-                <div class="flex flex-row bg-gray-50 px-4 pt-4">
-                    <span class="self-center">Job </span>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 self-center" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                    <span class="self-center">Engineering</span>
-                </div>
                 <div class="flex flex-row px-4 bg-gray-50">
                     <h3 class="text-2xl font-bold pt-2 flex-grow">{{ job.title }}</h3>
                     <section class="flex flex-row gap-2">
-                        <button
+                        <Link
+                            :href="route('company.edit-job', job.slug)"
                             class="self-start font-bold flex flex-row gap-1 border border-gray-400 text-gray-500 p-1 rounded-md">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 self-center" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -22,8 +15,9 @@
                                     d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
                             </svg>
                             <span>Edit</span>
-                        </button>
-                        <button
+                        </Link>
+                        <Link
+                            :href="route('company.job.view', job.slug)"
                             class="self-start font-bold flex flex-row gap-1 border border-gray-400 text-gray-500 p-1 rounded-md">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 self-center" fill="none"
                                 viewBox="0 0 24 24" stroke="currentColor">
@@ -33,7 +27,7 @@
                                     d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                             </svg>
                             <span>View</span>
-                        </button>
+                        </Link>
                         <Status :job="job" :options="$page.props.status" :key="job.id" @change="statusUpdated"></Status>
                         <!-- <button class="self-center font-bold flex flex-row gap-1 border text-white bg-green-400 text-gray-500 p-2 rounded-md">
                             <span>Published</span>
@@ -69,40 +63,41 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
                                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                         </svg>
-                        <span>Closing on {{ job.deadline }}</span>
+                        <span v-if="job.expired" :title="job.deadline" class="text-red-400 cursor-pointer">Expired {{ job.closing_time }}</span>
+                        <span v-else>Expires on {{ job.deadline }}</span>
                     </span>
                 </section>
                 <div class="sticky top-16 bg-white">
                     <div class="card rounded-sm flex flex-row col-12 pt-2 px-4">
-                        <h5 class="flex-grow mt-2 ml-4 text-gray-600 text-xl"><strong>Candidates</strong></h5>
-                        <!--<div class="pr-2 pb-2">
-                            <input type="text" placeholder="Search Job" class="form-control">
-                        </div>-->
+                        <div class="mb-4 flex-grow pt-2 hidden xl:block">
+                            <input
+                                v-model="searchQuery"
+                                @input="searchApplications"
+                                type="text"
+                                placeholder="Search applications..."
+                                class="p-2 border border-gray-300 rounded-md self-center"
+                            />
+                        </div>
+                        <!-- <h5 class="flex-grow mt-2 ml-4 text-gray-600 text-xl"><strong>Candidates</strong></h5> -->
                         <div
-                            class="flex flex-grow flex-row rounded-0 position-sticky sticky-top bg-white py-2 px-2 mb-2 h-25 px-2">
-                            <!-- <span class="mr-2 self-center">Filter By:</span> -->
-                            <!-- <v-select :options="filter_variables" v-on:change="filterControl" v-model="selected_filters" class="w-48" multiple></v-select> -->
-
+                            class="flex flex-grow flex-row rounded-0 position-sticky sticky-top bg-white py-2 mb-2 h-25 px-2">
                             <checkable-dropdown @changed="updateSelectedFilters" :items="filter_variables"
-                                :selected_options="selected" class="mr-4" label="Filter By"></checkable-dropdown>
+                                :selected_options="selected" class="mr-4 self-center" label="Filter By"></checkable-dropdown>
                             <div class="px-2">
                                 <button
-                                    class="bg-green-400 text-white p-1 rounded-md mr-2 focus:pointer-events-auto hover:bg-green-500"
-                                    v-if="showFilterButtons" @click="filter_modal = true">Show Filter Options</button>
+                                    :class="`bg-green-400 text-white p-2 rounded-md mr-2 focus:pointer-events-auto hover:bg-green-500`"
+                                    @click="filter_modal = true">Show Filter Options</button>
                                 <button
-                                    class="bg-gray-400 text-white p-1 rounded-md mr-2 focus:pointer-events-auto hover:bg-gray-500"
-                                    v-if="showFilterButtons" @click="clearFilters">Clear Filters</button>
+                                    :class="`${showFilterButtons ? '' : 'invisible'} bg-gray-400 text-white p-1 rounded-md mr-2 focus:pointer-events-auto hover:bg-gray-500`"
+                                    @click="clearFilters">Clear Filters</button>
                             </div>
                         </div>
 
                         <div>
-                            <!-- {{ extra_attributes }} -->
-                            <!-- <button class="bg-gray-400 text-white p-1 rounded-md mr-2 focus:pointer-events-auto hover:bg-green-500" @click="filter_modal = true">Filter Applications</button>     -->
-
                             <checkable-dropdown v-if="screening_options.length" @changed="updateSelectedAttributes"
                                 :items="screening_options" :selected_options="selected" class="mr-4"
                                 label="Display Columns"></checkable-dropdown>
-                            <label>Show <select name="jobsTbl_length" class="rounded-md" aria-controls="jobsTbl">
+                            <label>Show <select v-model="limit" name="jobsTbl_length" class="rounded-md" aria-controls="jobsTbl">
                                     <option value="10">10</option>
                                     <option value="25">25</option>
                                     <option value="50">50</option>
@@ -114,7 +109,7 @@
                 <div>
                     <!-- filter modal -->
                     <dialog-modal :show="filter_modal" closeable="true" :max-width="'md'">
-                        <template v-slot:title class="border-b">
+                        <template v-slot:title>
                             <div class="flex flex-row">
                                 <span class="flex-grow text-gray-500 font-bold">Filter Applications</span>
                                 <button @click="filter_modal = false">
@@ -126,7 +121,7 @@
                                 </button>
                             </div>
                         </template>
-                        <template v-slot:content class="text-gray-600">
+                        <template v-slot:content >
                             <div class="pb-2" v-if="selected_filters.indexOf('Status') > -1">
                                 <div class="flex">
                                     <div class="bg-gray-300 flex rounded-l-md text-gray-600">
@@ -135,11 +130,25 @@
                                     <select v-model="filter_by_status"
                                         class="flex-grow border-gray-300 py-1 text-gray-500 rounded-r-md">
                                         <option value="">Select Status</option>
-                                        <option :value="index" v-for="(status, index) in statuses">{{ status }}</option>
+                                        <option :key="`status-option-${index}`" :value="index" v-for="(status, index) in statuses">{{ status }}</option>
                                     </select>
                                 </div>
+                                <from-to-date 
+                                    @changed="dateChanged" 
+                                    v-if="interviewRelatedStatus(filter_by_status)" 
+                                    label="Interview Date" />                                
                             </div>
-                            <div v-for="(assessment, index) in assessments">
+
+                            <div class="flex mb-2">
+                                <div class="bg-gray-300 flex rounded-l-md text-gray-600">
+                                    <span class="text-sm self-center px-1" id="basic-addon3">Keyword</span>
+                                </div>
+                                <input type="text" v-model="keyword"
+                                    placeholder="Optional"
+                                    class="flex-grow border-gray-300 py-1 text-gray-500 rounded-r-md" >
+                            </div>
+
+                            <div class="w-full" :key="`assessment-${index}`" v-for="(assessment, index) in assessments">
 
                                 <div v-if="selected_filters.indexOf(assessment.variable_name) + 1">
                                     <number-filter @changed="updateAssessmentFilter"
@@ -164,7 +173,7 @@
                             </button>
                         </template>
                     </dialog-modal>
-                    <!-- Profile Modal -->
+                    
                     <dialog-modal :show="candidate_modal" closeable="true" :max-width="'4xl'">
                         <template v-slot:title>
                             <div class="flex flex-row">
@@ -186,9 +195,6 @@
                         <template v-slot:footer>
                             <a v-if="full_profile" :href="route('cv.print', current_application.candidate_id)"
                                 class="bg-red-500 text-white rounded-md p-1 mr-2">
-                                <!--                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                                </svg>-->
                                 <span class="text-sm">Export to PDF</span>
                             </a>
                             <button class="bg-gray-500 text-white text-sm rounded-md p-1"
@@ -200,29 +206,28 @@
                         <thead>
                             <tr class="bg-gray-50">
                                 <th class="text-left px-8 py-3">Candidate Name</th>
-                                <th class="text-left px-8 py-3" v-for="attribute in extra_attributes">
+                                <th class="text-left px-8 py-3" :key="`attribute-${index}`" v-for="(attribute, index) in extra_attributes">
                                     <div class="flex flex-col">
                                         <span>{{ attribute.label.toUpperCase() }}</span>
                                         <small>{{ attribute.description }}</small>
                                     </div>
                                 </th>
                                 <!-- <th class="text-left px-8 py-3 text-center">Expected Salary</th> -->
-                                <th class="text-left px-8 py-3 text-center">Location</th>
-                                <!--<th class="bg-green-100 border text-left px-8 py-3 text-center">Promotion</th>-->
-                                <th class="text-left px-8 py-3 text-center">Status</th>
-                                <th class="text-left px-8 py-3 text-center">Application Date</th>
-                                <th class="text-left px-8 py-3 text-center">Actions</th>
+                                <th class="px-8 py-3 text-center">Location</th>
+                                <th class="px-8 py-3 text-center">Status</th>
+                                <th class="px-8 py-3 text-center">Application Date</th>
+                                <th class="px-8 py-3 text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="(application, index) in applications">
+                            <tr :key="`application-${index}`" v-for="(application, index) in filteredApplications">
                                 <td class="border px-8 py-2 text-green-500 hover:text-green-400 font-bold items-center">
                                     <loading-placeholder v-if="fetching_applicants"></loading-placeholder>
                                     <a v-else @click.prevent="candidate_modal = true; current_application = application"
                                         :href="route('company.job.view', job.slug)">{{ application.candidate.full_name
                                         }}</a>
                                 </td>
-                                <td class="border px-8 py-2 text-center" v-for="attribute in extra_attributes">
+                                <td :key="`extra_attribute-${idx}`" class="border px-8 py-2 text-center" v-for="(attribute, idx) in extra_attributes">
                                     <loading-placeholder v-if="fetching_applicants"></loading-placeholder>
                                     <Transition v-else name="custom-classes"
                                         enter-active-class="animate__animated animate__tada"
@@ -248,7 +253,7 @@
                                 </td>
                                 <td class="border px-8 py-2 text-center">
                                     <loading-placeholder v-if="fetching_applicants"></loading-placeholder>
-                                    <span v-else>{{ job.deadline }}</span>
+                                    <span :title="application.application_date" v-else>{{ application.time_ago }}</span>
                                 </td>
                                 <td class="border px-8 py-2 align-items-center">
                                     <loading-placeholder v-if="fetching_applicants"></loading-placeholder>
@@ -266,11 +271,11 @@
                                     </div>
                                 </td>
                             </tr>
-                            <tr v-if="!applications.length">
+                            <tr v-if="!filteredApplications.length">
                                 <td class="text-center border px-8 py-4" colspan="8">
                                     <loading-placeholder class="w-50" v-if="fetching_applicants"></loading-placeholder>
                                     <section v-else>
-                                        <span v-if="this.selected.length">There are not applications to display</span>
+                                        <span v-if="this.selected.length">There are no applications to display</span>
                                         <span v-else>You have not received any application for this job</span>
                                     </section>
                                 </td>
@@ -283,11 +288,13 @@
     </employer-layout>
 </template>
 
+
 <script>
 import EmployerLayout from "@/Layouts/EmployerLayout";
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import Input from "@/Jetstream/Input";
 import Loader from "@/Custom/Loader";
+import FromToDate from "@/Custom/FromToDate.vue";
 import TimeAgo from 'vue3-timeago';
 import Dropdown from "@/Jetstream/Dropdown";
 import DropdownLink from "@/Jetstream/DropdownLink";
@@ -316,6 +323,7 @@ export default {
         Head,
         Input,
         Loader,
+        FromToDate,
         Link,
         TimeAgo,
         Dropdown,
@@ -337,16 +345,17 @@ export default {
         Status
     },
     mounted() {
-        console.log("filters are below");
-        console.log(this.$page.props.applications);
+        console.log("Applications are right below");
+        console.log(this.applications);
         let selected_attributes = this.$page.props.job.application_display_columns ?? "[]";
         this.selected = JSON.parse(selected_attributes);
-        /* for(let x=0; x<this.screening_options.length; x++){
-            this.filter_variables.push(this.screening_options[x].label)
-        } */
+        this.filterApplications();
     },
     data() {
         return {
+            searchQuery: '',
+            limit: '50',
+            keyword: '',
             fetching_applicants: false,
             keep_filter_modal_open: false,
             current_application: null,
@@ -362,10 +371,22 @@ export default {
             filter_variables: this.$page.props.filter_variables,
             display_filter_variables: [],
             filter_by_status: '',
+            filter_interview_dates: {},
             selected_filters: [],
         }
     },
     methods: {
+        searchApplications() {
+            const query = this.searchQuery.toLowerCase();
+            // Implement logic to filter applications based on the search query
+            // For example, you can filter applications where the candidate name or other relevant fields match the search query.
+            // Update the applications data accordingly.
+        },
+        dateChanged(data){
+           // alert('date has changed');
+            //console.log(event);
+            this.filter_interview_dates = data;
+        },
         // Function to confirm deletion
         confirmDelete(item) {
             /* if (window.confirm("Are you sure you want to delete this item?")) {
@@ -412,16 +433,24 @@ export default {
             console.log('things have update ' + event.data.filter_operator);
             console.log(this.assessments);
         },
+        arrayHasNumbers(arr){
+            let count = 0;
+            for (let x = 0; x < arr.length; x++){
+                if(typeof(arr[x]) == 'number'){
+                    count++;
+                }
+            }
+            return count;
+        },
         updateSelectedFilters(data) {
-            //console.log(data);
-            //this.selected = data;
-            console.log('selected options are right below');
-            console.log(data);
             this.selected_filters = data;
-            console.log(this.selected_filters.length);
-            this.$forceUpdate
-            // save the new data
-            //axios.post(route('company.job-attributes.store', this.$page.props.job.id), { data: data})
+            let values = Object.values(this.selected_filters);
+            let filters = values.filter(value => typeof(value) == 'string');
+            if(!filters.length){
+                // clear the filters
+                this.selected_filters = [];
+                this.filter_by_status = '';
+            }
         },
         updateSelectedAttributes(data) {
             //console.log(data);
@@ -508,6 +537,8 @@ export default {
         },
         clearFilters() {
             this.selected_filters = [];
+            this.filter_by_status = '';
+            this.keyword = '';
             this.filterApplications();
         },
         filterApplications() {
@@ -518,6 +549,7 @@ export default {
                     answer: this.filter_by_status,
                     filter_operator: '=',
                     filter_value: this.filter_by_status,
+                    interview_dates: this.filter_interview_dates,
                     name: 'Status',
                     type: 'status',
                 }
@@ -559,6 +591,34 @@ export default {
         },
     },
     computed: {
+        filteredApplications(){
+            return this.applications.filter(application => {
+                let searchQuery = this.searchQuery.toLowerCase();
+                let nameMatch = application.candidate.full_name.toLowerCase().includes(searchQuery);
+                let emailMatch = false;
+                let professionMatch = application.candidate.professional_title.toLowerCase().includes(searchQuery);
+                if (this.searchQuery.includes('@')){
+                    emailMatch = application.candidate.email.toLowerCase().includes(searchQuery);
+                }
+                return nameMatch || emailMatch || professionMatch;
+            });
+        },
+        filtersCount(){
+            let filters = this.selected_filters.filter(filter => typeof(filter) == 'string');
+            return filters.length;
+        },
+        interviewRelatedStatus(){
+            return status => {
+                if (status){
+                    let interviewStatuses = [
+                        'To be interviewed', 'Interviewed'
+                    ];
+                    let statusText = this.statuses[status];
+                    return interviewStatuses.indexOf(statusText) > -1;
+                }
+                return false;
+            }
+        },
         showFilterButtons() {
             return this.selected_filters.length;
         },

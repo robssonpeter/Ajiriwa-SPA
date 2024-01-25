@@ -47,7 +47,7 @@ class Job extends Model
     ];
 
     protected $appends = [
-        'applied', 'current_status', 'time_ago', 'promotion_details', 'categorized_jobs'
+        'applied', 'current_status', 'time_ago', 'promotion_details', 'categorized_jobs', 'closing_time', 'expired'
     ];
 
     protected $withCount = [
@@ -76,6 +76,14 @@ class Job extends Model
             'cost_per_application' => $prom->costperapplication,
             'cost_per_impression' => $prom->costperimpression,
         ];
+    }
+
+    public function getExpiredAttribute(){
+        return date('Y-m-d') > $this->deadline;
+    }
+
+    public function getClosingTimeAttribute(){
+        return Carbon::parse($this->deadline)->diffForHumans();
     }
 
     public function getTimeAgoAttribute(){

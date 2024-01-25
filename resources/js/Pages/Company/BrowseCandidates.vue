@@ -57,7 +57,7 @@
     <div class="pt-4">
       <h2 class="text-xl font-bold text-gray-800 mb-2">Search Results</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 -mx-4 mt-4">
-        <div class="w-full col-span-1 px-4 mb-4" v-for="candidate in candidates">
+        <div class="w-full col-span-1 px-4 mb-4" :key="`candidate-${candidate.id}`" v-for="candidate in candidates">
             <div v-if="searching" class="bg-white border border-gray-100 rounded-lg shadow-lg p-6 animate-pulse">
               <div class="flex items-center mb-4">
                 <div class="h-12 w-12 bg-gray-300 rounded-full mr-4"></div>

@@ -6,7 +6,7 @@
     $livewire_routes = ["jobs.by-category", "jobs.search", "jobs.browse.ext"];
     @endphp
     <meta charset="utf-8">
-    <meta name="cewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {!! SEOMeta::generate() !!}
@@ -56,12 +56,19 @@
     @endif
     <style>
         div.description li {
-            list-style-type: circle;
+            list-style-type: none;
             list-style-position: inside;
-            margin-left: 20px;
+            margin-left: 10px;
 
             /*margin-inside: 10px;*/
 
+        }
+
+        div.description li::before {
+            content: '\2022'; /* Unicode character for a bullet point */
+            color: #3498db; /* Color of the filled circle */
+            font-size: 1.5rem; /* Adjust the size of the bullet */
+            margin-right: 1rem; /* Adjust the spacing between the bullet and text */
         }
 
         div.description li::before {
@@ -69,19 +76,19 @@
         }
 
         div.description h1 {
-            font-size: xx-large;
+            font-size: x-large;
             font-weight: bold;
             margin-top: 10px;
         }
 
         div.description h2 {
-            font-size: x-large;
+            font-size: large;
             font-weight: bold;
             margin-top: 8px
         }
 
         div.description h3 {
-            font-size: large;
+            font-size: medium;
             font-weight: bold;
         }
 
@@ -107,7 +114,7 @@
     <div class="min-h-screen bg-gray-100" id="app">
 
         <div class="relative bg-white sticky top-0 z-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="max-w-7xl mx-auto px-1 sm:px-4 md:px-6">
                 <div class="flex justify-between items-center border-gray-100 py-2 md:justify-start md:space-x-10">
                     <div class="flex justify-start lg:w-0 lg:flex-1">
                         <a href="/" class="flex space-x-2" id="home-link">
@@ -117,7 +124,7 @@
                             <span class=" self-center text-2xl font-bold text-gray-500">Ajiriwa.net</span>
                         </a>
                     </div>
-                    <div class="-mr-2 -my-2 md:hidden">
+                    <div class="mr-1 -my-2 md:hidden">
                         <button type="button" onclick="document.getElementById('mobile-menu').classList.remove('hidden')" class="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500" aria-expanded="false">
                             <span class="sr-only">Open menu</span>
                             <!-- Heroicon name: outline/menu -->
@@ -197,7 +204,7 @@
             <Menu>
                 <div id="mobile-menu" class="absolute top-0 inset-x-0 p-2 transition transform origin-top-right hidden md:hidden">
                     <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-                        <div class="pt-5 pb-6 px-5">
+                        <div class="pt-5 pb-6 px-5 pr-4">
 
 
                             <div class="flex items-center justify-between">
@@ -446,16 +453,22 @@
     const dropdownButton = document.getElementById('dropdown-button');
     const dropdownMenu = document.getElementById('dropdown-menu');
 
-    dropdownButton.addEventListener('click', () => {
-        dropdownMenu.classList.toggle('hidden');
-    });
+    if (dropdownButton){
+        dropdownButton.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+    }
+    
 
     // Close the dropdown when clicking outside of it
-    window.addEventListener('click', (event) => {
-        if (!dropdownButton.contains(event.target)) {
-            dropdownMenu.classList.add('hidden');
-        }
-    });
+    if (dropdownMenu){
+        window.addEventListener('click', (event) => {
+            if (!dropdownButton.contains(event.target)) {
+                dropdownMenu.classList.add('hidden');
+            }
+        });
+    }
+    
 </script>
 
 </html>

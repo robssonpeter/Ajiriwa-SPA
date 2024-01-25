@@ -385,7 +385,7 @@ class   JobController extends Controller
         if (request()->job_id) {
             $data = request()->only((new Job)->getFillable());
             $data['keywords'] = $keywords;
-            $data['email_subject'] = $request->subject_line;
+            $data['email_subject'] = $request->email_subject_line;
             // make the update
             Job::where('id', request()->job_id)->update($data);
             // assign job categories
@@ -398,7 +398,7 @@ class   JobController extends Controller
         $data['application_email_cc'] = $email_cc;
         $data['keywords'] = $keywords;
         $data['slug'] = makeSlug($data['title']) . '-' . uniqid();
-        $data['email_subject'] = $request->subject_line;
+        $data['email_subject'] = $request->email_subject_line;
         $saved = Job::create($data);
         
 

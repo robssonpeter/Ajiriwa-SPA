@@ -10,7 +10,7 @@
         }
     </style>
     <div class="w-full md:max-w-7xl mx-auto pt-5 mb-12 " id="job-page">
-        <div class="md:grid grid-cols-3 bg-white mb-2 px-4 mx-8"><!-- Main Content -->
+        <div class="md:grid grid-cols-3 bg-white mb-2 px-4 mx-4 md:mx-8"><!-- Main Content -->
             <div class = "col-span-2 py-4">
                 <h2 class = "text-4xl text-gray-500 font-bold"> Find the right talent </h2>
                 <p class = "text-lg text-gray-500 mt-4 mb-8">Post jobs. Find employees. 
@@ -22,7 +22,7 @@
             </div>
         </div>
     
-        <div class="md:grid grid-cols-3 bg-white mb-2 pl-4 mx-8"><!-- Main Content -->
+        <div class="md:grid grid-cols-3 bg-white mb-2 pl-4 mx-4 md:mx-8"><!-- Main Content -->
             <div class = "col-span-1">
                 <img src = "https://www.ajiriwa.net/employers/img/network-of-people.jpg" style="width: 100%">
             </div>
@@ -34,7 +34,7 @@
             </div>
         </div>
     
-        <div class="md:grid grid-cols-3 bg-white mb-2 pl-4 mx-8"><!-- Main Content -->
+        <div class="md:grid grid-cols-3 bg-white mb-2 pl-4 mx-4 md:mx-8"><!-- Main Content -->
             <div class = "col-span-2 py-4">
                 <h2 class = "text-4xl text-gray-500 font-bold">Reach More People</h2>
                 <p class = "text-lg text-gray-500 mt-4 mb-8">Want to reach more people? We've got you covered! With our job promotion tool depending on your budget our system will prioritize you job post so that it becomes visible to more of our visitor and hence give you more exposure. All you have to do is click the promote button, specify your budget and your targeted audience and watch the applications flowing.</p>

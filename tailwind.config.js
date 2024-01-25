@@ -19,6 +19,9 @@ module.exports = {
             },
         },
         colors: {
+            /* green: '#13ce66',
+            yellow: '#ffc82c',
+            gray: '#8492a6',  */
             transparent: 'transparent',
             current: 'currentColor',
             black: colors.black,
@@ -27,6 +30,7 @@ module.exports = {
             green: colors.emerald,
             indigo: colors.indigo,
             yellow: colors.yellow,
+            blue: colors.blue,
         }
     },
     /* corePlugins: {

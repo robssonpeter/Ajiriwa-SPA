@@ -20,10 +20,10 @@
             leave-to-class="transform scale-95 opacity-0"
         >
             <MenuItems
-                class="absolute left-0 w-72 z-50 bg-white mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                class="absolute left-0 w-72 z-50 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
             >
                 <div class="px-1 py-1">
-                    <MenuItem v-slot="{ close }" v-for="item in items">                   
+                    <MenuItem v-slot="{ close }" :key="`${item}-${index}`" v-for="(item, index) in items">                   
                         <button
                             @click="[event.preventDefault()]"
                             :class="[
@@ -94,7 +94,7 @@
         methods: {
             controlSelection(event){
                 let id = isNaN(Number(event.target.id))?event.target.id:Number(event.target.id);
-                if(event.target.checked){  
+                if(event.target.checked){
                     this.selected_options.push(id);
                 }else{
                     let index = this.selected_options.indexOf(id);
@@ -103,6 +103,8 @@
                     }
                 }
                 //console.log(event.target)
+                console.log('these are the filters');
+                console.log(this.selected_options);
                 this.$emit('changed', this.selected_options);
                 //this.$refs.hello.click()
             }

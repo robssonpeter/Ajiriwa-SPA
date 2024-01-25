@@ -10,9 +10,9 @@
         color: black;
     }
 </style>
-<div class="w-full md:max-w-7xl mx-auto mb-12 md:grid md:grid-cols-6 gap-2" id="job-page">
-    <div class="col-span-4 mx-4 md:mr-0 mt-2">
-        <div class="bg-white shadow-lg md:hidden md:ml-8 px-4 mb-2 ml-4 mr-2">
+<div class="w-full md:max-w-7xl md:mx-auto mb-12 md:grid md:grid-cols-6 md:gap-2" id="job-page">
+    <div class="md:col-span-4 md:mr-0 mt-2">
+        <div class="bg-white shadow-lg md:hidden md:ml-8 px-2 mb-2">
             <nav class="flex py-2" aria-label="Breadcrumb">
                 <ol class="inline-flex items-center space-x-1 py-1 md:space-x-3">
                     <li class="inline-flex items-center">
@@ -43,7 +43,7 @@
                 </ol>
             </nav>
         </div>
-        <div class="bg-white shadow-lg md:ml-8 mx-2 p-4 rounded-md">
+        <div class="bg-white shadow-lg md:ml-8 mx-1 sm:mx-1 p-2 rounded-md">
             <section class="md:grid grid-cols-4">
                 <div class="col-span-3 flex flex-col">
                     <span class="text-xl text-gray-500 font-bold">{{ $job->title }}</span>
@@ -117,7 +117,7 @@
 
 
             </section>
-            <div class="bg-gray-200 w-full p-4 mt-2 md:grid md:grid-cols-3 rounded-md">
+            <div class="bg-gray-200 w-full p-3 mt-2 md:grid md:grid-cols-3 rounded-md">
                 <section class="md:flex md:flex-col flex-row">
                     <span class="font-bold hidden md:block">Job Type:</span>
                     <div class="items-center md:hidden block px-2 flex">
@@ -169,11 +169,11 @@
             </div>
         </div>
 
-        <div class="bg-white shadow-lg md:ml-8 mx-2 md:mx-2 p-4 mt-2 description text-gray-600 rounded-lg">
+        <div class="bg-white shadow-lg md:ml-8 md:mx-2 px-2 py-3 mx-1 md:p-4 mt-2 description text-gray-600 rounded-lg">
             {!! $job->description !!}
         </div>
     </div>
-    <div class="col-span-2 mx-2 px-4" id="side-section">
+    <div class="col-span-2 px-1 md:mx-2 md:px-4" id="side-section">
         <section>
             <div id="company-section" class="bg-white self-start py-4 mt-2 sticky top-16 shadow-lg hidden md:block rounded-lg">
                 <section class="flex flex-row border-b pb-2">

@@ -16,38 +16,46 @@
                 <div class="pb-2">
                     <div class="flex flex-row gap-2">
                         <checkable-dropdown :items="location_menu" label="All Locations"></checkable-dropdown>
-                        <checkable-dropdown :items="location_menu" label="All Statuses"></checkable-dropdown>
+                        <checkable-dropdown :items="$page.props.statuses" label="All Statuses"></checkable-dropdown>
+                        <span class="gapper flex-grow"></span>
+                        <input 
+                            type="text"
+                            placeholder="Search Jobs"
+                            class="p-2 border border-gray-300 rounded-md self-center"
+                            v-model="search"
+                            > 
                     </div>
                 </div>
-                <table class="bg-white w-full text-gray-600 rounded-md">
+                <table class="bg-white w-full text-gray-600 rounded-md table-auto">
                     <thead>
                         <tr class="bg-gray-50">
                             <th class="text-left px-8 py-3">Position</th>
-                            <th class="text-left px-8 py-3 text-center">Location</th>
+                            <th class="px-8 py-3 text-center">Location</th>
                             <!--<th class="bg-green-100 border text-left px-8 py-3 text-center">Promotion</th>-->
-                            <th class="text-left px-8 py-3 text-center">Date Posted</th>
-                            <th class="text-left px-8 py-3 text-center">Promotion</th>
-                            <th class="text-left px-8 py-3 text-center">Status</th>
-                            <th class="text-left px-8 py-3 text-center">Closing Date</th>
-                            <th class="text-left px-8 py-3 text-center">Applications</th>
-                            <th class="text-left px-8 py-3 text-center">Actions</th>
+                            <th class="px-8 py-3 text-center">Date Posted</th>
+                            <th class="px-8 py-3 text-center">Promotion</th>
+                            <th class="px-8 py-3 text-center">Status</th>
+                            <th class="px-8 py-3 text-center">Closing Date</th>
+                            <th class="px-8 py-3 text-center">Applications</th>
+                            <th class="px-8 py-3 text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="job in jobs">
-                            <td class="border px-8 py-2 flex flex-col">
+                        <tr v-if="loading">
+                            <td v-for="column in 8" :key="column" class="border h-full px-8 py-2 animate-pulse">
+                                <div class="h-5 bg-gradient-to-r rounded-lg from-gray-200 via-gray-300 to-gray-200 animate-loading"></div>
+                            </td>
+                        </tr>
+                        <tr v-else :key="`job-${job.id}`" v-for="job in jobs">
+                            <td class="border h-full px-8 py-2 flex flex-col">
                                 <Link class="text-green-500 hover:text-green-400 font-bold"
                                     :href="route('company.job.view', job.slug)">{{ job.title }}</Link>
                                 <span class="text-sm" v-if="$page.props.is_admin">{{ job.company.name }}</span>
                             </td>
-                            <td class="border px-8 py-2 text-center">
+                            <td class="border px-2 py-2 text-center">
                                 <small>{{ job.location }}</small>
                             </td>
-                            <!--<td class="border px-8 py-2 text-center">
-                                <span class="bg-green-400 p-1 text-white cursor-pointer rounded-md text-center"><small>Promote</small></span>
-                                <span class="bg-gray-400 p-1 text-white cursor-pointer rounded-md"><small>View Insights</small></span>
-                            </td>-->
-                            <td class="border px-8 py-2 text-center">
+                            <td class="border px-2 py-2 text-center">
                                 <small>{{ job.time_ago }}</small>
                                 <!--<time-ago refresh long locale="en" :datetime="new Date()">
                                     <template v-slot="{ timeago }">
@@ -57,18 +65,18 @@
                                     </template>
                                 </time-ago>-->
                             </td>
-                            <td class="border px-8 py-2 text-center">
+                            <td class="border px-2 py-2 text-center">
                                 <promotion @activated="activatePromotion(job.id)" @click="openPromotion('prom_' + job.id)"
                                     :ref="'prom_' + job.id" :key="job.id" :job="job"></promotion>
                             </td>
-                            <td class="border px-8 py-2 text-center">
+                            <td class="border px-2 py-2 text-center">
                                 <Status :job="job" :options="$page.props.status" :key="job.id" @change="statusUpdated">
                                 </Status>
                             </td>
                             <td
-                                :class="isPast(job.deadline) ? 'text-red-500 border px-8 py-2 text-center' : 'border px-8 py-2 text-center'">
+                                :class="isPast(job.deadline) ? 'text-red-500 border px-2 py-2 text-center' : 'border px-2 py-2 text-center'">
                                 {{ job.deadline }}</td>
-                            <td class="border px-8 py-2 text-center"><span
+                            <td class="border px-2 py-2 text-center"><span
                                     class="bg-green-400 p-1 text-white cursor-pointer rounded-md"><small>
                                         <Link :href="route('company.job.applications', job.slug)">{{ job.applications_count
                                         }}</Link>
@@ -107,10 +115,10 @@
                     </tbody>
                 </table>
                 <div class="flex py-2">
-                    <Link v-if="$page.props.previous" :href="$page.props.previous"
+                    <Link v-if="$page.props.previous && !loading && !search" :href="$page.props.previous"
                         class="bg-white px-2 border border-gray-400 text-gray-500 hover:text-green-500">Previous</Link>
                     <div class="flex-grow"></div>
-                    <Link v-if="$page.props.next" :href="$page.props.next"
+                    <Link v-if="$page.props.next && !loading && !search" :href="$page.props.next"
                         class="bg-white px-2 border border-gray-400 text-gray-500 hover:text-green-500">Next</Link>
                 </div>
             </div>
@@ -132,6 +140,23 @@ import Promotion from "@/Custom/Job/Promotion";
 import TimeAgo from 'vue3-timeago';
 import CheckableDropdown from "@/Custom/CheckableDropdown";
 import Status from "@/Custom/Job/Status";
+
+function debounce(func, wait, immediate) {
+  let timeout;
+  return function () {
+    const context = this,
+      args = arguments;
+    const later = function () {
+      timeout = null;
+      if (!immediate) func.apply(context, args);
+    };
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+    if (callNow) func.apply(context, args);
+  };
+}
+
 export default {
     name: "Post",
     props: {
@@ -153,6 +178,8 @@ export default {
     },
     data() {
         return {
+            search: '',
+            loading: false,
             jobs: this.$page.props.jobs,
             apply_method: 'ajiriwa',
             application_email: '',
@@ -173,6 +200,11 @@ export default {
                 { label: 'Iringa', value: 2 },
             ]
         }
+    },
+    watch: {
+        search: debounce(function (newVal) {
+            this.searchJobs();
+        }, 500),
     },
     methods: {
         activatePromotion(job_id) {
@@ -223,6 +255,17 @@ export default {
                 console.log(error.response.data);
                 swal.fire('Error', 'Your job could not be saved', 'error');
             })
+        },
+        searchJobs(){
+            this.loading = true;
+            axios.post(route('company.jobs.search'), {search: this.search}).then((result) => {
+                console.log(result.data);
+                this.jobs = result.data.data;
+                this.loading = false;
+            }).catch(error => {
+                console.log(error.response.data);
+                this.loading = false;
+            });
         }
     },
     computed: {
@@ -238,4 +281,17 @@ export default {
 }
 </script>
 
-<style scoped></style>
+<style scoped>
+@keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  .animate-loading {
+    animation: loading 1.5s linear infinite;
+  }
+</style>

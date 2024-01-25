@@ -55,7 +55,7 @@ _atrk_opts = { atrk_acct:"DJY7r1rqDC20HD", domain:"ajiriwa.net",dynamic: true};
                <div class="retrieval-branding flex">
                     <section class="flex-grow"></section>
                     <section class="flex space-x-2">
-                        <img style="width: 50px" src="https://beta.ajiriwa.net/images/ajiriwa-new-logo.png">
+                        <img style="width: 50px" src="{{ asset('/images/ajiriwa-new-logo.png') }}">
                         <span class="text-gray-500 font-bold self-center text-2xl">Ajiriwa.net</span>
                     </section>
                     <section class="flex-grow"></section>

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Custom\Promoter;
+use App\Custom\User as CustomUser;
 use App\Events\ApplicationRejected;
 use App\Events\ApplicationStatusUpdated;
 use App\Events\CompanyVerified;
 use App\Events\InterviewScheduled;
 use App\Models\ApplicationLog;
 use App\Models\Candidate;
+use App\Models\CandidateExperience;
 use App\Models\Company;
 use App\Models\CompanyVerification;
 use App\Models\EmailTemplate;
@@ -180,15 +182,33 @@ class CompanyController extends Controller
         ]);
     }
 
+    public function searchJobs(){
+        $user = \Auth::user();
+        $search = request()->search;
+        $jobs =  Job::where('title', 'LIKE', "%".$search."%")->when($user->hasRole('employer'), function($q) use ($user){
+            return $q->where('company_id', $user->company->id);
+        })->orderBy('id', 'desc')->simplePaginate(15);
+        return response()->json($jobs);
+    }
+
     public function showJobs(){
         $user = \Auth::user();
         $jobs = Job::when($user->hasRole('employer'), function($q) use ($user){
             return $q->where('company_id', $user->company->id);
         })->orderBy('id', 'DESC')->simplePaginate(15);
         $promoter = new Promoter();
+        $index = -1;
+        $GLOBALS['index'] = -1;
+        $statuses = array_map( function($key){
+            $GLOBALS['index']++;
+            return ['label' =>  $key, 'value' => $GLOBALS['index']];
+        }, Job::STATUS);
+
+        //dd($statuses);
         //dd(Auth::user());
         //dd($jobs->previousPageUrl());
         return Inertia::render('Company/Jobs/Index', [
+            'statuses' => $statuses,
             'is_admin' => $user->hasRole('admin'),
             'jobs' => $jobs->items(),
             'status' => Job::STATUS,
@@ -307,13 +327,25 @@ class CompanyController extends Controller
         }
     }
 
+    public function setDefaultTemplate(){
+        $template_id = request()->template_id;
+        $template = EmailTemplate::find($template_id);
+        $key = 'default_'.$template->type.'_template';
+        CustomUser::addSetting($key, $template_id, Auth::user()->id);
+        return response()->json(getUserSettings(Auth::user()->id, request()->keys));
+    }
+
     public function emailTemplates(){
+        $required_settings = requiredSettings(currentRouteName());
+        //dd($required_settings);
+        $settings = getUserSettings(Auth::user()->id, $required_settings);
         $company = Company::where('original_user', Auth::user()->id)->first();
         $emails = EmailTemplate::where('company_id', $company->id)->orWhereNull('company_id')->get();
         $template_types = EmailTemplate::typesAssoc();
         $table_types = EmailTemplate::TYPES_TABLES;
+        //dd($settings);
 
-        return Inertia::render('Company/EmailTemplates', compact('emails', 'template_types', 'table_types'));
+        return Inertia::render('Company/EmailTemplates', compact('emails', 'template_types', 'table_types', 'settings'));
     }
 
 
@@ -402,15 +434,17 @@ class CompanyController extends Controller
         $job_id = request()->job_id;
         $keyword = request()->keyword;
         $limit = request()->limit;
+        $candidates = JobApplication::where('job_id', $job_id)->pluck('candidate_id');
+        $experiences = [];
 
         if(!$keyword){
             $where = '(job_id = '.$job_id.')';
         }else{
-            $where = '(job_id = '.$job_id.') AND
+            $experiences = CandidateExperience::where('title', 'Like', '\'%'.$keyword.'%\'')->pluck('candidate_id');
+            $where = '(job_id = '.$job_id.') OR (job_id = '.$job_id.' AND
                             (first_name like \'%'.$keyword.'%\' OR
                             last_name like \'%'.$keyword.'%\' OR
-                            address like \'%'.$keyword.'%\' OR
-                            email like \'%'.$keyword.'%\' OR phone like \'%'.$keyword.'%\')';
+                            address like \'%'.$keyword.'%\'))';
         }
 
 
@@ -419,16 +453,17 @@ class CompanyController extends Controller
 
         //return '(screening_id = '.$filters[0]->id.' AND response '.$filters[0]->filter_operator.'\''.$filters[0]->filter_value.'\')';
         $GLOBALS['filters'] = $filters;
-        $applications = JobApplication::whereRaw($where)->with('candidate', 'logs', 'screening_responses', 'interview'/* ,'shortlist' */)->limit($limit)/*->get()*/;
+        $applications = JobApplication::whereRaw($where)
+                            ->join('candidates', 'candidates.id', 'job_applications.candidate_id')
+                            ->with('candidate', 'logs', 'screening_responses', 'interview', 'schedule' /* ,'shortlist' */);
         //return $filters;
         $screenings = ScreeningResponse::where('job_id', $job_id)->where(function($q) use($filters, $job_id){
             foreach($filters as $filter){
-                /* if(!$filter->operator_value || !$filter->filter_value){
-                    continue;
-                } */
                 if($filter->type != 'status'){
                     return $q->orWhere(function($q)use($filter, $job_id){
-                        return $q->where('job_id', $job_id)->where('screening_id', $filter->id)->where('response', $filter->operator_value??$filter->filter_operator, $filter->filter_value);
+                        return $q->where('job_id', $job_id)
+                                 ->where('screening_id', $filter->id)
+                                 ->where('response', $filter->operator_value??$filter->filter_operator, $filter->filter_value);
                     });
                 }
             }
@@ -449,7 +484,25 @@ class CompanyController extends Controller
             }
         }
         $screenings = $screenings->pluck('application_id');
-        return $applications->whereIn('id', $screenings)->get();
+        $statusFilter = array_filter($filters, function($filter){
+            return $filter->type == 'status';
+        });
+        return $applications->when(count($statusFilter), function($q) use ($statusFilter){
+            $filter = $statusFilter[0];
+            $statuses = JobApplication::STATUS;
+            $statusLabel = $statuses[$filter->answer];
+            $interviewLabels = ['Interviewed',  'To be interviewed'];
+            if(in_array($statusLabel, $interviewLabels) && isset($filter->interview_dates->from)){
+                $q->where('date', '>=', $filter->interview_dates->from)
+                  ->where('date', '<=', $filter->interview_dates->to);
+            }
+        })
+        ->leftJoin('interview_schedules', 'interview_schedules.application_id', 'job_applications.id')
+        ->select('job_applications.*')
+        ->when(count($experiences), function($q) use ($experiences){
+            return $q->orWhereIn('candidate_id', $experiences);
+        })
+        ->whereIn('job_applications.id', $screenings)->limit($limit)->get();
         $filtered_applications = [];
         //return $applications;
 

@@ -101,9 +101,9 @@
 
     <div class="max-w-7xl  pt-5 mb-12 ">
         <span class="text-xl font-bold text-gray-500 mb-4">Recent Posts</span>
-        <div class="flex flex-col md:flex-row space-x-4 mb-2">
+        <div class="flex flex-col md:flex-row md:space-x-4 mb-2">
             @foreach($blog_posts as $post)
-            <div class="bg-white rounded-lg overflow-hidden flex-1 m-2 lg:w-1/3 flex flex-col">
+            <div class="bg-white rounded-lg overflow-hidden flex-1 m-1 md:m-2 lg:w-1/3 flex flex-col">
                 <div style="height: 200px; overflow-y: hidden">
                     <img width="400" height="200" src="{{ strlen($post->scaled_down_cover)?$post->scaled_down_cover:$post->cover_photo }}" alt="{{$post->Title}}" class="w-25 h-40">
                 </div>

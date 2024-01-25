@@ -82,7 +82,7 @@
                                     class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300"
                                     required>
                                     <option value="">Job Type</option>
-                                    <option :value="type.id" v-for="type in $page.props.jobTypes"> {{ type.name }}</option>
+                                    <option :key="`job-type-${index}`" :value="type.id" v-for="(type, index) in $page.props.jobTypes"> {{ type.name }}</option>
                                 </select>
                             </div>
                             <div class="input flex flex-col">
@@ -172,6 +172,7 @@
                                     <section class="grid grid-cols-2 gap-2">
                                         <input type="email" @keyup="controlCC(index)" v-model="application_email_cc[index]"
                                             :placeholder="'CC ' + Number(index + 1)"
+                                            :key="`cc-${index}`"
                                             v-for="(cc, index) in application_email_cc"
                                             class="w-full focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300">
                                         <span class="cursor-pointer mt-2 text-green-400 font-bold" v-if="allowCC"
@@ -191,7 +192,7 @@
                                 <label for="apply-email" class="font-bold">Job Status</label>
                                 <select name="apply_method" v-model="status" id="apply_method"
                                     class="focus:border-green-300 focus:ring focus:ring-green-200 focus:outline-none border-gray-300">
-                                    <option :value="index" v-for="(status, index) in $page.props.status">{{ status }}
+                                    <option :key="`status-${index}`" :value="index" v-for="(status, index) in $page.props.status">{{ status }}
                                     </option>
                                 </select>
                             </section>
