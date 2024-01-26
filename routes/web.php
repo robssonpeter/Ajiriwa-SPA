@@ -51,7 +51,14 @@ Route::get('/', function () {
 
     $blog_posts = \App\Models\BlogPost::limit(3)->orderBy('id', 'ASC')->get();
     $today = date('Y-m-d');
-    $latest_jobs = Job::orderBy('id', 'DESC')->where('deadline', '>=', $today)->limit(10)->get();
+    $select = [
+        'id',
+        'title',
+        'slug',
+        'created_at',
+        'company_id',
+    ];
+    $latest_jobs = Job::select($select)->orderBy('id', 'DESC')->where('deadline', '>=', $today)->limit(10)->get();
     SEOMeta::addMeta('theme-color', '#6ad3ac');
     SEOMeta::setTitle("Jobs in Tanzania ".date('Y'));
     SEOMeta::addMeta('description', 'A great place to look for the job that will suit you. Build your profile by adding information to your resume and easily make application for any job in our system. We bring employers and job seekers together.');
@@ -98,13 +105,13 @@ Route::get('/resume/{slug}', [ResumeController::class, 'exportCv'])->name('resum
 
 
 
-Route::get('/browse-jobs.php', [JobController::class, 'browseGuest'])->middleware(CorsMiddleware::class)->name('jobs.browse.ext');
-Route::get('/jobs.php', [JobController::class, 'browseGuest'])->name('jobs.browse.alt');
+Route::get('/browse-jobs', [JobController::class, 'browseGuest'])->middleware(CorsMiddleware::class)->name('jobs.browse.ext');
+Route::get('/jobs', [JobController::class, 'browseGuest'])->name('jobs.browse.alt');
 
-Route::match(['GET', 'POST'], '/search.php', [JobController::class, 'search'])->name('jobs.search');
+Route::match(['GET', 'POST'], '/search', [JobController::class, 'search'])->name('jobs.search');
 Route::get('/search/{keyword}', [JobController::class, 'search'])->name('jobs.search.friendly');
 
-Route::get('/browse-jobs', [JobController::class, 'browse'])->name('jobs.browse')->middleware('auth');
+Route::get('/browse/jobs', [JobController::class, 'browse'])->name('jobs.browse')->middleware('auth');
 
 Route::get('/job-by/category/{slug}', [JobController::class, 'jobsByCategory'])->name('jobs.by-category');
 Route::get('/browse-jobs-categories.php', [JobController::class, 'oldJobsByCategory'])->name('jobs.by-category.old');
@@ -379,7 +386,7 @@ Route::get('/php-info', function(){
 Route::get('/ads-trck.php', [PromotionController::class, 'adTrack'])->name('promotion.track');
 Route::post('/promotion/change-status', [PromotionController::class, 'changeStatus'])->name('promotion.change.status');
 Route::post('/promotion/change-budget', [PromotionController::class, 'changeBudget'])->name('promotion.change.budget');
-Route::get('/redirects.php', [JobController::class, 'externalRedirect'])->name('redirect');
+Route::get('/redirects', [JobController::class, 'externalRedirect'])->name('redirect');
 
 /**
  * ----------------------------------------------------------------------------------------------------------

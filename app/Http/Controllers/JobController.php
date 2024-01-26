@@ -47,86 +47,65 @@ use Illuminate\Support\Facades\Request as FacadesRequest;
 class   JobController extends Controller
 {
 
-    public function browseGuest()
-    {
-        //dd(request()->keyword);
-        //dd(session()->get('prom-impressions'));
-        $current_route = Route::current()->getName();
-        /* dd(request()->all()); */
-        /* if(request()->currentpage){
-            return redirect(route($current_route)."?page=".request()->currentpage, 301);
-        } */
-        switch (request()->url()) {
-            case route('jobs.browse.alt'):
-                if (request()->keyword) {
-                    $title = request()->keyword . " " . request()->comp;
-                    $description = "Find the job that suits you, we have tons of jobs for you to view, you may also search using specific keywords. Latest jobs in Tanzania";
-                    $keywords = "Jobs Tanzania,vacancies tanzania, nafasi za kazi, ajira, ajiriwa, create cv, manage applications, add job, find jobs tanzania, ajiriwa tanzania, employement tanzania";
-                } else {
-                    $title = "Jobs in Tanzania - Nafasi za kazi, Ajira Zetu, ajira, Zoom Tanzania, Kazibongo, TAYOA, Kijiwe, ajira portal, Nafasi za internship, Ajira bongo";
-                    $description = "Find the job that suits you, we have tons of jobs for you to view, you may also search using specific keywords. Latest jobs in Tanzania";
-                    $keywords = "Jobs Tanzania,vacancies tanzania, nafasi za kazi, ajira, ajiriwa, create cv, manage applications, add job, find jobs tanzania, ajiriwa tanzania, employement tanzania";
-                }
-                break;
-            default:
-                $title = 'Browse Jobs - Nafasi za kazi leo, Ajira Tanzania, ajira zetu ' . date('Y') . ', Ajira Mpya Serikalini, Vacancies in Tanzania, Ajira Portal ' . date('Y');
-                $description = 'Find the right job for yourself in our database that gets updated daily, you may also search using a specific keyword. Pitia nafasi mpya za ajira nchini Tanzania na ufanye maombi kwa urahisi';
-                $keywords = 'Jobs Tanzania,vacancies tanzania, nafasi za kazi, ajira, ajiriwa, create cv, manage applications, add job, find jobs tanzania, ajiriwa tanzania, employement tanzania, ajira tanzania, ajira mpya';
-                break;
-        }
-        $is_plain = !request()->keyword && !request()->comp;
-        $company = request()->comp;
-        $companies = Company::where('name', 'like', '%' . $company . '%')->pluck('id');
-        //dd($company);
-        $industries = Industry::orderBy('name', 'ASC')->get();
-        $job_types = JobType::all();
-        //dd($companies);
-        /* $jobs = Job::orderBy('id', 'DESC')->when($companies, function($q) use ($companies){
-            $q->whereIn('company_id', $companies);
-        })->limit()->get(); */
-        $currentRouteName = \Illuminate\Support\Facades\Route::currentRouteName();
-        $canonical_url = route($currentRouteName);
-
-        $parameters =  request()->all();
-        $index = 0;
-        foreach(array_keys($parameters) as $key){
-            if (($key == 'location' || $key == 'search') && $parameters[$key]){
-                $canonical_url .= $index == 0 ? '?' : '&'; 
-                $canonical_url .= $key.'='.$parameters[$key];
-                $index++;
-            }
-            /* if($key == 'currentpage'){
-                $canonical_url .= 'page='.$parameters[$key];
-
-            }else{
-                $canonical_url .= $key.'='.$parameters[$key];
-            }
-            $index++; */
-        }
-        SEOMeta::setTitle($title);
-        SEOMeta::setDescription($description);
-        SEOMeta::setKeywords($keywords);
-        SEOMeta::setCanonical($canonical_url);
-        SEOMeta::addMeta('theme-color', '#6ad3ac');
-
-        OpenGraph::setTitle($title);
-        OpenGraph::setDescription($description);
-        OpenGraph::setUrl(route('jobs.browse.ext'));
-        OpenGraph::setSiteName('Ajiriwa Network');
-        OpenGraph::setType('website');
-        OpenGraph::setUrl(route('jobs.browse'));
-        JsonLdMulti::addValue('itemListElement', [
-            [
-                '@type' => 'ListItem',
-                'position' => 1,
-                'name' => 'Browse Jobs',
-                'item' => route('jobs.browse')
-            ],
-        ]);
-
-
-        return view('jobs.browse', compact('companies', 'job_types', 'industries'));
+/**
+ * Browse the guest user and display the jobs with specific keywords and descriptions.
+ *
+ * @return View
+ */
+public function browseGuest()
+{
+    $current_route = Route::current()->getName();
+    
+    $title = request()->keyword ? request()->keyword . " " . request()->comp : "Jobs in Tanzania - Nafasi za kazi, Ajira Zetu, ajira, Zoom Tanzania, Kazibongo, TAYOA, Kijiwe, ajira portal, Nafasi za internship, Ajira bongo";
+    $description = "Find the job that suits you, we have tons of jobs for you to view, you may also search using specific keywords. Latest jobs in Tanzania";
+    $keywords = "Jobs Tanzania,vacancies tanzania, nafasi za kazi, ajira, ajiriwa, create cv, manage applications, add job, find jobs tanzania, ajiriwa tanzania, employement tanzania";
+    if (!request()->url() == route('jobs.browse.alt')) {
+        $title = 'Browse Jobs - Nafasi za kazi leo, Ajira Tanzania, ajira zetu ' . date('Y') . ', Ajira Mpya Serikalini, Vacancies in Tanzania, Ajira Portal ' . date('Y');
+        $description = 'Find the right job for yourself in our database that gets updated daily, you may also search using a specific keyword. Pitia nafasi mpya za ajira nchini Tanzania na ufanye maombi kwa urahisi';
+        $keywords = 'Jobs Tanzania,vacancies tanzania, nafasi za kazi, ajira, ajiriwa, create cv, manage applications, add job, find jobs tanzania, ajiriwa tanzania, employement tanzania, ajira tanzania, ajira mpya';
     }
+    
+    $is_plain = !request()->keyword && !request()->comp;
+    $company = request()->comp;
+    $companies = Company::where('name', 'like', '%' . $company . '%')->pluck('id');
+    $industries = Industry::orderBy('name', 'ASC')->get();
+    $job_types = JobType::all();
+    
+    $currentRouteName = \Illuminate\Support\Facades\Route::currentRouteName();
+    $canonical_url = route($currentRouteName);
+    $parameters =  request()->all();
+    $index = 0;
+    foreach(array_keys($parameters) as $key){
+        if (($key == 'location' || $key == 'search') && $parameters[$key]){
+            $canonical_url .= $index == 0 ? '?' : '&'; 
+            $canonical_url .= $key.'='.$parameters[$key];
+            $index++;
+        }
+    }
+    
+    SEOMeta::setTitle($title);
+    SEOMeta::setDescription($description);
+    SEOMeta::setKeywords($keywords);
+    SEOMeta::setCanonical($canonical_url);
+    SEOMeta::addMeta('theme-color', '#6ad3ac');
+
+    OpenGraph::setTitle($title);
+    OpenGraph::setDescription($description);
+    OpenGraph::setUrl(route('jobs.browse.ext'));
+    OpenGraph::setSiteName('Ajiriwa Network');
+    OpenGraph::setType('website');
+    OpenGraph::setUrl(route('jobs.browse'));
+    JsonLdMulti::addValue('itemListElement', [
+        [
+            '@type' => 'ListItem',
+            'position' => 1,
+            'name' => 'Browse Jobs',
+            'item' => route('jobs.browse')
+        ],
+    ]);
+
+    return view('jobs.browse', compact('companies', 'job_types', 'industries'));
+}
 
     public function search($keyword = null)
     {

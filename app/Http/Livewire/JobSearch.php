@@ -78,7 +78,19 @@ class JobSearch extends Component
         
         $active_index = array_search('Active', Job::STATUS);
         $date = date('Y-m-d');
-        $jobs =  Job::orderBy('id', 'DESC')->when(!$keyword && !request()->keyword, function($q) use($date){
+        $select = [
+            'id',
+            'title',
+            'slug',
+            'created_at',
+            'company_id',
+            'deadline',
+            'status',
+            'job_type',
+            'location',
+            'created_at'
+        ];
+        $jobs =  Job::select($select)->orderBy('id', 'DESC')->when(!$keyword && !request()->keyword, function($q) use($date){
             $q->where('deadline', '>=', $date);
         })->where('status', $active_index)/* ->when($companies, function($q) use ($companies){
             $q->whereIn('company_id', $companies);
