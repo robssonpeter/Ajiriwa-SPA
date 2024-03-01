@@ -28,6 +28,7 @@ class BlogController extends Controller
         $post = BlogPost::where('slug', $slug)->first();
         SEOMeta::addMeta('theme-color', '#6ad3ac');
         SEOMeta::setTitle($post->Title);
+        SEOMeta::setDescription($post->Summary);
         SEOMeta::addMeta('description', $post->Summary);
         SEOMeta::addMeta('language', 'English');
         SEOMeta::addMeta('revist-after', '1 days');

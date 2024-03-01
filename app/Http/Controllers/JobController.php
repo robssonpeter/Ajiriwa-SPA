@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Custom\Promoter;
 use App\Events\JobViewed;
+use App\Http\Livewire\JobSearch;
 use App\Mail\SendApplication;
 use App\Models\ApplicationAttachment;
 use App\Models\AssignedJobCategory;
@@ -43,6 +44,7 @@ use Spatie\MediaLibrary\Models\Media;
 use App\Repositories\SubscriptionRepository;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request as FacadesRequest;
+use Jaybizzle\CrawlerDetect\CrawlerDetect;
 
 class   JobController extends Controller
 {
@@ -103,8 +105,10 @@ public function browseGuest()
             'item' => route('jobs.browse')
         ],
     ]);
+    $search = new JobSearch();
+    $jobs = $search->getJobs();
 
-    return view('jobs.browse', compact('companies', 'job_types', 'industries'));
+    return view('jobs.browse', compact('companies', 'job_types', 'industries', 'jobs'));
 }
 
     public function search($keyword = null)
@@ -249,17 +253,24 @@ public function browseGuest()
         if (!$job) {
             abort(404);
         }
+        $crawler = new CrawlerDetect();
         $company_name = $job->company_name;
         SEOTools::setTitle($job->title);
-
+        // check if
+        if($crawler->isCrawler()){
+            $meta_description = JobRepository::renderJobDescriptionMeta($job->slug);
+            SEOTools::setDescription($meta_description);   
+        }
+        
         // Meta
         SEOMeta::setTitle($job->title . " Job | " . $company_name);
         SEOMeta::addMeta('theme-color', '#6ad3ac');
 
+        //dd($meta_description);
         // jsonld
         JsonLd::setTitle($job->title);
         JsonLd::setType('JobPosting');
-        JsonLd::setDescription($job->description);
+        JsonLd::setDescription($meta_description??$job->description);
         JsonLd::addValue('title', $job->title);
         JsonLd::addValue('datePosted', $job->created_at);
         JsonLd::addValue('validThrough', $job->deadline);

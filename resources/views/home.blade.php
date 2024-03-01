@@ -51,7 +51,7 @@
 
 </div>
 <div class="max-w-7xl px-4 mx-auto sm:px-6 px-2 sm:px-4 md:px-4 lg:px-4 xl:px-12 pt-5 mb-12 -mt-16" id="swiper">
-    <div class="bg-gray-200 py-4 slider">
+    <div class="bg-gray-200 rounded-lg py-4 slider">
 
         <div class="flexslider">
 
@@ -85,10 +85,10 @@
 
     </div>
 
-    <div class="max-w-7xl  pt-5 mb-12 flex grid md:grid-cols-3 gap-1">
+    <div class="max-w-7xl  pt-5 mb-12 flex grid md:grid-cols-3 gap-3">
         @foreach($job_categories as $category)
         @if($category->active_jobs_count)
-            <section class="py-4 border border-green-400 px-4 cols-5 flex cursor-pointer hover:bg-green-300 hover:text-white text-green-400">
+            <section class="py-4 border bg-white rounded-lg shadow-md border-green-400 px-4 cols-5 flex cursor-pointer hover:bg-green-300 hover:text-white text-green-400">
                 <div class=" flex flex-col flex-grow">
                     <span class="font-bold"><a href="{{ route('jobs.by-category', $category->slug) }}">{{ $category->name }}</a></span>
                     <span class="mt-4 text-gray-500 font-bold">{{ $category->active_jobs_count}} Jobs</span>
@@ -101,7 +101,7 @@
 
     <div class="max-w-7xl  pt-5 mb-12 ">
         <span class="text-xl font-bold text-gray-500 mb-4">Recent Posts</span>
-        <div class="flex flex-col md:flex-row md:space-x-4 mb-2">
+        <div class="flex flex-col md:flex-row md:space-x-6 mb-2">
             @foreach($blog_posts as $post)
             <div class="bg-white rounded-lg overflow-hidden flex-1 m-1 md:m-2 lg:w-1/3 flex flex-col">
                 <div style="height: 200px; overflow-y: hidden">

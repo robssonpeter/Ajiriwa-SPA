@@ -90,4 +90,71 @@ class JobRepository
             $q->whereRaw($jobnameSuggest);
         })->whereDate('deadline', '>=', $date)->limit($max_results)->get();
     }
+
+
+    public static function renderJobDescriptionMeta($job_slug){
+        // find the job using the $job_id
+        $job = Job::where('slug', $job_slug)->first();
+        // find the name of the company
+        $company_name = $job->company->name;
+        // get the title of the job
+        $job_title = $job->title;
+        // get the job description
+        $description = $job->description;
+        // split the description into an array using new line as a separator
+        $responsibilities = explode("\n", $description);
+        $responsibilities_keywords = [
+            'duties', 'responsibilities', 'accountabil', 'deliverable'
+        ];
+        $duties = [];
+
+        // loop through the responsibilities
+        $index = 0;
+        //return $responsibilities;
+        foreach ($responsibilities as $responsibility) {
+            // determine if it contains a header tag
+            $is_header = str_contains($responsibility, '<h'); //strpos($responsibility, '<h') !== false;
+
+            $contains_keyword = false;
+            foreach($responsibilities_keywords as $keyword){
+                if(str_contains(strtolower($responsibility), $keyword)){
+                    $contains_keyword = true;
+                    break;
+                }
+            }
+            // if is header and contains some of the keywords for responsibilities
+            if ($is_header && $contains_keyword) {
+                // starting from the index of the header
+                $sub_responsibilities = array_slice($responsibilities, $index+1);
+                // loop through sub-responsibilities
+                foreach ($sub_responsibilities as $sub_responsibility) {
+                    // if it contains a header tag then stop
+                    if (strpos($sub_responsibility, '<h') !== false) {
+                        break;
+                    }
+                    // if the item does not contain an empty string after striping tags
+                    // if the item does not contain an empty string after stripping tags
+                    if (trim(strip_tags($sub_responsibility)) !== '') {
+                        // add the non-empty item to the duties array
+                        $duties[] = $sub_responsibility;
+                    }
+                }
+                break;
+            }
+            $index++;
+        }
+        // let us form the meta description text from the data
+        $joined_responsibilities = implode(' ', $duties);
+        $meta_description = "Join {$company_name} as {$job_title}. ";
+        if(count($duties)){
+            $meta_description .= "{$joined_responsibilities}. ";
+        }
+        $meta_description .= 'Apply before '.\Carbon\Carbon::parse($job->deadline)->format("F jS Y").'.';
+
+        
+        // try to extract the responsibilities
+        return strip_tags($meta_description);
+        
+        // try to find the deadline of application
+    }
 }

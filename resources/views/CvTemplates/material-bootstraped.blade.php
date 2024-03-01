@@ -85,7 +85,7 @@
         @endphp
         <p>
             <span style="font-weight: bold">{{$start_date->format('F, Y')}} - {{$end_date}} </span><span class="w3-text-green" style="font-weight: bold">{{ $experience->company }}</span> : <em>{{ $experience->title }}</em><strong></strong>
-            <br><span>{!! $experience->description !!}here you are</span>
+            <br><span>{!! $experience->description !!}</span>
         </p>
         @endforeach
         @endif

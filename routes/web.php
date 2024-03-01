@@ -417,7 +417,7 @@ Route::get('/transfer-jobs', function() {
  *          CV Faces Routes
  * ----------------------------------------------------------------------------------------------------------
  */
-Route::get('/cv-faces/Material/bootstraped.php', [CvController::class, 'materialBootstrap'])->name('material.bootstraped');
+Route::get('/cv-faces/Material/bootstraped', [CvController::class, 'materialBootstrap'])->name('material.bootstraped');
 Route::get('/apis/candidates/', [CvController::class, 'candidateSearch'])->name('candidate.search.remote');
 
 /**

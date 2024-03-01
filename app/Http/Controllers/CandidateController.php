@@ -421,7 +421,7 @@ class CandidateController extends Controller
         $with = [
             'education', 'experiences', 'languages', 'referees', 'skills'
         ];
-        $candidate = Candidate::where('id', $candidate_id)->with($with)->first();
+        $candidate = Candidate::where('id', $candidate_id)->orWhere('slug', $candidate_id)->with($with)->first();
         $skills = CandidateSkill::Levels;
         $user = User::find($candidate->user_id);
         $url = asset('/');

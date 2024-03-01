@@ -60,3 +60,8 @@ This project is licensed under the MIT - see the [LICENSE](MIT) file for details
 - peterrobsson@gmail.com
 - [LinkedIn](https://www.linkedin.com/in/peter-robert-mgembe-ba805446/)
 - [Twitter](https://twitter.com/robssonpeter)
+
+### Python Packages
+```pip install nltk```
+```pip install bs4```
+
