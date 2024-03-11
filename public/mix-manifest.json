@@ -1,10 +1,10 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/js/essential.js": "/js/essential.js",
-    "/js/Company/details.js": "/js/Company/details.js",
-    "/js/job.js": "/js/job.js",
-    "/js/apply.js": "/js/apply.js",
-    "/js/faqs.js": "/js/faqs.js",
-    "/js/homepage.js": "/js/homepage.js",
-    "/css/app.css": "/css/app.css"
+    "/js/app.js": "/js/app.js?id=c13ea6572d416e10c169d380403b447d",
+    "/js/essential.js": "/js/essential.js?id=20abb58e1e449a69519e334be8c756d4",
+    "/js/Company/details.js": "/js/Company/details.js?id=24489b8a183369cdf3fec28945afba3c",
+    "/js/job.js": "/js/job.js?id=09d375ad95d29fb798db0e59f2fea5f7",
+    "/js/apply.js": "/js/apply.js?id=77dc6eb82cb9a22a2c0cc7d447ef0a28",
+    "/js/faqs.js": "/js/faqs.js?id=301ccc9c7b303170d5f72d8581c364a0",
+    "/js/homepage.js": "/js/homepage.js?id=d16200f990f0b33d2e65c8ffc5c94e08",
+    "/css/app.css": "/css/app.css?id=46a2d6da61d6066a87c67d72c16c7805"
 }

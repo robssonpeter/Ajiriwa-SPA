@@ -193,9 +193,23 @@ class CompanyController extends Controller
 
     public function showJobs(){
         $user = \Auth::user();
+        $selection = [
+            'jobs.id',
+            'title', 
+            'location',
+            'application_url',
+            'application_email',
+            'deadline',
+            'job_type',
+            'slug',
+            'company_id',
+            'status',
+            'jobs.*'
+        ];
         $jobs = Job::when($user->hasRole('employer'), function($q) use ($user){
             return $q->where('company_id', $user->company->id);
-        })->orderBy('id', 'DESC')->simplePaginate(15);
+        })->with('applications')->select($selection)->orderBy('id', 'DESC')->simplePaginate(15);
+        //dd($jobs->items()[0]->applications->count());
         $promoter = new Promoter();
         $index = -1;
         $GLOBALS['index'] = -1;

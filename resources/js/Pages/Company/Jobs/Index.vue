@@ -78,7 +78,7 @@
                                 {{ job.deadline }}</td>
                             <td class="border px-2 py-2 text-center"><span
                                     class="bg-green-400 p-1 text-white cursor-pointer rounded-md"><small>
-                                        <Link :href="route('company.job.applications', job.slug)">{{ job.applications_count
+                                        <Link :href="route('company.job.applications', job.slug)">{{ job.applications.length
                                         }}</Link>
                                     </small></span></td>
                             <td class="border px-8 py-2 text-center">
