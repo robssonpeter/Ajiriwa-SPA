@@ -3,9 +3,11 @@
 namespace App\Providers;
 
 use App\Events\ApplicationStatusUpdated;
+use App\Events\EmployerPostedAJob;
 use App\Events\JobViewed;
 use App\Events\ProfileUpdated;
 use App\Listeners\RecordApplicationLog;
+use App\Listeners\SendNewJobNotification;
 use App\Listeners\UpdateProfileCompletion;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -37,6 +39,9 @@ class EventServiceProvider extends ServiceProvider
         \App\Events\InterviewScheduled::class => [
             \App\Listeners\SendInterviewInvitationEmail::class
         ],
+        EmployerPostedAJob::class => [
+            SendNewJobNotification::class
+        ]
     ];
 
     /**

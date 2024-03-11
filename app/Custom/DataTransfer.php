@@ -13,10 +13,13 @@ use App\Models\Company;
 use App\Models\Gender;
 use App\Models\Job;
 use App\Models\MaritalStatus;
+use App\Models\QueuedEmail;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
+use ReflectionClass;
 use Spatie\MediaLibrary\Models\Media;
 
 class DataTransfer {
@@ -468,5 +471,27 @@ class DataTransfer {
             Candidate::where('id', $candidate->id)->update(['slug' => $slug]);
         }
         return $candidates->count();
+    }
+
+    public static function processQueuedEmails(){
+        // check the queued_emails table for un processed transactions
+        $transactions = QueuedEmail::where('is_processed', false)->get();
+        foreach($transactions as $transaction){
+            $class = $transaction->class;
+            $reflected = new ReflectionClass($class);
+            $args = [];
+            $parameters = json_decode($transaction->parameters);
+            foreach ($parameters as $key => $value) {
+                $args[] = $value;
+            }
+            // use the parameters in the parameters dynamically in the constructor
+            // loop through object to extract the parameters to be used
+
+            $email = $reflected->newInstanceArgs($args); //new $class($parameters);
+            //return $email;
+            Mail::to('peterrobsson@gmail.com')->send($email);
+            //$email->to('peterrobsson@gmail.com')->send();
+            QueuedEmail::where('id', $transaction->id)->update(['is_processed' => true]);
+        }
     }
 }

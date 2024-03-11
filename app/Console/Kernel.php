@@ -2,6 +2,7 @@
 
 namespace App\Console;
 
+use App\Custom\DataTransfer;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -25,6 +26,8 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         //$schedule->command('inspire')->dailyAt('11:48');
+        // add the cron job to execute the function of processQuedEmail every minute
+        $schedule->call(DataTransfer::processQueuedEmails())->everyMinute();
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Custom\Promoter;
+use App\Events\EmployerPostedAJob;
 use App\Events\JobViewed;
 use App\Http\Livewire\JobSearch;
 use App\Mail\SendApplication;
@@ -390,6 +391,12 @@ public function browseGuest()
         $data['slug'] = makeSlug($data['title']) . '-' . uniqid();
         $data['email_subject'] = $request->email_subject_line;
         $saved = Job::create($data);
+
+        // check if the poster is a company or admin
+        if (Auth::check() && Auth::user()->hasRole('employer')) {
+            // emit the event that new job was posted
+            event(new EmployerPostedAJob($saved->id, Auth::user()->id));
+        }
         
 
         // assign job categories
