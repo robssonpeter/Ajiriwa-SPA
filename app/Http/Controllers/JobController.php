@@ -245,7 +245,9 @@ public function browseGuest()
             ->join('companies', 'companies.id', 'jobs.company_id')
             ->select('jobs.*', 'job_types.name as type_of_job', 'companies.name as company_name', 'companies.website', 'companies.logo')
             ->first();
-
+        if (!$job) {
+            abort(404);
+        }
 
         $views = JobView::where('job_id', $job->id)->count();
         $image = Image::load(\Spatie\MediaLibrary\Models\Media::first()->getUrl())->height(200)->width(200);
