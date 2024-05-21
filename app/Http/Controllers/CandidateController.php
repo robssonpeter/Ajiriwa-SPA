@@ -415,6 +415,12 @@ class CandidateController extends Controller
     }
 
 
+    public function cvEmit($candidate_id){
+        $with = [
+            'education', 'experiences', 'languages', 'referees', 'skills'
+        ];
+        
+    }
 
     public function cvDownload($candidate_id)
     {

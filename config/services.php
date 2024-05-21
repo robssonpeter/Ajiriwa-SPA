@@ -54,4 +54,14 @@ return [
         'client_secret' => '', //USE FROM FACEBOOK DEVELOPER ACCOUNT
         'redirect' => 'https://examplelaravel8.test/facebook/callback/'
     ],
+    'apple' => [
+        'client_id' => env('APPLE_CLIENT_ID'),
+        'client_secret' => env('APPLE_CLIENT_SECRET'),
+        'redirect' => env('APPLE_REDIRECT_URI')
+    ],
+    'microsoft' => [    
+        'client_id' => env('MICROSOFT_CLIENT_ID'),  
+        'client_secret' => env('MICROSOFT_CLIENT_SECRET'),  
+        'redirect' => env('MICROSOFT_REDIRECT_URI') 
+    ],
 ];

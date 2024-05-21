@@ -21,6 +21,7 @@ class V1JobController extends Controller
                 'deadline' => 'required|date',
                 'description' => 'required|string',
                 'job_type' => 'required|string',
+                'application_url' => 'required|string',
             ]);
             //dd('hello there');
             $company = session()->get('client');
