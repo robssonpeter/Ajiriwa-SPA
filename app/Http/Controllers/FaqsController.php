@@ -92,4 +92,11 @@ class FaqsController extends Controller
         SEOMeta::setDescription('Ajiriwa.net platform privacy policy, learn your rights entitled to your ajiriwa.net account and how we handle your information for safety purposes. Read this before creating an account in our website');
         return view('privacy-policy');
     }
+
+    public function about(){
+        //dd('hello there');
+        SEOMeta::setTitle('About Ajiriwa Network');
+        SEOMeta::setDescription('About Ajiriwa Network, Learn more about us');
+        return view('about');
+    }
 }

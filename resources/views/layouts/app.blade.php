@@ -340,7 +340,7 @@
                 <nav class="mt-4">
                     <ul class="space-y-2">
                         <li>
-                            <a href="#" class="font-normal text-base hover:text-gray-200">About Us</a>
+                            <a href="/about" class="font-normal text-base hover:text-gray-200">About Us</a>
                         </li>
                         <li>
                             <a href="{{ route('blog.index') }}" class="font-normal text-base hover:text-gray-200">Our Blog</a>

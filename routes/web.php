@@ -86,6 +86,8 @@ Route::get('/', function () {
 
 Route::get('/sitemap', [SEOController::class, 'sitemap'])->name('sitemap');
 
+Route::get('/about', [FaqsController::class, 'about'])->name('about');
+
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 Route::get('/blog/{slug}', [BlogController::class, 'viewPost'])->name('blog.post.view');
 Route::get('/blog-single-post.php', function(){
