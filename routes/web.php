@@ -199,6 +199,7 @@ Route::group(['middleware' => ['auth', 'role:employer|admin']], function(){
     Route::post('company/applications/filter', [CompanyController::class, 'FilterApplications'])->name('job.applications.filter')->middleware(['auth']);
     Route::get('/company/jobs', [CompanyController::class, 'showJobs'])->name('company.jobs.index')->middleware('verifier');
     Route::post('/company/jobs/search', [CompanyController::class, 'searchJobs'])->name('company.jobs.search')->middleware('verifier');
+    Route::post('/company/jobs/extract-data', [JobController::class, 'extractJobDetails'])->name('company.job.extract-data')->middleware('verifier');
     Route::get('/company/browse-candidates', [CompanyController::class, 'browseCandidates'])->name('company.candidates.browse')->middleware('verifier');
     Route::post('/company/search-candidates', [CompanyController::class, 'searchCandidates'])->name('company.candidates.search');
     Route::post('/company/recommend-candidates', [CompanyController::class, 'showRecommendedCandidates'])->name('company.candidates.recommend');

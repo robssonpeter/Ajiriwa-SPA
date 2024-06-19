@@ -117,6 +117,10 @@
                                                                                                                                                         alignleft aligncenter alignright alignjustify | \
                                                                                                                                                         bullist numlist | help'
                                 }" />
+                                <a href="#" v-if="!extracting_data" class="bg-green-400 text-white p-2" :disabled="extracting_data" @click.prevent="extractJobDetails">
+                                    <span>Get Data</span>
+                                </a>
+                                <a href="#" v-else class="bg-green-400"><Loader color="green"></Loader></a>
                             <!--<text-editor @change="editorChanged" :text="$page.props.job?$page.props.job.description:''" v-model:content="description"></text-editor>-->
                         </section>
                         <section class="py-2">
@@ -275,6 +279,7 @@ export default {
             deadline: this.$page.props.job ? this.$page.props.job.deadline : '',
             cover_letter: this.$page.props.job ? this.$page.props.job.cover_letter : 1,
             saving: false,
+            extracting_data: false,
             keywords: [],
             company_id: this.$page.props.job ? this.$page.props.job.company_id : this.$page.props.company.id,
             number_of_posts: this.$page.props.job ? this.$page.props.job.number_of_posts : 1,
@@ -378,6 +383,36 @@ export default {
                     console.log(error)
                 });
             }
+        },
+        extractJobDetails () {
+            this.extracting_data = true;
+            // make a request using axios
+            axios.post(route('company.job.extract-data'), {
+                description: this.description
+            }).then((response) => {
+                console.log(response.data);
+
+                // set the variables
+                this.title = response.data.job_title;
+                this.location = response.data.location;
+                this.deadline = response.data.application_deadline;
+                this.application_email = response.data.application_email;
+                if(response.data.application_email){
+                    this.apply_method = 'email';
+                }
+                if(response.data.company){
+                    this.selected_company = response.data.company;
+                    this.company_selected();
+                }
+                if (response.data.reports_to){
+                    this.reports_to = response.data.reports_to;
+                }
+                this.category = response.data.job_category;
+                this.extracting_data = false;
+            }).catch(error => {
+                console.error(error.response.data);
+                this.extracting_data = false;
+            }) ; 
         },
         submitJob() {
             this.saving = true;
