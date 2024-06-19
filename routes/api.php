@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::prefix('v1')->middleware(ClientVerification::class)->group(function () {
     Route::post('/post/job', [V1JobController::class, 'postJob']);
     Route::post('/update/job', [V1JobController::class, 'updateJob']);
+    Route::post('/update/job/status', [V1JobController::class, 'updateJobStatus']);
     Route::post('/delete/job', [V1JobController::class, 'deleteJob']);
 });
 

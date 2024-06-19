@@ -16,6 +16,13 @@ class Job extends Model
        "Draft", 'Active', 'Paused', 'Closed'
     ];
 
+    CONST JOB_STATUS_CODES = [
+        'draft' => 0,
+        'active' => 1,
+        'paused' => 2,
+        'closed' => 3
+    ];
+
     protected $fillable = [
         'title',
         'application_email',

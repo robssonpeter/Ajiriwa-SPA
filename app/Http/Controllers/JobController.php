@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Custom\AI;
 use App\Custom\Promoter;
 use App\Events\EmployerPostedAJob;
 use App\Events\JobViewed;
@@ -856,5 +857,46 @@ public function browseGuest()
             ];
         }
         return view('jobs.redirect', compact('link'));
+    }
+
+    public function extractJobDetails(){
+        $job_string = strip_tags(request()->description);
+        $job_categories = json_encode(JobCategory::pluck('name', 'id')->toArray());
+        //return $job_categories;
+        $prompt = "Extract details from this job description and output them in JSON format company_name, job_title, reports_to, job_category, location, application_deadline, application_email from the following data (set attribute as null if not found) classify the job category based on data($job_categories) 
+        a job can have multiple categories eg [1, 5], the job_location should also contain the country eg location, country: " . $job_string;
+        //return $prompt;
+        try{
+            $response = AI::ask($prompt);
+        }catch(Exception $e){
+            $response = AI::ask($prompt);
+        }
+        $output = json_decode(preg_replace('/^```json\s*|\s*```$/', '', $response['output']));
+
+        // check if the response application_deadline is not empty if yes then format it to Y-m-d
+        if (!empty($output->application_deadline)) {
+            $output->application_deadline = Carbon::parse($output->application_deadline)->format('Y-m-d');
+        }
+        // check the category and convert all of them to integers
+        if (!empty($output->job_category)) {
+            $output->job_category = array_map(function($row){
+                return (int) $row;
+            }, $output->job_category);
+        }
+        // check if the company name has been returned
+        if (!empty($output->company_name)) {
+            // find the company from the database
+            $company = Company::where('name', 'like','%'.htmlspecialchars_decode($output->company_name).'%')->first();
+            if ($company) {
+                $output->company = [
+                    'code' => $company->id,
+                    'label' => $company->name,
+                    'logo' => $company->logo_url,
+                    'logo_url' => $company->logo_url,
+                ];
+            }
+        }
+
+        return $output;
     }
 }

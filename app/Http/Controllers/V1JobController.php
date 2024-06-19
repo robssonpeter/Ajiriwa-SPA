@@ -80,12 +80,11 @@ class V1JobController extends Controller
         // get the job_slug from the job_slug header
         $job_slug = request()->header('job_slug');
         $job = Job::where('slug', $job_slug)->first();
-        // verify that the job was posted by who is trying to delete it
-        $company = Company::where('id', $job->company_id)->first();
         // find the company name from the clk header
         $company_key = request()->header('clk');
         $client = DB::connection('clients')->table('clients')->where('hashslug', $company_key)->first();
-        if($company->name == $client->name){
+        // verify that the job was posted by who is trying to delete it        
+        if($job->company->name == $client->name){
             $job->delete();
             return response()->json([
                 'status' => 'passed'
@@ -126,7 +125,7 @@ class V1JobController extends Controller
             DB::beginTransaction();
 
             // get the job_slug from the job_slug header
-            $job_slug = $request->header('job_slug');
+            $job_slug = $request->header('job_slug')??$request->job_slug;
             if (!$job_slug) {
                 throw new Exception("Job slug is required.");
             }
@@ -160,7 +159,7 @@ class V1JobController extends Controller
                 'deadline' => 'sometimes|required|date',
                 'description' => 'sometimes|required|string',
                 'job_type' => 'sometimes|required|string',
-                'application_url' => 'sometimes|required|url',
+                //'application_url' => 'sometimes|required|url',
             ]);
 
             // Update job type if provided
@@ -171,10 +170,12 @@ class V1JobController extends Controller
                     $job_type->where('name', 'like', '%' . $type . '%');
                 }
                 $job_type = $job_type->first();
-                if (!$job_type) {
+                /* if (!$job_type) {
                     throw new Exception("Job type not found.");
+                } */
+                if($job_type){
+                    $data['job_type'] = $job_type->id;
                 }
-                $data['job_type'] = $job_type->id;
             }
 
             // Remove script tags from the description if provided
@@ -191,6 +192,65 @@ class V1JobController extends Controller
                 'status' => 'passed',
                 'job' => $job,
                 'url' => route('job.view', $job->slug)
+            ]);
+        } catch (Exception $e) {
+            DB::rollBack();
+            return response()->json([
+                'status' => 'failed',
+                'error' => $e->getMessage(),
+            ]);
+        }
+    }
+
+
+    public function updateJobStatus(Request $request)
+    {
+        try {
+            DB::beginTransaction();
+
+            // Get the job_slug from the job_slug header
+            $job_slug = $request->header('job_slug')??$request->job_slug;
+            if (!$job_slug) {
+                throw new Exception("Job slug is required.");
+            }
+
+            $job = Job::where('slug', $job_slug)->first();
+            if (!$job) {
+                throw new Exception("Job not found.");
+            }
+
+            // Verify that the job was posted by who is trying to update it
+            $company = Company::find($job->company_id);
+            if (!$company) {
+                throw new Exception("Company not found.");
+            }
+
+            // Find the company name from the clk header
+            $company_key = $request->header('clk');
+            if (!$company_key) {
+                throw new Exception("Company key is required.");
+            }
+
+            $client = DB::connection('clients')->table('clients')->where('hashslug', $company_key)->first();
+            if (!$client || $company->name != $client->name) {
+                throw new Exception("Client mismatch.");
+            }
+
+            // Validate incoming data
+            $data = $request->validate([
+                'status' => 'required|string|in:paused,closed,active',
+            ]);
+
+            // Update the job status
+            $job->status = Job::JOB_STATUS_CODES[$data['status']];
+            $job->save();
+
+            DB::commit();
+
+            return response()->json([
+                'status' => 'passed',
+                'job' => $job,
+                'message' => 'Job status updated successfully'
             ]);
         } catch (Exception $e) {
             DB::rollBack();
